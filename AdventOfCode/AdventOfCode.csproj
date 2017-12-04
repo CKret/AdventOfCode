@@ -89,8 +89,12 @@
     <Compile Include="2015\AdventOfCode2015021.cs" />
     <Compile Include="2015\AdventOfCode2015012.cs" />
     <Compile Include="2015\AdventOfCode2015011.cs" />
+    <Compile Include="2017\AdventOfCode2017051.cs" />
+    <Compile Include="2017\AdventOfCode2017041.cs" />
     <Compile Include="2017\AdventOfCode2017031.cs" />
     <Compile Include="2017\AdventOfCode2017021.cs" />
+    <Compile Include="2017\AdventOfCode2017052.cs" />
+    <Compile Include="2017\AdventOfCode2017042.cs" />
     <Compile Include="2017\AdventOfCode2017032.cs" />
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
@@ -120,7 +124,10 @@
     <Content Include="2015\AdventOfCode201509.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\adventOfCode201702.txt">
+    <Content Include="2017\AdventOfCode201702.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201704.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />

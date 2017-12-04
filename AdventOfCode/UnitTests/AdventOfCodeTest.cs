@@ -18,7 +18,6 @@ namespace AdventOfCode.UnitTests
             this.output = output;
         }
 
-
         [Theory]
         [InstanceData]
         public void AllAdventOfCodeTests(AdventOfCodeBase adventOfCode)
