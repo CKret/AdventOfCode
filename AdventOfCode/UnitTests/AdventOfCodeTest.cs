@@ -22,15 +22,17 @@ namespace AdventOfCode.UnitTests
         [InstanceData]
         public void AllAdventOfCodeTests(AdventOfCodeBase adventOfCode)
         {
-            var memBefore = GC.GetTotalMemory(true) / 1024;
-            Thread.MemoryBarrier();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+
+            var memBefore = Process.GetCurrentProcess().WorkingSet64 / 1024;
             timer.Start();
 
             adventOfCode.Solve();
 
             timer.Stop();
-            Thread.MemoryBarrier();
-            var memAfter = GC.GetTotalMemory(true) / 1024;
+            var memAfter = Process.GetCurrentProcess().WorkingSet64 / 1024;
             var totalMemoryUsage = memAfter - memBefore;
 
             output.WriteLine($"Advent Of Code {adventOfCode.Problem.Year} {adventOfCode.Problem.Day:D2} {adventOfCode.Problem.Number}" + Environment.NewLine);
