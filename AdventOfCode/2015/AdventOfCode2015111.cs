@@ -97,7 +97,6 @@ namespace AdventOfCode._2015
                 }
             }
 
-
             return pairs.Count == 2;
         }
     }
