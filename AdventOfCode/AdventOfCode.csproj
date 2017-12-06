@@ -70,6 +70,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\AdventOfCode2015111.cs" />
+    <Compile Include="2015\AdventOfCode2015112.cs" />
     <Compile Include="2015\AdventOfCode2015102.cs" />
     <Compile Include="2015\AdventOfCode2015101.cs" />
     <Compile Include="2015\AdventOfCode2015092.cs" />

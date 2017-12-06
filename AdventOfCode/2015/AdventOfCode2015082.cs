@@ -22,7 +22,7 @@ namespace AdventOfCode._2015
             }
 
 
-            Result = escLen - codeLen;
+            Result = (int) (escLen - codeLen);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace AdventOfCode._2015
                 .Select(i => i.Split(' '))
                 .ToDictionary(i => i.Last());
 
-            Result = EvalInput("a");
+            Result = (int) EvalInput("a");
         }
 
         ushort EvalInput(string wire)

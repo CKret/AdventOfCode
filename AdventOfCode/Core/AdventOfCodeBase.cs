@@ -4,7 +4,7 @@ namespace AdventOfCode.Core
 {
     public abstract class AdventOfCodeBase
     {
-        public long Result { get; protected set; }
+        public object Result { get; protected set; }
 
         public AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 

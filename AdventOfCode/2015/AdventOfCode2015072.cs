@@ -27,7 +27,7 @@ namespace AdventOfCode._2015
 
             instructions["b"] = new[] { val, "->", "b" };
 
-            Result = EvalInput("a");
+            Result = (int) EvalInput("a");
         }
 
         ushort EvalInput(string wire)

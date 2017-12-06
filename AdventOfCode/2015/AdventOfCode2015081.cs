@@ -25,7 +25,7 @@ namespace AdventOfCode._2015
             }
 
 
-            Result = codeLen - memLen;
+            Result = (int) (codeLen - memLen);
         }
     }
 }

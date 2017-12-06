@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using AdventOfCode.Core;
 using Xunit;
 using Xunit.Abstractions;
