@@ -64,8 +64,7 @@ namespace AdventOfCode._2017
 
             while (true)
             {
-                var max = mem.Max();
-                var index = mem.IndexOf(max);
+                var index = mem.IndexOf(mem.Max());
                 var banks = mem[index];
                 mem[index] = 0;
                 while (banks > 0)
