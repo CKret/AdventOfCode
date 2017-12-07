@@ -15,16 +15,17 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
+            // Create all nodes.
             var nodes = new List<Node>();
             foreach (var line in File.ReadAllLines("2017/AdventOfCode201707.txt"))
             {
                 var splits = line.Split(new[] { "->" }, StringSplitOptions.None);
 
                 var node = new Node
-                           {
-                               Name = splits[0].Split()[0],
-                               Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'))
-                           };
+                {
+                    Name = splits[0].Split()[0],
+                    Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'))
+                };
 
                 if (splits.Length == 2)
                 {
@@ -34,41 +35,41 @@ namespace AdventOfCode._2017
                 nodes.Add(node);
             }
 
+            // Build tree
+            foreach (var node in nodes)
+            {
+                foreach (var child in node.ChildNodes)
+                {
+                    node.Children.Add(nodes.Single(n => n.Name == child));
+                    node.Children.ForEach(n => n.Parent = node);
+                }
+            }
+
+            // Get root node (the only one that isn't a child to another node.
             var children = nodes.Where(n => n.ChildNodes.Count > 0).SelectMany(n => n.ChildNodes);
             var rootNode = nodes.Single(n => !children.Contains(n.Name));
 
+            // Traverse tree to find the faulty weight.
+            var currentNode = rootNode;
             var lastDiff = 0;
-            while (true)
+            while (currentNode != null)
             {
-                var weights = new List<int>();
-                foreach (var childName in rootNode.ChildNodes)
-                {
-                    var childNode = nodes.Single(n => n.Name == childName);
-                    weights.Add(GetTowerWeight(nodes, childNode));
-                }
 
-                var diff = weights.Distinct().Max() - weights.Distinct().Min();
+                var curTowerWeight = currentNode.GetTowerWeight();
+                var childWeights = currentNode.GetChildWeights();
+
+                var diff = childWeights.Distinct().Max() - childWeights.Distinct().Min();
 
                 if (diff == 0)
                 {
-                    Result = rootNode.Weight - lastDiff;
+                    Result = currentNode.Weight - lastDiff;
                     break;
                 }
 
                 lastDiff = diff;
-                var unique = weights.Single(n => weights.Count(m => m == n) == 1);
-                rootNode = nodes.Single(n => n.TowerWeight == unique);
+                var unique = childWeights.Single(n => childWeights.Count(m => m == n) == 1);
+                currentNode = currentNode.Children.Single(n => n.GetTowerWeight() == unique);
             }
-        }
-
-        public int GetTowerWeight(List<Node> root, Node node)
-        {
-            var towerWight = node.Weight;
-            var children = root.Where(n => node.ChildNodes.Contains(n.Name));
-            towerWight += children.Sum(n => GetTowerWeight(root, n));
-
-            node.TowerWeight = towerWight;
-            return towerWight;
         }
 
         public class Node
@@ -78,6 +79,17 @@ namespace AdventOfCode._2017
             public int TowerWeight { get; set; }
             public Node Parent { get; set; }
             public List<string> ChildNodes { get; } = new List<string>();
+            public List<Node> Children { get; } = new List<Node>();
+
+            public int GetTowerWeight()
+            {
+                return Weight + Children.Select(c => c.GetTowerWeight()).Sum();
+            }
+
+            public List<int> GetChildWeights()
+            {
+                return Children.Select(c => c.GetTowerWeight()).ToList();
+            }
         }
     }
 }
