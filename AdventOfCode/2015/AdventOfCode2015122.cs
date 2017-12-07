@@ -19,7 +19,6 @@ namespace AdventOfCode._2015
 
         }
 
-
         internal long GetSum(JObject json, string avoid = null)
         {
             var shouldAvoid = json.Properties()
