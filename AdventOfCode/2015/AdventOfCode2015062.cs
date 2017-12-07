@@ -27,16 +27,13 @@ namespace AdventOfCode._2015
             for (var i = 0; i < 1000; i++)
                 lights[i] = new int[1000];
 
-            var turn = false;
-            var on = false;
-            int startX, startY, endX, endY;
-
             foreach (var line in File.ReadAllLines("2015/AdventOfCode201506.txt"))
             {
                 var instructions = line.Split(' ');
 
                 var offset = 0;
-                turn = instructions[0] == "turn";
+                var on = false;
+                var turn = instructions[0] == "turn";
                 if (turn)
                 {
                     on = instructions[1] == "on";
@@ -44,12 +41,12 @@ namespace AdventOfCode._2015
                 }
 
                 var coords = instructions[1 + offset].Split(',');
-                startX = int.Parse(coords[0]);
-                startY = int.Parse(coords[1]);
+                var startX = int.Parse(coords[0]);
+                var startY = int.Parse(coords[1]);
 
                 coords = instructions[3 + offset].Split(',');
-                endX = int.Parse(coords[0]);
-                endY = int.Parse(coords[1]);
+                var endX = int.Parse(coords[0]);
+                var endY = int.Parse(coords[1]);
 
                 for (var y = startY; y <= endY; y++)
                 {
