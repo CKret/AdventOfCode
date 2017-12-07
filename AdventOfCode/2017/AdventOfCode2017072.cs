@@ -55,7 +55,6 @@ namespace AdventOfCode._2017
             while (currentNode != null)
             {
 
-                var curTowerWeight = currentNode.GetTowerWeight();
                 var childWeights = currentNode.GetChildWeights();
 
                 var diff = childWeights.Distinct().Max() - childWeights.Distinct().Min();
