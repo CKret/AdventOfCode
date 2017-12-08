@@ -40,7 +40,6 @@ namespace AdventOfCode._2017
                 if (!registers.ContainsKey(otherReg))
                     registers.Add(otherReg, 0);
 
-
                 switch (compare)
                 {
                     case "<":
