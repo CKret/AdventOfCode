@@ -80,7 +80,7 @@ namespace AdventOfCode._2017
             var totalScore = 0;
             var currentScore = 0;
             var isGarbage = false;
-            var input = File.ReadAllText("2017/AdventOfCode201709.txt").ToCharArray();
+            var input = File.ReadAllText("2017\\AdventOfCode201709.txt").ToCharArray();
             for (var i = 0; i < input.Length; i++)
             {
                 var c = input[i];

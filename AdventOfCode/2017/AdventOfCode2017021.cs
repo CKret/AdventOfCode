@@ -40,7 +40,7 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var sum = File.ReadAllLines("2017/AdventOfCode201702.txt")
+            var sum = File.ReadAllLines("2017\\AdventOfCode201702.txt")
                 .Select(line => line.Split().Select(int.Parse))
                 .Select(s => s.Max() - s.Min()).Sum();
 

@@ -53,7 +53,7 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var instr = File.ReadAllLines("2017/AdventOfCode201705.txt").Select(int.Parse).ToList();
+            var instr = File.ReadAllLines("2017\\AdventOfCode201705.txt").Select(int.Parse).ToList();
 
             var counter = 0;
             for (var i = 0; i < instr.Count && i >= 0; )

@@ -47,7 +47,7 @@ namespace AdventOfCode._2017
         {
             // Create all nodes.
             var nodes = new List<Node>();
-            foreach (var line in File.ReadAllLines("2017/AdventOfCode201707.txt"))
+            foreach (var line in File.ReadAllLines("2017\\AdventOfCode201707.txt"))
             {
                 var splits = line.Split(new[] { "->" }, StringSplitOptions.None);
 

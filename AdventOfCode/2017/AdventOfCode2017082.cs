@@ -25,7 +25,7 @@ namespace AdventOfCode._2017
         {
             var registers = new Dictionary<string, int>();
             var max = 0;
-            foreach (var line in File.ReadAllLines("2017/AdventOfCode201708.txt"))
+            foreach (var line in File.ReadAllLines("2017\\AdventOfCode201708.txt"))
             {
                 var splits = line.Split();
                 var reg = splits[0];

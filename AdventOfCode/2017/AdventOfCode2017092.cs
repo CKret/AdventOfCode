@@ -31,7 +31,7 @@ namespace AdventOfCode._2017
         public override void Solve()
         {
             var isGarbage = false;
-            var input = File.ReadAllText("2017/AdventOfCode201709.txt").ToCharArray();
+            var input = File.ReadAllText("2017\\AdventOfCode201709.txt").ToCharArray();
             var nGarbage = 0;
             for (var i = 0; i < input.Length; i++)
             {
