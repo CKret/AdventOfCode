@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.IO;
 using AdventOfCode.Core;
 
@@ -48,35 +47,10 @@ namespace AdventOfCode._2017
             var x = 0;
             var y = 0;
 
-            foreach (var step in File.ReadAllText("2017/AdventOfCode201711.txt").Split(','))
+            foreach (var step in File.ReadAllText("2017\\AdventOfCode201711.txt").Split(','))
             {
-                switch (step)
-                {
-                    case "s":
-                        y -= 2;
-                        break;
-                    case "n":
-                        y += 2;
-                        break;
-                    case "se":
-                        y--;
-                        x++;
-                        break;
-                    case "ne":
-                        y++;
-                        x++;
-                        break;
-                    case "sw":
-                        y--;
-                        x--;
-                        break;
-                    case "nw":
-                        y++;
-                        x--;
-                        break;
-                    default:
-                        throw new InvalidExpressionException(step);
-                }
+                y += step.Length == 1 ? (step[0] == 'n' ? 2 : -2) : (step[0] == 'n' ? 1 : -1);
+                x += step.Length == 2 ? (step[1] == 'e' ? 1 : -1) : 0;
             }
 
             Result = Math.Abs((y - x) / 2 + x);
