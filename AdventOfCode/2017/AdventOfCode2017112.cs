@@ -17,18 +17,14 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var x = 0;
-            var y = 0;
-            var max = 0;
+            int x = 0, y = 0, max = 0;
 
             foreach (var step in File.ReadAllText("2017\\AdventOfCode201711.txt").Split(','))
             {
                 y += step.Length == 1 ? (step[0] == 'n' ? 2 : -2) : (step[0] == 'n' ? 1 : -1);
                 x += step.Length == 2 ? (step[1] == 'e' ? 1 : -1) : 0;
 
-                var current = Math.Abs((y - x) / 2 + x);
-                if (current > max)
-                    max = current;
+                max = Math.Max(max, Math.Abs((y - x) / 2 + x));
             }
 
             Result = max;

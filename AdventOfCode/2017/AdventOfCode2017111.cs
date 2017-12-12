@@ -44,8 +44,7 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var x = 0;
-            var y = 0;
+            int x = 0, y = 0;
 
             foreach (var step in File.ReadAllText("2017\\AdventOfCode201711.txt").Split(','))
             {

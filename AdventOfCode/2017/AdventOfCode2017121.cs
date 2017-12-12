@@ -112,7 +112,6 @@ namespace AdventOfCode._2017
                             count += CountReferences(past, child, nodeName);
                         }
                     }
-
                 }
 
                 return count;
