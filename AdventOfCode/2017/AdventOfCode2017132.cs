@@ -139,7 +139,7 @@ namespace AdventOfCode._2017
         public override void Solve()
         {
             var layers = File.ReadAllLines("2017\\AdventOfCode201713.txt").Select(line => line.Split(new[] { ": " }, StringSplitOptions.None).Select(int.Parse).ToList()).ToList();
-            Result = Enumerable.Range(0, int.MaxValue).First(delay => layers.Sum(layer => (layer[0] + delay) % (2 * layer[1] - 2) == 0 ? 1 : 0) == 0);
+            Result = Enumerable.Range(0, int.MaxValue).First(delay => layers.All(layer => (layer[0] + delay) % (2 * layer[1] - 2) != 0));
         }
     }
 }
