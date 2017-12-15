@@ -99,6 +99,10 @@
     <Compile Include="2015\AdventOfCode2015021.cs" />
     <Compile Include="2015\AdventOfCode2015012.cs" />
     <Compile Include="2015\AdventOfCode2015011.cs" />
+    <Compile Include="2017\AdventOfCode2017151.cs" />
+    <Compile Include="2017\AdventOfCode2017152.cs" />
+    <Compile Include="2017\AdventOfCode2017141.cs" />
+    <Compile Include="2017\AdventOfCode2017142.cs" />
     <Compile Include="2017\AdventOfCode2017131.cs" />
     <Compile Include="2017\AdventOfCode2017132.cs" />
     <Compile Include="2017\AdventOfCode2017121.cs" />
@@ -127,6 +131,7 @@
     <Compile Include="2017\AdventOfCode2017011.cs" />
     <Compile Include="Core\AdventOfCodeBase.cs" />
     <Compile Include="Core\AdventOfCodeAttribute.cs" />
+    <Compile Include="Core\Cryptography\HashAlgorithm.cs" />
     <Compile Include="ExtensionMethods\LinqExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\AdventOfCodeTest.cs" />
