@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using AdventOfCode.Core;
-using Xunit;
 
 namespace AdventOfCode._2017
 {
