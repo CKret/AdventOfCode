@@ -8,10 +8,10 @@ namespace AdventOfCode.Core.Cryptography
         public static IEnumerable<byte> KnotHash(string input, int rounds = 64)
         {
             int skipSize = 0, pos = 0;
-            var row = input.Select(c => (byte)c).ToList();
+            var row = input.Select(c => (byte) c).ToList();
             row.AddRange(new byte[] { 17, 31, 73, 47, 23 });
 
-            var sparseHash = Enumerable.Range(0, 256).Select(i => (byte)i).ToArray();
+            var sparseHash = Enumerable.Range(0, 256).Select(i => (byte) i).ToArray();
 
             for (var round = 0; round < rounds; round++)
             {
@@ -28,7 +28,7 @@ namespace AdventOfCode.Core.Cryptography
                 }
             }
 
-            return new byte[16].Select((hash, i) => sparseHash.Skip(16 * i).Take(16).Aggregate(hash, (curr, b) => (byte) (curr ^ b))).ToArray();
+            return Enumerable.Range(0, 16).Select(i => sparseHash.Skip(16 * i).Take(16).Aggregate((curr, b) => (byte)(curr ^ b))).ToArray();
         }
     }
 }
