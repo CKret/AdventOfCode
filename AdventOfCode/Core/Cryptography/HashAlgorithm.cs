@@ -28,16 +28,7 @@ namespace AdventOfCode.Core.Cryptography
                 }
             }
 
-            var denseHash = new byte[16];
-            for (var i = 0; i < 16; i++)
-            {
-                for (var j = 0; j < 16; j++)
-                {
-                    denseHash[i] ^= sparseHash[16 * i + j];
-                }
-            }
-
-            return denseHash;
+            return new byte[16].Select((hash, i) => sparseHash.Skip(16 * i).Take(16).Aggregate(hash, (curr, b) => (byte) (curr ^ b))).ToArray();
         }
     }
 }
