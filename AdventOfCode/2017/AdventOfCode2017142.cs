@@ -2,7 +2,6 @@
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.Core.Cryptography;
-using MoreLinq;
 
 namespace AdventOfCode._2017
 {
