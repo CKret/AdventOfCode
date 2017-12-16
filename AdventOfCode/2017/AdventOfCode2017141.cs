@@ -64,14 +64,10 @@ namespace AdventOfCode._2017
         {
             const string input = "uugsqrei";
 
-            var totalCount = 0;
-            for (var x = 0; x < 128; x++)
-            {
-                var dense = HashAlgorithm.KnotHash($"{input}-{x}");
-                totalCount += dense.Aggregate(string.Empty, (current, b) => current + Convert.ToString(b, 2).PadLeft(8, '0')).Count(c => c == '1');
-            }
-
-            Result = totalCount;
+            Result = Enumerable.Range(0, 128).Sum(x =>
+                HashAlgorithm.KnotHash($"{input}-{x}")
+                    .Aggregate(string.Empty, (current, b) => current + Convert.ToString(b, 2).PadLeft(8, '0'))
+                    .Count(c => c == '1'));
         }
     }
 }

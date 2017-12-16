@@ -2,6 +2,7 @@
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.Core.Cryptography;
+using MoreLinq;
 
 namespace AdventOfCode._2017
 {
@@ -45,26 +46,15 @@ namespace AdventOfCode._2017
         {
             const string input = "uugsqrei";
             var grid = CreateGrid(input);
-
-            var hash = HashAlgorithm.KnotHash(input + "-0");
-            var a = string.Join(string.Empty, hash.Select(b => Convert.ToString(b, 2).PadLeft(8, '0')));
-
             var visited = new bool[128, 128];
-            var regions = 0;
 
             // Traverse the grid by DFS to identify each region.
-            for (var y = 0; y < visited.GetLength(1); y++)
-            {
-                for (var x = 0; x < visited.GetLength(0); x++)
+            Result = Enumerable.Range(0, 128).Sum(y => Enumerable.Range(0, 128)
+                .Where(x => !visited[x, y] && grid[x][y] != '0').Sum(x =>
                 {
-                    if (visited[x, y] || grid[x][y] == '0') continue;
-
-                    FindRegion(x, y, grid, visited);
-                    regions++;
-                }
-            }
-
-            Result = regions;
+                    PaintRegion(x, y, grid, visited);
+                    return 1;
+                }));
         }
 
         private static string[] CreateGrid(string input)
@@ -76,7 +66,7 @@ namespace AdventOfCode._2017
                 .ToArray();
         }
 
-        private void FindRegion(int x, int y, string[] grid, bool[,] visited)
+        private void PaintRegion(int x, int y, string[] grid, bool[,] visited)
         {
             if (visited[x, y]) return;
 
@@ -84,10 +74,10 @@ namespace AdventOfCode._2017
 
             if (grid[x][y] == '0') return;
 
-            if (x > 0) FindRegion(x - 1, y, grid, visited);
-            if (x < 127) FindRegion(x + 1, y, grid, visited);
-            if (y > 0) FindRegion(x, y - 1, grid, visited);
-            if (y < 127) FindRegion(x, y + 1, grid, visited);
+            if (x > 0) PaintRegion(x - 1, y, grid, visited);
+            if (x < 127) PaintRegion(x + 1, y, grid, visited);
+            if (y > 0) PaintRegion(x, y - 1, grid, visited);
+            if (y < 127) PaintRegion(x, y + 1, grid, visited);
         }
     }
 }
