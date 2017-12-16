@@ -57,7 +57,7 @@ namespace AdventOfCode._2017
             {
                 for (var x = 0; x < visited.GetLength(0); x++)
                 {
-                    if (visited[x, y] || grid[x][y] == (byte) '0') continue;
+                    if (visited[x, y] || grid[x][y] == '0') continue;
 
                     FindRegion(x, y, grid, visited);
                     regions++;
@@ -82,7 +82,7 @@ namespace AdventOfCode._2017
 
             visited[x, y] = true;
 
-            if (grid[x][y] == (byte) '0') return;
+            if (grid[x][y] == '0') return;
 
             if (x > 0) FindRegion(x - 1, y, grid, visited);
             if (x < 127) FindRegion(x + 1, y, grid, visited);
