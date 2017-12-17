@@ -99,6 +99,8 @@
     <Compile Include="2015\AdventOfCode2015021.cs" />
     <Compile Include="2015\AdventOfCode2015012.cs" />
     <Compile Include="2015\AdventOfCode2015011.cs" />
+    <Compile Include="2017\AdventOfCode2017171.cs" />
+    <Compile Include="2017\AdventOfCode2017172.cs" />
     <Compile Include="2017\AdventOfCode2017161.cs" />
     <Compile Include="2017\AdventOfCode2017162.cs" />
     <Compile Include="2017\AdventOfCode2017151.cs" />
