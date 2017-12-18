@@ -99,6 +99,22 @@
     <Compile Include="2015\AdventOfCode2015021.cs" />
     <Compile Include="2015\AdventOfCode2015012.cs" />
     <Compile Include="2015\AdventOfCode2015011.cs" />
+    <Compile Include="2017\AdventOfCode2017251.cs" />
+    <Compile Include="2017\AdventOfCode2017252.cs" />
+    <Compile Include="2017\AdventOfCode2017241.cs" />
+    <Compile Include="2017\AdventOfCode2017242.cs" />
+    <Compile Include="2017\AdventOfCode2017231.cs" />
+    <Compile Include="2017\AdventOfCode2017232.cs" />
+    <Compile Include="2017\AdventOfCode2017221.cs" />
+    <Compile Include="2017\AdventOfCode2017222.cs" />
+    <Compile Include="2017\AdventOfCode2017211.cs" />
+    <Compile Include="2017\AdventOfCode2017212.cs" />
+    <Compile Include="2017\AdventOfCode2017201.cs" />
+    <Compile Include="2017\AdventOfCode2017191.cs" />
+    <Compile Include="2017\AdventOfCode2017202.cs" />
+    <Compile Include="2017\AdventOfCode2017192.cs" />
+    <Compile Include="2017\AdventOfCode2017181.cs" />
+    <Compile Include="2017\AdventOfCode2017182.cs" />
     <Compile Include="2017\AdventOfCode2017171.cs" />
     <Compile Include="2017\AdventOfCode2017172.cs" />
     <Compile Include="2017\AdventOfCode2017161.cs" />
@@ -194,6 +210,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\AdventOfCode201716.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201718.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
