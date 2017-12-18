@@ -35,7 +35,7 @@ namespace AdventOfCode._2017
             var programs = "abcdefghijklmnop".ToCharArray().ToList();
             var commandsArray = File.ReadAllText("2017\\AdventOfCode201716.txt").Split(',');
 
-            // Memoize so that we can detect cycles, if any.
+            // Fake-Memoize so that we can detect cycles, if any.
             var lookup = new List<string> { string.Concat(programs) };
 
             for (var i = 0L; i < 1000000000; i++)
@@ -44,16 +44,13 @@ namespace AdventOfCode._2017
 
                 // If we find a cycle then get the period and return the programs order in the state (1000000000 % periodLength).
                 var programString = string.Concat(programs);
-                if (!lookup.Contains(programString))
-                    lookup.Add(programString);
-                else
+                if (lookup.Contains(programString))
                 {
-                    programs = lookup[1000000000 % lookup.Count].ToCharArray().ToList();
+                    Result = lookup[1000000000 % lookup.Count];
                     break;
                 }
+                lookup.Add(programString);
             }
-
-            Result = string.Concat(programs);
         }
     }
 }

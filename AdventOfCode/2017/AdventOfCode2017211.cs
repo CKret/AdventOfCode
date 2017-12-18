@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using AdventOfCode.Core;
+﻿using AdventOfCode.Core;
 
 namespace AdventOfCode._2017
 {
