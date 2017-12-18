@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using AdventOfCode.Core;
 
 namespace AdventOfCode._2017
@@ -78,91 +81,92 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var instructions = File.ReadAllLines("2017\\AdventOfCode201718.txt");
-            var currInstr = new int[2];
+            var instructions = ParseInstructions(File.ReadAllLines("2017\\AdventOfCode201718.txt"));
 
-            var registers = new Dictionary<string, long>[2];
-            registers[0] = new Dictionary<string, long> {{"p", 0}};
-            registers[1] = new Dictionary<string, long> {{"p", 1}};
+            var p0 = new Program(0, instructions);
+            var p1 = new Program(1, instructions);
 
-            var programQueue = new Queue<long>[2];
-            programQueue[0] = new Queue<long>();
-            programQueue[1] = new Queue<long>();
-
-            var count = 0;
-            while (true)
+            while (p0.ExecuteInstruction(p1.Queue) || p1.ExecuteInstruction(p0.Queue))
             {
-                // program 0
-                var cur = instructions[currInstr[0]].Split();
-                var instr = cur[0];
-                var opA = cur[1];
-                var opB = string.Empty;
-                if (cur.Length > 2) opB = cur[2];
-                var jmp0 = 0;
-                if (currInstr[0] >= 0 && currInstr[0] < instructions.Length)
-                    jmp0 = ExecuteInstruction(instr, opA, opB, registers[0], programQueue[0], programQueue[1]);
-
-                // program 1
-                cur = instructions[currInstr[1]].Split();
-                instr = cur[0];
-                opA = cur[1];
-                if (cur.Length > 2) opB = cur[2];
-                var jmp1= 0;
-                if (currInstr[1] >= 0 && currInstr[1] < instructions.Length)
-                {
-                    if (instr == "snd") count++;
-                    jmp1 = ExecuteInstruction(instr, opA, opB, registers[1], programQueue[1], programQueue[0]);
-                }
-
-                if (jmp0 == 0 && jmp1 == 0) break;
-
-                currInstr[0] += jmp0;
-                currInstr[1] += jmp1;
             }
 
-            Result = count;
+            Result = p1.SndCount;
         }
 
-        private static int ExecuteInstruction(string instr, string opA, string opB, Dictionary<string, long> registers, Queue<long> queue, Queue<long> otherQueue)
+        internal struct Duet
         {
-            if (!registers.ContainsKey(opA)) registers.Add(opA, 0);
-            switch (instr)
+            public string Instruction { get; set; }
+            public string OperandDestination { get; set; }
+            public string OperandValue { get; set; }
+        }
+
+        internal List<Duet> ParseInstructions(string[] instructions)
+        {
+            return instructions.Select(instruction => instruction.Split()).Select(i => new Duet {Instruction = i[0], OperandDestination = i[1], OperandValue = i.Length > 2 ? i[2] : string.Empty}).ToList();
+        }
+
+        internal class Program
+        {
+            public int ProgramId { get; }
+            public ConcurrentQueue<long> Queue { get; } = new ConcurrentQueue<long>();
+            public int SndCount { get; private set; }
+            public int RcvCount { get; private set; }
+
+            private readonly List<Duet> instructions;
+            private readonly Dictionary<string, long> registers = new Dictionary<string, long>();
+            private int EIP;
+
+            public Program(int pId, List<Duet> instructions)
             {
-                case "snd":
-                    if (int.TryParse(opA, out var val)) otherQueue.Enqueue(int.Parse(opA));
-                    else otherQueue.Enqueue(registers[opA]);
-                    break;
-                case "set":
-                    if (int.TryParse(opB, out val)) registers[opA] = val;
-                    else registers[opA] = registers[opB];
-                    break;
-                case "add":
-                    if (int.TryParse(opB, out val)) registers[opA] += val;
-                    else registers[opA] += registers[opB];
-                    break;
-                case "mul":
-                    if (int.TryParse(opB, out val)) registers[opA] *= val;
-                    else registers[opA] *= registers[opB];
-                    break;
-                case "mod":
-                    if (int.TryParse(opB, out val)) registers[opA] %= val;
-                    else registers[opA] %= registers[opB];
-                    break;
-                case "rcv":
-                    if (queue.Count == 0) return 0;
-                    registers[opA] = queue.Dequeue();
-                    break;
-                case "jgz":
-                    if (!long.TryParse(opA, out var valA)) valA = registers[opA];
-                    if (valA > 0)
-                    {
-                        if (int.TryParse(opB, out val)) return val;
-                        return (int) registers[opB];
-                    }
-                    break;
+                this.ProgramId = pId;
+                this.instructions = instructions;
+                this.registers.Add("p", pId);
             }
 
-            return 1;
+            public bool ExecuteInstruction(ConcurrentQueue<long> otherQueue)
+            {
+                if (EIP < 0 || EIP >= instructions.Count) return false;
+
+                if (!registers.ContainsKey(instructions[EIP].OperandDestination)) registers.Add(instructions[EIP].OperandDestination, 0);
+                switch (instructions[EIP].Instruction)
+                {
+                    case "snd":
+                        otherQueue.Enqueue(ValueOf(instructions[EIP].OperandDestination));
+                        SndCount++;
+                        break;
+                    case "set":
+                        registers[instructions[EIP].OperandDestination] = ValueOf(instructions[EIP].OperandValue);
+                        break;
+                    case "add":
+                        registers[instructions[EIP].OperandDestination] += ValueOf(instructions[EIP].OperandValue);
+                        break;
+                    case "mul":
+                        registers[instructions[EIP].OperandDestination] *= ValueOf(instructions[EIP].OperandValue);
+                        break;
+                    case "mod":
+                        registers[instructions[EIP].OperandDestination] %= ValueOf(instructions[EIP].OperandValue);
+                        break;
+                    case "rcv":
+                        if (!Queue.TryDequeue(out var val)) return false;
+                        registers[instructions[EIP].OperandDestination] = val;
+                        RcvCount++;
+                        break;
+                    case "jgz":
+                        if (ValueOf(instructions[EIP].OperandDestination) > 0) EIP += (int) ValueOf(instructions[EIP].OperandValue) - 1;
+                        break;
+                }
+
+                EIP++;
+                return true;
+            }
+
+            internal long ValueOf(string reg)
+            {
+                if (!long.TryParse(reg, out var val))
+                    val = registers[reg];
+
+                return val;
+            }
         }
     }
 }
