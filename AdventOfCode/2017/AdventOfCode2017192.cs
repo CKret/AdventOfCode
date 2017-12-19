@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Core;
+﻿using System.IO;
+using AdventOfCode.Core;
 
 namespace AdventOfCode._2017
 {
@@ -9,6 +10,7 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
+            var input = File.ReadAllLines("2017\\AdventOfCode201719.txt");
         }
     }
 }

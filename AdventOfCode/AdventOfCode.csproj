@@ -215,6 +215,9 @@
     <Content Include="2017\AdventOfCode201718.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="2017\AdventOfCode201719.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
     <None Include="App.config" />
     <None Include="packages.config" />
