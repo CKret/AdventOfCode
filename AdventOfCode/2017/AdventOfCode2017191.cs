@@ -62,9 +62,7 @@ namespace AdventOfCode._2017
             var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();
             var encounters = new List<char>();
 
-            while (Move(ref x, ref y, ref dx, ref dy, grid, letters, encounters))
-            {
-            }
+            while (Move(ref x, ref y, ref dx, ref dy, grid, letters, encounters));
 
             Result = string.Join(string.Empty, encounters);
         }
