@@ -75,9 +75,7 @@ namespace AdventOfCode._2017
             var p0 = new Program(0, instructions);
             var p1 = new Program(1, instructions);
 
-            while (p0.ExecuteInstruction(p1.Queue) || p1.ExecuteInstruction(p0.Queue))
-            {
-            }
+            while (p0.ExecuteInstruction(p1.Queue) || p1.ExecuteInstruction(p0.Queue));
 
             Result = p1.SndCount;
         }
