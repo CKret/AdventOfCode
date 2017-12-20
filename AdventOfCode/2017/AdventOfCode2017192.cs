@@ -45,73 +45,13 @@ namespace AdventOfCode._2017
         {
             var input = File.ReadAllLines("2017\\AdventOfCode201719.txt");
 
-            var startPos = input[0].IndexOf('|');
             var grid = input.Select(a => a.ToCharArray().ToList()).ToList();
 
-            int x = startPos, y = 0, dx = 0, dy = 1;
+            int x = input[0].IndexOf('|'), y = 0, dx = 0, dy = 1, count = 0;
 
-            var count = 1;
-            while (Move(ref x, ref y, ref dx, ref dy, grid))
-            {
-                count++;
-            }
+            do { count++; } while (AdventOfCode2017191.Move(ref x, ref y, ref dx, ref dy, grid));
 
             Result = count;
-        }
-
-        internal bool Move(ref int x, ref int y, ref int dx, ref int dy, List<List<char>> grid)
-        {
-            // up or down
-            if (dy != 0)
-            {
-                y += dy;
-                if (y >= grid.Count || grid[y][x] == ' ')
-                    return false;
-
-                if (grid[y][x] == '+')
-                {
-                    if (x > 0 && x < grid[y].Count - 1)
-                    {
-                        if (grid[y][x - 1] == '-')
-                        {
-                            dx = -1;
-                            dy = 0;
-                        }
-                        else if (grid[y][x + 1] == '-')
-                        {
-                            dx = 1;
-                            dy = 0;
-                        }
-                    }
-                }
-            }
-
-            // left or right
-            else if (dx != 0)
-            {
-                x += dx;
-                if (grid[y][x] == ' ')
-                    return false;
-
-                if (grid[y][x] == '+')
-                {
-                    if (y > 0 && y < grid.Count - 1)
-                    {
-                        if (grid[y - 1][x] == '|')
-                        {
-                            dy = -1;
-                            dx = 0;
-                        }
-                        else if (grid[y + 1][x] == '|')
-                        {
-                            dy = 1;
-                            dx = 0;
-                        }
-                    }
-                }
-            }
-
-            return true;
         }
     }
 }

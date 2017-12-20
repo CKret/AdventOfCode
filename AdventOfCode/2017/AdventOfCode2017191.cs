@@ -54,76 +54,43 @@ namespace AdventOfCode._2017
         public override void Solve()
         {
             var input = File.ReadAllLines("2017\\AdventOfCode201719.txt");
-
-            var startPos = input[0].IndexOf('|');
-            var grid = input.Select(a => a.ToCharArray().ToList()).ToList();
-
-            int x = startPos, y = 0, dx = 0, dy = 1;
             var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();
             var encounters = new List<char>();
+
+            var grid = input.Select(a => a.ToCharArray().ToList()).ToList();
+
+            int x = input[0].IndexOf('|'), y = 0, dx = 0, dy = 1;
 
             while (Move(ref x, ref y, ref dx, ref dy, grid, letters, encounters));
 
             Result = string.Join(string.Empty, encounters);
         }
 
-        internal bool Move(ref int x, ref int y, ref int dx, ref int dy, List<List<char>> grid, List<char> letters, List<char> encounters)
+        public static bool Move(ref int x, ref int y, ref int dx, ref int dy, List<List<char>> grid, List<char> letters = null, List<char> encounters = null)
         {
-            // up or down
-            if (dy != 0) 
-            {
-                y += dy;
-                if (y >= grid.Count || grid[y][x] == ' ') return false;
-                if (grid[y][x] == '+')
-                {
-                    if (x > 0 && x < grid[y].Count - 1)
-                    {
-                        if (grid[y][x - 1] == '-')
-                        {
-                            dx = -1;
-                            dy = 0;
-                        }
-                        else if (grid[y][x + 1] == '-')
-                        {
-                            dx = 1;
-                            dy = 0;
-                        }
-                    }
-                }
-                else if (letters.Contains(grid[y][x]))
-                {
-                    encounters.Add(grid[y][x]);
-                }
-            }
+            x += dx;
+            y += dy;
 
-            // left or right
-            else if (dx != 0)
+            if (x < 0 || x >= grid[y].Count || y < 0 || y >= grid.Count || grid[y][x] == ' ') return false;
+
+            if (grid[y][x] == '+')
             {
-                x += dx;
-                if (grid[y][x] == ' ') return false;
-                if (grid[y][x] == '+')
-                {
-                    if (y > 0 && y < grid.Count - 1)
-                    {
-                        if (grid[y - 1][x] == '|')
-                        {
-                            dy = -1;
-                            dx = 0;
-                        }
-                        else if (grid[y + 1][x] == '|')
-                        {
-                            dy = 1;
-                            dx = 0;
-                        }
-                    }
-                }
-                else if (letters.Contains(grid[y][x]))
-                {
-                    encounters.Add(grid[y][x]);
-                }
+                (dx, dy) = ChangeDirection(x, y, dx, dy, grid);
+            }
+            else if (letters != null && encounters != null && letters.Contains(grid[y][x]))
+            {
+                encounters.Add(grid[y][x]);
             }
 
             return true;
+        }
+
+        public static (int, int) ChangeDirection(int x, int y, int dx, int dy, List<List<char>> grid)
+        {
+            if (dx != 0)
+                return (0, grid[y - 1][x] == '|' ? -1 : 1);
+
+            return (grid[y][x - 1] == '-' ? -1 : 1, 0);
         }
     }
 }
