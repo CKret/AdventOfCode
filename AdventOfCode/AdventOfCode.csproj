@@ -74,12 +74,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\AdventOfCode2015181.cs" />
     <Compile Include="2015\AdventOfCode2015171.cs" />
     <Compile Include="2015\AdventOfCode2015161.cs" />
     <Compile Include="2015\AdventOfCode2015151.cs" />
     <Compile Include="2015\AdventOfCode2015131.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="2015\AdventOfCode2015182.cs" />
     <Compile Include="2015\AdventOfCode2015172.cs" />
     <Compile Include="2015\AdventOfCode2015162.cs" />
     <Compile Include="2015\AdventOfCode2015152.cs" />
@@ -195,6 +197,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2015\AdventOfCode201514.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201517.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2015\AdventOfCode201516.txt">
