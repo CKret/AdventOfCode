@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\AdventOfCode2015191.cs" />
     <Compile Include="2015\AdventOfCode2015181.cs" />
     <Compile Include="2015\AdventOfCode2015171.cs" />
     <Compile Include="2015\AdventOfCode2015161.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="2015\AdventOfCode2015131.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="2015\AdventOfCode2015192.cs" />
     <Compile Include="2015\AdventOfCode2015182.cs" />
     <Compile Include="2015\AdventOfCode2015172.cs" />
     <Compile Include="2015\AdventOfCode2015162.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Core\AdventOfCodeBase.cs" />
     <Compile Include="Core\AdventOfCodeAttribute.cs" />
     <Compile Include="Core\Cryptography\HashAlgorithm.cs" />
+    <Compile Include="ExtensionMethods\DictionaryExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\FuncExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\LinqExtensionMethods.cs" />
     <Compile Include="Mathematics\NumberTheory.cs" />
@@ -242,6 +245,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\AdventOfCode201719.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201722.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201721.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\AdventOfCode201720.txt">
