@@ -163,14 +163,22 @@ namespace AdventOfCode._2017
 
         internal static int Turn(char node, int direction)
         {
-            var turns = new Dictionary<char, int> { { '.', 3 }, { '#', 1 }, { 'F', 2 }, { 'W', 0 } };
-            return (direction + turns[node]) % 4;
+            switch (node)
+            {
+                case '.': return (direction + 3) % 4;
+                case '#': return (direction + 1) % 4;
+                case 'F': return (direction + 2) % 4;
+                default: return direction;
+            }
         }
 
         internal static char ChangeState(char currentState)
         {
-            const string states = ".#.";
-            return states[states.IndexOf(currentState) + 1];
+            switch (currentState)
+            {
+                case '.': return '#';
+                default: return '.';
+            }
         }
 
         internal static (int, int) Move(int x, int y, int direction)
