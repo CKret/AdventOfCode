@@ -35,7 +35,7 @@ namespace AdventOfCode._2017
     /// instruction invoked?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 23, 1, "", 6241L)]
+    [AdventOfCode(2017, 23, 1, "Coprocessor Conflagration - Part One", 6241L)]
     public class AdventOfCode2017231 : AdventOfCodeBase
     {
         public override void Solve()
