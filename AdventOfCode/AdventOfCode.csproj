@@ -171,6 +171,7 @@
     <Compile Include="ExtensionMethods\FuncExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\LinqExtensionMethods.cs" />
     <Compile Include="Mathematics\NumberTheory.cs" />
+    <Compile Include="Mathematics\Primes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\AdventOfCodeTest.cs" />
   </ItemGroup>
@@ -245,6 +246,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\AdventOfCode201719.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201724.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201723.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="2017\AdventOfCode201722.txt">
