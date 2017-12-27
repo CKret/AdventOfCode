@@ -118,7 +118,6 @@
     <Compile Include="2015\AdventOfCode2015012.cs" />
     <Compile Include="2015\AdventOfCode2015011.cs" />
     <Compile Include="2017\AdventOfCode2017251.cs" />
-    <Compile Include="2017\AdventOfCode2017252.cs" />
     <Compile Include="2017\AdventOfCode2017241.cs" />
     <Compile Include="2017\AdventOfCode2017242.cs" />
     <Compile Include="2017\AdventOfCode2017231.cs" />
