@@ -61,9 +61,6 @@ namespace AdventOfCode._2017
                 else
                     y += x >= 0 ? -1 : 1;
 
-                if (!spiral.ContainsKey((x, y)))
-                    spiral.Add((x, y), 0);
-
                 CalculateNode(x, y, spiral);
             }
 
@@ -72,6 +69,8 @@ namespace AdventOfCode._2017
 
         public void CalculateNode(int x, int y, Dictionary<(int, int), int> spiral)
         {
+            spiral.Add((x, y), 0);
+
             spiral[(x, y)] += !spiral.ContainsKey((x + 1, y)) ? 0 : spiral[(x + 1, y)];
             spiral[(x, y)] += !spiral.ContainsKey((x + 1, y + 1)) ? 0 : spiral[(x + 1, y + 1)];
             spiral[(x, y)] += !spiral.ContainsKey((x, y + 1)) ? 0 : spiral[(x, y + 1)];
