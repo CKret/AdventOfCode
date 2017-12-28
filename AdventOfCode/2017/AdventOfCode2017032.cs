@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AdventOfCode.Core;
 
 namespace AdventOfCode._2017
@@ -47,31 +48,38 @@ namespace AdventOfCode._2017
 
         public int Spiral(int input)
         {
-            var mid = 499;
-            var a = new int[1000, 1000];
+            var spiral = new Dictionary<(int, int), int>();
             var x = 0;
             var y = 0;
 
-            a[mid + x, mid - y] = 1;
+            spiral.Add((x, y), 1);
 
-            while (a[mid + x, mid + y] <= input)
+            while (spiral[(x, y)] <= input)
             {
                 if (Math.Abs(x) <= Math.Abs(y) && (x != y || x >= 0))
                     x += y >= 0 ? 1 : -1;
                 else
                     y += x >= 0 ? -1 : 1;
 
-                a[mid + x, mid + y] += a[mid + x + 1, mid + y];
-                a[mid + x, mid + y] += a[mid + x + 1, mid + y + 1];
-                a[mid + x, mid + y] += a[mid + x, mid + y + 1];
-                a[mid + x, mid + y] += a[mid + x - 1, mid + y + 1];
-                a[mid + x, mid + y] += a[mid + x - 1, mid + y];
-                a[mid + x, mid + y] += a[mid + x - 1, mid + y - 1];
-                a[mid + x, mid + y] += a[mid + x, mid + y - 1];
-                a[mid + x, mid + y] += a[mid + x + 1, mid + y - 1];
+                if (!spiral.ContainsKey((x, y)))
+                    spiral.Add((x, y), 0);
+
+                CalculateNode(x, y, spiral);
             }
 
-            return a[mid + x, mid + y];
+            return spiral[(x, y)];
+        }
+
+        public void CalculateNode(int x, int y, Dictionary<(int, int), int> spiral)
+        {
+            spiral[(x, y)] += !spiral.ContainsKey((x + 1, y)) ? 0 : spiral[(x + 1, y)];
+            spiral[(x, y)] += !spiral.ContainsKey((x + 1, y + 1)) ? 0 : spiral[(x + 1, y + 1)];
+            spiral[(x, y)] += !spiral.ContainsKey((x, y + 1)) ? 0 : spiral[(x, y + 1)];
+            spiral[(x, y)] += !spiral.ContainsKey((x - 1, y + 1)) ? 0 : spiral[(x - 1, y + 1)];
+            spiral[(x, y)] += !spiral.ContainsKey((x - 1, y)) ? 0 : spiral[(x - 1, y)];
+            spiral[(x, y)] += !spiral.ContainsKey((x - 1, y - 1)) ? 0 : spiral[(x - 1, y - 1)];
+            spiral[(x, y)] += !spiral.ContainsKey((x, y - 1)) ? 0 : spiral[(x, y - 1)];
+            spiral[(x, y)] += !spiral.ContainsKey((x + 1, y - 1)) ? 0 : spiral[(x + 1, y - 1)];
         }
     }
 }
