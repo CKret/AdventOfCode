@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Cryptography;
+using AdventOfCode.Mathematics.Cryptography;
 
 namespace AdventOfCode._2017
 {

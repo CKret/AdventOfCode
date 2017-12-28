@@ -2,7 +2,7 @@
 using System.Linq;
 using MoreLinq;
 
-namespace AdventOfCode.Core.Cryptography
+namespace AdventOfCode.Mathematics.Cryptography
 {
     public static class HashAlgorithm
     {

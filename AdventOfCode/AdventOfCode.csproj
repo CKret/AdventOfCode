@@ -168,7 +168,7 @@
     <Compile Include="2017\AdventOfCode2017011.cs" />
     <Compile Include="Core\AdventOfCodeBase.cs" />
     <Compile Include="Core\AdventOfCodeAttribute.cs" />
-    <Compile Include="Core\Cryptography\HashAlgorithm.cs" />
+    <Compile Include="Mathematics\Cryptography\HashAlgorithm.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\FuncExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\LinqExtensionMethods.cs" />
