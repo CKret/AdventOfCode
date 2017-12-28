@@ -91,8 +91,8 @@ namespace AdventOfCode._2017
     /// 
     /// The CPU can confirm that the Turing machine is working by taking a
     /// diagnostic checksum after a specific number of steps (given in the
-    /// blueprint). Once the specified number of steps have been executed, th
-    ///  Turing machine should pause; once it does, count the number of times 1
+    /// blueprint). Once the specified number of steps have been executed, the
+    /// Turing machine should pause; once it does, count the number of times 1
     /// appears on the tape. In the above example, the diagnostic checksum is 3.
     /// 
     /// Recreate the Turing machine and save the computer! What is the diagnostic
