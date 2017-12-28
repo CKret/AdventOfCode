@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Core;
+﻿using System.Linq;
+using AdventOfCode.Core;
 using AdventOfCode.Mathematics;
 
 namespace AdventOfCode._2017
@@ -34,12 +35,7 @@ namespace AdventOfCode._2017
             var count = 0;
             // 81 * 100 + 100000 = 108100
             // 108100 + 17000 = 125100
-            for (var b = 108100; b <= 125100; b += 17)
-            {
-                if (!b.IsPrime()) count++;
-            }
-
-            Result = count;
+            Result = Enumerable.Range(108100, 17000).Where(x => (x + 1) % 17 == 0).Sum(x => x.IsPrime() ? 0 : 1);
         }
     }
 }
