@@ -32,7 +32,6 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var count = 0;
             // 81 * 100 + 100000 = 108100
             // 108100 + 17000 = 125100
             Result = Enumerable.Range(108100, 17000).Where(x => (x + 1) % 17 == 0).Sum(x => x.IsPrime() ? 0 : 1);
