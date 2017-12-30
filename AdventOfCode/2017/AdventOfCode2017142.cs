@@ -59,8 +59,7 @@ namespace AdventOfCode._2017
         private static string[] CreateGrid(string input)
         {
             return Enumerable.Range(0, 128)
-                .Select(i => $"{input}-{i}").ToArray()
-                .Select(s => HashAlgorithm.KnotHash(s))
+                .Select(i => HashAlgorithm.KnotHash($"{input}-{i}"))
                 .Select(hash => string.Join(string.Empty, hash.Select(b => Convert.ToString(b, 2).PadLeft(8, '0'))))
                 .ToArray();
         }
