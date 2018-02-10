@@ -57,7 +57,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TypeResolver, Version=2.0.45.102, Culture=neutral, PublicKeyToken=23444c00d7ce1a61, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

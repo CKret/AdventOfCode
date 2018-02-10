@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -82,7 +81,7 @@ namespace AdventOfCode._2017
         {
             return components.Where(x => x.Item1 == cur || x.Item2 == cur)
                 .Select(x => BuildStrongBridge(components.Remove(x), x.Item1 == cur ? x.Item2 : x.Item1, max + x.Item1 + x.Item2))
-                .Concat(Enumerable.Repeat(max, 1)).Max();
+                .Concat(new [] { max }).Max();
         }
     }
 }

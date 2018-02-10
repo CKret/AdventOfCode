@@ -38,7 +38,7 @@ namespace AdventOfCode._2017
         {
             return components.Where(x => x.Item1 == cur || x.Item2 == cur)
                 .Select(x => BuildLongBridge(components.Remove(x), x.Item1 == cur ? x.Item2 : x.Item1, max + x.Item1 + x.Item2, len + 1))
-                .Concat(Enumerable.Repeat((max, len), 1))
+                .Concat(new []{ (max, len) })
                 .OrderByDescending(x => x.Item2)
                 .ThenByDescending(x => x.Item1)
                 .First();

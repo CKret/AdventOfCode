@@ -84,7 +84,6 @@ namespace AdventOfCode._2017
             var lastDiff = 0;
             while (currentNode != null)
             {
-
                 var childWeights = currentNode.GetChildWeights();
 
                 var diff = childWeights.Distinct().Max() - childWeights.Distinct().Min();

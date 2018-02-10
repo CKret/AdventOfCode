@@ -24,7 +24,7 @@ namespace AdventOfCode._2017
                 y += step.Length == 1 ? (step[0] == 'n' ? 2 : -2) : (step[0] == 'n' ? 1 : -1);
                 x += step.Length == 2 ? (step[1] == 'e' ? 1 : -1) : 0;
 
-                Result = Math.Max(((int?) Result) ?? 0, Math.Abs((y - x) / 2 + x));
+                Result = Math.Max((int?) Result ?? 0, Math.Abs((y - x) / 2 + x));
             }
         }
     }
