@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using AdventOfCode.Core;
 
 namespace AdventOfCode._2018
@@ -44,25 +45,18 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
-            var frequencies = new List<int>();
-            var current = 0;
-            while (Result == null)
+            var frequencyDeltas = File.ReadAllLines("2018\\AdventOfCode201801.txt").Select(int.Parse).ToArray();
+            var frequencies = new HashSet<int>();
+
+            int currentFrequency = 0, currentIndex = 0;
+
+            while (frequencies.Add(currentFrequency))
             {
-                foreach (var line in File.ReadAllLines("2018\\AdventOfCode201801.txt"))
-                {
-                    var num = int.Parse(line);
-                    current += num;
-                    if (!frequencies.Contains(current))
-                    {
-                        frequencies.Add(current);
-                    }
-                    else
-                    {
-                        Result = current;
-                        break;
-                    }
-                }
+                currentFrequency += frequencyDeltas[currentIndex];
+                currentIndex = ++currentIndex % frequencyDeltas.Length;
             }
+
+            Result = currentFrequency;
         }
     }
 }

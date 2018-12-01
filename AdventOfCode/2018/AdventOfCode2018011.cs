@@ -38,8 +38,7 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
-            Result = File.ReadAllLines("2018\\AdventOfCode201801.txt")
-                          .Aggregate(0, (total, next) => total += int.Parse(next));
+            Result = File.ReadAllLines("2018\\AdventOfCode201801.txt").Select(int.Parse).Sum();
         }
     }
 }
