@@ -165,9 +165,11 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Compile Include="2018\AdventOfCode2018051.cs" />
     <Compile Include="2018\AdventOfCode2018041.cs" />
     <Compile Include="2018\AdventOfCode2018031.cs" />
     <Compile Include="2018\AdventOfCode2018021.cs" />
+    <Compile Include="2018\AdventOfCode2018052.cs" />
     <Compile Include="2018\AdventOfCode2018042.cs" />
     <Compile Include="2018\AdventOfCode2018032.cs" />
     <Compile Include="2018\AdventOfCode2018022.cs" />
