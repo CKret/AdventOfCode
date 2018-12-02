@@ -165,10 +165,15 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Compile Include="2018\AdventOfCode2018031.cs" />
+    <Compile Include="2018\AdventOfCode2018021.cs" />
+    <Compile Include="2018\AdventOfCode2018032.cs" />
+    <Compile Include="2018\AdventOfCode2018022.cs" />
     <Compile Include="2018\AdventOfCode2018012.cs" />
     <Compile Include="2018\AdventOfCode2018011.cs" />
     <Compile Include="Core\AdventOfCodeBase.cs" />
     <Compile Include="Core\AdventOfCodeAttribute.cs" />
+    <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
     <Compile Include="Mathematics\Cryptography\HashAlgorithm.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\FuncExtensionMethods.cs" />
@@ -268,6 +273,9 @@
     </Content>
     <Content Include="2017\AdventOfCode201720.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201802.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="2018\AdventOfCode201801.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
