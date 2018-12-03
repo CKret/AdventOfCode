@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace AdventOfCode.ExtensionMethods
 {
@@ -26,6 +27,16 @@ namespace AdventOfCode.ExtensionMethods
             }
 
             return d[n, m];
+        }
+
+        public static string ReplaceAll(this string source, string[] tokens, string value)
+        {
+            return tokens.Aggregate(source, (current, token) => current.Replace(token, value));
+        }
+
+        public static string ReplaceAll(this string source, char[] tokens, char value)
+        {
+            return tokens.Aggregate(source, (current, token) => current.Replace(token, value));
         }
     }
 }
