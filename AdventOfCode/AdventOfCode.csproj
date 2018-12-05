@@ -289,6 +289,12 @@
     <Content Include="2018\AdventOfCode201803.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="2018\AdventOfCode201804.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201805.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
     <None Include="App.config" />
     <None Include="packages.config" />

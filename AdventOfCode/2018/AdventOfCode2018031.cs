@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
+using AdventOfCode.ExtensionMethods;
 
 namespace AdventOfCode._2018
 {
@@ -73,7 +74,7 @@ namespace AdventOfCode._2018
         public override void Solve()
         {
             var claims = File.ReadAllLines(@"2018\AdventOfCode201803.txt")
-                             .Select(c => c.Replace("#", "").Replace("@", "").Replace(":", "").Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                             .Select(c => c.ReplaceAll(new[] { "#", "@", ":" }, "").Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
                              .Select(c => new Claim
                              {
                                  Id = int.Parse(c[0]),
