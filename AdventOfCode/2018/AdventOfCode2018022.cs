@@ -7,6 +7,7 @@ namespace AdventOfCode._2018
     /// --- Day 2: Inventory Management System ---
     ///
     /// --- Part Two ---
+    /// 
     /// Confident that your list of box IDs is complete, you're ready to find the
     /// boxes full of prototype fabric.
     /// 

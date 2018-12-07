@@ -165,11 +165,17 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Compile Include="2018\AdventOfCode2018091.cs" />
+    <Compile Include="2018\AdventOfCode2018081.cs" />
+    <Compile Include="2018\AdventOfCode2018071.cs" />
     <Compile Include="2018\AdventOfCode2018061.cs" />
     <Compile Include="2018\AdventOfCode2018051.cs" />
     <Compile Include="2018\AdventOfCode2018041.cs" />
     <Compile Include="2018\AdventOfCode2018031.cs" />
     <Compile Include="2018\AdventOfCode2018021.cs" />
+    <Compile Include="2018\AdventOfCode2018092.cs" />
+    <Compile Include="2018\AdventOfCode2018082.cs" />
+    <Compile Include="2018\AdventOfCode2018072.cs" />
     <Compile Include="2018\AdventOfCode2018062.cs" />
     <Compile Include="2018\AdventOfCode2018052.cs" />
     <Compile Include="2018\AdventOfCode2018042.cs" />
@@ -293,6 +299,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="2018\AdventOfCode201805.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201806.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201807.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
