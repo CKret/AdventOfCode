@@ -66,11 +66,7 @@ namespace AdventOfCode._2018
         {
             var dependencies = File.ReadAllLines(@"2018\AdventOfCode201807.txt")
                                    .Select(line => line.Split(' '))
-                                   .Select(values => new Dependency
-                                   {
-                                       First = values[1][0],
-                                       Second = values[7][0]
-                                   })
+                                   .Select(values => new { First = values[1][0], Second = values[7][0] })
                                    .ToList();
 
             //var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();

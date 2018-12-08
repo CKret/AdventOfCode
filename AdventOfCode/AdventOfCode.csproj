@@ -165,6 +165,10 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Content Include="2018\AdventOfCode201811.txt" />
+    <Content Include="2018\AdventOfCode201810.txt" />
+    <Compile Include="2018\AdventOfCode2018111.cs" />
+    <Compile Include="2018\AdventOfCode2018101.cs" />
     <Compile Include="2018\AdventOfCode2018091.cs" />
     <Compile Include="2018\AdventOfCode2018081.cs" />
     <Compile Include="2018\AdventOfCode2018071.cs" />
@@ -173,6 +177,8 @@
     <Compile Include="2018\AdventOfCode2018041.cs" />
     <Compile Include="2018\AdventOfCode2018031.cs" />
     <Compile Include="2018\AdventOfCode2018021.cs" />
+    <Compile Include="2018\AdventOfCode2018112.cs" />
+    <Compile Include="2018\AdventOfCode2018102.cs" />
     <Compile Include="2018\AdventOfCode2018092.cs" />
     <Compile Include="2018\AdventOfCode2018082.cs" />
     <Compile Include="2018\AdventOfCode2018072.cs" />
@@ -307,6 +313,10 @@
     <Content Include="2018\AdventOfCode201807.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="2018\AdventOfCode201808.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201809.txt" />
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
     <None Include="App.config" />
     <None Include="packages.config" />
