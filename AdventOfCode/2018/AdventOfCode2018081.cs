@@ -75,8 +75,11 @@ namespace AdventOfCode._2018
         {
             var node = new LicenseNode();
 
-            Enumerable.Range(0, data[Index++]).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
-            Enumerable.Range(0, data[Index++]).ForEach(n => node.MetaEntries.Add(data[Index++]));
+            var nNodes = data[Index++];
+            var nMetas = data[Index++];
+
+            Enumerable.Range(0, nNodes).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
+            Enumerable.Range(0, nMetas).ForEach(n => node.MetaEntries.Add(data[Index++]));
 
             return node;
         }
