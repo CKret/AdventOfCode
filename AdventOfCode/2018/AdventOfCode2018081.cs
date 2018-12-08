@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
+using MoreLinq;
 
 namespace AdventOfCode._2018
 {
@@ -59,26 +60,23 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 8, 1, "Memory Maneuver - Part 1", 41926)]
     public class AdventOfCode2018081 : AdventOfCodeBase
     {
+        public static int Index;
+        public static LicenseNode RootNode;
+
         public override void Solve()
         {
             var data = File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse).ToList();
-            var i = 0;
-            Result = ParseNodes(data, ref i).SumMeta();
+            Index = 0;
+            RootNode = ParseNodes(data);
+            Result = RootNode.SumMeta();
         }
 
-        public static LicenseNode ParseNodes(List<int> data, ref int i)
+        public static LicenseNode ParseNodes(List<int> data)
         {
-            var node = new LicenseNode { Header = { NChildNodes = data[i++], NMetaEntries = data[i++] } };
+            var node = new LicenseNode { Header = { NChildNodes = data[Index++], NMetaEntries = data[Index++] } };
 
-            for (var n = 0; n < node.Header.NChildNodes; n++)
-            {
-                node.ChildNodes.Add(ParseNodes(data, ref i));
-            }
-
-            for (var n = 0; n < node.Header.NMetaEntries; n++)
-            {
-                node.MetaEntries.Add(data[i++]);
-            }
+            Enumerable.Range(0, node.Header.NChildNodes).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
+            Enumerable.Range(0, node.Header.NMetaEntries).ForEach(n => node.MetaEntries.Add(data[Index++]));
 
             return node;
         }

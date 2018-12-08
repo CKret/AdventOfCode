@@ -45,9 +45,7 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
-            var data = File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse).ToList();
-            var i = 0;
-            Result = AdventOfCode2018081.ParseNodes(data, ref i).SumNodes();
+            Result = AdventOfCode2018081.RootNode.SumNodes();
         }
     }
 }
