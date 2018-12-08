@@ -68,45 +68,37 @@ namespace AdventOfCode._2018
             var data = File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse).ToList();
             Index = 0;
             RootNode = ParseNodes(data);
-            Result = RootNode.SumMeta();
+            Result = RootNode.SumMetaEntries();
         }
 
         public static LicenseNode ParseNodes(List<int> data)
         {
-            var node = new LicenseNode { Header = { NChildNodes = data[Index++], NMetaEntries = data[Index++] } };
+            var node = new LicenseNode();
 
-            Enumerable.Range(0, node.Header.NChildNodes).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
-            Enumerable.Range(0, node.Header.NMetaEntries).ForEach(n => node.MetaEntries.Add(data[Index++]));
+            Enumerable.Range(0, data[Index++]).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
+            Enumerable.Range(0, data[Index++]).ForEach(n => node.MetaEntries.Add(data[Index++]));
 
             return node;
         }
     }
 
-    public struct LicenseNodeHeader
-    {
-        public int NChildNodes;
-        public int NMetaEntries;
-    }
-
     public class LicenseNode
     {
-        public LicenseNodeHeader Header;
-
         public readonly List<LicenseNode> ChildNodes = new List<LicenseNode>();
         public readonly List<int> MetaEntries = new List<int>();
 
-        public int SumMeta()
+        public int SumMetaEntries()
         {
             var sum = MetaEntries.Sum();
             foreach (var node in ChildNodes)
             {
-                sum += node.SumMeta();
+                sum += node.SumMetaEntries();
             }
 
             return sum;
         }
 
-        public int SumNodes()
+        public int SumNodeValues()
         {
             if (!ChildNodes.Any())
             {
@@ -118,7 +110,7 @@ namespace AdventOfCode._2018
             {
                 if (m <= ChildNodes.Count)
                 {
-                    sum += ChildNodes[m - 1].SumNodes();
+                    sum += ChildNodes[m - 1].SumNodeValues();
                 }
             }
 

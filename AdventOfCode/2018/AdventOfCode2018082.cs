@@ -45,7 +45,7 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
-            Result = AdventOfCode2018081.RootNode.SumNodes();
+            Result = AdventOfCode2018081.RootNode.SumNodeValues();
         }
     }
 }
