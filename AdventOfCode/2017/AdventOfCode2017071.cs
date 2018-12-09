@@ -1,6 +1,8 @@
 ﻿using AdventOfCode.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -81,15 +83,15 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var nodes = new List<Node>();
+            var nodes = new List<RecursiveCircusNode>();
             foreach (var line in File.ReadAllLines("2017\\AdventOfCode201707.txt"))
             {
                 var splits = line.Split(new[] { "->" }, StringSplitOptions.None);
 
-                var node = new Node
-                           {
+                var node = new RecursiveCircusNode
+                {
                                Name = splits[0].Split()[0],
-                               Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'))
+                               Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'), CultureInfo.InvariantCulture)
                            };
 
                 if (splits.Length == 2)
@@ -103,13 +105,24 @@ namespace AdventOfCode._2017
             var children = nodes.Where(n => n.ChildNodes.Count > 0).SelectMany(n => n.ChildNodes);
             Result = nodes.Single(n => !children.Contains(n.Name)).Name;
         }
+    }
 
-        public class Node
+    public class RecursiveCircusNode
+    {
+        public string Name { get; set; }
+        public int Weight { get; set; }
+        public RecursiveCircusNode Parent { get; set; }
+        public List<string> ChildNodes { get; } = new List<string>();
+        public List<RecursiveCircusNode> Children { get; } = new List<RecursiveCircusNode>();
+
+        public int GetTowerWeight()
         {
-            public string Name { get; set; }
-            public int Weight { get; set; }
-            public Node Parent { get; set; }
-            public List<string> ChildNodes { get; } = new List<string>();
+            return Weight + Children.Select(c => c.GetTowerWeight()).Sum();
+        }
+
+        public List<int> GetChildWeights()
+        {
+            return Children.Select(c => c.GetTowerWeight()).ToList();
         }
     }
 }

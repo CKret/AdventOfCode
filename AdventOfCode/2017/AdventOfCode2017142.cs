@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.Mathematics.Cryptography;
@@ -41,6 +42,7 @@ namespace AdventOfCode._2017
     [AdventOfCode(2017, 14, 2, "Disk Defragmentation - Part 2", 1141)]
     public class AdventOfCode2017142 : AdventOfCodeBase
     {
+        [SuppressMessage("Microsoft.Performance", "CA1814")]
         public override void Solve()
         {
             const string input = "uugsqrei";
@@ -64,6 +66,7 @@ namespace AdventOfCode._2017
                 .ToArray();
         }
 
+        [SuppressMessage("Microsoft.Performance", "CA1814")]
         private void PaintRegion(int x, int y, string[] grid, bool[,] visited)
         {
             if (visited[x, y]) return;

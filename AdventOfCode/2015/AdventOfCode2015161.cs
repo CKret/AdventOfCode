@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -16,12 +17,12 @@ namespace AdventOfCode._2015
                 .Select(s => s.Split())
                 .Select(i => new
                 {
-                    Id = int.Parse(i[1].Trim(':')),
+                    Id = int.Parse(i[1].Trim(':'), CultureInfo.InvariantCulture),
                     Items = new Dictionary<string, int>
                     {
-                        { i[2].Trim(':'), int.Parse(i[3].Trim(',')) },
-                        { i[4].Trim(':'), int.Parse(i[5].Trim(',')) },
-                        { i[6].Trim(':'), int.Parse(i[7].Trim(',')) }
+                        { i[2].Trim(':'), int.Parse(i[3].Trim(','), CultureInfo.InvariantCulture) },
+                        { i[4].Trim(':'), int.Parse(i[5].Trim(','), CultureInfo.InvariantCulture) },
+                        { i[6].Trim(':'), int.Parse(i[7].Trim(','), CultureInfo.InvariantCulture) }
                     }
                 });
 

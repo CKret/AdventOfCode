@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -24,17 +26,18 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 3, 2, "No Matter How You Slice It - Part 2", 552)]
     public class AdventOfCode2018032 : AdventOfCodeBase
     {
+        [SuppressMessage("Microsoft.Performance", "CA1814")]
         public override void Solve()
         {
             var claims = File.ReadAllLines(@"2018\AdventOfCode201803.txt")
                              .Select(c => c.ReplaceAll(new[] {"#", "@", ":"}, "").Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
                              .Select(c => new Claim
                              {
-                                 Id = int.Parse(c[0]),
-                                 Left = int.Parse(c[1].Split(',')[0]),
-                                 Top = int.Parse(c[1].Split(',')[1]),
-                                 Width = int.Parse(c[2].Split('x')[0]),
-                                 Height = int.Parse(c[2].Split('x')[1])
+                                 Id = int.Parse(c[0], CultureInfo.InvariantCulture),
+                                 Left = int.Parse(c[1].Split(',')[0], CultureInfo.InvariantCulture),
+                                 Top = int.Parse(c[1].Split(',')[1], CultureInfo.InvariantCulture),
+                                 Width = int.Parse(c[2].Split('x')[0], CultureInfo.InvariantCulture),
+                                 Height = int.Parse(c[2].Split('x')[1], CultureInfo.InvariantCulture)
                              })
                              .ToList();
 

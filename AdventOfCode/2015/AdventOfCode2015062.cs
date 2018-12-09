@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 
@@ -41,12 +42,12 @@ namespace AdventOfCode._2015
                 }
 
                 var coords = instructions[1 + offset].Split(',');
-                var startX = int.Parse(coords[0]);
-                var startY = int.Parse(coords[1]);
+                var startX = int.Parse(coords[0], CultureInfo.InvariantCulture);
+                var startY = int.Parse(coords[1], CultureInfo.InvariantCulture);
 
                 coords = instructions[3 + offset].Split(',');
-                var endX = int.Parse(coords[0]);
-                var endY = int.Parse(coords[1]);
+                var endX = int.Parse(coords[0], CultureInfo.InvariantCulture);
+                var endY = int.Parse(coords[1], CultureInfo.InvariantCulture);
 
                 for (var y = startY; y <= endY; y++)
                 {

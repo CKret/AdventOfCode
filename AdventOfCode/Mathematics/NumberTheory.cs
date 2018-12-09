@@ -1,16 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Mathematics
 {
-    public struct PrimeFactor
+    public struct PrimeFactor : IEquatable<PrimeFactor>
     {
-        public int Base;
-        public int Exponent;
+        public int Base { get; set; }
+        public int Exponent { get; set; }
+
+        public override int GetHashCode() => Base ^ Exponent;
+
+        public override bool Equals(object obj)
+        {
+            return obj is PrimeFactor pf && Equals(pf);
+        }
+
+        public bool Equals(PrimeFactor other)
+        {
+            if (Base != other.Base) return false;
+            return Exponent == other.Exponent;
+        }
+
+        public static bool operator ==(PrimeFactor pf1, PrimeFactor pf2)
+        {
+            return pf1.Equals(pf2);
+        }
+
+        public static bool operator !=(PrimeFactor pf1, PrimeFactor pf2)
+        {
+            return !pf1.Equals(pf2);
+        }
     }
 
     public static class NumberTheory
@@ -22,7 +44,7 @@ namespace AdventOfCode.Mathematics
 
         public static long SumOfDivisors(this long number)
         {
-            if (number < 1 || number > Int32.MaxValue) throw new ArgumentException("Number must be greater than 0 and less or equal to Int32.MaxValue", "number");
+            if (number < 1 || number > Int32.MaxValue) throw new ArgumentException("Number must be greater than 0 and less or equal to Int32.MaxValue", nameof(number));
             if (sumOfDivisors.ContainsKey(number)) return sumOfDivisors[number];
 
             var sum = 1L;
@@ -38,7 +60,7 @@ namespace AdventOfCode.Mathematics
 
         public static long SumOfProperDivisors(this long number)
         {
-            if (number < 1 || number > Int32.MaxValue) throw new ArgumentException("Number must be greater than 0 and less or equal to Int32.MaxValue", "number");
+            if (number < 1 || number > Int32.MaxValue) throw new ArgumentException("Number must be greater than 0 and less or equal to Int32.MaxValue", nameof(number));
             if (sumOfProperDivisors.ContainsKey(number)) return sumOfProperDivisors[number];
 
             var sum = 1L;
@@ -106,23 +128,23 @@ namespace AdventOfCode.Mathematics
 
         public static long NextPermutation(this long num)
         {
-            var s = num.ToString();
+            var s = num.ToString(CultureInfo.InvariantCulture);
             var numList = new int[s.Length];
             for (var i = 0; i < s.Length; i++)
             {
-                numList[i] = Int32.Parse(s[i].ToString());
+                numList[i] = int.Parse(s[i].ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
             }
 
             if (!NextPermutation(numList)) return 0;
 
-            s = String.Empty;
+            s = string.Empty;
             foreach (var n in numList)
             {
-                s += n.ToString();
+                s += n.ToString(CultureInfo.InvariantCulture);
             }
 
 
-            return Int32.Parse(s);
+            return int.Parse(s, CultureInfo.InvariantCulture);
         }
 
         public static bool NextPermutation(this int[] numList)
@@ -178,8 +200,8 @@ namespace AdventOfCode.Mathematics
 
         public static bool IsPermutation(this long a, long b)
         {
-            var str1 = a.ToString().ToCharArray();
-            var str2 = b.ToString().ToCharArray();
+            var str1 = a.ToString(CultureInfo.InvariantCulture).ToCharArray();
+            var str2 = b.ToString(CultureInfo.InvariantCulture).ToCharArray();
 
             if (str1.Length != str2.Length)
                 return false;
@@ -292,7 +314,7 @@ namespace AdventOfCode.Mathematics
         };
 
             // split integer string into array and reverse array
-            var intArr = number.ToString().Reverse().ToArray();
+            var intArr = number.ToString(CultureInfo.InvariantCulture).Reverse().ToArray();
             var romanNumeral = "";
             var i = intArr.Length;
 
@@ -301,7 +323,7 @@ namespace AdventOfCode.Mathematics
             // and add it to the final roman numeral string
             while (i-- > 0)
             {
-                romanNumeral += romanNumerals[i][Int32.Parse(intArr[i].ToString())];
+                romanNumeral += romanNumerals[i][int.Parse(intArr[i].ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture)];
             }
 
             return romanNumeral;
@@ -322,7 +344,7 @@ namespace AdventOfCode.Mathematics
             {
                 while (numeral.IndexOf(pair.Key, StringComparison.Ordinal) == 0)
                 {
-                    result += Int32.Parse(pair.Value.ToString());
+                    result += int.Parse(pair.Value.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
                     numeral = numeral.Substring(pair.Key.Length);
                 }
             }

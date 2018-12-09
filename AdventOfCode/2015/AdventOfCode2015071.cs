@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -28,7 +29,7 @@ namespace AdventOfCode._2015
 
         ushort EvalInput(string wire)
         {
-            ushort Eval(string x) => char.IsLetter(x[0]) ? EvalInput(x) : ushort.Parse(x);
+            ushort Eval(string x) => char.IsLetter(x[0]) ? EvalInput(x) : ushort.Parse(x, CultureInfo.InvariantCulture);
             ushort Assign(string[] x) => Eval(x[0]);
             ushort And(string[] x) => (ushort) (Eval(x[0]) & Eval(x[2]));
             ushort Or(string[] x) => (ushort) (Eval(x[0]) | Eval(x[2]));
@@ -62,7 +63,7 @@ namespace AdventOfCode._2015
                     break;
             }
 
-            instructions[wire] = new[] { value.ToString(), "->", wire };
+            instructions[wire] = new[] { value.ToString(CultureInfo.InvariantCulture), "->", wire };
             return value;
         }
     }

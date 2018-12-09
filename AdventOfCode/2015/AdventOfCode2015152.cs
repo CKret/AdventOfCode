@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 
@@ -15,7 +16,7 @@ namespace AdventOfCode._2015
                  .Select(ingredient => new
                  {
                      Ingredient = ingredient[0],
-                     Properties = ingredient[1].Split(',').Select(p => p.Trim().Split(' ')).ToDictionary(q => q[0], q => int.Parse(q[1]))
+                     Properties = ingredient[1].Split(',').Select(p => p.Trim().Split(' ')).ToDictionary(q => q[0], q => int.Parse(q[1], CultureInfo.InvariantCulture))
                  }).ToList();
 
             var max = 0L;

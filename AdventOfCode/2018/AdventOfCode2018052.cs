@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using AdventOfCode.Core;
 using AdventOfCode.ExtensionMethods;
 
@@ -35,7 +36,7 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 5, 2, "Alchemical Reduction - Part 2", 6650)]
     public class AdventOfCode2018052 : AdventOfCodeBase
     {
-        private readonly char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        private readonly char[] letters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
 
         public override void Solve()
         {
@@ -44,7 +45,7 @@ namespace AdventOfCode._2018
 
             foreach (var c in letters)
             {
-                var current = data.ReplaceAll(new [] {c.ToString(), c.ToString().ToLower() }, "");
+                var current = data.ReplaceAll(new [] {c.ToString(CultureInfo.InvariantCulture), c.ToString(CultureInfo.InvariantCulture).ToUpperInvariant() }, "");
                 current = React(current);
 
                 if (current.Length < shortest)

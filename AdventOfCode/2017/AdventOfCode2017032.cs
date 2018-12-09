@@ -67,7 +67,7 @@ namespace AdventOfCode._2017
             return spiral[(x, y)];
         }
 
-        public void CalculateNode(int x, int y, Dictionary<(int, int), int> spiral)
+        public static void CalculateNode(int x, int y, Dictionary<(int, int), int> spiral)
         {
             spiral.Add((x, y), 0);
 

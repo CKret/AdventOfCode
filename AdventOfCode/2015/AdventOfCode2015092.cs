@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -21,7 +22,7 @@ namespace AdventOfCode._2015
         {
             var distances = File.ReadAllLines("2015/AdventOfCode201509.txt")
                 .Select(s => Regex.Match(s, @"^(\w+) to (\w+) = (\d+)").Groups)
-                .Select(g => new { From = g[1].Value, To = g[2].Value, Distance = int.Parse(g[3].Value) })
+                .Select(g => new { From = g[1].Value, To = g[2].Value, Distance = int.Parse(g[3].Value, CultureInfo.InvariantCulture) })
                 .ToList();
 
             var places = distances.SelectMany(d => new[] { d.From, d.To }).Distinct().ToList();

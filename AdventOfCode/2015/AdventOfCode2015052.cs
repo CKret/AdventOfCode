@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -22,7 +23,7 @@ namespace AdventOfCode._2015
 
             for (var a = 'a'; a <= 'z'; a++)
                 for (var b = 'a'; b <= 'z'; b++)
-                    doubles.Add(a.ToString() + b);
+                    doubles.Add(a.ToString(CultureInfo.InvariantCulture) + b);
 
             var sum = 0;
             foreach (var line in File.ReadAllLines("2015/AdventOfCode201505.txt"))

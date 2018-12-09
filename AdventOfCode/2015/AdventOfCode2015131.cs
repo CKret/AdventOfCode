@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -26,7 +27,7 @@ namespace AdventOfCode._2015
                 var value = splits[3];
                 var toWhom = splits[10].TrimEnd('.');
 
-                var realValue = plusOrMinus == "gain" ? int.Parse(value) : -int.Parse(value);
+                var realValue = plusOrMinus == "gain" ? int.Parse(value, CultureInfo.InvariantCulture) : -int.Parse(value, CultureInfo.InvariantCulture);
 
                 data.Add(new Tuple<string, string, int>(who, toWhom, realValue));
 

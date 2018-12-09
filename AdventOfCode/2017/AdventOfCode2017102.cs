@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.Mathematics.Cryptography;
@@ -78,6 +79,7 @@ namespace AdventOfCode._2017
     [AdventOfCode(2017, 10, 2, "Knot Hash - Part Two", "a7af2706aa9a09cf5d848c1e6605dd2a")]
     public class AdventOfCode2017102 : AdventOfCodeBase
     {
+        [SuppressMessage("Microsoft.Globalization", "CA1308")]
         public override void Solve()
         {
             var dense = HashAlgorithm.KnotHash("34,88,2,222,254,93,150,0,199,255,39,32,137,136,1,167").ToArray();

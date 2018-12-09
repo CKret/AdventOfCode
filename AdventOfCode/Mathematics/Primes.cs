@@ -6,20 +6,21 @@ namespace AdventOfCode.Mathematics
     public static class Primes
     {
         private const int maxLimit = 40000000;
-        private static readonly bool[] primes;
-        static Primes()
+        private static readonly bool[] primes = InitializeSieve();
+
+        private static bool[] InitializeSieve()
         {
             // Eratosthenes Sieve
-            primes = new bool[maxLimit];
-            for (var i = 0; i < maxLimit; i++)
-                primes[i] = true;
-            primes[0] = primes[1] = false;              // 0 and 1 are not primes.
+            var p = new bool[maxLimit];
+            for (var i = 0; i < maxLimit; i++) p[i] = true;
+            p[0] = p[1] = false; // 0 and 1 are not primes.
 
             for (long i = 2; i < maxLimit; i++)
             {
-                for (var j = i * i; j < maxLimit; j += i)
-                    primes[j] = false;
+                for (var j = i * i; j < maxLimit; j += i) p[j] = false;
             }
+
+            return p;
         }
 
         public static IEnumerable<long> Sequence()
@@ -49,7 +50,7 @@ namespace AdventOfCode.Mathematics
             return primes[number];
         }
 
-        public static bool IsPrime_MillerRabin(this long number)
+        public static bool IsPrimeMillerRabin(this long number)
         {
             if (number <= 1) return false;
             if (number == 2) return true;

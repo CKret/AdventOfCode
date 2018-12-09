@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Core;
@@ -14,7 +15,7 @@ namespace AdventOfCode._2015
         public override void Solve()
         {
             var input = File.ReadAllText("2015/AdventOfCode201512.txt");
-            Result = Regex.Matches(input, @"[+-]?\d+").Cast<Match>().Select(m => int.Parse(m.Value)).ToArray().Sum();
+            Result = Regex.Matches(input, @"[+-]?\d+").Cast<Match>().Select(m => int.Parse(m.Value, CultureInfo.InvariantCulture)).ToArray().Sum();
         }
     }
 }

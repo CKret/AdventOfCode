@@ -30,6 +30,6 @@ namespace AdventOfCode._2015
 
         internal long GetSum(JArray arr, string avoid) => arr.Sum((dynamic a) => (long) GetSum(a, avoid));
 
-        internal long GetSum(JValue val, string avoid) => val.Type == JTokenType.Integer ? (long) val.Value : 0;
+        internal static long GetSum(JValue val, string avoid) => val.Type == JTokenType.Integer ? (long) val.Value : 0;
     }
 }

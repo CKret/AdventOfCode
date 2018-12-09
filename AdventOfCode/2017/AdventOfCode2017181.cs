@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using AdventOfCode.Core;
 
@@ -95,7 +96,7 @@ namespace AdventOfCode._2017
                 switch (instr)
                 {
                     case "snd":
-                        if (int.TryParse(opA, out var val)) currentSound = int.Parse(opA);
+                        if (int.TryParse(opA, out var val)) currentSound = int.Parse(opA, CultureInfo.InvariantCulture);
                         else currentSound = registers[opA];
                         break;
                     case "set":

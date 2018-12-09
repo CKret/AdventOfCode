@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Core;
+﻿using System.Globalization;
+using AdventOfCode.Core;
 
 namespace AdventOfCode._2017
 {
@@ -46,15 +47,15 @@ namespace AdventOfCode._2017
         public override void Solve()
         {
             // Create all nodes.
-            var nodes = new List<Node>();
+            var nodes = new List<RecursiveCircusNode>();
             foreach (var line in File.ReadAllLines("2017\\AdventOfCode201707.txt"))
             {
                 var splits = line.Split(new[] { "->" }, StringSplitOptions.None);
 
-                var node = new Node
+                var node = new RecursiveCircusNode
                 {
                     Name = splits[0].Split()[0],
-                    Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'))
+                    Weight = int.Parse(splits[0].Split()[1].Trim().Trim('(', ')'), CultureInfo.InvariantCulture)
                 };
 
                 if (splits.Length == 2)
@@ -97,26 +98,6 @@ namespace AdventOfCode._2017
                 lastDiff = diff;
                 var unique = childWeights.Single(n => childWeights.Count(m => m == n) == 1);
                 currentNode = currentNode.Children.Single(n => n.GetTowerWeight() == unique);
-            }
-        }
-
-        public class Node
-        {
-            public string Name { get; set; }
-            public int Weight { get; set; }
-            public int TowerWeight { get; set; }
-            public Node Parent { get; set; }
-            public List<string> ChildNodes { get; } = new List<string>();
-            public List<Node> Children { get; } = new List<Node>();
-
-            public int GetTowerWeight()
-            {
-                return Weight + Children.Select(c => c.GetTowerWeight()).Sum();
-            }
-
-            public List<int> GetChildWeights()
-            {
-                return Children.Select(c => c.GetTowerWeight()).ToList();
             }
         }
     }

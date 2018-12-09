@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -19,7 +20,7 @@ namespace AdventOfCode._2015
                 .Select(i => i.Split(' '))
                 .ToDictionary(i => i.Last());
 
-            var val = EvalInput("a").ToString();
+            var val = EvalInput("a").ToString(CultureInfo.InvariantCulture);
 
             instructions = File.ReadAllLines("2015/AdventOfCode201507.txt")
                 .Select(i => i.Split(' '))
@@ -32,7 +33,7 @@ namespace AdventOfCode._2015
 
         ushort EvalInput(string wire)
         {
-            ushort Eval(string x) => char.IsLetter(x[0]) ? EvalInput(x) : ushort.Parse(x);
+            ushort Eval(string x) => char.IsLetter(x[0]) ? EvalInput(x) : ushort.Parse(x, CultureInfo.InvariantCulture);
             ushort Assign(string[] x) => Eval(x[0]);
             ushort And(string[] x) => (ushort)(Eval(x[0]) & Eval(x[2]));
             ushort Or(string[] x) => (ushort)(Eval(x[0]) | Eval(x[2]));
@@ -62,11 +63,11 @@ namespace AdventOfCode._2015
                     break;
                 default:
                     if (currentInstruction[0] == "NOT") value = Not(currentInstruction);
-                    else throw new InvalidDataException("Unrecognised command");
+                    else throw new InvalidDataException("Unrecognized command");
                     break;
             }
 
-            instructions[wire] = new[] { value.ToString(), "->", wire };
+            instructions[wire] = new[] { value.ToString(CultureInfo.InvariantCulture), "->", wire };
             return value;
         }
     }

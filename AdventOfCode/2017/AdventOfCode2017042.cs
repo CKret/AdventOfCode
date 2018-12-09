@@ -70,7 +70,7 @@ namespace AdventOfCode._2017
             var str1 = string.Join("", arr1);
             var str2 = string.Join("", arr2);
 
-            return str1.Equals(str2);
+            return str1.Equals(str2, StringComparison.InvariantCulture);
         }
     }
 }

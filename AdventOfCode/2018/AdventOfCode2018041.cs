@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -105,17 +106,17 @@ namespace AdventOfCode._2018
             foreach (var line in input)
             {
                 var current = line.ReplaceAll(new[] { "[", "]", "#" }, "").Split(' ');
-                var currentDate = DateTime.Parse(current[0] + " " + current[1]);
+                var currentDate = DateTime.Parse(current[0] + " " + current[1], CultureInfo.InvariantCulture);
                 sorted.Add(currentDate, line);
             }
 
             foreach (var line in sorted.Values)
             {
                 var current = line.ReplaceAll(new[] { "[", "]", "#" }, "").Split(' ');
-                var currentDate = DateTime.Parse(current[0] + " " + current[1]);
+                var currentDate = DateTime.Parse(current[0] + " " + current[1], CultureInfo.InvariantCulture);
                 if (current[2] == "Guard")
                 {
-                    var id = int.Parse(current[3]);
+                    var id = int.Parse(current[3], CultureInfo.InvariantCulture);
                     if (guards.All(g => g.Id != id))
                     {
                         currentGuard = new Guard { Id = id };
@@ -167,7 +168,7 @@ namespace AdventOfCode._2018
             }
 
             var maxMinute = maxGuard.SleepMinutes.Max();
-            var index = Array.IndexOf(maxGuard.SleepMinutes, maxMinute);
+            var index = maxGuard.SleepMinutes.IndexOf(maxMinute);
 
             Result = maxGuard.Id * index;
         }
@@ -175,11 +176,11 @@ namespace AdventOfCode._2018
 
     public class Guard
     {
-        public int Id;
-        public List<DateTime?> ShiftStarts = new List<DateTime?>();
-        public List<DateTime?> FallsAsleep = new List<DateTime?>();
-        public List<DateTime?> WakesUp = new List<DateTime?>();
-        public List<TimeSpan> SleepTimes = new List<TimeSpan>();
-        public int[] SleepMinutes = new int[60];
+        public int Id { get; set; }
+        public List<DateTime?> ShiftStarts { get; } = new List<DateTime?>();
+        public List<DateTime?> FallsAsleep { get; } = new List<DateTime?>();
+        public List<DateTime?> WakesUp { get; } = new List<DateTime?>();
+        public List<TimeSpan> SleepTimes { get; } = new List<TimeSpan>();
+        public List<int> SleepMinutes { get; } = Enumerable.Repeat(0, 60).ToList();
     }
 }

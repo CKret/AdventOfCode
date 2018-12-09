@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Core;
@@ -13,7 +14,7 @@ namespace AdventOfCode._2015
         public override void Solve()
         {
             var maxSeconds = 2503;
-            var reindeer = File.ReadAllLines("2015/AdventOfCode201514.txt").Select(line => Regex.Matches(line, @"[+-]?\d+").Cast<Match>().Select(x => int.Parse(x.Value)).ToArray()).ToList();
+            var reindeer = File.ReadAllLines("2015/AdventOfCode201514.txt").Select(line => Regex.Matches(line, @"[+-]?\d+").Cast<Match>().Select(x => int.Parse(x.Value, CultureInfo.InvariantCulture)).ToArray()).ToList();
 
             var distance = reindeer.Select(r => new int[3]).ToList();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -36,17 +37,17 @@ namespace AdventOfCode._2018
             foreach (var line in input)
             {
                 var current = line.ReplaceAll(new[] { "[", "]", "#" }, "").Split(' ');
-                var currentDate = DateTime.Parse(current[0] + " " + current[1]);
+                var currentDate = DateTime.Parse(current[0] + " " + current[1], CultureInfo.InvariantCulture);
                 sorted.Add(currentDate, line);
             }
 
             foreach (var line in sorted.Values)
             {
                 var current = line.ReplaceAll(new[] { "[", "]", "#" }, "").Split(' ');
-                var currentDate = DateTime.Parse(current[0] + " " + current[1]);
+                var currentDate = DateTime.Parse(current[0] + " " + current[1], CultureInfo.InvariantCulture);
                 if (current[2] == "Guard")
                 {
-                    var id = int.Parse(current[3]);
+                    var id = int.Parse(current[3], CultureInfo.InvariantCulture);
                     if (guards.All(g => g.Id != id))
                     {
                         currentGuard = new Guard { Id = id };
@@ -98,7 +99,7 @@ namespace AdventOfCode._2018
             }
 
             var maxMinute = maxGuard.SleepMinutes.Max();
-            var index = Array.IndexOf(maxGuard.SleepMinutes, maxMinute);
+            var index = maxGuard.SleepMinutes.IndexOf(maxMinute);
 
             Result = maxGuard.Id * index;
         }

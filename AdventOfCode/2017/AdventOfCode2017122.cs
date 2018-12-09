@@ -63,26 +63,5 @@ namespace AdventOfCode._2017
             }
             Result = groups.Count;
         }
-
-        public class Node
-        {
-            public string Name { get; set; }
-            public List<string> ChildNodes { get; } = new List<string>();
-            public List<Node> Children { get; } = new List<Node>();
-
-            public static List<Node> GetGroup(List<Node> group, Node current)
-            {
-                group.Add(current);
-                foreach (var child in current.Children)
-                {
-                    if (!group.Contains(child))
-                    {
-                        group = GetGroup(group, child);
-                    }
-                }
-
-                return group;
-            }
-        }
     }
 }

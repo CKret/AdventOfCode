@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -80,19 +81,19 @@ namespace AdventOfCode._2017
                 var particleData = lines[i].Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
 
                 var splits = particleData[0].Split(',');
-                var x = int.Parse(splits[0].TrimStart('p', '=', '<'));
-                var y = int.Parse(splits[1]);
-                var z = int.Parse(splits[2].TrimEnd('>'));
+                var x = int.Parse(splits[0].TrimStart('p', '=', '<'), CultureInfo.InvariantCulture);
+                var y = int.Parse(splits[1], CultureInfo.InvariantCulture);
+                var z = int.Parse(splits[2].TrimEnd('>'), CultureInfo.InvariantCulture);
 
                 splits = particleData[1].Split(',');
-                var vx = int.Parse(splits[0].TrimStart('v', '=', '<'));
-                var vy = int.Parse(splits[1]);
-                var vz = int.Parse(splits[2].TrimEnd('>'));
+                var vx = int.Parse(splits[0].TrimStart('v', '=', '<'), CultureInfo.InvariantCulture);
+                var vy = int.Parse(splits[1], CultureInfo.InvariantCulture);
+                var vz = int.Parse(splits[2].TrimEnd('>'), CultureInfo.InvariantCulture);
 
                 splits = particleData[2].Split(',');
-                var ax = int.Parse(splits[0].TrimStart('a', '=', '<'));
-                var ay = int.Parse(splits[1]);
-                var az = int.Parse(splits[2].TrimEnd('>'));
+                var ax = int.Parse(splits[0].TrimStart('a', '=', '<'), CultureInfo.InvariantCulture);
+                var ay = int.Parse(splits[1], CultureInfo.InvariantCulture);
+                var az = int.Parse(splits[2].TrimEnd('>'), CultureInfo.InvariantCulture);
 
                 var particle = new Particle { Id = i, X = x, Y = y, Z = z, VelX = vx, VelY = vy, VelZ = vz, AccX = ax, AccY = ay, AccZ = az };
                 particles.Add(particle);
@@ -101,51 +102,52 @@ namespace AdventOfCode._2017
             return particles;
         }
 
-        public class Particle
+    }
+
+    public class Particle
+    {
+        public int Id { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+
+        public int VelX { get; set; }
+        public int VelY { get; set; }
+        public int VelZ { get; set; }
+
+        public int AccX { get; set; }
+        public int AccY { get; set; }
+        public int AccZ { get; set; }
+
+        public void Move()
         {
-            public int Id { get; set; }
-            public int X { get; set; }
-            public int Y { get; set; }
-            public int Z { get; set; }
+            VelX += AccX;
+            VelY += AccY;
+            VelZ += AccZ;
 
-            public int VelX { get; set; }
-            public int VelY { get; set; }
-            public int VelZ { get; set; }
+            X += VelX;
+            Y += VelY;
+            Z += VelZ;
+        }
 
-            public int AccX { get; set; }
-            public int AccY { get; set; }
-            public int AccZ { get; set; }
+        public int GetManhattanDistance(int x = 0, int y = 0, int z = 0)
+        {
+            return GetManhattanDistance(new Particle { X = x, Y = y, Z = z });
+        }
 
-            public void Move()
-            {
-                VelX += AccX;
-                VelY += AccY;
-                VelZ += AccZ;
+        public int GetManhattanDistance(Particle p)
+        {
+            return Math.Abs(X - p.X) + Math.Abs(Y - p.Y) + Math.Abs(Z - p.Z);
+        }
 
-                X += VelX;
-                Y += VelY;
-                Z += VelZ;
-            }
+        public int GetManhattanAcceleration()
+        {
+            return Math.Abs(AccX) + Math.Abs(AccY) + Math.Abs(AccZ);
+        }
 
-            public int GetManhattanDistance(int x = 0, int y = 0, int z = 0)
-            {
-                return GetManhattanDistance(new Particle { X = x, Y = y, Z = z });
-            }
-
-            public int GetManhattanDistance(Particle p)
-            {
-                return Math.Abs(X - p.X) + Math.Abs(Y - p.Y) + Math.Abs(Z - p.Z);
-            }
-
-            public int GetManhattanAcceleration()
-            {
-                return Math.Abs(AccX) + Math.Abs(AccY) + Math.Abs(AccZ);
-            }
-
-            public bool ComparePosition(Particle other)
-            {
-                return X == other.X && Y == other.Y && Z == other.Z;
-            }
+        public bool ComparePosition(Particle other)
+        {
+            return X == other.X && Y == other.Y && Z == other.Z;
         }
     }
 }

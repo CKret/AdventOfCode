@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -179,6 +180,7 @@ namespace AdventOfCode._2017
             return string.Join("/", newRows);
         }
 
+        [SuppressMessage("Microsoft.Performance", "CA1814")]
         public static string Rotate(string grid)
         {
             var rows = grid.Split('/');

@@ -59,16 +59,23 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 8, 1, "Memory Maneuver - Part 1", 41926)]
     public class AdventOfCode2018081 : AdventOfCodeBase
     {
-        public static LicenseNode RootNode;
+        public static LicenseNode RootNode { get; private set; }
 
         public override void Solve()
         {
             var nodeQueue = new Queue<int>(File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse));
-            RootNode = ParseNode(nodeQueue);
+            RootNode = LicenseNode.ParseNode(nodeQueue);
             Result = RootNode.SumMetaEntries;
         }
 
-        public LicenseNode ParseNode(Queue<int> nodeQueue)
+    }
+
+    public class LicenseNode
+    {
+        public List<LicenseNode> ChildNodes { get; private set; }
+        public List<int> MetaEntries { get; private set; }
+
+        public static LicenseNode ParseNode(Queue<int> nodeQueue)
         {
             var nNodes = nodeQueue.Dequeue();
             var nMetas = nodeQueue.Dequeue();
@@ -79,12 +86,6 @@ namespace AdventOfCode._2018
                 MetaEntries = Enumerable.Range(0, nMetas).Select(m => nodeQueue.Dequeue()).ToList()
             };
         }
-    }
-
-    public class LicenseNode
-    {
-        public List<LicenseNode> ChildNodes;
-        public List<int> MetaEntries;
 
         public int SumMetaEntries => MetaEntries.Sum() + ChildNodes.Sum(node => node.SumMetaEntries);
 

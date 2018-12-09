@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
 using System.Text;
 using AdventOfCode.Core;
 
@@ -18,6 +19,7 @@ namespace AdventOfCode._2015
     [AdventOfCode(2015, 4, 2, "Find MD5 hashes which, in hexadecimal, start with at least six zeroes.", 1038736)]
     public class AdventOfCode2015042 : AdventOfCodeBase
     {
+        [SuppressMessage("Microsoft.Cryptography", "CA5351")]
         public override void Solve()
         {
             var key = "bgvyzdsv";

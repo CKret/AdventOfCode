@@ -1,6 +1,7 @@
 ﻿using AdventOfCode.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -54,10 +55,10 @@ namespace AdventOfCode._2017
                 var splits = line.Split();
                 var reg = splits[0];
                 var instr = splits[1];
-                var value = int.Parse(splits[2]);
+                var value = int.Parse(splits[2], CultureInfo.InvariantCulture);
                 var otherReg = splits[4];
                 var compare = splits[5];
-                var compareValue = int.Parse(splits[6]);
+                var compareValue = int.Parse(splits[6], CultureInfo.InvariantCulture);
 
                 if (!registers.ContainsKey(reg))
                     registers.Add(reg, 0);

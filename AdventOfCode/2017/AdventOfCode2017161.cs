@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
@@ -93,14 +94,14 @@ namespace AdventOfCode._2017
                 if (command[0] == 's')
                 {
                     var count = string.Join("", command.Split('/')[0].Skip(1));
-                    yield return new Tuple<char, object, object>(command[0], int.Parse(count), null);
+                    yield return new Tuple<char, object, object>(command[0], int.Parse(count, CultureInfo.InvariantCulture), null);
 
                 }
                 else if (command[0] == 'x')
                 {
                     var p1 = string.Join("", command.Split('/')[0].Skip(1));
                     var p2 = string.Join("", command.Split('/')[1]);
-                    yield return new Tuple<char, object, object>(command[0], int.Parse(p1), int.Parse(p2));
+                    yield return new Tuple<char, object, object>(command[0], int.Parse(p1, CultureInfo.InvariantCulture), int.Parse(p2, CultureInfo.InvariantCulture));
                 }
                 else if (command[0] == 'p')
                 {

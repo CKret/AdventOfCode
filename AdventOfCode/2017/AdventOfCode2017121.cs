@@ -70,8 +70,7 @@ namespace AdventOfCode._2017
 
                 var node = new Node { Name = splits[0] };
 
-                if (splits.Length == 2)
-                    node.ChildNodes.AddRange(splits[1].Split(new [] {", "}, StringSplitOptions.RemoveEmptyEntries).Where(x => x != node.Name));
+                if (splits.Length == 2) node.ChildNodes.AddRange(splits[1].Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries).Where(x => x != node.Name));
 
                 nodes.Add(node);
             }
@@ -88,34 +87,49 @@ namespace AdventOfCode._2017
                 var past = new List<Node>();
                 total += Node.CountReferences(past, node, "0");
             }
+
             Result = total;
         }
+    }
 
-        public class Node
+    public class Node
+    {
+        public string Name { get; set; }
+        public List<string> ChildNodes { get; } = new List<string>();
+        public List<Node> Children { get; } = new List<Node>();
+
+        public static int CountReferences(List<Node> past, Node current, string nodeName)
         {
-            public string Name { get; set; }
-            public List<string> ChildNodes { get; } = new List<string>();
-            public List<Node> Children { get; } = new List<Node>();
-
-            public static int CountReferences(List<Node> past, Node current, string nodeName)
+            var count = 0;
+            if (current.Name == nodeName)
+                count++;
+            else
             {
-                var count = 0;
-                if (current.Name == nodeName)
-                    count++;
-                else
+                foreach (var child in current.Children)
                 {
-                    foreach (var child in current.Children)
+                    if (!past.Contains(child))
                     {
-                        if (!past.Contains(child))
-                        {
-                            past.Add(child);
-                            count += CountReferences(past, child, nodeName);
-                        }
+                        past.Add(child);
+                        count += CountReferences(past, child, nodeName);
                     }
                 }
-
-                return count;
             }
+
+            return count;
+        }
+
+        public static List<Node> GetGroup(List<Node> group, Node current)
+        {
+            group.Add(current);
+            foreach (var child in current.Children)
+            {
+                if (!group.Contains(child))
+                {
+                    group = GetGroup(group, child);
+                }
+            }
+
+            return group;
         }
     }
 }

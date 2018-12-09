@@ -48,7 +48,7 @@ namespace AdventOfCode._2015
             }
         }
 
-        internal bool DifferentPairs(char[] pass)
+        internal static bool DifferentPairs(char[] pass)
         {
             var pairs = new List<char>();
             for (var i = 0; i < pass.Length - 1; i++)
