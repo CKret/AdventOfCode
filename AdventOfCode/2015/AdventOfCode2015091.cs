@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -28,9 +27,9 @@ namespace AdventOfCode._2015
 
             var places = distances.SelectMany(d => new[] { d.From, d.To }).Distinct().ToList();
 
-            Func<string, string, int> getDistance = (a, b) => distances.FirstOrDefault(d => d.From == a && d.To == b || d.To == a && d.From == b).Distance;
+            int GetDistance(string a, string b) => distances.FirstOrDefault(d => d.From == a && d.To == b || d.To == a && d.From == b).Distance;
 
-            Result = places.Permutations().Select(route => route.Pairwise((from, to) => getDistance(from, to)).Sum()).Min();
+            Result = places.Permutations().Select(route => route.Pairwise(GetDistance).Sum()).Min();
         }
     }
 }
