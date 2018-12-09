@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Linq;
-using AdventOfCode.Core;
+﻿using AdventOfCode.Core;
 
 namespace AdventOfCode._2018
 {
@@ -45,7 +43,7 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
-            Result = AdventOfCode2018081.RootNode.SumNodeValues();
+            Result = AdventOfCode2018081.RootNode.SumNodeValues;
         }
     }
 }

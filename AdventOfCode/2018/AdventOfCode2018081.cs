@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
-using MoreLinq;
 
 namespace AdventOfCode._2018
 {
@@ -60,64 +59,35 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 8, 1, "Memory Maneuver - Part 1", 41926)]
     public class AdventOfCode2018081 : AdventOfCodeBase
     {
-        public static int Index;
         public static LicenseNode RootNode;
 
         public override void Solve()
         {
-            var data = File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse).ToList();
-            Index = 0;
-            RootNode = ParseNodes(data);
-            Result = RootNode.SumMetaEntries();
+            var nodeQueue = new Queue<int>(File.ReadAllText(@"2018\AdventOfCode201808.txt").Split(' ').Select(int.Parse));
+            RootNode = ParseNode(nodeQueue);
+            Result = RootNode.SumMetaEntries;
         }
 
-        public static LicenseNode ParseNodes(List<int> data)
+        public LicenseNode ParseNode(Queue<int> nodeQueue)
         {
-            var node = new LicenseNode();
+            var nNodes = nodeQueue.Dequeue();
+            var nMetas = nodeQueue.Dequeue();
 
-            var nNodes = data[Index++];
-            var nMetas = data[Index++];
-
-            Enumerable.Range(0, nNodes).ForEach(n => node.ChildNodes.Add(ParseNodes(data)));
-            Enumerable.Range(0, nMetas).ForEach(n => node.MetaEntries.Add(data[Index++]));
-
-            return node;
+            return new LicenseNode
+            {
+                ChildNodes = Enumerable.Range(0, nNodes).Select(n => ParseNode(nodeQueue)).ToList(),
+                MetaEntries = Enumerable.Range(0, nMetas).Select(m => nodeQueue.Dequeue()).ToList()
+            };
         }
     }
 
     public class LicenseNode
     {
-        public readonly List<LicenseNode> ChildNodes = new List<LicenseNode>();
-        public readonly List<int> MetaEntries = new List<int>();
+        public IEnumerable<LicenseNode> ChildNodes;
+        public IEnumerable<int> MetaEntries;
 
-        public int SumMetaEntries()
-        {
-            var sum = MetaEntries.Sum();
-            foreach (var node in ChildNodes)
-            {
-                sum += node.SumMetaEntries();
-            }
+        public int SumMetaEntries => MetaEntries.Sum() + ChildNodes.Sum(node => node.SumMetaEntries);
 
-            return sum;
-        }
-
-        public int SumNodeValues()
-        {
-            if (!ChildNodes.Any())
-            {
-                return MetaEntries.Sum();
-            }
-
-            var sum = 0;
-            foreach (var m in MetaEntries)
-            {
-                if (m <= ChildNodes.Count)
-                {
-                    sum += ChildNodes[m - 1].SumNodeValues();
-                }
-            }
-
-            return sum;
-        }
+        public int SumNodeValues => !ChildNodes.Any() ? MetaEntries.Sum() : MetaEntries.Where(m => m <= ChildNodes.Count()).Sum(m => ChildNodes.ElementAt(m - 1).SumNodeValues);
     }
 }
