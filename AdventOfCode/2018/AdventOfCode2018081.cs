@@ -83,11 +83,11 @@ namespace AdventOfCode._2018
 
     public class LicenseNode
     {
-        public IEnumerable<LicenseNode> ChildNodes;
-        public IEnumerable<int> MetaEntries;
+        public List<LicenseNode> ChildNodes;
+        public List<int> MetaEntries;
 
         public int SumMetaEntries => MetaEntries.Sum() + ChildNodes.Sum(node => node.SumMetaEntries);
 
-        public int SumNodeValues => !ChildNodes.Any() ? MetaEntries.Sum() : MetaEntries.Where(m => m <= ChildNodes.Count()).Sum(m => ChildNodes.ElementAt(m - 1).SumNodeValues);
+        public int SumNodeValues => ChildNodes.Any() ? MetaEntries.Where(m => m <= ChildNodes.Count).Sum(m => ChildNodes[m - 1].SumNodeValues) : MetaEntries.Sum();
     }
 }
