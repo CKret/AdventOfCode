@@ -13,5 +13,19 @@ namespace AdventOfCode.ExtensionMethods
 
             return currentNode;
         }
+
+        public static LinkedListNode<T> RemoveGetNext<T>(this LinkedList<T> linkedList, LinkedListNode<T> currentNode)
+        {
+            var nextNode = currentNode.Next;
+            linkedList.Remove(currentNode);
+            return nextNode;
+        }
+
+        public static LinkedListNode<T> RemoveGetPrevious<T>(this LinkedList<T> linkedList, LinkedListNode<T> currentNode)
+        {
+            var previousNode = currentNode.Previous;
+            linkedList.Remove(currentNode);
+            return previousNode;
+        }
     }
 }

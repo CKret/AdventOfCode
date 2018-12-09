@@ -31,12 +31,9 @@ namespace AdventOfCode._2018
             {
                 if (i % 23 == 0)
                 {
-                    scores[i % nPlayers] += i;
                     currentMarble = currentMarble.NthPrevious(7, circle.Last);
-                    scores[i % nPlayers] += currentMarble.Value;
-                    var removeMarble = currentMarble;
-                    currentMarble = currentMarble.Next;
-                    circle.Remove(removeMarble);
+                    scores[i % nPlayers] += i + currentMarble.Value;
+                    currentMarble = circle.RemoveGetNext(currentMarble);
                 }
                 else
                 {
