@@ -195,6 +195,7 @@
     <Compile Include="2018\AdventOfCode2018011.cs" />
     <Compile Include="Core\AdventOfCodeBase.cs" />
     <Compile Include="Core\AdventOfCodeAttribute.cs" />
+    <Compile Include="ExtensionMethods\LinkedListExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
     <Compile Include="Mathematics\Cryptography\HashAlgorithm.cs" />
     <Compile Include="ExtensionMethods\DictionaryExtensionMethods.cs" />
