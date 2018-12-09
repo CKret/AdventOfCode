@@ -9,6 +9,7 @@ namespace AdventOfCode._2018
     {
         public override void Solve()
         {
+
         }
     }
 }
