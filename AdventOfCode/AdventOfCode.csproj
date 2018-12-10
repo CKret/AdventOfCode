@@ -18,6 +18,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +54,7 @@
       <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
@@ -62,6 +64,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.2.0-alpha4\lib\net451\Tesseract.dll</HintPath>
+    </Reference>
     <Reference Include="TypeResolver, Version=2.0.45.102, Culture=neutral, PublicKeyToken=23444c00d7ce1a61, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Binaries\TypeResolver.dll</HintPath>
@@ -171,7 +176,9 @@
     <Compile Include="2017\AdventOfCode2017011.cs" />
     <Content Include="2018\AdventOfCode201812.txt" />
     <Content Include="2018\AdventOfCode201811.txt" />
-    <Content Include="2018\AdventOfCode201810.txt" />
+    <Content Include="2018\AdventOfCode201810.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="2018\AdventOfCode2018121.cs" />
     <Compile Include="2018\AdventOfCode2018111.cs" />
     <Compile Include="2018\AdventOfCode2018101.cs" />
@@ -325,6 +332,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="2018\AdventOfCode201809.txt" />
+    <Content Include="x64\liblept1742.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libtesseract3051.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\liblept1742.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libtesseract3051.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_ExternalDependencies\TypeResolver.dll" />
     <None Include="App.config" />
     <None Include="packages.config" />
