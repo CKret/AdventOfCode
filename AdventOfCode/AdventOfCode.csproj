@@ -174,8 +174,12 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
-    <Content Include="2018\AdventOfCode201812.txt" />
-    <Content Include="2018\AdventOfCode201811.txt" />
+    <Content Include="2018\AdventOfCode201812.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201811.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="2018\AdventOfCode201810.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -40,5 +40,10 @@ namespace AdventOfCode.ExtensionMethods
         {
             return tokens.Aggregate(source, (current, token) => current.Replace(token, value));
         }
+
+        public static string[] Split(this string s, string splitWith, StringSplitOptions options = StringSplitOptions.None)
+        {
+            return s.Split(new[] {splitWith}, options);
+        }
     }
 }
