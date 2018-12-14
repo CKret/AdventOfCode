@@ -10,6 +10,7 @@ namespace AdventOfCode._2018
     /// --- Day 10: The Stars Align ---
     ///
     /// --- Part Two ---
+    /// 
     /// Good thing you didn't have to wait, because that would have taken a long
     /// time - much longer than the 3 seconds in the example above.
     /// 

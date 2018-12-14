@@ -7,8 +7,18 @@ using AdventOfCode.ExtensionMethods;
 namespace AdventOfCode._2018
 {
     /// <summary>
+    /// --- Day 12: Subterranean Sustainability ---
+    /// 
+    /// --- Part Two ---
+    /// 
+    /// You realize that 20 generations aren't enough. After all, these plants will
+    /// need to last another 1500 years to even reach your timeline, not to mention
+    /// your future.
+    /// 
+    /// After fifty billion (50000000000) generations, what is the sum of the
+    /// numbers of all pots which contain a plant?
     /// </summary>
-    [AdventOfCode(2018, 12, 2, "", 1250000000991L)]
+    [AdventOfCode(2018, 12, 2, "Subterranean Sustainability - Part 2", 1250000000991L)]
     public class AdventOfCode2018122 : AdventOfCodeBase
     {
         public override void Solve()
