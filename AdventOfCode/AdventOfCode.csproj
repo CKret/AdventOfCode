@@ -176,6 +176,8 @@
     <Compile Include="2017\AdventOfCode2017022.cs" />
     <Compile Include="2017\AdventOfCode2017012.cs" />
     <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Compile Include="2019\AdventOfCode2019041.cs" />
+    <Compile Include="2019\AdventOfCode2019042.cs" />
     <Compile Include="VMs\IntcodeVM.cs" />
     <Content Include="2018\AdventOfCode201819.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -384,6 +386,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="2018\AdventOfCode201809.txt" />
+    <Content Include="2019\AdventOfCode201904.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="2019\AdventOfCode201903.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
