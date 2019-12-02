@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Security.Policy;
 using AdventOfCode.Core;
 
 namespace AdventOfCode._2015
