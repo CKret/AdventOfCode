@@ -77,37 +77,21 @@ namespace AdventOfCode._2019
             var wire1 = data[0].Split(',');
             var wire2 = data[1].Split(',');
 
+            var grid1 = ParseWire(wire1);
+            var grid2 = ParseWire(wire2);
 
-            var grid1 = new Dictionary<(int, int), int>();
-            var grid2 = new Dictionary<(int, int), int>();
+            var intersections = grid1.Keys.Intersect(grid2.Keys);
+            Result = intersections.Min(p => NumberTheory.ManhattanDistance((0, 0), p));
+        }
+
+        protected Dictionary<(int, int), int> ParseWire(string[] wire)
+        {
+            var grid = new Dictionary<(int, int), int>();
 
             var x = 0;
             var y = 0;
-            foreach(var unit in wire1)
-            {
-                var direction = unit[0];
-                var count = int.Parse(unit.Substring(1));
-
-                switch(direction)
-                {
-                    case 'U':
-                        for (var c = 0; c < count; c++) { grid1.TryAdd((++y, x), c); }
-                        break;
-                    case 'D':
-                        for (var c = 0; c < count; c++) { grid1.TryAdd((--y, x), c); }
-                        break;
-                    case 'L':
-                        for (var c = 0; c < count; c++) { grid1.TryAdd((y, --x), c); }
-                        break;
-                    case 'R':
-                        for (var c = 0; c < count; c++) { grid1.TryAdd((y, ++x), c); }
-                        break;
-                }
-            }
-
-            x = 0;
-            y = 0;
-            foreach (var unit in wire2)
+            var s = 0;
+            foreach (var unit in wire)
             {
                 var direction = unit[0];
                 var count = int.Parse(unit.Substring(1));
@@ -115,22 +99,22 @@ namespace AdventOfCode._2019
                 switch (direction)
                 {
                     case 'U':
-                        for (var c = 0; c < count; c++) { grid2.TryAdd((++y, x), c); }
+                        for (var c = 0; c < count; c++) { grid.TryAdd((++y, x), ++s); }
                         break;
                     case 'D':
-                        for (var c = 0; c < count; c++) { grid2.TryAdd((--y, x), c); }
+                        for (var c = 0; c < count; c++) { grid.TryAdd((--y, x), ++s); }
                         break;
                     case 'L':
-                        for (var c = 0; c < count; c++) { grid2.TryAdd((y, --x), c); }
+                        for (var c = 0; c < count; c++) { grid.TryAdd((y, --x), ++s); }
                         break;
                     case 'R':
-                        for (var c = 0; c < count; c++) { grid2.TryAdd((y, ++x), c); }
+                        for (var c = 0; c < count; c++) { grid.TryAdd((y, ++x), ++s); }
                         break;
                 }
             }
 
-            var intersections = grid1.Keys.Intersect(grid2.Keys);
-            Result = intersections.Min(p => NumberTheory.ManhattanDistance((0, 0), p));
+            return grid;
         }
+
     }
 }
