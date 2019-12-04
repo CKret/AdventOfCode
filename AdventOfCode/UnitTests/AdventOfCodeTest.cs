@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using AdventOfCode.Core;
 using Xunit;
@@ -19,6 +20,7 @@ namespace AdventOfCode.UnitTests
 
         [Theory]
         [InstanceData]
+        [Trait("Category", "Advent of Code")]
         public void AllAdventOfCodeTests(AdventOfCodeBase adventOfCode)
         {
             GC.Collect();

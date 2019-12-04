@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
+using System.Linq;
 using AdventOfCode.Core;
+using MoreLinq;
 
 namespace AdventOfCode._2019
 {
@@ -34,41 +37,12 @@ namespace AdventOfCode._2019
         {
             var data = File.ReadAllText(@"2019\AdventOfCode201904.txt");
 
-            var rangeStart = int.Parse(data.Split('-')[0]);
-            var rangeEnd = int.Parse(data.Split('-')[1]);
+            var rangeStart = int.Parse(data.Split('-')[0], CultureInfo.CurrentCulture);
+            var rangeEnd = int.Parse(data.Split('-')[1], CultureInfo.CurrentCulture);
 
-            var count = 0;
-            for (var i = rangeStart; i <= rangeEnd; i++)
-            {
-                if (HasDouble(i) && IsDecreasing(i)) count++;
-            }
-
-            Result = count;
-        }
-
-        protected bool HasDouble(int num)
-        {
-            var str = num.ToString();
-
-            for (var i = 0; i < str.Length - 1; i++)
-            {
-                if (str[i] == str[i + 1]) return true;
-            }
-
-            return false;
-        }
-
-        protected bool IsDecreasing(int num)
-        {
-            var tmp = num % 10;
-            while (num > 0)
-            {
-                num = num / 10;
-                if (num % 10 > tmp) return false;
-                tmp = num % 10;
-            }
-
-            return true;
+            Result = Enumerable.Range(rangeStart, rangeEnd - rangeStart + 1)
+                               .Where(n => n.ToString(CultureInfo.CurrentCulture).Window(2).All(x => x[0] <= x[1]))
+                               .Count(n => n.ToString(CultureInfo.CurrentCulture).GroupAdjacent(x => x).Any(g => g.Count() >= 2));
         }
     }
 }

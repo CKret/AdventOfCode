@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
+using System.Linq;
 using AdventOfCode.Core;
+using MoreLinq;
 
 namespace AdventOfCode._2019
 {
@@ -31,16 +34,12 @@ namespace AdventOfCode._2019
         {
             var data = File.ReadAllText(@"2019\AdventOfCode201904.txt");
 
-            var rangeStart = int.Parse(data.Split('-')[0]);
-            var rangeEnd = int.Parse(data.Split('-')[1]);
+            var rangeStart = int.Parse(data.Split('-')[0], CultureInfo.CurrentCulture);
+            var rangeEnd = int.Parse(data.Split('-')[1], CultureInfo.CurrentCulture);
 
-            var count = 0;
-            for (var i = rangeStart; i <= rangeEnd; i++)
-            {
-                if (HasDouble(i) && IsDecreasing(i) && IsExactly2Repeating(i)) count++;
-            }
-
-            Result = count;
+            Result = Enumerable.Range(rangeStart, rangeEnd - rangeStart + 1)
+                               .Where(n => n.ToString(CultureInfo.CurrentCulture).Window(2).All(x => x[0] <= x[1]))
+                               .Count(n => n.ToString(CultureInfo.CurrentCulture).GroupAdjacent(x => x).Any(g => g.Count() == 2));
         }
 
         protected bool IsExactly2Repeating(int num)
