@@ -41,53 +41,5 @@ namespace AdventOfCode._2019
                                .Where(n => n.ToString(CultureInfo.CurrentCulture).Window(2).All(x => x[0] <= x[1]))
                                .Count(n => n.ToString(CultureInfo.CurrentCulture).GroupAdjacent(x => x).Any(g => g.Count() == 2));
         }
-
-        protected bool IsExactly2Repeating(int num)
-        {
-            var str = num.ToString();
-
-            var curr = string.Empty;
-            curr += str[0];
-
-            for (var i = 1; i < str.Length; i++)
-            {
-                if (str[i] == str[i - 1])
-                {
-                    curr += str[i];
-                }
-                else
-                {
-                    if (curr.Length == 2) return true;
-                    curr = "" + str[i];
-                }
-            }
-
-            return curr.Length == 2;
-        }
-
-        protected bool HasDouble(int num)
-        {
-            var str = num.ToString();
-
-            for (var i = 0; i < str.Length - 1; i++)
-            {
-                if (str[i] == str[i + 1]) return true;
-            }
-
-            return false;
-        }
-
-        protected bool IsDecreasing(int num)
-        {
-            var tmp = num % 10;
-            while (num > 0)
-            {
-                num = num / 10;
-                if (num % 10 > tmp) return false;
-                tmp = num % 10;
-            }
-
-            return true;
-        }
     }
 }
