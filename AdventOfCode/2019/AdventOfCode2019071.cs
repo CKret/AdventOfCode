@@ -7,18 +7,18 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 7, 1, "", 18812)]
+    [AdventOfCode(2019, 7, 1, "", 18812L)]
     public class AdventOfCode2019071 : AdventOfCodeBase
     {
         public override void Solve()
         {
             var data = File.ReadAllText(@"2019\AdventOfCode201907.txt");
 
-            var phaseSettings = new[] { 0, 1, 2, 3, 4 };
+            var phaseSettings = new long[] { 0, 1, 2, 3, 4 };
 
             var vm = new IntcodeVM(data);
 
-            var maxOutput = 0;
+            var maxOutput = 0L;
             do
             {
                 // Amp A

@@ -93,7 +93,7 @@ namespace AdventOfCode._2019
     /// program, replace position 1 with the value 12 and replace position 2 with
     /// the value 2. What value is left at position 0 after the program halts?
     /// </summary>
-    [AdventOfCode(2019, 2, 1, "What value is left at position 0 after the program halts?", 6327510)]
+    [AdventOfCode(2019, 2, 1, "What value is left at position 0 after the program halts?", 6327510L)]
     public class AdventOfCode2019021 : AdventOfCodeBase
     {
         public override void Solve()

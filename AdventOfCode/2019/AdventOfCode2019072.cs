@@ -10,14 +10,14 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 7, 2, "", 25534964)]
+    [AdventOfCode(2019, 7, 2, "", 25534964L)]
     public class AdventOfCode2019072 : AdventOfCodeBase
     {
         public override void Solve()
         {
             var data = File.ReadAllText(@"2019\AdventOfCode201907.txt");
 
-            var phaseSettings = new[] { 5, 6, 7, 8, 9 };
+            var phaseSettings = new long[] { 5, 6, 7, 8, 9 };
 
             var amps = new List<IntcodeVM>
             {
@@ -29,7 +29,7 @@ namespace AdventOfCode._2019
             };
 
 
-            var maxOutput = 0;
+            var maxOutput = 0L;
             do
             {
                 for (var i = 0; i < 5; i++)
@@ -38,7 +38,7 @@ namespace AdventOfCode._2019
                     amps[i].Input.Enqueue(phaseSettings[i]);
                 }
 
-                var output = 0;
+                var output = 0L;
                 var vmLoop = new Queue<IntcodeVM>(amps);
 
                 while (vmLoop.Count > 0)

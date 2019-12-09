@@ -55,7 +55,7 @@ namespace AdventOfCode._2015
                     max = current;
                     me = arr;
                 }
-            } while (arr.NextPermutation());
+            } while (NumberTheory.NextPermutation(ref arr));
 
             Result = max;
         }

@@ -6,12 +6,13 @@ namespace AdventOfCode.VMs
 {
     public class IntcodeVM
     {
-        private readonly int[] program;
-        private readonly int[] memory;
-        private int instrPtr;
+        private readonly long[] program;
+        private readonly long[] memory;
+        private long instrPtr;
+        private long relativeBase;
 
-        public Queue<int> Input = new Queue<int>();
-        public Queue<int> Output = new Queue<int>();
+        public Queue<long> Input = new Queue<long>();
+        public Queue<long> Output = new Queue<long>();
 
         public IntcodeVM(string instructions)
         {
@@ -19,8 +20,8 @@ namespace AdventOfCode.VMs
             {
                 throw new ArgumentNullException("instructions");
             }
-            program = instructions.Split(',').Select(int.Parse).ToArray();
-            memory = new int[program.Length];
+            program = instructions.Split(',').Select(long.Parse).ToArray();
+            memory = new long[program.Length + 100000];
             ResetVM();
         }
 
@@ -30,9 +31,10 @@ namespace AdventOfCode.VMs
             Input.Clear();
             Output.Clear();
             instrPtr = 0;
+            relativeBase = 0;
         }
 
-        public HaltMode Execute(int[] inputs)
+        public HaltMode Execute(long[] inputs)
         {
             foreach (var i in inputs)
                 Input.Enqueue(i);
@@ -44,24 +46,37 @@ namespace AdventOfCode.VMs
         {
             while (true)
             {
+                var modes = GetModes();
                 switch (GetOpCode())
                 {
                     case 1:             // Addition
-                        Add();
+                        if (modes[2] == 2)
+                            memory[relativeBase + memory[instrPtr + 3]] = GetParamValue(1) + GetParamValue(2);
+                        else
+                            memory[memory[instrPtr + 3]] = GetParamValue(1) + GetParamValue(2);
+                        instrPtr += 4;
                         break;
                     
                     case 2:             // Multiplication
-                        Mul();
+                        if (modes[2] == 2)
+                            memory[relativeBase + memory[instrPtr + 3]] = GetParamValue(1) * GetParamValue(2);
+                        else
+                            memory[memory[instrPtr + 3]] = GetParamValue(1) * GetParamValue(2);
+                        instrPtr += 4;
                         break;
                     
                     case 3:             // Input
-                        if (Input.Count == 0) return HaltMode.WaitingForInput;    // If there are no input we must wait.
-                        WriteMemory(memory[instrPtr + 1], Input.Dequeue());
+                        if (Input.Count == 0) return HaltMode.WaitingForInput;    // If there is no input we must wait.
+                        if (modes[0] == 2)
+                            memory[relativeBase + memory[instrPtr + 1]] = Input.Dequeue();
+                        else
+                            memory[memory[instrPtr + 1]] = Input.Dequeue();
+                        //WriteMemory(GetParamValue(1), Input.Dequeue());
                         instrPtr += 2;
                         break;
                     
                     case 4:             // Output
-                        Output.Enqueue(memory[memory[instrPtr + 1]]);
+                        Output.Enqueue(GetParamValue(1));
                         instrPtr += 2;
                         break;
                     
@@ -76,13 +91,24 @@ namespace AdventOfCode.VMs
                         break;
 
                     case 7:             // Less than
-                        memory[memory[instrPtr + 3]] = GetParamValue(1) < GetParamValue(2) ? 1 : 0;
+                        if (modes[2] == 2)
+                            memory[relativeBase + memory[instrPtr + 3]] = GetParamValue(1) < GetParamValue(2) ? 1 : 0;
+                        else
+                            memory[memory[instrPtr + 3]] = GetParamValue(1) < GetParamValue(2) ? 1 : 0;
                         instrPtr += 4;
                         break;
                     
                     case 8:             // Equals
-                        memory[memory[instrPtr + 3]] = GetParamValue(1) == GetParamValue(2) ? 1 : 0;
+                        if (modes[2] == 2)
+                            memory[relativeBase + memory[instrPtr + 3]] = GetParamValue(1) == GetParamValue(2) ? 1 : 0;
+                        else
+                            memory[memory[instrPtr + 3]] = GetParamValue(1) == GetParamValue(2) ? 1 : 0;
                         instrPtr += 4;
+                        break;
+
+                    case 9:
+                        relativeBase += GetParamValue(1);
+                        instrPtr += 2;
                         break;
 
                     case 99:            // End of program
@@ -94,17 +120,17 @@ namespace AdventOfCode.VMs
             }
         }
 
-        public int ReadMemory(int address) { return memory[address]; }
+        public long ReadMemory(long address) { return memory[address]; }
 
-        public void WriteMemory(int address, int value) { memory[address] = value; }
+        public void WriteMemory(long address, long value) { memory[address] = value; }
 
-        public void ClearMemory(int address) { memory[address] = 0; }
+        public void ClearMemory(long address) { memory[address] = 0; }
 
-        private int GetOpCode() { return memory[instrPtr] % 100; }
+        private long GetOpCode() { return memory[instrPtr] % 100; }
 
-        private int[] GetModes()
+        private long[] GetModes()
         {
-            var modes = new List<int>();
+            var modes = new List<long>();
             var op = memory[instrPtr];
             modes.Add(op / 100 % 10);
             modes.Add(op / 1000 % 10);
@@ -113,13 +139,23 @@ namespace AdventOfCode.VMs
             return modes.ToArray();
         }
 
-        private int GetParamValue(int param)
+        private long GetParamValue(long param)
         {
             var modes = GetModes();
-            return modes[param - 1] == 0 ? ReadMemory(memory[instrPtr + param]) : ReadMemory(instrPtr + param);
+            switch (modes[param - 1])
+            {
+                case 0:
+                    return ReadMemory(memory[instrPtr + param]);                          // Position mode
+                case 1:
+                    return ReadMemory(instrPtr + param);                           // Immediate mode
+                case 2:
+                    return ReadMemory(relativeBase + memory[instrPtr + param]);    // Relative mode 
+                default:
+                    return 0;
+            }
         }
 
-        private void SetParamValue(int param, int value)
+        private void SetParamValue(long param, long value)
         {
             WriteMemory(GetParamValue(param), value);
         }

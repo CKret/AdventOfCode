@@ -7,7 +7,7 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 5, 1, "", 11933517)]
+    [AdventOfCode(2019, 5, 1, "", 11933517L)]
     public class AdventOfCode2019051 : AdventOfCodeBase
     {
         public override void Solve()
@@ -15,7 +15,7 @@ namespace AdventOfCode._2019
             var data = File.ReadAllText(@"2019\AdventOfCode201905.txt");
 
             var vm = new IntcodeVM(data);
-            vm.Execute(new[] { 1 });
+            vm.Execute(new long[] { 1 });
             Result = vm.Output.Last();
         }
     }

@@ -121,11 +121,6 @@ namespace AdventOfCode.Mathematics
             return items.GroupBy(n => n).Select(g => new PrimeFactor { Base = g.Key, Exponent = g.Count() });
         }
 
-        public static int NextPermutation(this int num)
-        {
-            return (int)NextPermutation((long)num);
-        }
-
         public static long NextPermutation(this long num)
         {
             var s = num.ToString(CultureInfo.InvariantCulture);
@@ -135,7 +130,7 @@ namespace AdventOfCode.Mathematics
                 numList[i] = int.Parse(s[i].ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
             }
 
-            if (!NextPermutation(numList)) return 0;
+            if (!NextPermutation(ref numList)) return 0;
 
             s = string.Empty;
             foreach (var n in numList)
@@ -147,7 +142,14 @@ namespace AdventOfCode.Mathematics
             return int.Parse(s, CultureInfo.InvariantCulture);
         }
 
-        public static bool NextPermutation(this int[] numList)
+        public static bool NextPermutation(ref int[] numList)
+        {
+            var tmpList = numList.Select(x => (long) x).ToArray();
+            var result = NextPermutation(tmpList);
+            numList = tmpList.Select(x => (int) x).ToArray();
+            return result;
+        }
+        public static bool NextPermutation(this long[] numList)
         {
             /*
 			 Knuths
