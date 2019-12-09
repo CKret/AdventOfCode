@@ -15,7 +15,8 @@ namespace AdventOfCode._2019
             var data = File.ReadAllText(@"2019\AdventOfCode201905.txt");
 
             var vm = new IntcodeVM(data);
-            Result = vm.ExecuteProgram(new [] { 1 }).Last();
+            vm.Execute(new[] { 1 });
+            Result = vm.Output.Last();
         }
     }
 }

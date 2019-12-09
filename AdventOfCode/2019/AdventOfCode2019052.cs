@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.VMs;
 
@@ -14,7 +15,8 @@ namespace AdventOfCode._2019
             var data = File.ReadAllText(@"2019\AdventOfCode201905.txt");
 
             var vm = new IntcodeVM(data);
-            Result = vm.ExecuteProgram(new[] { 5 })[0];
+            vm.Execute(new[] { 5 });
+            Result = vm.Output.Last();
         }
     }
 }

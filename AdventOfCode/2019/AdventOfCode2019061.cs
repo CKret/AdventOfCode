@@ -41,7 +41,7 @@ namespace AdventOfCode._2019
                 p1.OrbitedBy.Add(p2);
             }
 
-            var count = objects.Sum(o => CountOrbits(o));
+            Result = objects.Sum(o => CountOrbits(o));
 
             var san = objects.Single(x => x.Id == "SAN");
             var you = objects.Single(x => x.Id == "YOU");

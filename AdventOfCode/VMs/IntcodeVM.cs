@@ -10,12 +10,8 @@ namespace AdventOfCode.VMs
         private readonly int[] memory;
         private int instrPtr;
 
-        private Queue<int> Inputs = new Queue<int>();
-        private Queue<int> Outputs = new Queue<int>();
-
-        private int currentModeParam1 = 0;
-        private int currentModeParam2 = 0;
-        private int currentModeParam3 = 0;
+        public Queue<int> Input = new Queue<int>();
+        public Queue<int> Output = new Queue<int>();
 
         public IntcodeVM(string instructions)
         {
@@ -31,18 +27,20 @@ namespace AdventOfCode.VMs
         public void ResetVM()
         {
             program.CopyTo(memory, 0);
+            Input.Clear();
+            Output.Clear();
             instrPtr = 0;
         }
 
-        public int[] ExecuteProgram(int[] inputs)
+        public HaltMode Execute(int[] inputs)
         {
             foreach (var i in inputs)
-                Inputs.Enqueue(i);
+                Input.Enqueue(i);
 
-            return ExecuteProgram();
+            return Execute();
         }
 
-        public int[] ExecuteProgram()
+        public HaltMode Execute()
         {
             while (true)
             {
@@ -57,12 +55,13 @@ namespace AdventOfCode.VMs
                         break;
                     
                     case 3:             // Input
-                        WriteMemory(memory[instrPtr + 1], Inputs.Dequeue());
+                        if (Input.Count == 0) return HaltMode.WaitingForInput;    // If there are no input we must wait.
+                        WriteMemory(memory[instrPtr + 1], Input.Dequeue());
                         instrPtr += 2;
                         break;
                     
                     case 4:             // Output
-                        Outputs.Enqueue(memory[memory[instrPtr + 1]]);
+                        Output.Enqueue(memory[memory[instrPtr + 1]]);
                         instrPtr += 2;
                         break;
                     
@@ -87,7 +86,7 @@ namespace AdventOfCode.VMs
                         break;
 
                     case 99:            // End of program
-                        return Outputs.ToArray();
+                        return HaltMode.Terminated;
 
                     default:
                         throw new Exception($"Invalid Op-Code: {GetOpCode()}");
@@ -151,6 +150,13 @@ namespace AdventOfCode.VMs
             memory[memory[instrPtr + 3]] = GetParamValue(1) / GetParamValue(2);
             //SetParamValue(3, GetParamValue(1) / GetParamValue(2));
             instrPtr += 4;
+        }
+
+        public enum HaltMode
+        {
+            Unknown,
+            Terminated,
+            WaitingForInput
         }
     }
 }

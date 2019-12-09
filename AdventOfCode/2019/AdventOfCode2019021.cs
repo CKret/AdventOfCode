@@ -103,7 +103,7 @@ namespace AdventOfCode._2019
             var vm = new IntcodeVM(data);
             vm.WriteMemory(1, 12);
             vm.WriteMemory(2, 2);
-            vm.ExecuteProgram();
+            vm.Execute();
 
             Result = vm.ReadMemory(0);
         }

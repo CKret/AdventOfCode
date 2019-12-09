@@ -72,7 +72,7 @@ namespace AdventOfCode._2019
                     vm.WriteMemory(1, noun);
                     vm.WriteMemory(2, verb);
 
-                    vm.ExecuteProgram();
+                    vm.Execute();
 
                     if (vm.ReadMemory(0) != 19690720)
                     {
