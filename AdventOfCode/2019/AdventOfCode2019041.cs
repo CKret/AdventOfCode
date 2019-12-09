@@ -30,7 +30,7 @@ namespace AdventOfCode._2019
     /// How many different passwords within the range given in your puzzle input
     /// meet these criteria?
     /// </summary>
-    [AdventOfCode(2019, 4, 1, "How many different passwords within the range given in your puzzle input meet these criteria?", 466)]
+    [AdventOfCode(2019, 4, 1, "Secure Container - Part 1", 466)]
     public class AdventOfCode2019041 : AdventOfCodeBase
     {
         public override void Solve()

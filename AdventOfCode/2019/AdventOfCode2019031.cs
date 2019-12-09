@@ -11,7 +11,7 @@ namespace AdventOfCode._2019
     /// --- Day 3: Crossed Wires ---
     /// 
     /// The gravity assist was successful, and you're well on your way to the Venus
-    /// refuelling station. During the rush back on Earth, the fuel management
+    /// refueling station. During the rush back on Earth, the fuel management
     /// system wasn't completely installed, so that's next on the priority list.
     /// 
     /// Opening the front panel reveals a jumble of wires. Specifically, two wires
@@ -67,7 +67,7 @@ namespace AdventOfCode._2019
     /// What is the Manhattan distance from the central port to the closest
     /// intersection?
     /// </summary>
-    [AdventOfCode(2019, 3, 1, "What is the Manhattan distance from the central port to the closest intersection?", 1285)]
+    [AdventOfCode(2019, 3, 1, "Crossed Wires - Part 1", 1285)]
     public class AdventOfCode2019031 : AdventOfCodeBase
     {
         public override void Solve()

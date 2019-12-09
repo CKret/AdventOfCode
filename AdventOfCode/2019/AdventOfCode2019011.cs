@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 
@@ -41,13 +42,13 @@ namespace AdventOfCode._2019
     /// What is the sum of the fuel requirements for all of the modules on your
     /// spacecraft?
     /// </summary>
-    [AdventOfCode(2019, 1, 1, "What is the sum of the fuel requirements for all of the modules on yourspacecraft?", 3457281)]
+    [AdventOfCode(2019, 1, 1, "The Tyranny of the Rocket Equation - Part 1", 3457281)]
     public class AdventOfCode2019011 : AdventOfCodeBase
     {
         public override void Solve()
         {
             var data = File.ReadAllLines(@"2019\AdventOfCode201901.txt");
-            Result = data.Sum(fuel => int.Parse(fuel) / 3 - 2);
+            Result = data.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
         }
     }
 }

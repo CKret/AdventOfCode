@@ -56,7 +56,7 @@ namespace AdventOfCode._2019
     /// 19690720. What is 100 * noun + verb? (For example, if noun=12 and verb=2,
     /// the answer would be 1202.)
     /// </summary>
-    [AdventOfCode(2019, 2, 2, "Find the input noun and verb that cause the program to produce the output 19690720. What is 100 * noun + verb? ", 4112)]
+    [AdventOfCode(2019, 2, 2, "1202 Program Alarm - Part 2 ", 4112)]
     public class AdventOfCode2019022 : AdventOfCodeBase
     {
         public override void Solve()
@@ -69,12 +69,12 @@ namespace AdventOfCode._2019
             {
                 for (var verb = 0; verb < 100; verb++)
                 {
-                    vm.WriteMemory(1, noun);
-                    vm.WriteMemory(2, verb);
+                    vm.Write(1, noun);
+                    vm.Write(2, verb);
 
                     vm.Execute();
 
-                    if (vm.ReadMemory(0) != 19690720)
+                    if (vm.Read(0) != 19690720)
                     {
                         vm.ResetVM();
                         continue;

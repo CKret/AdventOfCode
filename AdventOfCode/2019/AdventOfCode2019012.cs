@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 
@@ -41,7 +42,7 @@ namespace AdventOfCode._2019
     /// (Calculate the fuel requirements for each module separately, then add them
     /// all up at the end.)
     /// </summary>
-    [AdventOfCode(2019, 1, 2, "What is the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel?", 5183030L)]
+    [AdventOfCode(2019, 1, 2, "The Tyranny of the Rocket Equation - Part 2", 5183030L)]
     public class AdventOfCode2019012 : AdventOfCodeBase
     {
         public override void Solve()
@@ -50,7 +51,7 @@ namespace AdventOfCode._2019
 
             Result = data.Sum(mass =>
             {
-                var fuel = long.Parse(mass) / 3 - 2;
+                var fuel = long.Parse(mass, CultureInfo.CurrentCulture) / 3 - 2;
 
                 var extraFuel = fuel / 3 - 2;
                 while (extraFuel > 0)

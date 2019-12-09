@@ -93,7 +93,7 @@ namespace AdventOfCode._2019
     /// program, replace position 1 with the value 12 and replace position 2 with
     /// the value 2. What value is left at position 0 after the program halts?
     /// </summary>
-    [AdventOfCode(2019, 2, 1, "What value is left at position 0 after the program halts?", 6327510L)]
+    [AdventOfCode(2019, 2, 1, "1202 Program Alarm - Part 1", 6327510L)]
     public class AdventOfCode2019021 : AdventOfCodeBase
     {
         public override void Solve()
@@ -101,11 +101,11 @@ namespace AdventOfCode._2019
             var data = File.ReadAllText(@"2019\AdventOfCode201902.txt");
 
             var vm = new IntcodeVM(data);
-            vm.WriteMemory(1, 12);
-            vm.WriteMemory(2, 2);
+            vm.Write(1, 12);
+            vm.Write(2, 2);
             vm.Execute();
 
-            Result = vm.ReadMemory(0);
+            Result = vm.Read(0);
         }
     }
 }
