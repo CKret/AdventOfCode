@@ -305,6 +305,16 @@ namespace AdventOfCode.Mathematics
             return a;
         }
 
+        public static int LowestCommonDenominator(this int a, int b)
+        {
+            return (int) LowestCommonDenominator((long) a, b);
+        }
+
+        public static long LowestCommonDenominator(this long a, long b)
+        {
+            return a * b / a.GreatestCommonDivider(b);
+        }
+
         public static string ConvertToRomanNumeral(int number)
         {
             var romanNumerals = new[]
