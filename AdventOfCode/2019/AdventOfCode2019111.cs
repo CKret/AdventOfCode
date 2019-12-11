@@ -23,8 +23,6 @@ namespace AdventOfCode._2019
             var panels = new Dictionary<(int, int), long>();
             var vm = new IntcodeVM(data);
 
-            panels.Add((0, 0), 1L);
-
             var status = IntcodeVM.HaltMode.Unknown;
             while (status != IntcodeVM.HaltMode.Terminated)
             {
@@ -40,28 +38,6 @@ namespace AdventOfCode._2019
                 direction = TurnRobot(direction, turn);
 
                 position = MoveRobot(direction, position);
-            }
-
-            var minX = -panels.Keys.Min(x => x.Item1);
-            var minY = -panels.Keys.Min(y => y.Item2);
-
-            using (var pass = new Bitmap(1000, 1000))
-            {
-                for (var y = 0; y < 1000; y++)
-                {
-                    for (var x = 0; x < 1000; x++)
-                        pass.SetPixel(x, y, Color.Black);
-                }
-
-                foreach (var panel in panels)
-                {
-                    if (panel.Value == 1)
-                    {
-                        pass.SetPixel(panel.Key.Item1 + minX + 50, panel.Key.Item2 + minY + 50, Color.White);
-                    }
-                }
-
-                pass.Save(@".\2019\AdventOfCode2019112.png");
             }
 
             Result = panels.Count;

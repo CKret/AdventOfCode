@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.VMs;
+using Tesseract;
 
 namespace AdventOfCode._2019
 {
@@ -40,29 +41,40 @@ namespace AdventOfCode._2019
                 position = MoveRobot(direction, position);
             }
 
-            var minX = -panels.Keys.Min(x => x.Item1);
-            var minY = -panels.Keys.Min(y => y.Item2);
-
-            using (var pass = new Bitmap(1000, 1000))
+            var minX = panels.Keys.Min(x => x.Item1);
+            var minY = panels.Keys.Min(y => y.Item2);
+            var maxX = panels.Keys.Max(x => x.Item1);
+            var maxY = panels.Keys.Max(y => y.Item2);
+            var imgWidth = maxX - minX + 20;
+            var imgHeight = maxY - minY + 20;
+            using (var image = new Bitmap(imgWidth, imgHeight))
             {
-                for (var y = 0; y < 1000; y++)
+                for (var y = 0; y < imgHeight; y++)
                 {
-                    for (var x = 0; x < 1000; x++)
-                        pass.SetPixel(x, y, Color.Black);
+                    for (var x = 0; x < imgWidth; x++)
+                        image.SetPixel(x, y, Color.Black);
                 }
 
                 foreach (var panel in panels)
                 {
                     if (panel.Value == 1)
                     {
-                        pass.SetPixel(panel.Key.Item1 + minX + 50, panel.Key.Item2 + minY + 50, Color.White);
+                        image.SetPixel(panel.Key.Item1 - minX + 10, panel.Key.Item2 - minY + 10, Color.White);
                     }
                 }
+                image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                var bigImage = new Bitmap(image, new Size(image.Width * 4, image.Height * 4));
+                bigImage.Save(@".\2019\AdventOfCode2019112.png");
 
-                pass.Save(@".\2019\AdventOfCode2019112.png");
+                using (var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata", "eng", EngineMode.Default))
+                using (var pix = PixConverter.ToPix(bigImage))
+                using (var page = engine.Process(pix))
+                {
+                    Result = page.GetText().Trim('\n');
+                }
+
+                bigImage.Dispose();
             }
-
-            Result = "JELEFGHP";
         }
 
         private (int, int) MoveRobot(RobotDirection currentDirection, (int, int) currentPosition)

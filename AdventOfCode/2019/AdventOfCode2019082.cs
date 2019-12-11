@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using AdventOfCode.Core;
+using Tesseract;
 
 namespace AdventOfCode._2019
 {
@@ -94,27 +95,34 @@ namespace AdventOfCode._2019
                 nLayer.Add(string.Join("", img.Skip(i).Take(imageWidth).ToArray()));
             }
 
-            using (var pass = new Bitmap(imageWidth + 100, imageHeight + 100))
+            using (var imagePass = new Bitmap(imageWidth + 20, imageHeight + 20))
             {
-                for (var y = 0; y < imageHeight + 100; y++)
+                for (var y = 0; y < imageHeight + 20; y++)
                 {
-                    for (var x = 0; x < imageWidth + 100; x++)
-                        pass.SetPixel(x, y, Color.Black);
+                    for (var x = 0; x < imageWidth + 20; x++)
+                        imagePass.SetPixel(x, y, Color.Black);
                 }
 
                 for (var y = 0; y < imageHeight; y++)
                 {
                     for (var x = 0; x < imageWidth; x++)
                     {
-                        pass.SetPixel(x + 50, y + 50, nLayer[y][x] == '0' ? Color.Black : Color.White);
+                        imagePass.SetPixel(x + 10, y + 10, nLayer[y][x] == '0' ? Color.Black : Color.White);
                     }
                 }
 
-                pass.Save(@".\2019\AdventOfCode2019082.png");
-            }
+                var bigImage = new Bitmap(imagePass, new Size(imagePass.Width * 4, imagePass.Height * 4));
+                bigImage.Save(@".\2019\AdventOfCode2019082.png");
 
-            // ReSharper disable once StringLiteralTypo
-            Result = "RCYKR";       // As seen in the image.
+                using (var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata", "eng", EngineMode.Default))
+                using (var pix = PixConverter.ToPix(bigImage))
+                using (var page = engine.Process(pix))
+                {
+                    Result = page.GetText().Trim('\n');
+                }
+
+                bigImage.Dispose();
+            }
         }
     }
 }
