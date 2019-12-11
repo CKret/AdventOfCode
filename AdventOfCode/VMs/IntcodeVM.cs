@@ -5,12 +5,6 @@ using System.Linq;
 namespace AdventOfCode.VMs
 {
 
-    public enum HaltMode
-    {
-        Unknown,
-        Terminated,
-        WaitingForInput
-    }
 
     public class IntcodeVM
     {
@@ -164,6 +158,13 @@ namespace AdventOfCode.VMs
                 default:
                     return;
             }
+        }
+
+        public enum HaltMode
+        {
+            Unknown,
+            Terminated,
+            WaitingForInput
         }
     }
 }

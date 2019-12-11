@@ -103,7 +103,7 @@ namespace AdventOfCode._2019
                     var currentAmp = vmLoop.Dequeue();
                     currentAmp.Input.Enqueue(output);
 
-                    if (currentAmp.Execute() != HaltMode.Terminated)
+                    if (currentAmp.Execute() != IntcodeVM.HaltMode.Terminated)
                         vmLoop.Enqueue(currentAmp);
 
                     if (currentAmp.Output.Count > 0)
