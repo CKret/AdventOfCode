@@ -15,10 +15,6 @@ namespace AdventOfCode.Runner
             Console.WriteLine($"Part 1: {aoc1.Result}");
             Console.WriteLine($"Part 2: {aoc2.Result}");
 
-            //var a = new AdventOfCode.Solutions.Year2019.Day15();
-
-            //var p1 = a.SolvePartOne();
-            //var p2 = a.SolvePartTwo();
         }
     }
 }
