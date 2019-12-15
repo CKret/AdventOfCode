@@ -10,21 +10,33 @@ namespace AdventOfCode.VMs
     {
         private readonly long[] program;
         private readonly long[] memory;
-        private long instrPtr;
-        private long relativeBase;
+        public long instrPtr;
+        public long relativeBase;
+
+        public HaltMode Status;
 
         public Queue<long> Input = new Queue<long>();
         public Queue<long> Output = new Queue<long>();
 
         public IntcodeVM(string instructions)
         {
-            if (instructions == null)
-            {
-                throw new ArgumentNullException(nameof(instructions));
-            }
+            if (instructions == null) throw new ArgumentNullException(nameof(instructions));
+
             program = instructions.Split(',').Select(long.Parse).ToArray();
             memory = new long[program.Length + 100000];
             ResetVM();
+        }
+
+        public IntcodeVM(long[] instructions)
+        {
+            program = instructions ?? throw new ArgumentNullException(nameof(instructions));
+            memory = new long[program.Length + 100000];
+            ResetVM();
+        }
+
+        public long[] GetCurrentState()
+        {
+            return memory.Take(program.Length).ToArray();
         }
 
         public void ResetVM()
@@ -49,6 +61,8 @@ namespace AdventOfCode.VMs
 
         public HaltMode Execute()
         {
+            Status = HaltMode.Running;
+
             while (true)
             {
                 switch (GetOpCode())
@@ -64,7 +78,12 @@ namespace AdventOfCode.VMs
                         break;
 
                     case 3:             // Input
-                        if (Input.Count == 0) return HaltMode.WaitingForInput;          // If there is no input we must wait.
+                        if (Input.Count == 0)
+                        {
+                            Status = HaltMode.WaitingForInput;
+                            return HaltMode.WaitingForInput;          // If there is no input we must wait.
+                        }
+
                         WriteValue(1, Input.Dequeue());
                         instrPtr += 2;
                         break;
@@ -100,6 +119,7 @@ namespace AdventOfCode.VMs
                         break;
 
                     case 99:            // End of program
+                        Status = HaltMode.Terminated;
                         return HaltMode.Terminated;
 
                     default:
@@ -163,8 +183,9 @@ namespace AdventOfCode.VMs
         public enum HaltMode
         {
             Unknown,
-            Terminated,
-            WaitingForInput
+            Running,
+            WaitingForInput,
+            Terminated
         }
     }
 }

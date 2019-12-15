@@ -20,10 +20,6 @@ namespace AdventOfCode._2019
             var data = File.ReadAllLines(@"2019\AdventOfCode201912.txt");
 
             var moons = new List<Moon>();
-            var previousStates = new List<(long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long)>();
-            var prevXStates = new List<(long, long, long, long, long, long, long, long)>();
-            var prevYStates = new List<(long, long, long, long, long, long, long, long)>();
-            var prevZStates = new List<(long, long, long, long, long, long, long, long)>();
 
             var xCycle = 0L;
             var yCycle = 0L;
@@ -41,7 +37,10 @@ namespace AdventOfCode._2019
                 moons.Add(new Moon { Position = position, Velocity = new Point3D() });
             }
 
-            previousStates.Add(GetAllPositions(moons));
+            var firstXState = GetXPositions(moons);
+            var firstYState = GetYPositions(moons);
+            var firstZState = GetZPositions(moons);
+
             var count = 0L;
             while (true)
             {
@@ -69,6 +68,8 @@ namespace AdventOfCode._2019
                     }
                 }
 
+                count++;
+
                 foreach (var moon in moons)
                 {
                     moon.Position.X += moon.Velocity.X;
@@ -76,29 +77,11 @@ namespace AdventOfCode._2019
                     moon.Position.Z += moon.Velocity.Z;
                 }
 
-                if (xCycle == 0)
-                {
-                    var curXState = GetXPositions(moons);
-                    if (prevXStates.Contains(curXState)) xCycle = count;
-                    else prevXStates.Add(curXState);
-                }
-
-                if (yCycle == 0)
-                {
-                    var curYState = GetYPositions(moons);
-                    if (prevYStates.Contains(curYState)) yCycle = count;
-                    else prevYStates.Add(curYState);
-                }
-
-                if (zCycle == 0)
-                {
-                    var curZState = GetZPositions(moons);
-                    if (prevZStates.Contains(curZState)) zCycle = count;
-                    else prevZStates.Add(curZState);
-                }
+                if (xCycle == 0 && GetXPositions(moons) == firstXState) xCycle = count;
+                if (yCycle == 0 && GetYPositions(moons) == firstYState) yCycle = count;
+                if (zCycle == 0 && GetZPositions(moons) == firstZState) zCycle = count;
 
                 if (xCycle > 0 && yCycle > 0 && zCycle > 0) break;
-                count++;
             }
 
             Result = LeastCommonMultiple(new []{xCycle, yCycle, zCycle});
