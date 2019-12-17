@@ -27,7 +27,7 @@ namespace AdventOfCode._2019
                 var o = vm.Output.Dequeue();
                 var c = (char) o;
                 Console.Write(c);
-                if (o == 10)  (x, y) = (0, y + 1);
+                if (o == 10) (x, y) = (0, y + 1);
                 else
                 {
                     map[(x++, y)] = c;
