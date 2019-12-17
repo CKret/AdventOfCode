@@ -14,7 +14,6 @@ namespace AdventOfCode.Runner
 
             Console.WriteLine($"Part 1: {aoc1.Result}");
             Console.WriteLine($"Part 2: {aoc2.Result}");
-
         }
     }
 }
