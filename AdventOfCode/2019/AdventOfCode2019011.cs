@@ -43,7 +43,7 @@ namespace AdventOfCode._2019
     /// spacecraft?
     /// </summary>
     [AdventOfCode(2019, 1, 1, "The Tyranny of the Rocket Equation - Part 1", 3457281)]
-    public class AdventOfCode2019011 : AdventOfCodeBase
+    public class AdventOfCode2020011 : AdventOfCodeBase
     {
         public override void Solve()
         {

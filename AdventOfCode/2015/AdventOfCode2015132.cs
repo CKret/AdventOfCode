@@ -55,8 +55,8 @@ namespace AdventOfCode._2015
                     current += data.Single(d => d.Item1 == guests[arr[i]] && d.Item2 == guests[arr[i + 1] % nGuests]).Item3;
                     current += data.Single(d => d.Item1 == guests[arr[i + 1]] && d.Item2 == guests[arr[i] % nGuests]).Item3;
                 }
-                current += data.Single(d => d.Item1 == guests[arr[0]] && d.Item2 == guests[arr[arr.Length - 1]]).Item3;
-                current += data.Single(d => d.Item1 == guests[arr[arr.Length - 1]] && d.Item2 == guests[arr[0]]).Item3;
+                current += data.Single(d => d.Item1 == guests[arr[0]] && d.Item2 == guests[arr[^1]]).Item3;
+                current += data.Single(d => d.Item1 == guests[arr[^1]] && d.Item2 == guests[arr[0]]).Item3;
 
                 if (current > max)
                 {

@@ -114,12 +114,6 @@ namespace AdventOfCode._2019
 
             var routine = FindRoutine(string.Join("", d));
 
-            // ToDo: Refactor since solved by hand.
-            //var main = "A,B,A,B,A,C,B,C,A,C\x0A".ToArray();
-            //var funcA = "L,6,R,12,L,6\x0A".ToArray();
-            //var funcB = "R,12,L,10,L,4,L,6\x0A".ToArray();
-            //var funcC = "L,10,L,10,L,4,L,6\x0A".ToArray();
-
             vm.ResetVM();
             vm.Write(0, 2);
 

@@ -1,19 +1,20 @@
 ﻿using System;
+using System.Diagnostics;
 
-namespace AdventOfCode.Runner
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var aoc1 = new AdventOfCode._2019.AdventOfCode2019181();
-            aoc1.Solve();
+var timer = new Stopwatch();
+timer.Start();
 
-            var aoc2 = new AdventOfCode._2019.AdventOfCode2019182();
-            aoc2.Solve();
+var aoc1 = new AdventOfCode._2020.AdventOfCode2020011();
+aoc1.Solve();
+timer.Stop();
+var part1Time = timer.ElapsedMilliseconds;
 
-            Console.WriteLine($"Part 1: {aoc1.Result}");
-            Console.WriteLine($"Part 2: {aoc2.Result}");
-        }
-    }
-}
+timer.Start();
+var aoc2 = new AdventOfCode._2020.AdventOfCode2020012();
+aoc2.Solve();
+timer.Stop();
+
+var part2Time = timer.ElapsedMilliseconds;
+
+Console.WriteLine($"Part 1: {aoc1.Result} in {part1Time}ms.");
+Console.WriteLine($"Part 2: {aoc2.Result} in {part2Time}ms.");

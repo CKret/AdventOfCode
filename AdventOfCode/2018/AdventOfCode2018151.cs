@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
-using AdventOfCode.Mathematics.PathFinding;
-using AdventOfCode.Mathematics.PathFinding.Core;
-using Xunit.Abstractions;
 
 namespace AdventOfCode._2018
 {

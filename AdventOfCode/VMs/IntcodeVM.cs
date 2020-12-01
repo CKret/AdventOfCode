@@ -4,8 +4,6 @@ using System.Linq;
 
 namespace AdventOfCode.VMs
 {
-
-
     public class IntcodeVM
     {
         private readonly long[] program;

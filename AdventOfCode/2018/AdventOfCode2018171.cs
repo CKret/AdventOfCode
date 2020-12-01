@@ -196,7 +196,7 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 17, 1, "Reservoir Research - Part 1", 31883)]
     public class AdventOfCode2018171 : AdventOfCodeBase
     {
-        private char[][] scanSlice = new char[2000][];
+        private readonly char[][] scanSlice = new char[2000][];
 
         public override void Solve()
         {
@@ -244,8 +244,8 @@ namespace AdventOfCode._2018
                 }
             }
 
-            fill(spring.X, spring.Y);
-            var total = 0;
+            Fill(spring.X, spring.Y);
+            //var total = 0;
             var touched = 0;
             var water = 0;
             for (var y = miny; y <= maxy; y++)
@@ -286,7 +286,7 @@ namespace AdventOfCode._2018
             return scanSlice[y][x] == '+' || scanSlice[y][x] == '.' || scanSlice[y][x] == '|';
         }
 
-        public void fill(int x, int y)
+        public void Fill(int x, int y)
         {
             if (y > maxy)
                 return;
@@ -314,8 +314,8 @@ namespace AdventOfCode._2018
                 }
                 if (IsOpen(leftX, y + 1) || IsOpen(rightX, y + 1))
                 {
-                    fill(leftX, y);
-                    fill(rightX, y);
+                    Fill(leftX, y);
+                    Fill(rightX, y);
                 }
                 else if (scanSlice[y][leftX] == '#' && scanSlice[y][rightX] == '#')
                 {
@@ -328,11 +328,11 @@ namespace AdventOfCode._2018
             else if (scanSlice[y][x] == '.' || scanSlice[y][x] == '+')
             {
                 scanSlice[y][x] = '|';
-                fill(x, y + 1);
+                Fill(x, y + 1);
       
                 if (scanSlice[y + 1][x] == '~')
                 {
-                    fill(x, y);
+                    Fill(x, y);
                 }
             }
         }

@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" />
+  <Import Project="..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props" Condition="Exists('..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9523A5E8-3F07-4BC3-940C-D278EA5177A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AdventOfCode</RootNamespace>
+    <AssemblyName>AdventOfCode</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MoreLinq, Version=3.2.0.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.3.2.0\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.3.0\lib\net45\Tesseract.dll</HintPath>
+    </Reference>
+    <Reference Include="TypeResolver, Version=2.0.45.102, Culture=neutral, PublicKeyToken=23444c00d7ce1a61, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\TypeResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.4.1\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="2015\AdventOfCode2015191.cs" />
+    <Compile Include="2015\AdventOfCode2015181.cs" />
+    <Compile Include="2015\AdventOfCode2015171.cs" />
+    <Compile Include="2015\AdventOfCode2015161.cs" />
+    <Compile Include="2015\AdventOfCode2015151.cs" />
+    <Compile Include="2015\AdventOfCode2015131.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="2015\AdventOfCode2015192.cs" />
+    <Compile Include="2015\AdventOfCode2015182.cs" />
+    <Compile Include="2015\AdventOfCode2015172.cs" />
+    <Compile Include="2015\AdventOfCode2015162.cs" />
+    <Compile Include="2015\AdventOfCode2015152.cs" />
+    <Compile Include="2015\AdventOfCode2015132.cs" />
+    <Compile Include="2015\AdventOfCode2015141.cs" />
+    <Compile Include="2015\AdventOfCode2015142.cs" />
+    <Compile Include="2015\AdventOfCode2015121.cs" />
+    <Compile Include="2015\AdventOfCode2015122.cs" />
+    <Compile Include="2015\AdventOfCode2015111.cs" />
+    <Compile Include="2015\AdventOfCode2015112.cs" />
+    <Compile Include="2015\AdventOfCode2015102.cs" />
+    <Compile Include="2015\AdventOfCode2015101.cs" />
+    <Compile Include="2015\AdventOfCode2015092.cs" />
+    <Compile Include="2015\AdventOfCode2015091.cs" />
+    <Compile Include="2015\AdventOfCode2015082.cs" />
+    <Compile Include="2015\AdventOfCode2015081.cs" />
+    <Compile Include="2015\AdventOfCode2015072.cs" />
+    <Compile Include="2015\AdventOfCode2015071.cs" />
+    <Compile Include="2015\AdventOfCode2015062.cs" />
+    <Compile Include="2015\AdventOfCode2015061.cs" />
+    <Compile Include="2015\AdventOfCode2015052.cs" />
+    <Compile Include="2015\AdventOfCode2015051.cs" />
+    <Compile Include="2015\AdventOfCode2015042.cs" />
+    <Compile Include="2015\AdventOfCode2015041.cs" />
+    <Compile Include="2015\AdventOfCode2015032.cs" />
+    <Compile Include="2015\AdventOfCode2015031.cs" />
+    <Compile Include="2015\AdventOfCode2015022.cs" />
+    <Compile Include="2015\AdventOfCode2015021.cs" />
+    <Compile Include="2015\AdventOfCode2015012.cs" />
+    <Compile Include="2015\AdventOfCode2015011.cs" />
+    <Compile Include="2017\AdventOfCode2017251.cs" />
+    <Compile Include="2017\AdventOfCode2017241.cs" />
+    <Compile Include="2017\AdventOfCode2017242.cs" />
+    <Compile Include="2017\AdventOfCode2017231.cs" />
+    <Compile Include="2017\AdventOfCode2017232.cs" />
+    <Compile Include="2017\AdventOfCode2017221.cs" />
+    <Compile Include="2017\AdventOfCode2017222.cs" />
+    <Compile Include="2017\AdventOfCode2017211.cs" />
+    <Compile Include="2017\AdventOfCode2017212.cs" />
+    <Compile Include="2017\AdventOfCode2017201.cs" />
+    <Compile Include="2017\AdventOfCode2017191.cs" />
+    <Compile Include="2017\AdventOfCode2017202.cs" />
+    <Compile Include="2017\AdventOfCode2017192.cs" />
+    <Compile Include="2017\AdventOfCode2017181.cs" />
+    <Compile Include="2017\AdventOfCode2017182.cs" />
+    <Compile Include="2017\AdventOfCode2017171.cs" />
+    <Compile Include="2017\AdventOfCode2017172.cs" />
+    <Compile Include="2017\AdventOfCode2017161.cs" />
+    <Compile Include="2017\AdventOfCode2017162.cs" />
+    <Compile Include="2017\AdventOfCode2017151.cs" />
+    <Compile Include="2017\AdventOfCode2017152.cs" />
+    <Compile Include="2017\AdventOfCode2017141.cs" />
+    <Compile Include="2017\AdventOfCode2017142.cs" />
+    <Compile Include="2017\AdventOfCode2017131.cs" />
+    <Compile Include="2017\AdventOfCode2017132.cs" />
+    <Compile Include="2017\AdventOfCode2017121.cs" />
+    <Compile Include="2017\AdventOfCode2017111.cs" />
+    <Compile Include="2017\AdventOfCode2017101.cs" />
+    <Compile Include="2017\AdventOfCode2017091.cs" />
+    <Compile Include="2017\AdventOfCode2017081.cs" />
+    <Compile Include="2017\AdventOfCode2017071.cs" />
+    <Compile Include="2017\AdventOfCode2017061.cs" />
+    <Compile Include="2017\AdventOfCode2017051.cs" />
+    <Compile Include="2017\AdventOfCode2017041.cs" />
+    <Compile Include="2017\AdventOfCode2017031.cs" />
+    <Compile Include="2017\AdventOfCode2017021.cs" />
+    <Compile Include="2017\AdventOfCode2017122.cs" />
+    <Compile Include="2017\AdventOfCode2017112.cs" />
+    <Compile Include="2017\AdventOfCode2017102.cs" />
+    <Compile Include="2017\AdventOfCode2017092.cs" />
+    <Compile Include="2017\AdventOfCode2017082.cs" />
+    <Compile Include="2017\AdventOfCode2017072.cs" />
+    <Compile Include="2017\AdventOfCode2017062.cs" />
+    <Compile Include="2017\AdventOfCode2017052.cs" />
+    <Compile Include="2017\AdventOfCode2017042.cs" />
+    <Compile Include="2017\AdventOfCode2017032.cs" />
+    <Compile Include="2017\AdventOfCode2017022.cs" />
+    <Compile Include="2017\AdventOfCode2017012.cs" />
+    <Compile Include="2017\AdventOfCode2017011.cs" />
+    <Compile Include="2019\AdventOfCode2019191.cs" />
+    <Compile Include="2019\AdventOfCode2019181.cs" />
+    <Compile Include="2019\AdventOfCode2019171.cs" />
+    <Compile Include="2019\AdventOfCode2019161.cs" />
+    <Compile Include="2019\AdventOfCode2019151.cs" />
+    <Compile Include="2019\AdventOfCode2019141.cs" />
+    <Compile Include="2019\AdventOfCode2019131.cs" />
+    <Compile Include="2019\AdventOfCode2019192.cs" />
+    <Compile Include="2019\AdventOfCode2019182.cs" />
+    <Compile Include="2019\AdventOfCode2019172.cs" />
+    <Compile Include="2019\AdventOfCode2019162.cs" />
+    <Compile Include="2019\AdventOfCode2019152.cs" />
+    <Compile Include="2019\AdventOfCode2019142.cs" />
+    <Compile Include="2019\AdventOfCode2019132.cs" />
+    <Compile Include="2019\AdventOfCode2019121.cs" />
+    <Compile Include="2019\AdventOfCode2019111.cs" />
+    <Compile Include="2019\AdventOfCode2019101.cs" />
+    <Compile Include="2019\AdventOfCode2019091.cs" />
+    <Compile Include="2019\AdventOfCode2019081.cs" />
+    <Compile Include="2019\AdventOfCode2019071.cs" />
+    <Compile Include="2019\AdventOfCode2019061.cs" />
+    <Compile Include="2019\AdventOfCode2019051.cs" />
+    <Compile Include="2019\AdventOfCode2019041.cs" />
+    <Compile Include="2019\AdventOfCode2019122.cs" />
+    <Compile Include="2019\AdventOfCode2019112.cs" />
+    <Compile Include="2019\AdventOfCode2019102.cs" />
+    <Compile Include="2019\AdventOfCode2019092.cs" />
+    <Compile Include="2019\AdventOfCode2019082.cs" />
+    <Compile Include="2019\AdventOfCode2019072.cs" />
+    <Compile Include="2019\AdventOfCode2019062.cs" />
+    <Compile Include="2019\AdventOfCode2019052.cs" />
+    <Compile Include="2019\AdventOfCode2019042.cs" />
+    <Compile Include="VMs\IntcodeVM.cs" />
+    <Content Include="2018\AdventOfCode201819.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201818.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201817.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201816.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201815.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201814.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201813.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201812.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201811.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201810.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="2018\AdventOfCode2018191.cs" />
+    <Compile Include="2018\AdventOfCode2018181.cs" />
+    <Compile Include="2018\AdventOfCode2018171.cs" />
+    <Compile Include="2018\AdventOfCode2018161.cs" />
+    <Compile Include="2018\AdventOfCode2018192.cs" />
+    <Compile Include="2018\AdventOfCode2018182.cs" />
+    <Compile Include="2018\AdventOfCode2018172.cs" />
+    <Compile Include="2018\AdventOfCode2018162.cs" />
+    <Compile Include="2018\AdventOfCode2018151.cs" />
+    <Compile Include="2018\AdventOfCode2018152.cs" />
+    <Compile Include="2018\AdventOfCode2018141.cs" />
+    <Compile Include="2018\AdventOfCode2018131.cs" />
+    <Compile Include="2018\AdventOfCode2018121.cs" />
+    <Compile Include="2018\AdventOfCode2018111.cs" />
+    <Compile Include="2018\AdventOfCode2018101.cs" />
+    <Compile Include="2018\AdventOfCode2018091.cs" />
+    <Compile Include="2018\AdventOfCode2018081.cs" />
+    <Compile Include="2018\AdventOfCode2018071.cs" />
+    <Compile Include="2018\AdventOfCode2018061.cs" />
+    <Compile Include="2018\AdventOfCode2018051.cs" />
+    <Compile Include="2018\AdventOfCode2018041.cs" />
+    <Compile Include="2018\AdventOfCode2018031.cs" />
+    <Compile Include="2018\AdventOfCode2018021.cs" />
+    <Compile Include="2018\AdventOfCode2018142.cs" />
+    <Compile Include="2018\AdventOfCode2018132.cs" />
+    <Compile Include="2018\AdventOfCode2018122.cs" />
+    <Compile Include="2018\AdventOfCode2018112.cs" />
+    <Compile Include="2018\AdventOfCode2018102.cs" />
+    <Compile Include="2018\AdventOfCode2018092.cs" />
+    <Compile Include="2018\AdventOfCode2018082.cs" />
+    <Compile Include="2018\AdventOfCode2018072.cs" />
+    <Compile Include="2018\AdventOfCode2018062.cs" />
+    <Compile Include="2018\AdventOfCode2018052.cs" />
+    <Compile Include="2018\AdventOfCode2018042.cs" />
+    <Compile Include="2018\AdventOfCode2018032.cs" />
+    <Compile Include="2018\AdventOfCode2018022.cs" />
+    <Compile Include="2018\AdventOfCode2018012.cs" />
+    <Compile Include="2018\AdventOfCode2018011.cs" />
+    <Compile Include="2019\AdventOfCode2019031.cs" />
+    <Compile Include="2019\AdventOfCode2019021.cs" />
+    <Compile Include="2019\AdventOfCode2019011.cs" />
+    <Compile Include="2019\AdventOfCode2019032.cs" />
+    <Compile Include="2019\AdventOfCode2019022.cs" />
+    <Compile Include="2019\AdventOfCode2019012.cs" />
+    <Compile Include="Core\AdventOfCodeBase.cs" />
+    <Compile Include="Core\AdventOfCodeAttribute.cs" />
+    <Compile Include="ExtensionMethods\ArrayExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\LinkedListExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\SetExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
+    <Compile Include="Mathematics\Cryptography\HashAlgorithm.cs" />
+    <Compile Include="ExtensionMethods\DictionaryExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\FuncExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\LinqExtensionMethods.cs" />
+    <Compile Include="Mathematics\NumberTheory.cs" />
+    <Compile Include="Mathematics\PathFinding\Core\PathFindingBase.cs" />
+    <Compile Include="Mathematics\PathFinding\Dijkstras.cs" />
+    <Compile Include="Mathematics\Primes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\AdventOfCodeTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2015\AdventOfCode201502.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201505.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201506.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201507.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201508.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201509.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201512.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201513.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201514.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201517.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201516.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2015\AdventOfCode201515.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201702.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201704.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201705.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201707.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201708.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201709.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201711.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201712.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201713.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201716.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201718.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201719.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201725.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201724.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201723.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201722.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201721.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017\AdventOfCode201720.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201802.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201801.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201803.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201804.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201805.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201806.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201807.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201808.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018\AdventOfCode201809.txt" />
+    <Content Include="2019\AdventOfCode201919.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201918.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201917.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201916.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201915.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201914.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201913.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201912.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201911.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201910.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201909.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201908.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201907.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201906.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201905.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201904.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201903.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201902.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019\AdventOfCode201901.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\liblept1742.dll" />
+    <Content Include="x64\libtesseract3051.dll" />
+    <Content Include="x86\liblept1742.dll" />
+    <Content Include="x86\libtesseract3051.dll" />
+    <Content Include="_ExternalDependencies\TypeResolver.dll" />
+    <None Include=".editorconfig" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="_ExternalDependencies\tessdata\eng.traineddata">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Text.Analyzers.2.6.4\analyzers\dotnet\cs\Text.Analyzers.dll" />
+    <Analyzer Include="..\packages\Text.Analyzers.2.6.4\analyzers\dotnet\cs\Text.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.9.8\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.targets'))" />
+    <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
+  <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" />
+</Project>
