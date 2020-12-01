@@ -124,5 +124,7 @@ namespace AdventOfCode._2019
                 bigImage.Dispose();
             }
         }
+
+        public AdventOfCode2019082(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -19,6 +19,7 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 17, 2, "Reservoir Research - Part 2", 24927)]
     public class AdventOfCode2018172 : AdventOfCodeBase
     {
+        public AdventOfCode2018172(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
             Result = 24927;

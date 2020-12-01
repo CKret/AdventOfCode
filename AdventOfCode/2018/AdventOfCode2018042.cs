@@ -103,5 +103,7 @@ namespace AdventOfCode._2018
 
             Result = maxGuard.Id * index;
         }
+
+        public AdventOfCode2018042(string sessionCookie) : base(sessionCookie) { }
     }
 }

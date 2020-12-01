@@ -45,5 +45,7 @@ namespace AdventOfCode._2018
         {
             Result = AdventOfCode2018081.RootNode.SumNodeValues;
         }
+
+        public AdventOfCode2018082(string sessionCookie) : base(sessionCookie) { }
     }
 }

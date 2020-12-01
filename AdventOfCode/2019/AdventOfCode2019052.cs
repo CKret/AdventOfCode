@@ -89,5 +89,7 @@ namespace AdventOfCode._2019
             vm.Execute(new long[] { 5 });
             Result = vm.Output.Last();
         }
+
+        public AdventOfCode2019052(string sessionCookie) : base(sessionCookie) { }
     }
 }

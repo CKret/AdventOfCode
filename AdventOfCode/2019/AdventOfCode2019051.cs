@@ -114,5 +114,7 @@ namespace AdventOfCode._2019
             vm.Execute(new long[] { 1 });
             Result = vm.Output.Last();
         }
+
+        public AdventOfCode2019051(string sessionCookie) : base(sessionCookie) { }
     }
 }

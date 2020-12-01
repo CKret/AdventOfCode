@@ -21,6 +21,7 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 16, 2, "Chronal Classification - Part 2", 622)]
     public class AdventOfCode2018162 : AdventOfCodeBase
     {
+        public AdventOfCode2018162(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
             var data = File.ReadAllText(@"2018\AdventOfCode201816.txt").Split("\r\n\r\n\r\n");

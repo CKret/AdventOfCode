@@ -61,5 +61,7 @@ namespace AdventOfCode._2015
 
             Result = lights.SelectMany(l => l).Count(l => l);
         }
+
+        public AdventOfCode2015061(string sessionCookie) : base(sessionCookie) { }
     }
 }

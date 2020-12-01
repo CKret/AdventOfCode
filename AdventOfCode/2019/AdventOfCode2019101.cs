@@ -164,6 +164,7 @@ namespace AdventOfCode._2019
             Result = station.VisibleAsteroids(asteroidField.Asteroids, mapWidth, mapHeight).Count;
         }
 
+        public AdventOfCode2019101(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Sector

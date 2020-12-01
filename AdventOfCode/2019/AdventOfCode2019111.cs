@@ -92,5 +92,7 @@ namespace AdventOfCode._2019
             Down,
             Right
         }
+
+        public AdventOfCode2019111(string sessionCookie) : base(sessionCookie) { }
     }
 }

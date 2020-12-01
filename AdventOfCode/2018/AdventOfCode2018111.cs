@@ -142,5 +142,7 @@ namespace AdventOfCode._2018
 
             Result = maxCoord.Item1 + "," + maxCoord.Item2;
         }
+
+        public AdventOfCode2018111(string sessionCookie) : base(sessionCookie) { }
     }
 }

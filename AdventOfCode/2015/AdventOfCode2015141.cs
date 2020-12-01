@@ -31,5 +31,7 @@ namespace AdventOfCode._2015
 
             Result = distance.Max(x => x[0]);
         }
+
+        public AdventOfCode2015141(string sessionCookie) : base(sessionCookie) { }
     }
 }

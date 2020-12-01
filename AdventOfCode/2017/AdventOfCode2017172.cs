@@ -37,5 +37,7 @@ namespace AdventOfCode._2017
                 if (pos == 1) Result = i;
             }
         }
+
+        public AdventOfCode2017172(string sessionCookie) : base(sessionCookie) { }
     }
 }

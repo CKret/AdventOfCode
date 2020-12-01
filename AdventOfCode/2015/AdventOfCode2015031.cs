@@ -45,5 +45,7 @@ namespace AdventOfCode._2015
 
             Result = houses.Count;
         }
+
+        public AdventOfCode2015031(string sessionCookie) : base(sessionCookie) { }
     }
 }

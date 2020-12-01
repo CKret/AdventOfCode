@@ -75,5 +75,7 @@ namespace AdventOfCode._2018
 
             Result = (maxX - maxSize + 1) + "," + (maxY - maxSize + 1) + "," + maxSize;
         }
+
+        public AdventOfCode2018112(string sessionCookie) : base(sessionCookie) { }
     }
 }

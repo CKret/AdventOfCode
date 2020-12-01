@@ -80,5 +80,7 @@ namespace AdventOfCode._2017
             spiral[(x, y)] += !spiral.ContainsKey((x, y - 1)) ? 0 : spiral[(x, y - 1)];
             spiral[(x, y)] += !spiral.ContainsKey((x + 1, y - 1)) ? 0 : spiral[(x + 1, y - 1)];
         }
+
+        public AdventOfCode2017032(string sessionCookie) : base(sessionCookie) { }
     }
 }

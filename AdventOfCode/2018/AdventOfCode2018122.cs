@@ -65,5 +65,7 @@ namespace AdventOfCode._2018
                 previousGenSumDiff = currentGenSumDiff;
             }
         }
+
+        public AdventOfCode2018122(string sessionCookie) : base(sessionCookie) { }
     }
 }

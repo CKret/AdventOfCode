@@ -80,5 +80,7 @@ namespace AdventOfCode._2019
             var intersections = path.Where(p => p.Value == 2).ToList();
             Result = intersections.Aggregate(0, (cur, next) => cur + next.Key.X * next.Key.Y);
         }
+
+        public AdventOfCode2019171(string sessionCookie) : base(sessionCookie) { }
     }
 }

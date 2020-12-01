@@ -120,5 +120,7 @@ namespace AdventOfCode._2017
 
             Result = totalScore;
         }
+
+        public AdventOfCode2017091(string sessionCookie) : base(sessionCookie) { }
     }
 }

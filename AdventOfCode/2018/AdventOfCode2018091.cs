@@ -112,5 +112,7 @@ namespace AdventOfCode._2018
 
             Result = scores.Max();
         }
+
+        public AdventOfCode2018091(string sessionCookie) : base(sessionCookie) { }
     }
 }

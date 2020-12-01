@@ -85,5 +85,7 @@ namespace AdventOfCode._2017
             var dense = HashAlgorithm.KnotHash("34,88,2,222,254,93,150,0,199,255,39,32,137,136,1,167").ToArray();
             Result = BitConverter.ToString(dense).Replace("-", "").ToLowerInvariant();
         }
+
+        public AdventOfCode2017102(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -52,5 +52,7 @@ namespace AdventOfCode._2017
                 lookup.Add(programString);
             }
         }
+
+        public AdventOfCode2017162(string sessionCookie) : base(sessionCookie) { }
     }
 }

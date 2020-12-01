@@ -41,5 +41,7 @@ namespace AdventOfCode._2019
 
             Result = components["ORE"];
         }
+
+        public AdventOfCode2019141(string sessionCookie) : base(sessionCookie) { }
     }
 }

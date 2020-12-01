@@ -98,5 +98,7 @@ namespace AdventOfCode._2017
 
             Result = registers.Max(x => x.Value);
         }
+
+        public AdventOfCode2017081(string sessionCookie) : base(sessionCookie) { }
     }
 }

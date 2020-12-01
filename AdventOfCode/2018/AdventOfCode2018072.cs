@@ -99,5 +99,7 @@ namespace AdventOfCode._2018
 
             Result = currentTime;
         }
+
+        public AdventOfCode2018072(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -172,6 +172,8 @@ namespace AdventOfCode._2018
 
             Result = maxGuard.Id * index;
         }
+
+        public AdventOfCode2018041(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Guard

@@ -79,5 +79,7 @@ namespace AdventOfCode._2019
         {
             return components.ContainsKey(component) ? components[component] : 0;
         }
+
+        public AdventOfCode2019142(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -57,5 +57,7 @@ namespace AdventOfCode._2017
 
             Result = grid.Sum(p => p.Sum(q => q == '#' ? 1 : 0));
         }
+
+        public AdventOfCode2017212(string sessionCookie) : base(sessionCookie) { }
     }
 }

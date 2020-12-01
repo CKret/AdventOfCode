@@ -30,5 +30,7 @@ namespace AdventOfCode._2015
 
             Result = places.Permutations().Select(route => route.Pairwise(GetDistance).Sum()).Max();
         }
+
+        public AdventOfCode2015092(string sessionCookie) : base(sessionCookie) { }
     }
 }

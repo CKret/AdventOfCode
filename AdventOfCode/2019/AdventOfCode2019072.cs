@@ -117,5 +117,7 @@ namespace AdventOfCode._2019
 
             Result = maxOutput;
         }
+
+        public AdventOfCode2019072(string sessionCookie) : base(sessionCookie) { }
     }
 }

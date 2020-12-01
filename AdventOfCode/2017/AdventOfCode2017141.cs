@@ -69,5 +69,7 @@ namespace AdventOfCode._2017
                     .Aggregate(string.Empty, (current, b) => current + Convert.ToString(b, 2).PadLeft(8, '0'))
                     .Count(c => c == '1'));
         }
+
+        public AdventOfCode2017141(string sessionCookie) : base(sessionCookie) { }
     }
 }

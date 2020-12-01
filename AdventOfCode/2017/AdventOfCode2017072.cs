@@ -100,5 +100,7 @@ namespace AdventOfCode._2017
                 currentNode = currentNode.Children.Single(n => n.GetTowerWeight() == unique);
             }
         }
+
+        public AdventOfCode2017072(string sessionCookie) : base(sessionCookie) { }
     }
 }

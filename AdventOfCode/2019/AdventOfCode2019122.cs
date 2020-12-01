@@ -140,5 +140,7 @@ namespace AdventOfCode._2019
         {
             return Math.Abs(a * b) / a.GreatestCommonDivider(b);
         }
+
+        public AdventOfCode2019122(string sessionCookie) : base(sessionCookie) { }
     }
 }

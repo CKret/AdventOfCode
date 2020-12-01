@@ -41,5 +41,7 @@ namespace AdventOfCode._2019
                                .Where(n => n.ToString(CultureInfo.CurrentCulture).Window(2).All(x => x[0] <= x[1]))
                                .Count(n => n.ToString(CultureInfo.CurrentCulture).GroupAdjacent(x => x).Any(g => g.Count() == 2));
         }
+
+        public AdventOfCode2019042(string sessionCookie) : base(sessionCookie) { }
     }
 }

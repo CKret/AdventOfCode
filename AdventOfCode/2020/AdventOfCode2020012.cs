@@ -8,6 +8,7 @@ namespace AdventOfCode._2020
     [AdventOfCode(2020, 1, 2, "", 182588480L)]
     public class AdventOfCode2020012 : AdventOfCodeBase
     {
+        public AdventOfCode2020012(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
             var data = Input.Select(int.Parse).ToArray();
@@ -18,7 +19,7 @@ namespace AdventOfCode._2020
                 for (var j = i + 1; j < data.Length - 1; j++)
                 {
                     var b = data[j];
-                    if (a + b > 2020) continue;
+                    if (a + b >= 2020) continue;
 
                     if (data.Contains((2020 - a - b)))
                     {

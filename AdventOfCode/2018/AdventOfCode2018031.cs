@@ -112,6 +112,8 @@ namespace AdventOfCode._2018
 
             Result = count;
         }
+
+        public AdventOfCode2018031(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Claim

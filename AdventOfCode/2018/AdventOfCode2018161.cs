@@ -157,6 +157,8 @@ namespace AdventOfCode._2018
 
             Result = samples.Count(i => i.PossibleInstructions().Count() >= 3);
         }
+
+        public AdventOfCode2018161(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class ChronalInstructionEngine

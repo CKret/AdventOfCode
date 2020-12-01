@@ -86,5 +86,7 @@ namespace AdventOfCode._2019
 
             Result = minLayer.Count(x => x == '1') * minLayer.Count(x => x == '2');
         }
+
+        public AdventOfCode2019081(string sessionCookie) : base(sessionCookie) { }
     }
 }

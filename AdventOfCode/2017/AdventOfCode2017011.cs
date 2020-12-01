@@ -101,5 +101,7 @@ namespace AdventOfCode._2017
 
             Result = captcha.Where((n, i) => n == captcha[(i + 1) % captcha.Length]).Sum();
         }
+
+        public AdventOfCode2017011(string sessionCookie) : base(sessionCookie) { }
     }
 }

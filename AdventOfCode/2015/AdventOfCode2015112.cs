@@ -63,5 +63,7 @@ namespace AdventOfCode._2015
 
             return pairs.Count == 2;
         }
+
+        public AdventOfCode2015112(string sessionCookie) : base(sessionCookie) { }
     }
 }

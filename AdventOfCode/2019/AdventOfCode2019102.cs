@@ -138,5 +138,7 @@ namespace AdventOfCode._2019
             if (queue.Count > 0)
                 yield return queue.Dequeue();
         }
+
+        public AdventOfCode2019102(string sessionCookie) : base(sessionCookie) { }
     }
 }

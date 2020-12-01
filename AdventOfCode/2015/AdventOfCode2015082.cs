@@ -24,5 +24,7 @@ namespace AdventOfCode._2015
 
             Result = (int) (escLen - codeLen);
         }
+
+        public AdventOfCode2015082(string sessionCookie) : base(sessionCookie) { }
     }
 }

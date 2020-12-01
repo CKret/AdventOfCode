@@ -63,5 +63,7 @@ namespace AdventOfCode._2019
                 return fuel;
             });
         }
+
+        public AdventOfCode2019012(string sessionCookie) : base(sessionCookie) { }
     }
 }

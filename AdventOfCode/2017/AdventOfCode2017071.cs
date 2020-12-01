@@ -105,6 +105,8 @@ namespace AdventOfCode._2017
             var children = nodes.Where(n => n.ChildNodes.Count > 0).SelectMany(n => n.ChildNodes);
             Result = nodes.Single(n => !children.Contains(n.Name)).Name;
         }
+
+        public AdventOfCode2017071(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class RecursiveCircusNode

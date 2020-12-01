@@ -80,5 +80,7 @@ namespace AdventOfCode._2017
             if (y > 0) PaintRegion(x, y - 1, grid, visited);
             if (y < 127) PaintRegion(x, y + 1, grid, visited);
         }
+
+        public AdventOfCode2017142(string sessionCookie) : base(sessionCookie) { }
     }
 }

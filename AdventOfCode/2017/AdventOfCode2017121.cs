@@ -90,6 +90,8 @@ namespace AdventOfCode._2017
 
             Result = total;
         }
+
+        public AdventOfCode2017121(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Node

@@ -80,5 +80,7 @@ namespace AdventOfCode._2017
 
             Result = buffer[pos + 1];
         }
+
+        public AdventOfCode2017171(string sessionCookie) : base(sessionCookie) { }
     }
 }

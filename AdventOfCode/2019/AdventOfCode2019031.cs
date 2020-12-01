@@ -116,5 +116,6 @@ namespace AdventOfCode._2019
             return grid;
         }
 
+        public AdventOfCode2019031(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -39,5 +39,7 @@ namespace AdventOfCode._2015
 
             Result = sum;
         }
+
+        public AdventOfCode2015051(string sessionCookie) : base(sessionCookie) { }
     }
 }

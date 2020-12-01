@@ -131,5 +131,7 @@ namespace AdventOfCode._2017
                 if (Result != null) break;
             }
         }
+
+        public AdventOfCode2017181(string sessionCookie) : base(sessionCookie) { }
     }
 }

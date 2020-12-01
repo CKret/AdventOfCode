@@ -43,5 +43,7 @@ namespace AdventOfCode._2017
                 .ThenByDescending(x => x.Item1)
                 .First();
         }
+
+        public AdventOfCode2017242(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -36,5 +36,7 @@ namespace AdventOfCode._2019
 
             Result = vm.Output.First();
         }
+
+        public AdventOfCode2019092(string sessionCookie) : base(sessionCookie) { }
     }
 }

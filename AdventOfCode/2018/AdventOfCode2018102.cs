@@ -55,5 +55,7 @@ namespace AdventOfCode._2018
 
             Result = --messageTime ;
         }
+
+        public AdventOfCode2018102(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -98,5 +98,7 @@ namespace AdventOfCode._2019
             var score = currentState.FindIndex(t => t == -1);
             return score >= 0 ? currentState[score + 2] : 0;
         }
+
+        public AdventOfCode2019132(string sessionCookie) : base(sessionCookie) { }
     }
 }

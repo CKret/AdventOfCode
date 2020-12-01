@@ -136,5 +136,7 @@ namespace AdventOfCode._2019
 
             return pathCosts;
         }
+
+        public AdventOfCode2019181(string sessionCookie) : base(sessionCookie) { }
     }
 }

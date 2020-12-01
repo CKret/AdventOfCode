@@ -42,5 +42,7 @@ namespace AdventOfCode._2015
 
             Result = sue.Id;
         }
+
+        public AdventOfCode2015161(string sessionCookie) : base(sessionCookie) { }
     }
 }

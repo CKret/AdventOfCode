@@ -66,5 +66,7 @@ namespace AdventOfCode._2015
 
             Result = max;
         }
+
+        public AdventOfCode2015132(string sessionCookie) : base(sessionCookie) { }
     }
 }

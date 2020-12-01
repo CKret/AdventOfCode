@@ -92,5 +92,7 @@ namespace AdventOfCode._2017
 
             return (grid[y][x - 1] == '-' ? -1 : 1, 0);
         }
+
+        public AdventOfCode2017191(string sessionCookie) : base(sessionCookie) { }
     }
 }

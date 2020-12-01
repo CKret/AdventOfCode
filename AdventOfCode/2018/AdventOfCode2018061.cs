@@ -123,6 +123,8 @@ namespace AdventOfCode._2018
 
             Result = area.Max();
         }
+
+        public AdventOfCode2018061(string sessionCookie) : base(sessionCookie) { }
     }
 }
 

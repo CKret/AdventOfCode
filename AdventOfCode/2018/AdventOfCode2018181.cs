@@ -66,5 +66,7 @@ namespace AdventOfCode._2018
 
             Result = trees * lumberyards;
         }
+
+        public AdventOfCode2018181(string sessionCookie) : base(sessionCookie) { }
     }
 }

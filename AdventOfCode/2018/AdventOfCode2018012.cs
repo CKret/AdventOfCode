@@ -58,5 +58,7 @@ namespace AdventOfCode._2018
 
             Result = currentFrequency;
         }
+
+        public AdventOfCode2018012(string sessionCookie) : base(sessionCookie) { }
     }
 }

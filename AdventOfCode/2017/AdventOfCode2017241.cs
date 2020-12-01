@@ -83,5 +83,7 @@ namespace AdventOfCode._2017
                 .Select(x => BuildStrongBridge(components.Remove(x), x.Item1 == cur ? x.Item2 : x.Item1, max + x.Item1 + x.Item2))
                 .Concat(new [] { max }).Max();
         }
+
+        public AdventOfCode2017241(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -229,6 +229,8 @@ namespace AdventOfCode._2018
 
             //var b = 0;
         }
+
+        public AdventOfCode2018151(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class CombatUnit

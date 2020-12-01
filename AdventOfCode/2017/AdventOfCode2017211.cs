@@ -244,5 +244,7 @@ namespace AdventOfCode._2017
 
             return grid;
         }
+
+        public AdventOfCode2017211(string sessionCookie) : base(sessionCookie) { }
     }
 }

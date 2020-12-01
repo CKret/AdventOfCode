@@ -10,5 +10,7 @@ namespace AdventOfCode._2018
         public override void Solve()
         {
         }
+
+        public AdventOfCode2018152(string sessionCookie) : base(sessionCookie) { }
     }
 }

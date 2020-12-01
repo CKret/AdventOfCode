@@ -131,5 +131,7 @@ namespace AdventOfCode._2018
 
             Result = $"{carts.First().X},{carts.First().Y}";
         }
+
+        public AdventOfCode2018132(string sessionCookie) : base(sessionCookie) { }
     }
 }

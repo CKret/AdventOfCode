@@ -233,6 +233,8 @@ namespace AdventOfCode._2018
             }
 
         }
+
+        public AdventOfCode2018101(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class LightSignal

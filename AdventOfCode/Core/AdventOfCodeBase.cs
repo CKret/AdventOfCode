@@ -26,7 +26,7 @@ namespace AdventOfCode.Core
 
         private AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 
-        private bool GetInput()
+        private bool GetInput(string sessionCookie)
         {
             var targetDate = new DateTime(Problem.Year, 12, Problem.Day, 6, 0, 0);
             if (DateTime.Now < targetDate) return false;
@@ -34,16 +34,16 @@ namespace AdventOfCode.Core
             if (!File.Exists(InputFileName) || new FileInfo(InputFileName).Length == 0)
             {
                 using var client = new WebClient();
-                client.Headers.Add(HttpRequestHeader.Cookie, "session=53616c7465645f5f9ad5172fd52a20994d97182152a663d5f1aa804eb410edb53b14b7f45eaa111241c6af59ffae914c");
+                client.Headers.Add(HttpRequestHeader.Cookie, $"session={sessionCookie}");
                 client.DownloadFile(new Uri($"https://adventofcode.com/{Problem.Year}/day/{Problem.Day}/input"), InputFileName);
             }
 
             return true;
         }
 
-        protected AdventOfCodeBase()
+        protected AdventOfCodeBase(string sessionCookie)
         {
-            GetInput();
+            GetInput(sessionCookie);
         }
 
         public abstract void Solve();

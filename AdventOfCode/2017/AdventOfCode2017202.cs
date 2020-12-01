@@ -80,5 +80,7 @@ namespace AdventOfCode._2017
 
             Result = particles.Count;
         }
+
+        public AdventOfCode2017202(string sessionCookie) : base(sessionCookie) { }
     }
 }

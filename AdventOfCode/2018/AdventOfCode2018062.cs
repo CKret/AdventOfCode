@@ -83,5 +83,7 @@ namespace AdventOfCode._2018
 
             Result = safeAreas;
         }
+
+        public AdventOfCode2018062(string sessionCookie) : base(sessionCookie) { }
     }
 }

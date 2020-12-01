@@ -72,5 +72,7 @@ namespace AdventOfCode._2017
 
             return str1.Equals(str2, StringComparison.InvariantCulture);
         }
+
+        public AdventOfCode2017042(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -27,5 +27,7 @@ namespace AdventOfCode._2017
                 Result = Math.Max((int?) Result ?? 0, Math.Abs((y - x) / 2 + x));
             }
         }
+
+        public AdventOfCode2017112(string sessionCookie) : base(sessionCookie) { }
     }
 }

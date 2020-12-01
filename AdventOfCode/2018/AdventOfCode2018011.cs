@@ -62,5 +62,7 @@ namespace AdventOfCode._2018
         {
             Result = File.ReadAllLines("2018\\AdventOfCode201801.txt").Select(int.Parse).Sum();
         }
+
+        public AdventOfCode2018011(string sessionCookie) : base(sessionCookie) { }
     }
 }

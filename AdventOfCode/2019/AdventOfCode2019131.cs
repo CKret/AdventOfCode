@@ -18,5 +18,7 @@ namespace AdventOfCode._2019
 
             Result = vm.Output.Where((t, i) => i % 3 == 2).Count(x => x == 2);  
         }
+
+        public AdventOfCode2019131(string sessionCookie) : base(sessionCookie) { }
     }
 }

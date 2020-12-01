@@ -51,5 +51,7 @@ namespace AdventOfCode._2017
 
             Result = mid + Math.Abs(offset - mid);
         }
+
+        public AdventOfCode2017031(string sessionCookie) : base(sessionCookie) { }
     }
 }

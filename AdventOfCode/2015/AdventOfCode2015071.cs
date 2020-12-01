@@ -66,5 +66,7 @@ namespace AdventOfCode._2015
             instructions[wire] = new[] { value.ToString(CultureInfo.InvariantCulture), "->", wire };
             return value;
         }
+
+        public AdventOfCode2015071(string sessionCookie) : base(sessionCookie) { }
     }
 }

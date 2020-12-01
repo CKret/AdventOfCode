@@ -62,5 +62,7 @@ namespace AdventOfCode._2015
 
             Result = lights.SelectMany(l => l).Sum(l => l);
         }
+
+        public AdventOfCode2015062(string sessionCookie) : base(sessionCookie) { }
     }
 }

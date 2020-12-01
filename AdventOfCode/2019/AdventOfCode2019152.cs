@@ -61,5 +61,7 @@ namespace AdventOfCode._2019
 
             Result = current.Steps;
         }
+
+        public AdventOfCode2019152(string sessionCookie) : base(sessionCookie) { }
     }
 }

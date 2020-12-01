@@ -37,6 +37,8 @@ namespace AdventOfCode._2019
                 }
             }
         }
+
+        public AdventOfCode2019151(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Droid

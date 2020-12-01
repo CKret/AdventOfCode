@@ -43,5 +43,7 @@ namespace AdventOfCode._2018
 
             Result = scores.Max();
         }
+
+        public AdventOfCode2018092(string sessionCookie) : base(sessionCookie) { }
     }
 }

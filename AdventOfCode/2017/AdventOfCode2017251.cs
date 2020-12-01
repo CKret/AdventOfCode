@@ -212,5 +212,7 @@ namespace AdventOfCode._2017
 
             Result = tape.Count(i => i.Value == 1);
         }
+
+        public AdventOfCode2017251(string sessionCookie) : base(sessionCookie) { }
     }
 }

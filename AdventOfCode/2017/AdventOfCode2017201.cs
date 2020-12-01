@@ -102,6 +102,7 @@ namespace AdventOfCode._2017
             return particles;
         }
 
+        public AdventOfCode2017201(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Particle

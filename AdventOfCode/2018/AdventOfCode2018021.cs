@@ -69,5 +69,7 @@ namespace AdventOfCode._2018
 
             Result = nBigrams * nTrigrams;
         }
+
+        public AdventOfCode2018021(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -191,5 +191,7 @@ namespace AdventOfCode._2017
                 default: return (--x, y);   // Left
             }
         }
+
+        public AdventOfCode2017221(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -295,6 +295,8 @@ namespace AdventOfCode._2018
                       .Where(c => c.Direction != -1)
                       .ToList();
         }
+
+        public AdventOfCode2018131(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Cart

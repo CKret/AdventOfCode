@@ -68,6 +68,7 @@ namespace AdventOfCode._2018
             Result = RootNode.SumMetaEntries;
         }
 
+        public AdventOfCode2018081(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class LicenseNode

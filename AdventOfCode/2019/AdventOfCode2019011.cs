@@ -50,5 +50,7 @@ namespace AdventOfCode._2019
             var data = File.ReadAllLines(@"2019\AdventOfCode201901.txt");
             Result = data.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
         }
+
+        public AdventOfCode2020011(string sessionCookie) : base(sessionCookie) { }
     }
 }

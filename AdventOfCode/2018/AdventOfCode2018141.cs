@@ -103,5 +103,7 @@ namespace AdventOfCode._2018
 
             Result = int.Parse(string.Join("", recipes.Skip(nRecipes).Take(10)), CultureInfo.InvariantCulture);
         }
+
+        public AdventOfCode2018141(string sessionCookie) : base(sessionCookie) { }
     }
 }

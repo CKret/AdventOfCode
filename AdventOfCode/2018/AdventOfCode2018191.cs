@@ -12,5 +12,7 @@ namespace AdventOfCode._2018
         {
             var data = File.ReadAllLines(@"2018\AdventOfCode201817.txt");
         }
+
+        public AdventOfCode2018191(string sessionCookie) : base(sessionCookie) { }
     }
 }

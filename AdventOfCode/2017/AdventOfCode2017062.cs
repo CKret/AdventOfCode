@@ -51,5 +51,7 @@ namespace AdventOfCode._2017
 
             Result = prev.Count - prev.IndexOf(memString);
         }
+
+        public AdventOfCode2017062(string sessionCookie) : base(sessionCookie) { }
     }
 }

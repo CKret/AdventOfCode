@@ -18,5 +18,7 @@ namespace AdventOfCode._2015
             var min = combinations.Min(c => c.Count);
             Result = combinations.Count(c => c.Count == min);
         }
+
+        public AdventOfCode2015172(string sessionCookie) : base(sessionCookie) { }
     }
 }

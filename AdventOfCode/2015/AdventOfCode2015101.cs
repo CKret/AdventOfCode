@@ -28,5 +28,7 @@ namespace AdventOfCode._2015
                         .ToArray())
                 .Count();
         }
+
+        public AdventOfCode2015101(string sessionCookie) : base(sessionCookie) { }
     }
 }

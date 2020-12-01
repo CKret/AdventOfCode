@@ -152,5 +152,7 @@ namespace AdventOfCode._2018
 
             Result = currentGen.Select((c, i) => new { Pot = c, Index = i }).Where(c => c.Pot == '#').Sum(c => c.Index - prependedPots);
         }
+
+        public AdventOfCode2018121(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -85,5 +85,7 @@ namespace AdventOfCode._2019
                 }
             }
         }
+
+        public AdventOfCode2019022(string sessionCookie) : base(sessionCookie) { }
     }
 }

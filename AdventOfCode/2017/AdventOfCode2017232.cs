@@ -36,5 +36,7 @@ namespace AdventOfCode._2017
             // 108100 + 17000 = 125100
             Result = Enumerable.Range(108100, 17000).Where(x => (x + 1) % 17 == 0).Sum(x => x.IsPrime() ? 0 : 1);
         }
+
+        public AdventOfCode2017232(string sessionCookie) : base(sessionCookie) { }
     }
 }

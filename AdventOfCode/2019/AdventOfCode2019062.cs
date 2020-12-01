@@ -120,5 +120,7 @@ namespace AdventOfCode._2019
 
             return o.Orbits.Visited ? 0 : FindSanta(o.Orbits, count + 1);
         }
+
+        public AdventOfCode2019062(string sessionCookie) : base(sessionCookie) { }
     }
 }

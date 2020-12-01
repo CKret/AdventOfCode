@@ -206,5 +206,7 @@ namespace AdventOfCode._2017
             var layers = File.ReadAllLines("2017\\AdventOfCode201713.txt").Select(line => line.Split(new[]{": "}, StringSplitOptions.None).Select(int.Parse).ToList()).ToList();
             Result = layers.Sum(layer => layer[0] % (2 * layer[1] - 2) == 0 ? layer[0] * layer[1] : 0);
         }
+
+        public AdventOfCode2017131(string sessionCookie) : base(sessionCookie) { }
     }
 }
