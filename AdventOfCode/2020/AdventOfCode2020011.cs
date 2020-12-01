@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using AdventOfCode.Core;
 
 namespace AdventOfCode._2020
@@ -11,7 +10,7 @@ namespace AdventOfCode._2020
     {
         public override void Solve()
         {
-            var data = File.ReadAllLines(@"2020\AdventOfCode202001.txt").Select(int.Parse).ToArray();
+            var data = Input.Select(int.Parse).ToArray();
 
             foreach (var a in data)
             {

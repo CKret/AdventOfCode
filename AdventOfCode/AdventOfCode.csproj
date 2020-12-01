@@ -318,6 +318,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="2020\AdventOfCode202003.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="2020\AdventOfCode202002.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="2020\AdventOfCode202001.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
