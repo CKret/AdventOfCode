@@ -4,13 +4,13 @@ using System.Diagnostics;
 var timer = new Stopwatch();
 timer.Start();
 
-var aoc1 = new AdventOfCode._2020.AdventOfCode2020011();
+var aoc1 = new AdventOfCode._2020.AdventOfCode2020021();
 aoc1.Solve();
 timer.Stop();
 var part1Time = timer.ElapsedMilliseconds;
 
 timer.Start();
-var aoc2 = new AdventOfCode._2020.AdventOfCode2020012();
+var aoc2 = new AdventOfCode._2020.AdventOfCode2020022();
 aoc2.Solve();
 timer.Stop();
 

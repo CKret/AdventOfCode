@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
+using System.Net;
 
 namespace AdventOfCode.Core
 {
@@ -8,7 +8,10 @@ namespace AdventOfCode.Core
     {
         public object Result { get; protected set; }
 
-        protected string DataFileName
+        private bool IsInitialized => File.Exists(InputFileName) && new FileInfo(InputFileName).Length != 0;
+        protected string[] Input => IsInitialized ? File.ReadAllLines(InputFileName) : null;
+
+        private string InputFileName
         {
             get
             {
@@ -21,9 +24,27 @@ namespace AdventOfCode.Core
             }
         }
 
-        protected string[] Input => File.ReadAllLines(DataFileName);
+        private AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 
-        public AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
+        private bool GetInput()
+        {
+            var targetDate = new DateTime(Problem.Year, 12, Problem.Day, 6, 0, 0);
+            if (DateTime.Now < targetDate) return false;
+
+            if (!File.Exists(InputFileName) || new FileInfo(InputFileName).Length == 0)
+            {
+                using var client = new WebClient();
+                client.Headers.Add(HttpRequestHeader.Cookie, "session=53616c7465645f5f9ad5172fd52a20994d97182152a663d5f1aa804eb410edb53b14b7f45eaa111241c6af59ffae914c");
+                client.DownloadFile(new Uri($"https://adventofcode.com/{Problem.Year}/day/{Problem.Day}/input"), InputFileName);
+            }
+
+            return true;
+        }
+
+        protected AdventOfCodeBase()
+        {
+            GetInput();
+        }
 
         public abstract void Solve();
     }
