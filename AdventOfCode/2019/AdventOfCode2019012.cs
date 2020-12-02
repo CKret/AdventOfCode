@@ -47,7 +47,7 @@ namespace AdventOfCode._2019
     {
         public override void Solve()
         {
-            var data = File.ReadAllLines(@"2019\AdventOfCode201901.txt");
+            var data = Input;
 
             Result = data.Sum(mass =>
             {

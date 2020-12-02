@@ -6,6 +6,8 @@ namespace AdventOfCode.Core
 {
     public abstract class AdventOfCodeBase
     {
+        #region Properties
+
         public object Result { get; protected set; }
 
         private bool IsInitialized => File.Exists(InputFileName) && new FileInfo(InputFileName).Length != 0;
@@ -26,6 +28,19 @@ namespace AdventOfCode.Core
 
         private AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 
+        #endregion
+
+        #region Constructors
+
+        protected AdventOfCodeBase(string sessionCookie)
+        {
+            GetInput(sessionCookie);
+        }
+
+        #endregion
+
+        #region Methods
+
         private bool GetInput(string sessionCookie)
         {
             var targetDate = new DateTime(Problem.Year, 12, Problem.Day, 6, 0, 0);
@@ -41,11 +56,12 @@ namespace AdventOfCode.Core
             return true;
         }
 
-        protected AdventOfCodeBase(string sessionCookie)
-        {
-            GetInput(sessionCookie);
-        }
+        #endregion
+
+        #region Abstract Methods
 
         public abstract void Solve();
+
+        #endregion
     }
 }

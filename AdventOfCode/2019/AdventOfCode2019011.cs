@@ -43,14 +43,14 @@ namespace AdventOfCode._2019
     /// spacecraft?
     /// </summary>
     [AdventOfCode(2019, 1, 1, "The Tyranny of the Rocket Equation - Part 1", 3457281)]
-    public class AdventOfCode2020011 : AdventOfCodeBase
+    public class AdventOfCode2019011 : AdventOfCodeBase
     {
         public override void Solve()
         {
-            var data = File.ReadAllLines(@"2019\AdventOfCode201901.txt");
+            var data = Input;
             Result = data.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
         }
 
-        public AdventOfCode2020011(string sessionCookie) : base(sessionCookie) { }
+        public AdventOfCode2019011(string sessionCookie) : base(sessionCookie) { }
     }
 }

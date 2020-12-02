@@ -9,18 +9,21 @@ var builder = new ConfigurationBuilder()
               .AddEnvironmentVariables();
 
 var config = builder.Build();
-
+var sessionCookie = config["AdventOfCodeSessionCookie"];
 
 var timer = new Stopwatch();
-timer.Start();
 
-var aoc1 = new AdventOfCode._2020.AdventOfCode2020011(config["AdventOfCodeSessionCookie"]);
+var aoc1 = new AdventOfCode._2020.AdventOfCode2020021(sessionCookie);
+
+timer.Start();
 aoc1.Solve();
 timer.Stop();
+
 var part1Time = timer.ElapsedMilliseconds;
 
+var aoc2 = new AdventOfCode._2020.AdventOfCode2020022(sessionCookie);
+
 timer.Start();
-var aoc2 = new AdventOfCode._2020.AdventOfCode2020012(config["AdventOfCodeSessionCookie"]);
 aoc2.Solve();
 timer.Stop();
 
