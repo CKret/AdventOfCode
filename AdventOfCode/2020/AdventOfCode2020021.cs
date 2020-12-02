@@ -14,17 +14,13 @@ namespace AdventOfCode._2020
             var validPasswords = 0;
             foreach (var line in Input)
             {
-                var data = line.Split(' ');
-                var policy = data[0];
-                var chr = data[1][0];
-                var pass = data[2];
-
-                data = policy.Split('-');
+                var data = line.Split(' ', '-');
                 var min = int.Parse(data[0]);
                 var max = int.Parse(data[1]);
+                var chr = data[2][0];
+                var pass = data[3];
 
-                var passArr = pass.ToCharArray();
-                var count = passArr.Count(x => x == chr);
+                var count = pass.ToCharArray().Count(x => x == chr);
                 if (count >= min && count <= max)
                     validPasswords++;
             }
