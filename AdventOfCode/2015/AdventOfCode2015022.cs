@@ -13,7 +13,7 @@ namespace AdventOfCode._2015
     /// as well; the feet of ribbon required for the perfect bow is equal to the cubic feet of
     /// volume of the present. Don't ask how they tie the bow, though; they'll never tell.
        /// </summary>
-    [AdventOfCode(2015, 2, 2, "How many total feet of ribbon should they order?", 3812909)]
+    [AdventOfCode(2015, 2, "How many total feet of ribbon should they order?", 3812909)]
     public class AdventOfCode2015022 : AdventOfCodeBase
     {
         public override void Solve()

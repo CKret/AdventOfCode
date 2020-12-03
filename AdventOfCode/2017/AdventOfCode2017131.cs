@@ -198,7 +198,7 @@ namespace AdventOfCode._2017
     /// immediately, what is the severity of your whole trip?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 13, 1, "Packet Scanners - Part One", 1580)]
+    [AdventOfCode(2017, 13, "Packet Scanners - Part One", 1580)]
     public class AdventOfCode2017131 : AdventOfCodeBase
     {
         public override void Solve()

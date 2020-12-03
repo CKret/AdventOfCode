@@ -61,7 +61,7 @@ namespace AdventOfCode._2017
     /// After 40 million pairs, what is the judge's final count?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 15, 1, "Dueling Generators - Part One", 631)]
+    [AdventOfCode(2017, 15, "Dueling Generators - Part One", 631)]
     public class AdventOfCode2017151 : AdventOfCodeBase
     {
         public override void Solve()

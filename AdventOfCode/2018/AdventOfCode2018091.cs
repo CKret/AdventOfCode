@@ -84,7 +84,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the winning Elf's score?
     /// </summary>
-    [AdventOfCode(2018, 9, 1, "Marble Mania - Part 1", 375414)]
+    [AdventOfCode(2018, 9, "Marble Mania - Part 1", 375414)]
     public class AdventOfCode2018091 : AdventOfCodeBase
     {
         public override void Solve()

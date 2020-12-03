@@ -15,7 +15,7 @@ namespace AdventOfCode._2015
     /// two (different) locations he wants, but he must visit each location exactly once.
     /// What is the shortest distance he can travel to achieve this?
     /// </summary>
-    [AdventOfCode(2015, 9, 1, "What is the distance of the shortest route?", 251)]
+    [AdventOfCode(2015, 9, "What is the distance of the shortest route?", 251)]
     public class AdventOfCode2015091 : AdventOfCodeBase
     {
         public override void Solve()

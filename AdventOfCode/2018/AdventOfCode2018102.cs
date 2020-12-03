@@ -18,7 +18,7 @@ namespace AdventOfCode._2018
     /// curious: exactly how many seconds would they have needed to wait for that
     /// message to appear?
     /// </summary>
-    [AdventOfCode(2018, 10, 2, "The Stars Align - Part 2", 10946)]
+    [AdventOfCode(2018, 10, "The Stars Align - Part 2", 10946)]
     public class AdventOfCode2018102 : AdventOfCodeBase
     {
         public override void Solve()

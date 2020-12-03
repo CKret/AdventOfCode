@@ -129,7 +129,7 @@ namespace AdventOfCode._2017
     /// cause a node to become infected? (Do not count nodes that begin infected.)
     /// 
     /// </summary>
-    [AdventOfCode(2017, 22, 1, "Sporifica Virus - Part One", 5261)]
+    [AdventOfCode(2017, 22, "Sporifica Virus - Part One", 5261)]
     public class AdventOfCode2017221 : AdventOfCodeBase
     {
         public override void Solve()

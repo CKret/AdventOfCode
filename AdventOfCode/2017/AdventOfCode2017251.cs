@@ -99,7 +99,7 @@ namespace AdventOfCode._2017
     /// checksum it produces once it's working again?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 25, 1, "The Halting Problem - Part One", 4230)]
+    [AdventOfCode(2017, 25, "The Halting Problem - Part One", 4230)]
     public class AdventOfCode2017251 : AdventOfCodeBase
     {
         public override void Solve()

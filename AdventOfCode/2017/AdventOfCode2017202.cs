@@ -44,7 +44,7 @@ namespace AdventOfCode._2017
     /// How many particles are left after all collisions are resolved?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 20, 2, "Particle Swarm - Part Two", 648)]
+    [AdventOfCode(2017, 20, "Particle Swarm - Part Two", 648)]
     public class AdventOfCode2017202 : AdventOfCodeBase
     {
         public override void Solve()

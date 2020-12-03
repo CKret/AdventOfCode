@@ -54,7 +54,7 @@ namespace AdventOfCode._2017
     /// that has been seen before?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 6, 1, "Memory Reallocation - Part One", 6681)]
+    [AdventOfCode(2017, 6, "Memory Reallocation - Part One", 6681)]
     public class AdventOfCode2017061 : AdventOfCodeBase
     {
         public override void Solve()

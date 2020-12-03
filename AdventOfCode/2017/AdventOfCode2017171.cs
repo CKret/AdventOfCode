@@ -61,7 +61,7 @@ namespace AdventOfCode._2017
     /// What is the value after 2017 in your completed circular buffer?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 17, 1, "Spinlock - Part One", 777)]
+    [AdventOfCode(2017, 17, "Spinlock - Part One", 777)]
     public class AdventOfCode2017171 : AdventOfCodeBase
     {
         public override void Solve()

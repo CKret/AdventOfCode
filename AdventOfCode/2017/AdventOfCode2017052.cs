@@ -18,7 +18,7 @@ namespace AdventOfCode._2017
     /// How many steps does it now take to reach the exit?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 5, 2, "A Maze of Twisty Trampolines, All Alike - Part Two", 28707598)]
+    [AdventOfCode(2017, 5, "A Maze of Twisty Trampolines, All Alike - Part Two", 28707598)]
     public class AdventOfCode2017052 : AdventOfCodeBase
     {
         public override void Solve()

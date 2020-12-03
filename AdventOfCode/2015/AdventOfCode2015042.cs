@@ -16,7 +16,7 @@ namespace AdventOfCode._2015
     /// To mine AdventCoins, you must find Santa the lowest positive number (no
     /// leading zeroes: 1, 2, 3, ...) that produces such a hash.
     /// </summary>
-    [AdventOfCode(2015, 4, 2, "Find MD5 hashes which, in hexadecimal, start with at least six zeroes.", 1038736)]
+    [AdventOfCode(2015, 4, "Find MD5 hashes which, in hexadecimal, start with at least six zeroes.", 1038736)]
     public class AdventOfCode2015042 : AdventOfCodeBase
     {
         [SuppressMessage("Microsoft.Cryptography", "CA5351")]

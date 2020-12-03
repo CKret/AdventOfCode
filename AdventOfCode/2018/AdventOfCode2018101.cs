@@ -173,7 +173,7 @@ namespace AdventOfCode._2018
     /// 
     /// </summary>
     // ReSharper disable once StringLiteralTypo
-    [AdventOfCode(2018, 10, 1, "The Stars Align - Part 1", "RPNNXFZR")]
+    [AdventOfCode(2018, 10, "The Stars Align - Part 1", "RPNNXFZR")]
     public class AdventOfCode2018101 : AdventOfCodeBase
     {
         public override void Solve()

@@ -24,7 +24,7 @@ namespace AdventOfCode._2017
     /// What is the strength of the longest bridge you can make? If you can make
     /// multiple bridges of the longest length, pick the strongest one.
     /// </summary>
-    [AdventOfCode(2017, 24, 2, "Electromagnetic Moat - Part Two", 1673)]
+    [AdventOfCode(2017, 24, "Electromagnetic Moat - Part Two", 1673)]
     public class AdventOfCode2017242 : AdventOfCodeBase
     {
         public override void Solve()

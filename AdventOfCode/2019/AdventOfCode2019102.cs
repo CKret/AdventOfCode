@@ -93,7 +93,7 @@ namespace AdventOfCode._2019
     /// you get if you multiply its X coordinate by 100 and then add its Y
     /// coordinate? (For example, 8,2 becomes 802.)
     /// </summary>
-    [AdventOfCode(2019, 10, 2, "Day 10: Monitoring Station - Part 2", 1309)]
+    [AdventOfCode(2019, 10, "Day 10: Monitoring Station - Part 2", 1309)]
     public class AdventOfCode2019102 : AdventOfCodeBase
     {
         public override void Solve()

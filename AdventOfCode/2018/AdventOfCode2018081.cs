@@ -56,7 +56,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the sum of all metadata entries?
     /// </summary>
-    [AdventOfCode(2018, 8, 1, "Memory Maneuver - Part 1", 41926)]
+    [AdventOfCode(2018, 8, "Memory Maneuver - Part 1", 41926)]
     public class AdventOfCode2018081 : AdventOfCodeBase
     {
         public static LicenseNode RootNode { get; private set; }

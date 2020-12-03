@@ -11,7 +11,7 @@ namespace AdventOfCode._2015
     /// then take turns moving based on instructions from the elf,
     /// who is eggnoggedly reading from the same script as the previous year.
        /// </summary>
-    [AdventOfCode(2015, 3, 2, "This year, how many houses receive at least one present?", 2360)]
+    [AdventOfCode(2015, 3, "This year, how many houses receive at least one present?", 2360)]
     public class AdventOfCode2015032 : AdventOfCodeBase
     {
         public override void Solve()

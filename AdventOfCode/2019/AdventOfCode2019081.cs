@@ -49,7 +49,7 @@ namespace AdventOfCode._2019
     /// would like you to find the layer that contains the fewest 0 digits. On that
     /// layer, what is the number of 1 digits multiplied by the number of 2 digits?
     /// </summary>
-    [AdventOfCode(2019, 8, 1, "Space Image Format - Part 1", 1320)]
+    [AdventOfCode(2019, 8, "Space Image Format - Part 1", 1320)]
     public class AdventOfCode2019081 : AdventOfCodeBase
     {
         public override void Solve()

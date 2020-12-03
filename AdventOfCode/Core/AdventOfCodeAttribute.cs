@@ -7,9 +7,9 @@ namespace AdventOfCode.Core
     {
         public int Year { get; }
         public int Day { get; }
-        public int Number { get; }
         public string Description { get; }
-        public object Solution { get; }
+        public object SolutionPart1 { get; }
+        public object SolutionPart2 { get; }
 
         /// <summary>
         /// 
@@ -19,13 +19,13 @@ namespace AdventOfCode.Core
         /// <param name="number">The Advent Of Code Number of the day</param>
         /// <param name="description">Short description of the problem to solve.</param>
         /// <param name="solution">The expected result.</param>
-        public AdventOfCodeAttribute(int year, int day, int number, string description, object solution)
+        public AdventOfCodeAttribute(int year, int day, string description, object solution1, object solution2 = null)
         {
             Year = year;
             Day = day;
-            Number = number;
             Description = description;
-            Solution = solution;
+            SolutionPart1 = solution1;
+            SolutionPart2 = solution2;
         }
     }
 }

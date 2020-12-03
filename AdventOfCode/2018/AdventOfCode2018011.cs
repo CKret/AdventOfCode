@@ -55,7 +55,7 @@ namespace AdventOfCode._2018
     /// Starting with a frequency of zero, what is the resulting frequency after
     /// all of the changes in frequency have been applied?
     /// </summary>
-    [AdventOfCode(2018, 1, 1, "Chronal Calibration - Part 1", 445)]
+    [AdventOfCode(2018, 1, "Chronal Calibration - Part 1", 445)]
     public class AdventOfCode2018011 : AdventOfCodeBase
     {
         public override void Solve()

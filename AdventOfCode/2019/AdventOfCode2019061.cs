@@ -76,7 +76,7 @@ namespace AdventOfCode._2019
     /// 
     /// What is the total number of direct and indirect orbits in your map data?
     /// </summary>
-    [AdventOfCode(2019, 6, 1, "Universal Orbit Map - Part 1", 273985)]
+    [AdventOfCode(2019, 6, "Universal Orbit Map - Part 1", 273985)]
     public class AdventOfCode2019061 : AdventOfCodeBase
     {
         public override void Solve()

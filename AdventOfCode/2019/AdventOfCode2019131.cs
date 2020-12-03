@@ -7,7 +7,7 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 13, 1, "", 324)]
+    [AdventOfCode(2019, 13, "", 324)]
     public class AdventOfCode2019131 : AdventOfCodeBase
     {
         public override void Solve()

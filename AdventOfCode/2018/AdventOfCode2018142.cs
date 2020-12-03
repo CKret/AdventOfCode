@@ -20,7 +20,7 @@ namespace AdventOfCode._2018
     /// How many recipes appear on the scoreboard to the left of the score sequence
     /// in your puzzle input?
     /// </summary>
-    [AdventOfCode(2018, 14, 2, "Chocolate Charts - Part 2", 20174745)]
+    [AdventOfCode(2018, 14, "Chocolate Charts - Part 2", 20174745)]
     public class AdventOfCode2018142 : AdventOfCodeBase
     {
         public override void Solve()

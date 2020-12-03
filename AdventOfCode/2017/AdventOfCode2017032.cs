@@ -38,7 +38,7 @@ namespace AdventOfCode._2017
     /// What is the first value written that is larger than your puzzle input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 3, 2, "Spiral Memory - Part Two", 363010)]
+    [AdventOfCode(2017, 3, "Spiral Memory - Part Two", 363010)]
     public class AdventOfCode2017032 : AdventOfCodeBase
     {
         public override void Solve()

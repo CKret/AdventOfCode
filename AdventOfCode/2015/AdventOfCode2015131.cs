@@ -9,7 +9,7 @@ using AdventOfCode.Mathematics;
 namespace AdventOfCode._2015
 {
     /// <summary>
-    [AdventOfCode(2015, 13, 1, "", 709)]
+    [AdventOfCode(2015, 13, "", 709)]
     public class AdventOfCode2015131 : AdventOfCodeBase
     {
         public override void Solve()

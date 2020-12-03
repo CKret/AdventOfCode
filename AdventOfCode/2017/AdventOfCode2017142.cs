@@ -39,7 +39,7 @@ namespace AdventOfCode._2017
     /// How many regions are present given your key string?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 14, 2, "Disk Defragmentation - Part 2", 1141)]
+    [AdventOfCode(2017, 14, "Disk Defragmentation - Part 2", 1141)]
     public class AdventOfCode2017142 : AdventOfCodeBase
     {
         [SuppressMessage("Microsoft.Performance", "CA1814")]

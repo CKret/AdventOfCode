@@ -65,7 +65,7 @@ namespace AdventOfCode._2017
     /// to do so), how many times did program 1 send a value?
     ///  
     /// </summary>
-    [AdventOfCode(2017, 18, 2, "Duet - Part Two", 6858)]
+    [AdventOfCode(2017, 18, "Duet - Part Two", 6858)]
     public class AdventOfCode2017182 : AdventOfCodeBase
     {
         public override void Solve()

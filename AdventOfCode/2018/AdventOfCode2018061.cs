@@ -76,7 +76,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the size of the largest area that isn't infinite?
     /// </summary>
-    [AdventOfCode(2018, 6, 1, "Chronal Coordinates - Part 1", 3907)]
+    [AdventOfCode(2018, 6, "Chronal Coordinates - Part 1", 3907)]
     public class AdventOfCode2018061 : AdventOfCodeBase
     {
         public override void Solve()

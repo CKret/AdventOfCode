@@ -73,7 +73,7 @@ namespace AdventOfCode._2019
     /// output a single value, the BOOST keycode. What BOOST keycode does it
     /// produce?
     /// </summary>
-    [AdventOfCode(2019, 9, 1, "Sensor Boost - Part 1", 3742852857L)]
+    [AdventOfCode(2019, 9, "Sensor Boost - Part 1", 3742852857L)]
     public class AdventOfCode2019091 : AdventOfCodeBase
     {
         public override void Solve()

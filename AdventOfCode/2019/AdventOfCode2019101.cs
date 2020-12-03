@@ -137,7 +137,7 @@ namespace AdventOfCode._2019
     /// Find the best location for a new monitoring station. How many other
     /// asteroids can be detected from that location?
     /// </summary>
-    [AdventOfCode(2019, 10, 1, "Day 10: Monitoring Station - Part 1", 267)]
+    [AdventOfCode(2019, 10, "Day 10: Monitoring Station - Part 1", 267)]
     public class AdventOfCode2019101 : AdventOfCodeBase
     {
         public override void Solve()

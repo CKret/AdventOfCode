@@ -67,7 +67,7 @@ namespace AdventOfCode._2017
     /// components you have available?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 24, 1, "Electromagnetic Moat - Part One", 1695)]
+    [AdventOfCode(2017, 24, "Electromagnetic Moat - Part One", 1695)]
     public class AdventOfCode2017241 : AdventOfCodeBase
     {
         public override void Solve()

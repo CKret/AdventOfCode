@@ -9,6 +9,10 @@ namespace AdventOfCode.Core
         #region Properties
 
         public object Result { get; protected set; }
+        public object ResultPart1 { get; protected set; }
+        public object ResultPart2 { get; protected set; }
+        public decimal TimePart1 { get; protected set; }
+        public decimal TimePart2 { get; protected set; }
 
         private bool IsInitialized => File.Exists(InputFileName) && new FileInfo(InputFileName).Length != 0;
         protected string[] Input => IsInitialized ? File.ReadAllLines(InputFileName) : null;
@@ -17,16 +21,15 @@ namespace AdventOfCode.Core
         {
             get
             {
-                var name = this.GetType().Name;
-                if (string.IsNullOrEmpty(name)) return null;
+                var filename = this.GetType().Name;
+                if (string.IsNullOrEmpty(filename)) return null;
 
-                var filename = name.Remove(name.Length - 1);
 
                 return @$"{Problem.Year}\{filename}.txt";
             }
         }
 
-        private AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
+        public AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 
         #endregion
 

@@ -77,7 +77,7 @@ namespace AdventOfCode._2018
     /// What are the scores of the ten recipes immediately after the number of
     /// recipes in your puzzle input?
     /// </summary>
-    [AdventOfCode(2018, 14, 1, "Chocolate Charts - Part 1", 1041411104)]
+    [AdventOfCode(2018, 14, "Chocolate Charts - Part 1", 1041411104)]
     public class AdventOfCode2018141 : AdventOfCodeBase
     {
         public override void Solve()

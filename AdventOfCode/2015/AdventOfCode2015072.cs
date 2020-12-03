@@ -9,7 +9,7 @@ namespace AdventOfCode._2015
     /// <summary>
     /// Now, take the signal you got on wire a, override wire b to that signal, and reset the other wires (including wire a). What new signal is ultimately provided to wire a?
     /// </summary>
-    [AdventOfCode(2015, 7, 2, "What new signal is ultimately provided to wire a?", 40149)]
+    [AdventOfCode(2015, 7, "What new signal is ultimately provided to wire a?", 40149)]
     public class AdventOfCode2015072 : AdventOfCodeBase
     {
         Dictionary<string, string[]> instructions = new Dictionary<string, string[]>();

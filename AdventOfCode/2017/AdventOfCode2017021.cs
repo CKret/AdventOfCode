@@ -35,7 +35,7 @@ namespace AdventOfCode._2017
     /// What is the checksum for the spreadsheet in your puzzle input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 2, 1, "Corruption Checksum - Part One", 42378)]
+    [AdventOfCode(2017, 2, "Corruption Checksum - Part One", 42378)]
     public class AdventOfCode2017021 : AdventOfCodeBase
     {
         public override void Solve()

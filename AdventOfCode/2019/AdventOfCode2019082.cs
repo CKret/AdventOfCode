@@ -56,7 +56,7 @@ namespace AdventOfCode._2019
     /// 
     /// What message is produced after decoding your image?
     /// </summary>
-    [AdventOfCode(2019, 8, 2, "Space Image Format - Part 2", "RCYKR")]
+    [AdventOfCode(2019, 8, "Space Image Format - Part 2", "RCYKR")]
     public class AdventOfCode2019082 : AdventOfCodeBase
     {
         public override void Solve()

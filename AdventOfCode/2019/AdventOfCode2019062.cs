@@ -65,7 +65,7 @@ namespace AdventOfCode._2019
     /// object YOU are orbiting to the object SAN is orbiting? (Between the objects
     /// they are orbiting - not between YOU and SAN.)
     /// </summary>
-    [AdventOfCode(2019, 6, 2, "Universal Orbit Map - Part 2", 460)]
+    [AdventOfCode(2019, 6, "Universal Orbit Map - Part 2", 460)]
     public class AdventOfCode2019062 : AdventOfCodeBase
     {
         public override void Solve()

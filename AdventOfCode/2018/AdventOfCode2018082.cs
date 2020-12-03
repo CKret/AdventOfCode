@@ -38,7 +38,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the value of the root node?
     /// </summary>
-    [AdventOfCode(2018, 8, 2, "Memory Maneuver - Part 2", 24262)]
+    [AdventOfCode(2018, 8, "Memory Maneuver - Part 2", 24262)]
     public class AdventOfCode2018082 : AdventOfCodeBase
     {
         public override void Solve()

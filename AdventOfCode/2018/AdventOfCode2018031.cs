@@ -70,7 +70,7 @@ namespace AdventOfCode._2018
     /// enough fabric. How many square inches of fabric are within two or more
     /// claims?
     /// </summary>
-    [AdventOfCode(2018, 3, 1, "No Matter How You Slice It - Part 1", 110389)]
+    [AdventOfCode(2018, 3, "No Matter How You Slice It - Part 1", 110389)]
     public class AdventOfCode2018031 : AdventOfCodeBase
     {
         [SuppressMessage("Microsoft.Performance", "CA1814")]

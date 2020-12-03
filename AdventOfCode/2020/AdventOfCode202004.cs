@@ -4,10 +4,10 @@ namespace AdventOfCode._2020
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2020, 4, 2, "", null)]
-    public class AdventOfCode2020042 : AdventOfCodeBase
+    [AdventOfCode(2020, 4, "", null, null)]
+    public class AdventOfCode202004 : AdventOfCodeBase
     {
-        public AdventOfCode2020042(string sessionCookie) : base(sessionCookie) { }
+        public AdventOfCode202004(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
             var data = Input;

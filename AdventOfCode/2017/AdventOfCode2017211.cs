@@ -119,7 +119,7 @@ namespace AdventOfCode._2017
     /// 
     /// Your puzzle answer was 184.
     /// </summary>
-    [AdventOfCode(2017, 21, 1, "Fractal Art - Part One", 184)]
+    [AdventOfCode(2017, 21, "Fractal Art - Part One", 184)]
     public class AdventOfCode2017211 : AdventOfCodeBase
     {
         public override void Solve()

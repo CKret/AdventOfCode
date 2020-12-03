@@ -25,7 +25,7 @@ namespace AdventOfCode._2017
     /// How many non-canceled characters are within the garbage in your puzzle input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 9, 2, "Stream Processing - Part Two", 7539)]
+    [AdventOfCode(2017, 9, "Stream Processing - Part Two", 7539)]
     public class AdventOfCode2017092 : AdventOfCodeBase
     {
         public override void Solve()

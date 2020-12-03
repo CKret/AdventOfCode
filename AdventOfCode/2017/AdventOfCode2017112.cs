@@ -12,7 +12,7 @@ namespace AdventOfCode._2017
     /// How many steps away is the furthest he ever got from his starting position?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 11, 2, "Hex Ed - Part Two", 1457)]
+    [AdventOfCode(2017, 1, "Hex Ed - Part Two", 1457)]
     public class AdventOfCode2017112 : AdventOfCodeBase
     {
         public override void Solve()

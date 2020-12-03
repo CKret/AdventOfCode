@@ -15,7 +15,7 @@ namespace AdventOfCode._2018
     /// What would the new winning Elf's score be if the number of the last marble
     /// were 100 times larger?
     /// </summary>
-    [AdventOfCode(2018, 9, 2, "Marble Mania - Part 2", 3168033673L)]
+    [AdventOfCode(2018, 9, "Marble Mania - Part 2", 3168033673L)]
     public class AdventOfCode2018092 : AdventOfCodeBase
     {
         public override void Solve()

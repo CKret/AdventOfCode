@@ -86,7 +86,7 @@ namespace AdventOfCode._2019
     /// Try every combination of phase settings on the amplifiers. What is the
     /// highest signal that can be sent to the thrusters?
     /// </summary>
-    [AdventOfCode(2019, 7, 1, "Amplification Circuit - Part 1", 18812L)]
+    [AdventOfCode(2019, 7, "Amplification Circuit - Part 1", 18812L)]
     public class AdventOfCode2019071 : AdventOfCodeBase
     {
         public override void Solve()

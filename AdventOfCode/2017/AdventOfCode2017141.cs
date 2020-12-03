@@ -57,7 +57,7 @@ namespace AdventOfCode._2017
     /// Given your actual key string, how many squares are used?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 14, 1, "Disk Defragmentation - Part 1", 8194)]
+    [AdventOfCode(2017, 14, "Disk Defragmentation - Part 1", 8194)]
     public class AdventOfCode2017141 : AdventOfCodeBase
     {
         public override void Solve()

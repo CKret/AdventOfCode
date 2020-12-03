@@ -57,7 +57,7 @@ namespace AdventOfCode._2018
     /// What is the location of the last cart at the end of the first tick where it
     /// is the only cart left?
     /// </summary>
-    [AdventOfCode(2018, 13, 2, "Mine Cart Madness - Part 2", "113,109")]
+    [AdventOfCode(2018, 13, "Mine Cart Madness - Part 2", "113,109")]
     public class AdventOfCode2018132 : AdventOfCodeBase
     {
         public override void Solve()

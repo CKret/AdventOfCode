@@ -78,7 +78,7 @@ namespace AdventOfCode._2017
     /// correct. What is the name of the bottom program?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 7, 1, "Recursive Circus - Part One", "cqmvs")]
+    [AdventOfCode(2017, 7, "Recursive Circus - Part One", "cqmvs")]
     public class AdventOfCode2017071 : AdventOfCodeBase
     {
         public override void Solve()

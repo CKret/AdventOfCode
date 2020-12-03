@@ -26,7 +26,7 @@ namespace AdventOfCode._2017
     /// How many groups are there in total?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 12, 2, "Digital Plumber - Part Two", 193)]
+    [AdventOfCode(2017, 12, "Digital Plumber - Part Two", 193)]
     public class AdventOfCode2017122 : AdventOfCodeBase
     {
         public override void Solve()

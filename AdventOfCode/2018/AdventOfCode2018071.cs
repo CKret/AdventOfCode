@@ -68,7 +68,7 @@ namespace AdventOfCode._2018
     /// 
     /// In what order should the steps in your instructions be completed?
     /// </summary>
-    [AdventOfCode(2018, 7, 1, "The Sum of Its Parts - Part 1", "BHMOTUFLCPQKWINZVRXAJDSYEG")]
+    [AdventOfCode(2018, 7, "The Sum of Its Parts - Part 1", "BHMOTUFLCPQKWINZVRXAJDSYEG")]
     public class AdventOfCode2018071 : AdventOfCodeBase {
         public override void Solve()
         {

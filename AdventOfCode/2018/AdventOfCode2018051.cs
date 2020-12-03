@@ -45,7 +45,7 @@ namespace AdventOfCode._2018
     /// in this puzzle and others, the input is large; if you copy/paste your
     /// input, make sure you get the whole thing.)
     /// </summary>
-    [AdventOfCode(2018, 5, 1, "Alchemical Reduction - Part 1", 10804)]
+    [AdventOfCode(2018, 5, "Alchemical Reduction - Part 1", 10804)]
     public class AdventOfCode2018051 : AdventOfCodeBase
     {
         public override void Solve()

@@ -27,7 +27,7 @@ namespace AdventOfCode._2017
     /// In what order are the programs standing after their billion dances?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 16, 2, "Permutation Promenade - Part 2", "fdnphiegakolcmjb")]
+    [AdventOfCode(2017, 16, "Permutation Promenade - Part 2", "fdnphiegakolcmjb")]
     public class AdventOfCode2017162 : AdventOfCodeBase
     {
         public override void Solve()

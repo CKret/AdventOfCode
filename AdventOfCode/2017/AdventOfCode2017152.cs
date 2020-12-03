@@ -73,7 +73,7 @@ namespace AdventOfCode._2017
     /// judge's final count?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 15, 2, "Dueling Generators - Part Two", 279)]
+    [AdventOfCode(2017, 15, "Dueling Generators - Part Two", 279)]
     public class AdventOfCode2017152 : AdventOfCodeBase
     {
         public override void Solve()

@@ -15,7 +15,7 @@ namespace AdventOfCode._2015
     /// replace each run of digits (like 111) with the number of digits (3)
     /// followed by the digit itself (1).
     /// </summary>
-    [AdventOfCode(2015, 10, 2, "Starting with the digits in your puzzle input, apply this process 50 times. What is the length of the result?", 5103798)]
+    [AdventOfCode(2015, 10, "Starting with the digits in your puzzle input, apply this process 50 times. What is the length of the result?", 5103798)]
     public class AdventOfCode2015102 : AdventOfCodeBase
     {
         public override void Solve()

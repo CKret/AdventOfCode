@@ -24,7 +24,7 @@ namespace AdventOfCode._2019
     /// Run the BOOST program in sensor boost mode. What are the coordinates of
     /// the distress signal?
     /// </summary>
-    [AdventOfCode(2019, 9, 2, "Sensor Boost - Part 2", 73439L)]
+    [AdventOfCode(2019, 9, "Sensor Boost - Part 2", 73439L)]
     public class AdventOfCode2019092 : AdventOfCodeBase
     {
         public override void Solve()

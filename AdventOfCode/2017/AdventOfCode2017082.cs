@@ -19,7 +19,7 @@ namespace AdventOfCode._2017
     /// was evaluated).
     /// 
     /// </summary>
-    [AdventOfCode(2017, 8, 2, "I Heard You Like Registers - Part Two", 6026)]
+    [AdventOfCode(2017, 8, "I Heard You Like Registers - Part Two", 6026)]
     public class AdventOfCode2017082 : AdventOfCodeBase
     {
         public override void Solve()

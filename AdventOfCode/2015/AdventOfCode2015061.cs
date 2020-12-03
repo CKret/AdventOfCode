@@ -14,7 +14,7 @@ namespace AdventOfCode._2015
     /// 
     /// To defeat your neighbors this year, all you have to do is set up your lights by doing the instructions Santa sent you in order.
     /// </summary>
-    [AdventOfCode(2015, 6, 1, "After following the instructions, how many lights are lit?", 400410)]
+    [AdventOfCode(2015, 6, "After following the instructions, how many lights are lit?", 400410)]
     public class AdventOfCode2015061 : AdventOfCodeBase
     {
         public override void Solve()

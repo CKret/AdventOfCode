@@ -21,7 +21,7 @@ namespace AdventOfCode._2017
     /// in your puzzle input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 6, 2, "Memory Reallocation - Part Two", 2392)]
+    [AdventOfCode(2017, 6, "Memory Reallocation - Part Two", 2392)]
     public class AdventOfCode2017062 : AdventOfCodeBase
     {
         public override void Solve()

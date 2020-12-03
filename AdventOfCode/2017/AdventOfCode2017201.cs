@@ -60,7 +60,7 @@ namespace AdventOfCode._2017
     /// Which particle will stay closest to position &lt;0,0,0&gt; in the long term?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 20, 1, "Particle Swarm - Part One", 243)]
+    [AdventOfCode(2017, 20, "Particle Swarm - Part One", 243)]
     public class AdventOfCode2017201 : AdventOfCodeBase
     {
         public override void Solve()

@@ -12,7 +12,7 @@ namespace AdventOfCode._2015
     /// Santa's password expired again. What's the next one?
     /// 
     /// </summary>
-    [AdventOfCode(2015, 11, 2, "", "cqkaabcc")]
+    [AdventOfCode(2015, 1, "", "cqkaabcc")]
     public class AdventOfCode2015112 : AdventOfCodeBase
     {
         public override void Solve()

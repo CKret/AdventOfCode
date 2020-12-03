@@ -18,7 +18,7 @@ namespace AdventOfCode._2018
     /// 
     /// What value is contained in register 0 after executing the test program?
     /// </summary>
-    [AdventOfCode(2018, 16, 2, "Chronal Classification - Part 2", 622)]
+    [AdventOfCode(2018, 16, "Chronal Classification - Part 2", 622)]
     public class AdventOfCode2018162 : AdventOfCodeBase
     {
         public AdventOfCode2018162(string sessionCookie) : base(sessionCookie) { }

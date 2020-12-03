@@ -23,7 +23,7 @@ namespace AdventOfCode._2017
     /// many passphrases are valid?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 4, 1, "High-Entropy Passphrase - Part One", 451)]
+    [AdventOfCode(2017, 4, "High-Entropy Passphrase - Part One", 451)]
     public class AdventOfCode2017041 : AdventOfCodeBase
     {
         public override void Solve()

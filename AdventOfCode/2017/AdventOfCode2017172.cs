@@ -23,7 +23,7 @@ namespace AdventOfCode._2017
     /// What is the value after 0 the moment 50000000 is inserted?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 17, 2, "Spinlock - Part Two", 39289581)]
+    [AdventOfCode(2017, 17, "Spinlock - Part Two", 39289581)]
     public class AdventOfCode2017172 : AdventOfCodeBase
     {
         public override void Solve()

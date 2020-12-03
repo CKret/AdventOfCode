@@ -48,7 +48,7 @@ namespace AdventOfCode._2017
     ///  wrapping.)
     /// 
     /// </summary>
-    [AdventOfCode(2017, 19, 1, "A Series of Tubes - Part One", "DTOUFARJQ")]
+    [AdventOfCode(2017, 19, "A Series of Tubes - Part One", "DTOUFARJQ")]
     public class AdventOfCode2017191 : AdventOfCodeBase
     {
         public override void Solve()

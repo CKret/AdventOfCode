@@ -193,7 +193,7 @@ namespace AdventOfCode._2018
     /// How many tiles can the water reach within the range of y values in your
     /// scan?
     /// </summary>
-    [AdventOfCode(2018, 17, 1, "Reservoir Research - Part 1", 31883)]
+    [AdventOfCode(2018, 17, "Reservoir Research - Part 1", 31883)]
     public class AdventOfCode2018171 : AdventOfCodeBase
     {
         private readonly char[][] scanSlice = new char[2000][];

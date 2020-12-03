@@ -13,7 +13,7 @@ namespace AdventOfCode._2015
     ///     It contains at least one letter that appears twice in a row, like xx, abcdde (dd), or aabbccdd (aa, bb, cc, or dd).
     ///     It does not contain the strings ab, cd, pq, or xy, even if they are part of one of the other requirements.
     /// </summary>
-    [AdventOfCode(2015, 5, 1, "How many strings are nice?", 236)]
+    [AdventOfCode(2015, 5, "How many strings are nice?", 236)]
     public class AdventOfCode2015051 : AdventOfCodeBase
     {
         public override void Solve()

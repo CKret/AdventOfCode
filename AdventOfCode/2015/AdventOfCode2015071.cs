@@ -13,7 +13,7 @@ namespace AdventOfCode._2015
     /// 
     /// The included instructions booklet describes how to connect the parts together: x AND y -&gt; z means to connect wires x and y to an AND gate, and then connect its output to wire z.
     /// </summary>
-    [AdventOfCode(2015, 7, 1, "In little Bobby's kit's instructions booklet (provided as your puzzle input), what signal is ultimately provided to wire a?", 956)]
+    [AdventOfCode(2015, 7, "In little Bobby's kit's instructions booklet (provided as your puzzle input), what signal is ultimately provided to wire a?", 956)]
     public class AdventOfCode2015071 : AdventOfCodeBase
     {
         Dictionary<string, string[]> instructions = new Dictionary<string, string[]>();

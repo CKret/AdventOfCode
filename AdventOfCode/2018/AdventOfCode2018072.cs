@@ -59,7 +59,7 @@ namespace AdventOfCode._2018
     /// With 5 workers and the 60+ second step durations described above, how long
     /// will it take to complete all of the steps?
     /// </summary>
-    [AdventOfCode(2018, 7, 2, "The Sum of Its Parts - Part 1", 877)]
+    [AdventOfCode(2018, 7, "The Sum of Its Parts - Part 1", 877)]
     public class AdventOfCode2018072 : AdventOfCodeBase
     {
         public override void Solve()

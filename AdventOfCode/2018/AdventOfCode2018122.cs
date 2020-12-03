@@ -18,7 +18,7 @@ namespace AdventOfCode._2018
     /// After fifty billion (50000000000) generations, what is the sum of the
     /// numbers of all pots which contain a plant?
     /// </summary>
-    [AdventOfCode(2018, 12, 2, "Subterranean Sustainability - Part 2", 1250000000991L)]
+    [AdventOfCode(2018, 12, "Subterranean Sustainability - Part 2", 1250000000991L)]
     public class AdventOfCode2018122 : AdventOfCodeBase
     {
         public override void Solve()

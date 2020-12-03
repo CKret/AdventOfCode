@@ -38,7 +38,7 @@ namespace AdventOfCode._2017
     /// 
     /// What is the sum of each row's result in your puzzle input?
     /// </summary>
-    [AdventOfCode(2017, 2, 2, "Corruption Checksum - Part Two", 246)]
+    [AdventOfCode(2017, 2, "Corruption Checksum - Part Two", 246)]
     public class AdventOfCode2017022 : AdventOfCodeBase
     {
         public override void Solve()

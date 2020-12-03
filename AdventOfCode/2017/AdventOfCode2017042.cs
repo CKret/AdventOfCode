@@ -29,7 +29,7 @@ namespace AdventOfCode._2017
     /// Under this new system policy, how many passphrases are valid?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 4, 2, "High-Entropy Passphrase - Part Two", 223)]
+    [AdventOfCode(2017, 4, "High-Entropy Passphrase - Part Two", 223)]
     public class AdventOfCode2017042 : AdventOfCodeBase
     {
         public override void Solve()

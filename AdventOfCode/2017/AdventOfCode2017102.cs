@@ -76,7 +76,7 @@ namespace AdventOfCode._2017
     /// you might encounter.
     /// 
     /// </summary>
-    [AdventOfCode(2017, 10, 2, "Knot Hash - Part Two", "a7af2706aa9a09cf5d848c1e6605dd2a")]
+    [AdventOfCode(2017, 10, "Knot Hash - Part Two", "a7af2706aa9a09cf5d848c1e6605dd2a")]
     public class AdventOfCode2017102 : AdventOfCodeBase
     {
         [SuppressMessage("Microsoft.Globalization", "CA1308")]

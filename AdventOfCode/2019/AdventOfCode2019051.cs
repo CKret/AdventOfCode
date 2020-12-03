@@ -103,7 +103,7 @@ namespace AdventOfCode._2019
     /// After providing 1 to the only input instruction and passing all the tests,
     /// what diagnostic code does the program produce?
     /// </summary>
-    [AdventOfCode(2019, 5, 1, "Sunny with a Chance of Asteroids - Part 1", 11933517L)]
+    [AdventOfCode(2019, 5, "Sunny with a Chance of Asteroids - Part 1", 11933517L)]
     public class AdventOfCode2019051 : AdventOfCodeBase
     {
         public override void Solve()

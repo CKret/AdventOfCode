@@ -48,7 +48,7 @@ namespace AdventOfCode._2017
     /// What is the solution to your captcha?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 1, 1, "Inverse Captcha - Part One", 1393)]
+    [AdventOfCode(2017, 1, "Inverse Captcha - Part One", 1393)]
     public class AdventOfCode2017011 : AdventOfCodeBase
     {
         public override void Solve()

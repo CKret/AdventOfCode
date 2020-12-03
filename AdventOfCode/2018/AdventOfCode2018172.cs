@@ -16,7 +16,7 @@ namespace AdventOfCode._2018
     /// How many water tiles are left after the water spring stops producing water
     /// and all remaining water not at rest has drained?
     /// </summary>
-    [AdventOfCode(2018, 17, 2, "Reservoir Research - Part 2", 24927)]
+    [AdventOfCode(2018, 17, "Reservoir Research - Part 2", 24927)]
     public class AdventOfCode2018172 : AdventOfCodeBase
     {
         public AdventOfCode2018172(string sessionCookie) : base(sessionCookie) { }

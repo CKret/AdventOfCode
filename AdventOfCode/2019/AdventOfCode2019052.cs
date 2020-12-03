@@ -78,7 +78,7 @@ namespace AdventOfCode._2019
     /// 
     /// What is the diagnostic code for system ID 5?
     /// </summary>
-    [AdventOfCode(2019, 5, 2, "Sunny with a Chance of Asteroids - Part 2", 10428568L)]
+    [AdventOfCode(2019, 5, "Sunny with a Chance of Asteroids - Part 2", 10428568L)]
     public class AdventOfCode2019052 : AdventOfCodeBase
     {
         public override void Solve()

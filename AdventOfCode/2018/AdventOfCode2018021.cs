@@ -52,7 +52,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the checksum for your list of box IDs?
     /// </summary>
-    [AdventOfCode(2018, 2, 1, "Inventory Management System - Part 1", 4940)]
+    [AdventOfCode(2018, 2, "Inventory Management System - Part 1", 4940)]
     public class AdventOfCode2018021 : AdventOfCodeBase
     {
         public override void Solve()

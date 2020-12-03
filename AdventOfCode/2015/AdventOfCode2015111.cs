@@ -48,7 +48,7 @@ namespace AdventOfCode._2015
     /// password be?
     /// 
     /// </summary>
-    [AdventOfCode(2015, 11, 1, "Corporate Policy - Part One", "cqjxxyzz")]
+    [AdventOfCode(2015, 1, "Corporate Policy - Part One", "cqjxxyzz")]
     public class AdventOfCode2015111 : AdventOfCodeBase
     {
         public override void Solve()

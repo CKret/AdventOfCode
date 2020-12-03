@@ -15,7 +15,7 @@ namespace AdventOfCode._2017
     /// How many pixels stay on after 18 iterations?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 21, 2, "Fractal Art - Part Two", 2810258)]
+    [AdventOfCode(2017, 2, "Fractal Art - Part Two", 2810258)]
     public class AdventOfCode2017212 : AdventOfCodeBase
     {
         public override void Solve()

@@ -40,7 +40,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the first frequency your device reaches twice?
     /// </summary>
-    [AdventOfCode(2018, 1, 2, "Chronal Calibration - Part 2", 219)]
+    [AdventOfCode(2018, 1, "Chronal Calibration - Part 2", 219)]
     public class AdventOfCode2018012 : AdventOfCodeBase
     {
         public override void Solve()

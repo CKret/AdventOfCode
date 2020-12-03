@@ -74,7 +74,7 @@ namespace AdventOfCode._2017
     /// non-zero value?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 18, 1, "Duet - Part One", 4601L)]
+    [AdventOfCode(2017, 18, "Duet - Part One", 4601L)]
     public class AdventOfCode2017181 : AdventOfCodeBase
     {
         public override void Solve()

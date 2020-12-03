@@ -11,7 +11,7 @@ namespace AdventOfCode._2015
     /// 
     /// However, it is important to realize the difference between the number of characters in the code representation of the string literal and the number of characters in the in-memory string itself.
     /// </summary>
-    [AdventOfCode(2015, 8, 1, "What is the number of characters of code for string literals minus the number of characters in memory for the values of the strings in total for the entire file?", 1371)]
+    [AdventOfCode(2015, 8, "What is the number of characters of code for string literals minus the number of characters in memory for the values of the strings in total for the entire file?", 1371)]
     public class AdventOfCode2015081 : AdventOfCodeBase
     {
         public override void Solve()

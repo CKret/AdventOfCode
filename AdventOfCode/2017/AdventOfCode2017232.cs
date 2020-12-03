@@ -27,7 +27,7 @@ namespace AdventOfCode._2017
     /// what value would be left in register h?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 23, 2, "Coprocessor Conflagration - Part Two", 909)]
+    [AdventOfCode(2017, 23, "Coprocessor Conflagration - Part Two", 909)]
     public class AdventOfCode2017232 : AdventOfCodeBase
     {
         public override void Solve()

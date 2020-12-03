@@ -23,7 +23,7 @@ namespace AdventOfCode._2018
     /// 
     /// What is the ID of the only claim that doesn't overlap?
     /// </summary>
-    [AdventOfCode(2018, 3, 2, "No Matter How You Slice It - Part 2", 552)]
+    [AdventOfCode(2018, 3, "No Matter How You Slice It - Part 2", 552)]
     public class AdventOfCode2018032 : AdventOfCodeBase
     {
         [SuppressMessage("Microsoft.Performance", "CA1814")]

@@ -14,7 +14,7 @@ namespace AdventOfCode._2015
     /// 
     /// For example, given the distances above, the longest route would be 982 via (for example) Dublin -&gt; London -&gt; Belfast.
     /// </summary>
-    [AdventOfCode(2015, 9, 2, "What is the distance of the longest route?", 898)]
+    [AdventOfCode(2015, 9, "What is the distance of the longest route?", 898)]
     public class AdventOfCode2015092 : AdventOfCodeBase
     {
         public override void Solve()

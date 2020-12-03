@@ -92,7 +92,7 @@ namespace AdventOfCode._2018
     /// What is the ID of the guard you chose multiplied by the minute you chose?
     /// (In the above example, the answer would be 10 * 24 = 240.)
     /// </summary>
-    [AdventOfCode(2018, 4, 1, "Repose Record - Part 1", 38813)]
+    [AdventOfCode(2018, 4, "Repose Record - Part 1", 38813)]
     public class AdventOfCode2018041 : AdventOfCodeBase
     {
         public override void Solve()

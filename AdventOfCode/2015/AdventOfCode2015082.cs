@@ -8,7 +8,7 @@ namespace AdventOfCode._2015
     /// you should now encode each code representation as a new string and find the number of
     /// characters of the new encoded representation, including the surrounding double quotes.
     /// </summary>
-    [AdventOfCode(2015, 8, 2, "Find the total number of characters to represent the newly encoded strings minus the number of characters of code in each original string literal.", 2117)]
+    [AdventOfCode(2015, 8, "Find the total number of characters to represent the newly encoded strings minus the number of characters of code in each original string literal.", 2117)]
     public class AdventOfCode2015082 : AdventOfCodeBase
     {
         public override void Solve()

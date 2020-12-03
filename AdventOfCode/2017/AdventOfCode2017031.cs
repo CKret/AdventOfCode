@@ -36,7 +36,7 @@ namespace AdventOfCode._2017
     /// your puzzle input all the way to the access port?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 3, 1, "Spiral Memory - Part One", 326)]
+    [AdventOfCode(2017, 3, "Spiral Memory - Part One", 326)]
     public class AdventOfCode2017031 : AdventOfCodeBase
     {
         public override void Solve()

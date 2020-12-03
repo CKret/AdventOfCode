@@ -30,7 +30,7 @@ namespace AdventOfCode._2018
     /// above, this is found by removing the differing character from either ID,
     /// producing fgij.)
     /// </summary>
-    [AdventOfCode(2018, 2, 2, "Inventory Management System - Part 2", "wrziyfdmlumeqvaatbiosngkc")]
+    [AdventOfCode(2018, 2, "Inventory Management System - Part 2", "wrziyfdmlumeqvaatbiosngkc")]
     public class AdventOfCode2018022 : AdventOfCodeBase
     {
         public override void Solve()

@@ -198,7 +198,7 @@ namespace AdventOfCode._2018
     /// 
     /// In this example, the location of the first crash is 7,3.
     /// </summary>
-    [AdventOfCode(2018, 13, 1, "Mine Cart Madness - Part 1", "100,21")]
+    [AdventOfCode(2018, 13, "Mine Cart Madness - Part 1", "100,21")]
     public class AdventOfCode2018131 : AdventOfCodeBase
     {
         public override void Solve()

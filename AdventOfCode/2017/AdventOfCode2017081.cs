@@ -44,7 +44,7 @@ namespace AdventOfCode._2017
     /// in your puzzle input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 8, 1, "I Heard You Like Registers - Part One", 5946)]
+    [AdventOfCode(2017, 8, "I Heard You Like Registers - Part One", 5946)]
     public class AdventOfCode2017081 : AdventOfCodeBase
     {
         public override void Solve()

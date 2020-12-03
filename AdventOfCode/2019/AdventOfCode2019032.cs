@@ -52,7 +52,7 @@ namespace AdventOfCode._2019
     /// What is the fewest combined steps the wires must take to reach an
     /// intersection?
     /// </summary>
-    [AdventOfCode(2019, 3, 2, "Crossed Wires - Part 2", 14228)]
+    [AdventOfCode(2019, 3, "Crossed Wires - Part 2", 14228)]
     public class AdventOfCode2019032 : AdventOfCodeBase
     {
         public override void Solve()
@@ -69,7 +69,7 @@ namespace AdventOfCode._2019
             Result = intersections.Min(p => grid1[p] + grid2[p]);
         }
 
-        protected Dictionary<(int, int), int> ParseWire(string[] wire)
+        private Dictionary<(int, int), int> ParseWire(string[] wire)
         {
             var grid = new Dictionary<(int, int), int>();
 

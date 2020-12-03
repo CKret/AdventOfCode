@@ -27,7 +27,7 @@ namespace AdventOfCode._2018
     /// What is the X,Y,size identifier of the square with the largest total power?
     /// </summary>
     // ReSharper disable once StringLiteralTypo
-    [AdventOfCode(2018, 11, 2, "Chronal Charge - Part 2", "229,251,16")]
+    [AdventOfCode(2018, 1, "Chronal Charge - Part 2", "229,251,16")]
     public class AdventOfCode2018112 : AdventOfCodeBase
     {
         public override void Solve()

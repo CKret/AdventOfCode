@@ -39,7 +39,7 @@ namespace AdventOfCode._2017
     ///     se,sw,se,sw,sw is 3 steps away (s,s,sw).
     /// 
     /// </summary>
-    [AdventOfCode(2017, 11, 1, "Hex Ed - Part One", 685)]
+    [AdventOfCode(2017, 1, "Hex Ed - Part One", 685)]
     public class AdventOfCode2017111 : AdventOfCodeBase
     {
         public override void Solve()

@@ -15,7 +15,7 @@ namespace AdventOfCode._2015
     /// find the surface area of the box, which is 2*l*w + 2*w*h + 2*h*l.
     /// The elves also need a little extra paper for each present: the area of the smallest side.
     /// </summary>
-    [AdventOfCode(2015, 2, 1, "All numbers in the elves' list are in feet. How many total square feet of wrapping paper should they order?", 1598415)]
+    [AdventOfCode(2015, 2, "All numbers in the elves' list are in feet. How many total square feet of wrapping paper should they order?", 1598415)]
     public class AdventOfCode2015021 : AdventOfCodeBase
     {
         public override void Solve()

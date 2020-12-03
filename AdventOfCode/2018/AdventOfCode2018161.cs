@@ -133,7 +133,7 @@ namespace AdventOfCode._2018
     /// Ignoring the opcode numbers, how many samples in your puzzle input behave
     /// like three or more opcodes?
     /// </summary>
-    [AdventOfCode(2018, 16, 1, "Chronal Classification - Part 1", 560)]
+    [AdventOfCode(2018, 16, "Chronal Classification - Part 1", 560)]
     public class AdventOfCode2018161 : AdventOfCodeBase
     {
         public override void Solve()

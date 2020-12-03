@@ -38,7 +38,7 @@ namespace AdventOfCode._2017
     /// How many steps does the packet need to go?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 19, 2, "A Series of Tubes - Part Two", 16642)]
+    [AdventOfCode(2017, 19, "A Series of Tubes - Part Two", 16642)]
     public class AdventOfCode2017192 : AdventOfCodeBase
     {
         public override void Solve()

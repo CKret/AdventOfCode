@@ -33,7 +33,7 @@ namespace AdventOfCode._2018
     /// What is the length of the shortest polymer you can produce by removing all
     /// units of exactly one type and fully reacting the result?
     /// </summary>
-    [AdventOfCode(2018, 5, 2, "Alchemical Reduction - Part 2", 6650)]
+    [AdventOfCode(2018, 5, "Alchemical Reduction - Part 2", 6650)]
     public class AdventOfCode2018052 : AdventOfCodeBase
     {
         private readonly char[] letters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();

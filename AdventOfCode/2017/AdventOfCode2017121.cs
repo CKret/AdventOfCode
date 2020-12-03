@@ -58,7 +58,7 @@ namespace AdventOfCode._2017
     /// How many programs are in the group that contains program ID 0?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 12, 1, "Digital Plumber - Part One", 134)]
+    [AdventOfCode(2017, 12, "Digital Plumber - Part One", 134)]
     public class AdventOfCode2017121 : AdventOfCodeBase
     {
         public override void Solve()

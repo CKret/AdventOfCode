@@ -39,7 +39,7 @@ namespace AdventOfCode._2017
     /// input). In what order are the programs standing after their dance?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 16, 1, "Permutation Promenade - Part One", "ionlbkfeajgdmphc")]
+    [AdventOfCode(2017, 16, "Permutation Promenade - Part One", "ionlbkfeajgdmphc")]
     public class AdventOfCode2017161 : AdventOfCodeBase
     {
         public override void Solve()

@@ -18,7 +18,7 @@ namespace AdventOfCode._2015
     /// so his directions are a little off, and Santa ends up visiting some houses more
     /// than once.
     /// </summary>
-    [AdventOfCode(2015, 3, 1, "How many houses receive at least one present?", 2592)]
+    [AdventOfCode(2015, 3, "How many houses receive at least one present?", 2592)]
     public class AdventOfCode2015031 : AdventOfCodeBase
     {
         public override void Solve()

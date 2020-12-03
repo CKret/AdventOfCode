@@ -78,7 +78,7 @@ namespace AdventOfCode._2018
     /// What is the X,Y coordinate of the top-left fuel cell of the 3x3 square with
     /// the largest total power?
     /// </summary>
-    [AdventOfCode(2018, 11, 1, "Chronal Charge - Part 1", "235,63")]
+    [AdventOfCode(2018, 11, "Chronal Charge - Part 1", "235,63")]
     public class AdventOfCode2018111 : AdventOfCodeBase
     {
         public override void Solve()

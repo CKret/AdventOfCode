@@ -55,7 +55,7 @@ namespace AdventOfCode._2018
     /// What is the size of the region containing all locations which have a total
     /// distance to all given coordinates of less than 10000?
     /// </summary>
-    [AdventOfCode(2018, 6, 2, "Chronal Coordinates - Part 2", 42036)]
+    [AdventOfCode(2018, 6, "Chronal Coordinates - Part 2", 42036)]
     public class AdventOfCode2018062 : AdventOfCodeBase
     {
         public override void Solve()

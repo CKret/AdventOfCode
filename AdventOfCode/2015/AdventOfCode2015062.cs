@@ -18,7 +18,7 @@ namespace AdventOfCode._2015
     /// 
     /// What is the total brightness of all lights combined after following Santa's instructions?
     /// </summary>
-    [AdventOfCode(2015, 6, 2, "What is the total brightness of all lights combined after following Santa's instructions?", 15343601)]
+    [AdventOfCode(2015, 6, "What is the total brightness of all lights combined after following Santa's instructions?", 15343601)]
     public class AdventOfCode2015062 : AdventOfCodeBase
     {
         public override void Solve()

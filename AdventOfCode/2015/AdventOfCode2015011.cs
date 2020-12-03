@@ -12,7 +12,7 @@ namespace AdventOfCode._2015
     /// 
     /// The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.
     /// </summary>
-    [AdventOfCode(2015, 1, 1, "To what floor do the instructions take Santa?", 138)]
+    [AdventOfCode(2015, 1, "To what floor do the instructions take Santa?", 138)]
     public class AdventOfCode2015011 : AdventOfCodeBase
     {
         public override void Solve()

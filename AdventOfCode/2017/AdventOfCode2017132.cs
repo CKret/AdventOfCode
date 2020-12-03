@@ -133,7 +133,7 @@ namespace AdventOfCode._2017
     /// to pass through the firewall without being caught?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 13, 2, "Packet Scanners - Part Two", 3943252)]
+    [AdventOfCode(2017, 13, "Packet Scanners - Part Two", 3943252)]
     public class AdventOfCode2017132 : AdventOfCodeBase
     {
         public override void Solve()

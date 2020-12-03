@@ -41,7 +41,7 @@ namespace AdventOfCode._2017
     /// need to be to balance the entire tower?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 7, 2, "Recursive Circus - Part Two", 2310)]
+    [AdventOfCode(2017, 7, "Recursive Circus - Part Two", 2310)]
     public class AdventOfCode2017072 : AdventOfCodeBase
     {
         public override void Solve()

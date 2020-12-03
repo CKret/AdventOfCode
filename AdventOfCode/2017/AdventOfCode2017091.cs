@@ -72,7 +72,7 @@ namespace AdventOfCode._2017
     /// What is the total score for all groups in your input?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 9, 1, "Stream Processing - Part One", 17537)]
+    [AdventOfCode(2017, 9, "Stream Processing - Part One", 17537)]
     public class AdventOfCode2017091 : AdventOfCodeBase
     {
         public override void Solve()

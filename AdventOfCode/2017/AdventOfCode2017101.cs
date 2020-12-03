@@ -81,7 +81,7 @@ namespace AdventOfCode._2017
     /// numbers in the list?
     /// 
     /// </summary>
-    [AdventOfCode(2017, 10, 1, "Knot Hash - Part One", 54675)]
+    [AdventOfCode(2017, 10, "Knot Hash - Part One", 54675)]
     public class AdventOfCode2017101 : AdventOfCodeBase
     {
         public override void Solve()
