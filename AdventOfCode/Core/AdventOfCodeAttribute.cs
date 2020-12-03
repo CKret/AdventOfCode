@@ -16,10 +16,10 @@ namespace AdventOfCode.Core
         /// </summary>
         /// <param name="year">The Advent Of Code year</param>
         /// <param name="day">The Advent Of Code day</param>
-        /// <param name="number">The Advent Of Code Number of the day</param>
         /// <param name="description">Short description of the problem to solve.</param>
-        /// <param name="solution">The expected result.</param>
-        public AdventOfCodeAttribute(int year, int day, string description, object solution1, object solution2 = null)
+        /// <param name="solution1">The expected result for part 1.</param>
+        /// <param name="solution2">The expected result for part 2.</param>
+        public AdventOfCodeAttribute(int year, int day, string description, object solution1 = null, object solution2 = null)
         {
             Year = year;
             Day = day;
