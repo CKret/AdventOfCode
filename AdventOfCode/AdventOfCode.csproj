@@ -80,206 +80,206 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="2015\AdventOfCode201502.txt">
+    <Content Include="2015\Input\AdventOfCode201502.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201505.txt">
+    <Content Include="2015\Input\AdventOfCode201505.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201506.txt">
+    <Content Include="2015\Input\AdventOfCode201506.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201507.txt">
+    <Content Include="2015\Input\AdventOfCode201507.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201508.txt">
+    <Content Include="2015\Input\AdventOfCode201508.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201509.txt">
+    <Content Include="2015\Input\AdventOfCode201509.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201512.txt">
+    <Content Include="2015\Input\AdventOfCode201512.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201513.txt">
+    <Content Include="2015\Input\AdventOfCode201513.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201514.txt">
+    <Content Include="2015\Input\AdventOfCode201514.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201515.txt">
+    <Content Include="2015\Input\AdventOfCode201515.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201516.txt">
+    <Content Include="2015\Input\AdventOfCode201516.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2015\AdventOfCode201517.txt">
+    <Content Include="2015\Input\AdventOfCode201517.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201702.txt">
+    <Content Include="2017\Input\AdventOfCode201702.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201704.txt">
+    <Content Include="2017\Input\AdventOfCode201704.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201705.txt">
+    <Content Include="2017\Input\AdventOfCode201705.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201707.txt">
+    <Content Include="2017\Input\AdventOfCode201707.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201708.txt">
+    <Content Include="2017\Input\AdventOfCode201708.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201709.txt">
+    <Content Include="2017\Input\AdventOfCode201709.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201711.txt">
+    <Content Include="2017\Input\AdventOfCode201711.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201712.txt">
+    <Content Include="2017\Input\AdventOfCode201712.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201713.txt">
+    <Content Include="2017\Input\AdventOfCode201713.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201716.txt">
+    <Content Include="2017\Input\AdventOfCode201716.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201718.txt">
+    <Content Include="2017\Input\AdventOfCode201718.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201719.txt">
+    <Content Include="2017\Input\AdventOfCode201719.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201720.txt">
+    <Content Include="2017\Input\AdventOfCode201720.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201721.txt">
+    <Content Include="2017\Input\AdventOfCode201721.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201722.txt">
+    <Content Include="2017\Input\AdventOfCode201722.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201723.txt">
+    <Content Include="2017\Input\AdventOfCode201723.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201724.txt">
+    <Content Include="2017\Input\AdventOfCode201724.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2017\AdventOfCode201725.txt">
+    <Content Include="2017\Input\AdventOfCode201725.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201801.txt">
+    <Content Include="2018\Input\AdventOfCode201801.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201802.txt">
+    <Content Include="2018\Input\AdventOfCode201802.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201803.txt">
+    <Content Include="2018\Input\AdventOfCode201803.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201804.txt">
+    <Content Include="2018\Input\AdventOfCode201804.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201805.txt">
+    <Content Include="2018\Input\AdventOfCode201805.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201806.txt">
+    <Content Include="2018\Input\AdventOfCode201806.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201807.txt">
+    <Content Include="2018\Input\AdventOfCode201807.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201808.txt">
+    <Content Include="2018\Input\AdventOfCode201808.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201809.txt" />
-    <Content Include="2018\AdventOfCode201810.txt">
+    <Content Include="2018\Input\AdventOfCode201809.txt" />
+    <Content Include="2018\Input\AdventOfCode201810.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201811.txt">
+    <Content Include="2018\Input\AdventOfCode201811.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201812.txt">
+    <Content Include="2018\Input\AdventOfCode201812.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201813.txt">
+    <Content Include="2018\Input\AdventOfCode201813.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201814.txt">
+    <Content Include="2018\Input\AdventOfCode201814.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201815.txt">
+    <Content Include="2018\Input\AdventOfCode201815.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201816.txt">
+    <Content Include="2018\Input\AdventOfCode201816.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201817.txt">
+    <Content Include="2018\Input\AdventOfCode201817.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201818.txt">
+    <Content Include="2018\Input\AdventOfCode201818.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2018\AdventOfCode201819.txt">
+    <Content Include="2018\Input\AdventOfCode201819.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201901.txt">
+    <Content Include="2019\Input\AdventOfCode201901.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201902.txt">
+    <Content Include="2019\Input\AdventOfCode201902.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201903.txt">
+    <Content Include="2019\Input\AdventOfCode201903.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201904.txt">
+    <Content Include="2019\Input\AdventOfCode201904.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201905.txt">
+    <Content Include="2019\Input\AdventOfCode201905.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201906.txt">
+    <Content Include="2019\Input\AdventOfCode201906.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201907.txt">
+    <Content Include="2019\Input\AdventOfCode201907.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201908.txt">
+    <Content Include="2019\Input\AdventOfCode201908.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201909.txt">
+    <Content Include="2019\Input\AdventOfCode201909.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201910.txt">
+    <Content Include="2019\Input\AdventOfCode201910.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201911.txt">
+    <Content Include="2019\Input\AdventOfCode201911.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201912.txt">
+    <Content Include="2019\Input\AdventOfCode201912.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201913.txt">
+    <Content Include="2019\Input\AdventOfCode201913.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201914.txt">
+    <Content Include="2019\Input\AdventOfCode201914.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201915.txt">
+    <Content Include="2019\Input\AdventOfCode201915.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201916.txt">
+    <Content Include="2019\Input\AdventOfCode201916.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201917.txt">
+    <Content Include="2019\Input\AdventOfCode201917.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201918.txt">
+    <Content Include="2019\Input\AdventOfCode201918.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Include="2019\AdventOfCode201919.txt">
+    <Content Include="2019\Input\AdventOfCode201919.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Include="x64\liblept1742.dll" />
@@ -318,10 +318,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="2020\AdventOfCode202003.txt">
+    <None Update="2020\Input\AdventOfCode202003.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="2020\AdventOfCode202002.txt">
+    <None Update="2020\Input\AdventOfCode202002.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="_ExternalDependencies\tessdata\eng.traineddata">
