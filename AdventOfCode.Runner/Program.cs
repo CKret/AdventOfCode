@@ -13,7 +13,7 @@ var sessionCookie = config["AdventOfCodeSessionCookie"];
 
 var timer = new Stopwatch();
 
-var aoc1 = new AdventOfCode._2020.AdventOfCode2020021(sessionCookie);
+var aoc1 = new AdventOfCode._2020.AdventOfCode2020031(sessionCookie);
 
 timer.Start();
 aoc1.Solve();
@@ -21,7 +21,7 @@ timer.Stop();
 
 var part1Time = timer.ElapsedMilliseconds;
 
-var aoc2 = new AdventOfCode._2020.AdventOfCode2020022(sessionCookie);
+var aoc2 = new AdventOfCode._2020.AdventOfCode2020032(sessionCookie);
 
 timer.Start();
 aoc2.Solve();
