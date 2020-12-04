@@ -99,7 +99,7 @@ namespace AdventOfCode.Mathematics
             return d;
         }
 
-        public static IEnumerable<int> Factors(this int source)
+        public static IEnumerable<int> PrimeFactors(this int source)
         {
             while (source > 1)
             {

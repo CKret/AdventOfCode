@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Core;
 using AdventOfCode.ExtensionMethods;
+using AdventOfCode.VMs;
 
 namespace AdventOfCode._2018
 {
@@ -136,126 +137,125 @@ namespace AdventOfCode._2018
     [AdventOfCode(2018, 16, "Chronal Classification - Part 1", 560)]
     public class AdventOfCode2018161 : AdventOfCodeBase
     {
+        public AdventOfCode2018161(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
-            var samples = File.ReadAllText(@"2018\AdventOfCode201816.txt").Split("\r\n\r\n\r\n")[0]
-                        .Split("\r\n\r\n", StringSplitOptions.RemoveEmptyEntries)
+            var samples = File.ReadAllText(@"2018\AdventOfCode201816.txt").Split("\n\n\n")[0]
+                        .Split("\n\n", StringSplitOptions.RemoveEmptyEntries)
                         .Select(
                             s =>
                             {
                                 var set = Regex.Matches(s, @"\d+")
-                                            .Cast<Match>()
-                                            .Select(m => int.Parse(m.Value))
-                                            .ToArray();
+                                               .Cast<Match>()
+                                               .Select(m => int.Parse(m.Value))
+                                               .ToArray();
 
                                 var br = set.Take(4).ToArray();
                                 var ins = set.Skip(4).Take(4).ToArray();
                                 var ar = set.Skip(8).ToArray();
 
-                                return new ChronalInstructionSample(br, ar, new ChronalInstruction(ins));
+                                return new ChronalInstructionEngine.ChronalInstructionSample(br, ar, new ChronalInstructionEngine.ChronalInstruction(ins));
                             }).ToArray();
 
             Result = samples.Count(i => i.PossibleInstructions().Count() >= 3);
         }
-
-        public AdventOfCode2018161(string sessionCookie) : base(sessionCookie) { }
     }
 
-    public class ChronalInstructionEngine
-    {
-        private int[] translation { get; }
+    //public class ChronalInstructionEngine
+    //{
+    //    private int[] translation { get; }
 
-        public ChronalInstructionEngine()
-        {
-            translation = Enumerable.Range(0, 16).ToArray();
-        }
+    //    public ChronalInstructionEngine()
+    //    {
+    //        translation = Enumerable.Range(0, 16).ToArray();
+    //    }
 
-        public ChronalInstructionEngine(int[] translation)
-        {
-            this.translation = translation;
-        }
+    //    public ChronalInstructionEngine(int[] translation)
+    //    {
+    //        this.translation = translation;
+    //    }
 
-        public int[] Execute(int[] registersBefore, ChronalInstruction instruction)
-        {
-            var registersAfter = new int[4];
-            registersBefore.CopyTo(registersAfter, 0);
+    //    public int[] Execute(int[] registersBefore, ChronalInstruction instruction)
+    //    {
+    //        var registersAfter = new int[4];
+    //        registersBefore.CopyTo(registersAfter, 0);
 
-            var opCode = translation[instruction.OpCode];
-            var a = instruction.A;
-            var b = instruction.B;
-            var c = instruction.C;
+    //        var opCode = translation[instruction.OpCode];
+    //        var a = instruction.A;
+    //        var b = instruction.B;
+    //        var c = instruction.C;
 
-            if (opCode == 0) registersAfter[c] = registersBefore[a] + registersBefore[b];
-            else if (opCode == 1) registersAfter[c] = registersBefore[a] + b;
-            else if (opCode == 2) registersAfter[c] = registersBefore[a] * registersBefore[b];
-            else if (opCode == 3) registersAfter[c] = registersBefore[a] * b;
-            else if (opCode == 4) registersAfter[c] = registersBefore[a] & registersBefore[b];
-            else if (opCode == 5) registersAfter[c] = registersBefore[a] & b;
-            else if (opCode == 6) registersAfter[c] = registersBefore[a] | registersBefore[b];
-            else if (opCode == 7) registersAfter[c] = registersBefore[a] | b;
-            else if (opCode == 8) registersAfter[c] = registersBefore[a];
-            else if (opCode == 9) registersAfter[c] = a;
-            else if (opCode == 10) registersAfter[c] = a > registersBefore[b] ? 1 : 0;
-            else if (opCode == 11) registersAfter[c] = registersBefore[a] > b ? 1 : 0;
-            else if (opCode == 12) registersAfter[c] = registersBefore[a] > registersBefore[b] ? 1 : 0;
-            else if (opCode == 13) registersAfter[c] = a == registersBefore[b] ? 1 : 0;
-            else if (opCode == 14) registersAfter[c] = registersBefore[a] == b ? 1 : 0;
-            else if (opCode == 15) registersAfter[c] = registersBefore[a] == registersBefore[b] ? 1 : 0;
+    //        if (opCode == 0) registersAfter[c] = registersBefore[a] + registersBefore[b];
+    //        else if (opCode == 1) registersAfter[c] = registersBefore[a] + b;
+    //        else if (opCode == 2) registersAfter[c] = registersBefore[a] * registersBefore[b];
+    //        else if (opCode == 3) registersAfter[c] = registersBefore[a] * b;
+    //        else if (opCode == 4) registersAfter[c] = registersBefore[a] & registersBefore[b];
+    //        else if (opCode == 5) registersAfter[c] = registersBefore[a] & b;
+    //        else if (opCode == 6) registersAfter[c] = registersBefore[a] | registersBefore[b];
+    //        else if (opCode == 7) registersAfter[c] = registersBefore[a] | b;
+    //        else if (opCode == 8) registersAfter[c] = registersBefore[a];
+    //        else if (opCode == 9) registersAfter[c] = a;
+    //        else if (opCode == 10) registersAfter[c] = a > registersBefore[b] ? 1 : 0;
+    //        else if (opCode == 11) registersAfter[c] = registersBefore[a] > b ? 1 : 0;
+    //        else if (opCode == 12) registersAfter[c] = registersBefore[a] > registersBefore[b] ? 1 : 0;
+    //        else if (opCode == 13) registersAfter[c] = a == registersBefore[b] ? 1 : 0;
+    //        else if (opCode == 14) registersAfter[c] = registersBefore[a] == b ? 1 : 0;
+    //        else if (opCode == 15) registersAfter[c] = registersBefore[a] == registersBefore[b] ? 1 : 0;
 
-            return registersAfter;
-        }
-    }
+    //        return registersAfter;
+    //    }
+    //}
 
-    public class ChronalInstructionSample
-    {
-        private readonly int[] registersBefore;
-        private readonly int[] registersAfter;
-        private readonly ChronalInstruction instruction;
+    //public class ChronalInstructionSample
+    //{
+    //    private readonly int[] registersBefore;
+    //    private readonly int[] registersAfter;
+    //    private readonly ChronalInstruction instruction;
 
-        public int OpCode => instruction.OpCode;
+    //    public int OpCode => instruction.OpCode;
 
-        public ChronalInstructionSample(int[] registersBefore, int[] registersAfter, ChronalInstruction instruction)
-        {
-            if (registersBefore.Length != 4) throw new ArgumentException("Parameter must be an array of length 4.", nameof(registersBefore));
-            if (registersAfter.Length != 4) throw new ArgumentException("Parameter must be an array of length 4.", nameof(registersAfter));
-            if (instruction == null) throw new ArgumentException("Parameter must not be null.", nameof(instruction));
+    //    public ChronalInstructionSample(int[] registersBefore, int[] registersAfter, ChronalInstruction instruction)
+    //    {
+    //        if (registersBefore.Length != 4) throw new ArgumentException("Parameter must be an array of length 4.", nameof(registersBefore));
+    //        if (registersAfter.Length != 4) throw new ArgumentException("Parameter must be an array of length 4.", nameof(registersAfter));
+    //        if (instruction == null) throw new ArgumentException("Parameter must not be null.", nameof(instruction));
 
-            this.registersBefore = registersBefore;
-            this.registersAfter = registersAfter;
-            this.instruction = instruction;
-        }
+    //        this.registersBefore = registersBefore;
+    //        this.registersAfter = registersAfter;
+    //        this.instruction = instruction;
+    //    }
 
-        public IEnumerable<int> PossibleInstructions()
-        {
-            var offset = (16 - instruction.OpCode) % 16;
-            var range = Enumerable.Range(offset, 16 - offset).ToList();
-            range.AddRange(Enumerable.Range(0, offset));
-            var translation = range.ToArray();
+    //    public IEnumerable<int> PossibleInstructions()
+    //    {
+    //        var offset = (16 - instruction.OpCode) % 16;
+    //        var range = Enumerable.Range(offset, 16 - offset).ToList();
+    //        range.AddRange(Enumerable.Range(0, offset));
+    //        var translation = range.ToArray();
 
-            for (var i = 0; i < 16; i++)
-            {
-                var engine = new ChronalInstructionEngine(translation);
-                if (engine.Execute(registersBefore, instruction).SequenceEqual(registersAfter))
-                    yield return i;
+    //        for (var i = 0; i < 16; i++)
+    //        {
+    //            var engine = new ChronalInstructionEngine(translation);
+    //            if (engine.Execute(registersBefore, instruction).SequenceEqual(registersAfter))
+    //                yield return i;
 
-                translation = translation.RotateLeft();
-            }
-        }
-    }
+    //            translation = translation.RotateLeft();
+    //        }
+    //    }
+    //}
 
-    public class ChronalInstruction
-    {
-        private readonly int[] instruction;
+    //public class ChronalInstruction
+    //{
+    //    private readonly int[] instruction;
 
-        public int OpCode => instruction[0];
-        public int A => instruction[1];
-        public int B => instruction[2];
-        public int C => instruction[3];
+    //    public int OpCode => instruction[0];
+    //    public int A => instruction[1];
+    //    public int B => instruction[2];
+    //    public int C => instruction[3];
 
-        public ChronalInstruction(int[] instruction)
-        {
-            if (instruction.Length != 4) throw new ArgumentException("Array must be of length 4.", nameof(instruction));
-            this.instruction = instruction;
-        }
-    }
+    //    public ChronalInstruction(int[] instruction)
+    //    {
+    //        if (instruction.Length != 4) throw new ArgumentException("Array must be of length 4.", nameof(instruction));
+    //        this.instruction = instruction;
+    //    }
+    //}
 }

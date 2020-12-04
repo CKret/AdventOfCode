@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Core;
 using AdventOfCode.ExtensionMethods;
+using AdventOfCode.VMs;
 
 namespace AdventOfCode._2018
 {
@@ -24,9 +25,9 @@ namespace AdventOfCode._2018
         public AdventOfCode2018162(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
-            var data = File.ReadAllText(@"2018\AdventOfCode201816.txt").Split("\r\n\r\n\r\n");
+            var data = File.ReadAllText(@"2018\AdventOfCode201816.txt").Split("\n\n\n");
             var samples = data[0]
-                          .Split("\r\n\r\n", StringSplitOptions.RemoveEmptyEntries)
+                          .Split("\n\n", StringSplitOptions.RemoveEmptyEntries)
                           .Select(
                               s =>
                               {
@@ -39,16 +40,16 @@ namespace AdventOfCode._2018
                                   var ins = set.Skip(4).Take(4).ToArray();
                                   var ar = set.Skip(8).ToArray();
 
-                                  return new ChronalInstructionSample(br, ar, new ChronalInstruction(ins));
+                                  return new ChronalInstructionEngine.ChronalInstructionSample(br, ar, new ChronalInstructionEngine.ChronalInstruction(ins));
                               })
                           .ToArray();
 
             var code = data[1]
-                       .Split("\r\n", StringSplitOptions.RemoveEmptyEntries)
+                       .Split("\n", StringSplitOptions.RemoveEmptyEntries)
                        .Select(
                            s =>
                            {
-                               return new ChronalInstruction(Regex.Matches(s, @"\d+")
+                               return new ChronalInstructionEngine.ChronalInstruction(Regex.Matches(s, @"\d+")
                                            .Cast<Match>()
                                            .Select(m => int.Parse(m.Value))
                                            .ToArray());
@@ -75,7 +76,7 @@ namespace AdventOfCode._2018
 
             var translation = realOpCodes.OrderBy(r => r.Key).Select(d => d.Value.Single()).ToArray();
             var engine = new ChronalInstructionEngine(translation);
-            var registers = code.Aggregate(new[] { 0, 0, 0, 0 }, (current, c) => engine.Execute(current, c));
+            var registers = code.Aggregate(new[] { 0, 0, 0, 0 }, (current, c) => engine.Execute(current, c).Register);
 
             Result = registers[0];
         }
