@@ -10,7 +10,7 @@ var builder = new ConfigurationBuilder()
 var config = builder.Build();
 var sessionCookie = config["AdventOfCodeSessionCookie"];
 
-var aoc = new AdventOfCode._2020.AdventOfCode202010(sessionCookie);
+var aoc = new AdventOfCode._2020.AdventOfCode202013(sessionCookie);
 aoc.Solve();
 
 Console.WriteLine(aoc.Problem.Description);
