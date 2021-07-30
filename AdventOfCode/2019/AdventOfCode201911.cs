@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.VMs;
@@ -76,33 +73,31 @@ namespace AdventOfCode._2019
             var maxY = panels.Keys.Max(y => y.Item2);
             var imgWidth = maxX - minX + 20;
             var imgHeight = maxY - minY + 20;
-            using (var image = new Bitmap(imgWidth, imgHeight))
+            using var image = new Bitmap(imgWidth, imgHeight);
+            for (var y = 0; y < imgHeight; y++)
             {
-                for (var y = 0; y < imgHeight; y++)
-                {
-                    for (var x = 0; x < imgWidth; x++)
-                        image.SetPixel(x, y, Color.Black);
-                }
-
-                foreach (var panel in panels)
-                {
-                    if (panel.Value == 1)
-                    {
-                        image.SetPixel(panel.Key.Item1 - minX + 10, panel.Key.Item2 - minY + 10, Color.White);
-                    }
-                }
-                image.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                using var bigImage = new Bitmap(image, new Size(image.Width * 4, image.Height * 4));
-                bigImage.Save(@".\2019\AdventOfCode2019112.png");
-
-                using var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_ltsm", "eng", EngineMode.Default);
-                using Pix pix = PixConverter.ToPix(bigImage);
-                using var page = engine.Process(pix);
-                return page.GetText().Trim('\n');
+                for (var x = 0; x < imgWidth; x++)
+                    image.SetPixel(x, y, Color.Black);
             }
+
+            foreach (var panel in panels)
+            {
+                if (panel.Value == 1)
+                {
+                    image.SetPixel(panel.Key.Item1 - minX + 10, panel.Key.Item2 - minY + 10, Color.White);
+                }
+            }
+            image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            using var bigImage = new Bitmap(image, new Size(image.Width * 4, image.Height * 4));
+            bigImage.Save(@".\2019\AdventOfCode2019112.png");
+
+            using var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_legacy", "eng", EngineMode.TesseractOnly);
+            using Pix pix = PixConverter.ToPix(bigImage);
+            using var page = engine.Process(pix);
+            return page.GetText().Trim('\n');
         }
 
-        private (int, int) MoveRobot(RobotDirection currentDirection, (int, int) currentPosition)
+        private static (int, int) MoveRobot(RobotDirection currentDirection, (int, int) currentPosition)
         {
             switch (currentDirection)
             {
@@ -123,7 +118,7 @@ namespace AdventOfCode._2019
             }
         }
 
-        private RobotDirection TurnRobot(RobotDirection currentDirection, int turnDirection)
+        private static RobotDirection TurnRobot(RobotDirection currentDirection, int turnDirection)
         {
             switch (currentDirection)
             {

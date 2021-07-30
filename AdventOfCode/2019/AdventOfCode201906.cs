@@ -141,7 +141,7 @@ namespace AdventOfCode._2019
 
         public override void Solve()
         {
-            var objects = new List<SpaceObject>();
+            objects = new List<SpaceObject>();
 
             foreach (var obj in Input)
             {
@@ -205,7 +205,7 @@ namespace AdventOfCode._2019
     {
         public string Id { get; set; }
         public SpaceObject Orbits { get; set; }
-        public List<SpaceObject> OrbitedBy = new List<SpaceObject>();
+        public List<SpaceObject> OrbitedBy = new();
         public bool Visited { get; set; }
     }
 }

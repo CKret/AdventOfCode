@@ -171,31 +171,29 @@ namespace AdventOfCode._2019
                 nLayer.Add(string.Join("", img.Skip(i).Take(imageWidth).ToArray()));
             }
 
-            using (var imagePass = new Bitmap(imageWidth + 20, imageHeight + 20))
+            using var imagePass = new Bitmap(imageWidth + 20, imageHeight + 20);
+            for (var y = 0; y < imageHeight + 20; y++)
             {
-                for (var y = 0; y < imageHeight + 20; y++)
-                {
-                    for (var x = 0; x < imageWidth + 20; x++)
-                        imagePass.SetPixel(x, y, Color.Black);
-                }
-
-                for (var y = 0; y < imageHeight; y++)
-                {
-                    for (var x = 0; x < imageWidth; x++)
-                    {
-                        imagePass.SetPixel(x + 10, y + 10, nLayer[y][x] == '0' ? Color.Black : Color.White);
-                    }
-                }
-
-                using var bigImage = new Bitmap(imagePass, new Size(imagePass.Width * 4, imagePass.Height * 4));
-                bigImage.Save(@".\2019\AdventOfCode2019082.png");
-
-                using var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata", "eng", EngineMode.Default);
-                using var pix = PixConverter.ToPix(bigImage);
-                using var page = engine.Process(pix);
-                
-                return page.GetText().Trim('\n');
+                for (var x = 0; x < imageWidth + 20; x++)
+                    imagePass.SetPixel(x, y, Color.Black);
             }
+
+            for (var y = 0; y < imageHeight; y++)
+            {
+                for (var x = 0; x < imageWidth; x++)
+                {
+                    imagePass.SetPixel(x + 10, y + 10, nLayer[y][x] == '0' ? Color.Black : Color.White);
+                }
+            }
+
+            using var bigImage = new Bitmap(imagePass, new Size(imagePass.Width * 4, imagePass.Height * 4));
+            bigImage.Save(@".\2019\AdventOfCode2019082.png");
+
+            using var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_legacy", "eng", EngineMode.TesseractOnly);
+            using var pix = PixConverter.ToPix(bigImage);
+            using var page = engine.Process(pix);
+
+            return page.GetText().Trim('\n');
         }
     }
 }

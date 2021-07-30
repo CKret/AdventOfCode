@@ -234,7 +234,7 @@ namespace AdventOfCode._2018
                 }
 
                 // ReSharper disable once StringLiteralTypo
-                using (var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_ltsm", "eng", EngineMode.Default))    // Uses new LSTM neural network. To use legacy OCR use emg.tessdata.legacy or eng.tessdata.old.
+                using (var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_legacy", "eng", EngineMode.TesseractOnly))    // Uses legaxy OCR. To use LSTM neural network use \tessdata_ltsm.
                 using (var pix = PixConverter.ToPix(image))
                 using (var page = engine.Process(pix))
                 {
