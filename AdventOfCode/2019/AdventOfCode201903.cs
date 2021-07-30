@@ -141,7 +141,7 @@ namespace AdventOfCode._2019
             return intersections.Min(p => grid1[p] + grid2[p]);
         }
 
-        private Dictionary<(int, int), int> ParseWire(string[] wire)
+        private static Dictionary<(int, int), int> ParseWire(string[] wire)
         {
             var grid = new Dictionary<(int, int), int>();
 
@@ -151,7 +151,7 @@ namespace AdventOfCode._2019
             foreach (var unit in wire)
             {
                 var direction = unit[0];
-                var count = int.Parse(unit.Substring(1));
+                var count = int.Parse(unit[1..]);
 
                 switch (direction)
                 {

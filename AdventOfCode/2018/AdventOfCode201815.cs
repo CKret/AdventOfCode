@@ -281,34 +281,34 @@ namespace AdventOfCode._2018
     class Solution
     {
 
-        public string GetName() => "Beverage Bandits";
+        public static string GetName() => "Beverage Bandits";
 
-        public IEnumerable<object> Solve()
+        public static IEnumerable<object> Solve()
         {
             yield return PartOne();
             yield return PartTwo();
         }
 
-        int PartOne()
+        static int PartOne()
         {
             return Outcome(3, 3).score;
         }
 
-        int PartTwo()
+        static int PartTwo()
         {
             var elfAp = 3;
             while (true)
             {
-                var outcome = Outcome(3, elfAp);
-                if (outcome.noElfDied)
+                var (noElfDied, score) = Outcome(3, elfAp);
+                if (noElfDied)
                 {
-                    return outcome.score;
+                    return score;
                 }
                 elfAp++;
             }
         }
 
-        (bool noElfDied, int score) Outcome(int goblinAp, int elfAp)
+        static (bool noElfDied, int score) Outcome(int goblinAp, int elfAp)
         {
             var state = Parse(goblinAp, elfAp);
             var elfCount = state.players.Count(player => player.elf);
@@ -322,7 +322,7 @@ namespace AdventOfCode._2018
             return (state.players.Count(p => p.elf) == elfCount, (rounds - 1) * state.players.Select(player => player.hp).Sum());
         }
 
-        bool Step(State state)
+        static bool Step(State state)
         {
             var moved = false;
             foreach (var player in state.players.OrderBy(a => a.pos))
@@ -343,7 +343,7 @@ namespace AdventOfCode._2018
             return moved;
         }
 
-        bool Move(State state, Player player)
+        static bool Move(State state, Player player)
         {
             var opponents = ClosestOpponents(state, player);
             if (!opponents.Any())
@@ -358,8 +358,7 @@ namespace AdventOfCode._2018
             return true;
         }
 
-
-        IEnumerable<(Player player, (int irow, int icol) firstStep)> ClosestOpponents(State state, Player player)
+        static IEnumerable<(Player player, (int irow, int icol) firstStep)> ClosestOpponents(State state, Player player)
         {
             var minDist = int.MaxValue;
             foreach (var (otherPlayer, firstStep, dist) in OpponentsByDistance(state, player))
@@ -376,10 +375,12 @@ namespace AdventOfCode._2018
             }
         }
 
-        IEnumerable<(Player player, (int irow, int icol) firstStep, int dist)> OpponentsByDistance(State state, Player player)
+        static IEnumerable<(Player player, (int irow, int icol) firstStep, int dist)> OpponentsByDistance(State state, Player player)
         {
-            var seen = new HashSet<(int irow, int icol)>();
-            seen.Add(player.pos);
+            var seen = new HashSet<(int irow, int icol)>
+            {
+                player.pos
+            };
             var q = new Queue<((int irow, int icol) pos, (int drow, int dcol) origDir, int dist)>();
 
             foreach (var (drow, dcol) in new[] { (-1, 0), (0, -1), (0, 1), (1, 0) })
@@ -415,7 +416,7 @@ namespace AdventOfCode._2018
             }
         }
 
-        bool Attack(State state, Player player)
+        static bool Attack(State state, Player player)
         {
             var opponents = new List<Player>();
 
@@ -446,17 +447,17 @@ namespace AdventOfCode._2018
             return true;
         }
 
-
-        bool ValidPos(State state, (int irow, int icol) pos)
+        static bool ValidPos(State state, (int irow, int icol) pos)
         {
             return !(pos.irow < 0 || pos.irow >= state.mtx.GetLength(0) || pos.icol < 0 || pos.icol >= state.mtx.GetLength(1));
         }
-        Block GetBlock(State state, (int irow, int icol) pos)
+
+        static Block GetBlock(State state, (int irow, int icol) pos)
         {
             return ValidPos(state, pos) ? state.mtx[pos.irow, pos.icol] : new Wall();
         }
 
-        State Parse(int goblinAp, int elfAp)
+        static State Parse(int goblinAp, int elfAp)
         {
             var players = new List<Player>();
             var lines = File.ReadAllLines(@"2018\AdventOfCode201815.txt");
@@ -508,7 +509,7 @@ namespace AdventOfCode._2018
     public class Game
     {
         private readonly string[] _map;
-        private List<Unit> _units = new List<Unit>();
+        private List<Unit> _units = new();
         public Game(string[] initialMap, int elfAttackPower)
         {
             for (int y = 0; y < initialMap.Length; y++)
@@ -571,7 +572,7 @@ namespace AdventOfCode._2018
         private static readonly (int dx, int dy)[] s_neis = { (0, -1), (-1, 0), (1, 0), (0, 1) };
         private void TryMove(Unit u, List<Unit> targets)
         {
-            HashSet<(int x, int y)> inRange = new HashSet<(int x, int y)>();
+            HashSet<(int x, int y)> inRange = new();
             foreach (Unit target in targets)
             {
                 foreach ((int dx, int dy) in s_neis)
@@ -582,8 +583,8 @@ namespace AdventOfCode._2018
                 }
             }
 
-            Queue<(int x, int y)> queue = new Queue<(int x, int y)>();
-            Dictionary<(int x, int y), (int px, int py)> prevs = new Dictionary<(int x, int y), (int px, int py)>();
+            Queue<(int x, int y)> queue = new();
+            Dictionary<(int x, int y), (int px, int py)> prevs = new();
             queue.Enqueue((u.X, u.Y));
             prevs.Add((u.X, u.Y), (-1, -1));
             while (queue.Count > 0)
@@ -604,7 +605,7 @@ namespace AdventOfCode._2018
             {
                 if (!prevs.ContainsKey((destX, destY)))
                     return null;
-                List<(int x, int y)> path = new List<(int x, int y)>();
+                List<(int x, int y)> path = new();
                 (int x, int y) = (destX, destY);
                 while (x != u.X || y != u.Y)
                 {
@@ -631,7 +632,7 @@ namespace AdventOfCode._2018
         }
 
         private bool IsOpen(int x, int y) => _map[y][x] == '.' && _units.All(u => u.X != x || u.Y != y);
-        private bool IsAdjacent(Unit u1, Unit u2) => Math.Abs(u1.X - u2.X) + Math.Abs(u1.Y - u2.Y) == 1;
+        private static bool IsAdjacent(Unit u1, Unit u2) => Math.Abs(u1.X - u2.X) + Math.Abs(u1.Y - u2.Y) == 1;
 
         private class Unit
         {
