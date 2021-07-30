@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AdventOfCode.Core;
 
@@ -198,10 +197,6 @@ namespace AdventOfCode._2017
             return grid.Sum(p => p.Sum(q => q == '#' ? 1 : 0));
         }
 
-        public override void Solve()
-        {
-        }
-
         public static string FlipHorizontal(string grid)
         {
             var rows = grid.Split('/');
@@ -220,7 +215,6 @@ namespace AdventOfCode._2017
             return string.Join("/", newRows);
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1814")]
         public static string Rotate(string grid)
         {
             var rows = grid.Split('/');

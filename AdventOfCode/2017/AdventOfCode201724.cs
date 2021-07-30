@@ -87,7 +87,7 @@ namespace AdventOfCode._2017
     {
         public override void Solve()
         {
-            var input = File.ReadAllLines("2017\\AdventOfCode201724.txt").Select(l => l.Split('/').Select(int.Parse).ToArray()).Select(c => (c[0], c[1])).ToImmutableList();
+            var input = Input.Select(l => l.Split('/').Select(int.Parse).ToArray()).Select(c => (c[0], c[1])).ToImmutableList();
 
             Result = BuildStrongBridge(input);
         }

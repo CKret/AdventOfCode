@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace AdventOfCode.ExtensionMethods
 {
     public static class StringExtensionMethods
     {
-        [SuppressMessage("Microsoft.Performance", "CA1814")]
         public static int LevenshteinDistance(this string source, string target)
         {
             var n = source.Length;
