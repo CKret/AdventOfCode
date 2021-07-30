@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdventOfCode.ExtensionMethods;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 
@@ -61,9 +63,30 @@ namespace AdventOfCode.Core
 
         #endregion
 
-        #region Abstract Methods
+        #region Virtual methods
 
-        public abstract void Solve();
+        public virtual void Solve()
+        {
+            var timer = new Stopwatch();
+
+            timer.Start();
+            ResultPart1 = SolvePart1();
+            timer.Stop();
+            TimePart1 = timer.ElapsedTicks.ToMilliseconds();
+
+            timer.Start();
+            ResultPart2 = SolvePart2();
+            timer.Stop();
+            TimePart2 = timer.ElapsedTicks.ToMilliseconds();
+        }
+
+        #endregion
+
+        #region Abstract methods
+
+        protected abstract object SolvePart1();
+
+        protected abstract object SolvePart2();
 
         #endregion
     }

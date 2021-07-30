@@ -1,9 +1,6 @@
-﻿using System.Diagnostics;
-using System.Globalization;
-using System.IO;
+﻿using System.Globalization;
 using System.Linq;
 using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
 
 namespace AdventOfCode._2019
 {
@@ -78,22 +75,19 @@ namespace AdventOfCode._2019
     /// (Calculate the fuel requirements for each module separately, then add them
     /// all up at the end.)
     /// </summary>
-    [AdventOfCode(2019, 1, "Day 1: The Tyranny of the Rocket Equation", 3457281, 5183030L)]
+    [AdventOfCode(2019, 1, "The Tyranny of the Rocket Equation", 3457281, 5183030L)]
     public class AdventOfCode201901 : AdventOfCodeBase
     {
         public AdventOfCode201901(string sessionCookie) : base(sessionCookie) { }
-        public override void Solve()
+
+        protected override object SolvePart1()
         {
-            var timer = new Stopwatch();
-            var data = Input;
+            return Input.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
+        }
 
-            timer.Start();
-            ResultPart1 = data.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
-            timer.Stop();
-            TimePart1 = timer.ElapsedTicks.ToMilliseconds(); ;
-
-            timer.Start();
-            ResultPart2 = data.Sum(mass =>
+        protected override object SolvePart2()
+        {
+            return Input.Sum(mass =>
             {
                 var fuel = long.Parse(mass, CultureInfo.CurrentCulture) / 3 - 2;
 
@@ -103,9 +97,6 @@ namespace AdventOfCode._2019
                     fuel += extraFuel;
                     extraFuel = extraFuel / 3 - 2;
                 }
-
-                timer.Stop();
-                TimePart2 = timer.ElapsedTicks.ToMilliseconds(); ;
 
                 return fuel;
             });

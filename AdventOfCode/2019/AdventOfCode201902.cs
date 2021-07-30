@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
+﻿using AdventOfCode.Core;
 using AdventOfCode.VMs;
 
 namespace AdventOfCode._2019
@@ -143,31 +141,14 @@ namespace AdventOfCode._2019
     /// 19690720. What is 100 * noun + verb? (For example, if noun=12 and verb=2,
     /// the answer would be 1202.)
     /// </summary>
-    [AdventOfCode(2019, 2, "Day 2: 1202 Program Alarm", 6327510L, 4112L)]
+    [AdventOfCode(2019, 2, "1202 Program Alarm", 6327510L, 4112L)]
     public class AdventOfCode201902 : AdventOfCodeBase
     {
         public AdventOfCode201902(string sessionCookie) : base(sessionCookie) { }
-        public override void Solve()
+
+        protected override object SolvePart1()
         {
-            var data = Input[0];
-            var timer = new Stopwatch();
-            
-            timer.Start();
-            ResultPart1 = SolvePart1();
-            timer.Stop();
-            TimePart1 = timer.ElapsedTicks.ToMilliseconds();
-
-            timer.Start();
-            ResultPart2 = SolvePart2();
-            timer.Stop();
-            TimePart2 = timer.ElapsedTicks.ToMilliseconds();
-        }
-
-        private object SolvePart1()
-        {
-            var data = Input[0];
-
-            var vm = new IntcodeVM(data);
+            var vm = new IntcodeVM(Input[0]);
             vm.Write(1, 12);
             vm.Write(2, 2);
             vm.Execute();
@@ -175,10 +156,9 @@ namespace AdventOfCode._2019
             return vm.Read(0);
         }
 
-        private object SolvePart2()
+        protected override object SolvePart2()
         {
-            var data = Input[0];
-            var vm = new IntcodeVM(data);
+            var vm = new IntcodeVM(Input[0]);
 
             for (var noun = 0; noun < 100; noun++)
             {

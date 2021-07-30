@@ -5,81 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="2015\AdventOfCode201502.txt" />
-    <None Remove="2015\AdventOfCode201505.txt" />
-    <None Remove="2015\AdventOfCode201506.txt" />
-    <None Remove="2015\AdventOfCode201507.txt" />
-    <None Remove="2015\AdventOfCode201508.txt" />
-    <None Remove="2015\AdventOfCode201509.txt" />
-    <None Remove="2015\AdventOfCode201512.txt" />
-    <None Remove="2015\AdventOfCode201513.txt" />
-    <None Remove="2015\AdventOfCode201514.txt" />
-    <None Remove="2015\AdventOfCode201515.txt" />
-    <None Remove="2015\AdventOfCode201516.txt" />
-    <None Remove="2015\AdventOfCode201517.txt" />
-    <None Remove="2017\AdventOfCode201702.txt" />
-    <None Remove="2017\AdventOfCode201704.txt" />
-    <None Remove="2017\AdventOfCode201705.txt" />
-    <None Remove="2017\AdventOfCode201707.txt" />
-    <None Remove="2017\AdventOfCode201708.txt" />
-    <None Remove="2017\AdventOfCode201709.txt" />
-    <None Remove="2017\AdventOfCode201711.txt" />
-    <None Remove="2017\AdventOfCode201712.txt" />
-    <None Remove="2017\AdventOfCode201713.txt" />
-    <None Remove="2017\AdventOfCode201716.txt" />
-    <None Remove="2017\AdventOfCode201718.txt" />
-    <None Remove="2017\AdventOfCode201719.txt" />
-    <None Remove="2017\AdventOfCode201720.txt" />
-    <None Remove="2017\AdventOfCode201721.txt" />
-    <None Remove="2017\AdventOfCode201722.txt" />
-    <None Remove="2017\AdventOfCode201723.txt" />
-    <None Remove="2017\AdventOfCode201724.txt" />
-    <None Remove="2017\AdventOfCode201725.txt" />
-    <None Remove="2018\AdventOfCode201801.txt" />
-    <None Remove="2018\AdventOfCode201802.txt" />
-    <None Remove="2018\AdventOfCode201803.txt" />
-    <None Remove="2018\AdventOfCode201804.txt" />
-    <None Remove="2018\AdventOfCode201805.txt" />
-    <None Remove="2018\AdventOfCode201806.txt" />
-    <None Remove="2018\AdventOfCode201807.txt" />
-    <None Remove="2018\AdventOfCode201808.txt" />
-    <None Remove="2018\AdventOfCode201809.txt" />
-    <None Remove="2018\AdventOfCode201810.txt" />
-    <None Remove="2018\AdventOfCode201811.txt" />
-    <None Remove="2018\AdventOfCode201812.txt" />
-    <None Remove="2018\AdventOfCode201813.txt" />
-    <None Remove="2018\AdventOfCode201814.txt" />
-    <None Remove="2018\AdventOfCode201815.txt" />
-    <None Remove="2018\AdventOfCode201816.txt" />
-    <None Remove="2018\AdventOfCode201817.txt" />
-    <None Remove="2018\AdventOfCode201818.txt" />
-    <None Remove="2018\AdventOfCode201819.txt" />
-    <None Remove="2019\AdventOfCode201901.txt" />
-    <None Remove="2019\AdventOfCode201902.txt" />
-    <None Remove="2019\AdventOfCode201903.txt" />
-    <None Remove="2019\AdventOfCode201904.txt" />
-    <None Remove="2019\AdventOfCode201905.txt" />
-    <None Remove="2019\AdventOfCode201906.txt" />
-    <None Remove="2019\AdventOfCode201907.txt" />
-    <None Remove="2019\AdventOfCode201908.txt" />
-    <None Remove="2019\AdventOfCode201909.txt" />
-    <None Remove="2019\AdventOfCode201910.txt" />
-    <None Remove="2019\AdventOfCode201911.txt" />
-    <None Remove="2019\AdventOfCode201912.txt" />
-    <None Remove="2019\AdventOfCode201913.txt" />
-    <None Remove="2019\AdventOfCode201914.txt" />
-    <None Remove="2019\AdventOfCode201915.txt" />
-    <None Remove="2019\AdventOfCode201916.txt" />
-    <None Remove="2019\AdventOfCode201917.txt" />
-    <None Remove="2019\AdventOfCode201918.txt" />
-    <None Remove="2019\AdventOfCode201919.txt" />
-    <None Remove="x64\liblept1742.dll" />
-    <None Remove="x64\libtesseract3051.dll" />
-    <None Remove="x86\liblept1742.dll" />
-    <None Remove="x86\libtesseract3051.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="2015\Input\AdventOfCode201502.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
@@ -289,30 +214,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\sani.huttunen.CKRET\.nuget\packages\tesseract\3.3.0\x64\liblept1753.dll" Link="x64\liblept1753.dll">
+    <None Include="C:\Users\sani.huttunen\.nuget\packages\tesseract\3.3.0\x64\liblept1753.dll" Link="x64\liblept1753.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\sani.huttunen.CKRET\.nuget\packages\tesseract\3.3.0\x64\libtesseract3052.dll" Link="x64\libtesseract3052.dll">
+    <None Include="C:\Users\sani.huttunen\.nuget\packages\tesseract\3.3.0\x64\libtesseract3052.dll" Link="x64\libtesseract3052.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\sani.huttunen.CKRET\.nuget\packages\tesseract\3.3.0\x86\liblept1753.dll" Link="x86\liblept1753.dll">
+    <None Include="C:\Users\sani.huttunen\.nuget\packages\tesseract\3.3.0\x86\liblept1753.dll" Link="x86\liblept1753.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\sani.huttunen.CKRET\.nuget\packages\tesseract\3.3.0\x86\libtesseract3052.dll" Link="x86\libtesseract3052.dll">
+    <None Include="C:\Users\sani.huttunen\.nuget\packages\tesseract\3.3.0\x86\libtesseract3052.dll" Link="x86\libtesseract3052.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="morelinq" Version="3.3.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0-preview.6.21352.12" />
     <PackageReference Include="Tesseract" Version="4.1.1" />
     <PackageReference Include="Tesseract.Drawing" Version="4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="2015\AdventOfCode2015131.cs">
+    <Compile Update="2015\AdventOfCode201513.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
@@ -324,7 +249,13 @@
     <None Update="2020\Input\AdventOfCode202002.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="_ExternalDependencies\tessdata\eng.traineddata">
+    <None Update="_ExternalDependencies\tessdata_legacy\eng.traineddata">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="_ExternalDependencies\tessdata_legacy\eng.traineddata.legacy">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="_ExternalDependencies\tessdata_ltsm\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
 using AdventOfCode.Mathematics;
 
 namespace AdventOfCode._2019
@@ -68,6 +66,7 @@ namespace AdventOfCode._2019
     /// intersection?
     ///
     /// --- Part Two ---
+    /// 
     /// It turns out that this circuit is very timing-sensitive; you actually need
     /// to minimize the signal delay.
     /// 
@@ -110,27 +109,36 @@ namespace AdventOfCode._2019
     /// What is the fewest combined steps the wires must take to reach an
     /// intersection?
     /// </summary>
-    [AdventOfCode(2019, 3, "Day 3: Crossed Wires", 1285, 14228)]
+    [AdventOfCode(2019, 3, "Crossed Wires", 1285, 14228)]
     public class AdventOfCode201903 : AdventOfCodeBase
     {
+        private IEnumerable<(int, int)> intersections;
+        private Dictionary<(int, int), int> grid1;
+        private Dictionary<(int, int), int> grid2;
+
         public AdventOfCode201903(string sessionCookie) : base(sessionCookie) { }
+
         public override void Solve()
         {
-            var data = Input;
-            var timer = new Stopwatch();
+            var wire1 = Input[0].Split(',');
+            var wire2 = Input[1].Split(',');
 
-            timer.Start();
-            var wire1 = data[0].Split(',');
-            var wire2 = data[1].Split(',');
+            grid1 = ParseWire(wire1);
+            grid2 = ParseWire(wire2);
 
-            var grid1 = ParseWire(wire1);
-            var grid2 = ParseWire(wire2);
+            intersections = grid1.Keys.Intersect(grid2.Keys);
 
-            var intersections = grid1.Keys.Intersect(grid2.Keys);
-            ResultPart1 = intersections.Min(p => NumberTheory.ManhattanDistance((0, 0), p));
-            ResultPart2 = intersections.Min(p => grid1[p] + grid2[p]);
-            timer.Stop();
-            TimePart1 = timer.ElapsedTicks.ToMilliseconds();
+            base.Solve();
+        }
+
+        protected override object SolvePart1()
+        {
+            return intersections.Min(p => NumberTheory.ManhattanDistance((0, 0), p));
+        }
+
+        protected override object SolvePart2()
+        {
+            return intersections.Min(p => grid1[p] + grid2[p]);
         }
 
         private Dictionary<(int, int), int> ParseWire(string[] wire)

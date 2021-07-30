@@ -1,34 +1,24 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
 
 namespace AdventOfCode._2020
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2020, 1, "Day 1: Report Repair", 1016964L, 182588480L)]
+    [AdventOfCode(2020, 1, "Report Repair", 1016964L, 182588480L)]
     public class AdventOfCode202001 : AdventOfCodeBase
     {
         private const int TargetValue = 2020;
+        private int[] data;
 
         public AdventOfCode202001(string sessionCookie) : base(sessionCookie) { }
         public override void Solve()
         {
-            var data = Input.Select(int.Parse).ToArray();
-
-            var timer = new Stopwatch();
-            timer.Start();
-            ResultPart1 = SolvePart1(data);
-            TimePart1 = timer.ElapsedTicks.ToMilliseconds();
-
-            timer.Restart();
-            ResultPart2 = SolvePart2(data);
-            timer.Stop();
-            TimePart2 = timer.ElapsedTicks.ToMilliseconds();
+            data = Input.Select(int.Parse).ToArray();
+            base.Solve();
         }
 
-        private object SolvePart1(int[] data)
+        protected override object SolvePart1()
         {
             foreach (var a in data)
             {
@@ -41,7 +31,7 @@ namespace AdventOfCode._2020
             return null;
         }
 
-        private object SolvePart2(int[] data)
+        protected override object SolvePart2()
         {
             for (var i = 0; i < data.Length - 2; i++)
             {
