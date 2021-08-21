@@ -85,12 +85,7 @@ namespace AdventOfCode._2017
     [AdventOfCode(2017, 24, "Electromagnetic Moat", 1695, 1673)]
     public class AdventOfCode201724 : AdventOfCodeBase
     {
-        public override void Solve()
-        {
-            var input = Input.Select(l => l.Split('/').Select(int.Parse).ToArray()).Select(c => (c[0], c[1])).ToImmutableList();
-
-            Result = BuildStrongBridge(input);
-        }
+        public AdventOfCode201724(string sessionCookie) : base(sessionCookie) { }
 
         protected override object SolvePart1()
         {
@@ -118,7 +113,5 @@ namespace AdventOfCode._2017
                 .ThenByDescending(x => x.Item1)
                 .First();
         }
-
-        public AdventOfCode201724(string sessionCookie) : base(sessionCookie) { }
     }
 }

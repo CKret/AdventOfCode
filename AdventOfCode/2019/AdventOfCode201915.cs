@@ -10,6 +10,8 @@ namespace AdventOfCode._2019
     [AdventOfCode(2019, 15, "", 354, 370)]
     public class AdventOfCode201915 : AdventOfCodeBase
     {
+        public AdventOfCode201915(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             var map = new HashSet<(long, long)> { (0, 0) };
@@ -85,8 +87,6 @@ namespace AdventOfCode._2019
 
             return current.Steps;
         }
-
-        public AdventOfCode201915(string sessionCookie) : base(sessionCookie) { }
     }
 
     public class Droid

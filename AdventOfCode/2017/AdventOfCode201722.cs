@@ -317,6 +317,7 @@ namespace AdventOfCode._2017
                 _ => '.',
             };
         }
+
         internal static char ChangeState2(char currentState)
         {
             return currentState switch

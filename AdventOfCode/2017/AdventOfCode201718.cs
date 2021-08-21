@@ -131,6 +131,8 @@ namespace AdventOfCode._2017
     [AdventOfCode(2017, 18, "Duet", 4601, 6858)]
     public class AdventOfCode201718 : AdventOfCodeBase
     {
+        public AdventOfCode201718(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             var registers = new Dictionary<string, long>();
@@ -271,7 +273,5 @@ namespace AdventOfCode._2017
                 return val;
             }
         }
-
-        public AdventOfCode201718(string sessionCookie) : base(sessionCookie) { }
     }
 }

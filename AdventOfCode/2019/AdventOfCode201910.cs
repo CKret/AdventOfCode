@@ -224,6 +224,8 @@ namespace AdventOfCode._2019
     [AdventOfCode(2019, 10, "Day 10: Monitoring Station", 267, 1309)]
     public class AdventOfCode201910 : AdventOfCodeBase
     {
+        public AdventOfCode201910(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             var map = Input.Select((line, y) => line.Select((chr, x) => (X: x, Y: y, IsAsteroid: chr == '#')).ToArray()).ToArray();
@@ -280,8 +282,6 @@ namespace AdventOfCode._2019
                 .Select(a => a.Sector.X * 100 + a.Sector.Y)
                 .Single();
         }
-
-        public AdventOfCode201910(string sessionCookie) : base(sessionCookie) { }
 
         private static IEnumerable<(Sector Sector, double Angle, double Dist)> NextInQueue(Queue<(Sector Sector, double Angle, double Dist)> queue)
         {

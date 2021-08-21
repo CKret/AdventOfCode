@@ -261,6 +261,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="2021\Input\" />
     <Folder Include="UnitTests\" />
   </ItemGroup>
 

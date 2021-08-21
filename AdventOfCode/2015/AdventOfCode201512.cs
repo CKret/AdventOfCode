@@ -12,6 +12,7 @@ namespace AdventOfCode._2015
     [AdventOfCode(2015, 1, "", 156366, 96852)]
     public class AdventOfCode201512 : AdventOfCodeBase
     {
+        public AdventOfCode201512(string sessionCookie) : base(sessionCookie) { }
 
         protected override object SolvePart1()
         {
@@ -39,7 +40,5 @@ namespace AdventOfCode._2015
         internal long GetSum(JArray arr, string avoid) => arr.Sum((dynamic a) => (long)GetSum(a, avoid));
 
         internal static long GetSum(JValue val, string avoid) => val.Type == JTokenType.Integer ? (long)val.Value : 0;
-
-        public AdventOfCode201512(string sessionCookie) : base(sessionCookie) { }
     }
 }

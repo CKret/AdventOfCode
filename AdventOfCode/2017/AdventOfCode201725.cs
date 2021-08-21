@@ -208,7 +208,6 @@ namespace AdventOfCode._2017
                         pos++;
                         state = "E";
                     }
-
                 }
             }
 

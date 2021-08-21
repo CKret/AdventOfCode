@@ -44,6 +44,8 @@ namespace AdventOfCode._2017
     [AdventOfCode(2017, 1, "Hex Ed", 685, 1457)]
     public class AdventOfCode201711 : AdventOfCodeBase
     {
+        public AdventOfCode201711(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             int x = 0, y = 0;
@@ -71,7 +73,5 @@ namespace AdventOfCode._2017
 
             return result;
         }
-
-        public AdventOfCode201711(string sessionCookie) : base(sessionCookie) { }
     }
 }

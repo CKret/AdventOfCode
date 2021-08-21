@@ -11,6 +11,8 @@ namespace AdventOfCode._2019
     [AdventOfCode(2019, 14, "", 337862, 3687786)]
     public class AdventOfCode201914 : AdventOfCodeBase
     {
+        public AdventOfCode201914(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             var reactions = Input
@@ -103,7 +105,5 @@ namespace AdventOfCode._2019
         {
             return components.ContainsKey(component) ? components[component] : 0;
         }
-
-        public AdventOfCode201914(string sessionCookie) : base(sessionCookie) { }
     }
 }

@@ -10,6 +10,8 @@ namespace AdventOfCode._2019
     [AdventOfCode(2019, 16, "", 78009100, 37717791)]
     public class AdventOfCode201916 : AdventOfCodeBase
     {
+        public AdventOfCode201916(string sessionCookie) : base(sessionCookie) { }
+
         protected override object SolvePart1()
         {
             var basePattern = new[] { 0, 1, 0, -1 };
@@ -108,7 +110,5 @@ namespace AdventOfCode._2019
 
             return val;
         }
-
-        public AdventOfCode201916(string sessionCookie) : base(sessionCookie) { }
     }
 }

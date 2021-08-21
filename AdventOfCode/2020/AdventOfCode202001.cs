@@ -12,6 +12,7 @@ namespace AdventOfCode._2020
         private int[] data;
 
         public AdventOfCode202001(string sessionCookie) : base(sessionCookie) { }
+
         public override void Solve()
         {
             data = Input.Select(int.Parse).ToArray();
