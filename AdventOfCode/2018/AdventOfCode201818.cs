@@ -120,7 +120,7 @@ namespace AdventOfCode._2018
 
                 history.Add(data);
                 data = newData.ToArray();
-                if (history.Count(h => h.SequenceEqual(data)) != 0) break;
+                if (history.Any(h => h.SequenceEqual(data))) break;
             }
 
             var prev = history.IndexOf(history.Single(h => h.SequenceEqual(data)));

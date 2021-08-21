@@ -226,21 +226,17 @@ namespace AdventOfCode._2018
             var width = lights.Max(x => x.PositionX) + translateX + 1 + 20;
             var height = lights.Max(x => x.PositionY) + translateY + 1 + 20;
 
-            using (var image = new Bitmap(width, height))
+            using var image = new Bitmap(width, height);
+            foreach (var l in lights)
             {
-                foreach (var l in lights)
-                {
-                    image.SetPixel(l.PositionX + translateX + 10, l.PositionY + translateY + 10, Color.Blue);
-                }
-
-                // ReSharper disable once StringLiteralTypo
-                using (var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_legacy", "eng", EngineMode.TesseractOnly))    // Uses legaxy OCR. To use LSTM neural network use \tessdata_ltsm.
-                using (var pix = PixConverter.ToPix(image))
-                using (var page = engine.Process(pix))
-                {
-                    return page.GetText().Trim('\n');
-                }
+                image.SetPixel(l.PositionX + translateX + 10, l.PositionY + translateY + 10, Color.Blue);
             }
+
+            // ReSharper disable once StringLiteralTypo
+            using var engine = new TesseractEngine(@".\_ExternalDependencies\tessdata_legacy", "eng", EngineMode.TesseractOnly);    // Uses legaxy OCR. To use LSTM neural network use \tessdata_ltsm.
+            using var pix = PixConverter.ToPix(image);
+            using var page = engine.Process(pix);
+            return page.GetText().Trim('\n');
         }
 
         protected override object SolvePart2()

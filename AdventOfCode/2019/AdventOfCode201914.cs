@@ -95,13 +95,13 @@ namespace AdventOfCode._2019
             return true;
         }
 
-        private void AddStock(Dictionary<string, long> components, string component, long amount)
+        private static void AddStock(Dictionary<string, long> components, string component, long amount)
         {
             if (components.ContainsKey(component)) components[component] += amount;
             else components.Add(component, amount);
         }
 
-        private long GetStock(Dictionary<string, long> components, string component)
+        private static long GetStock(Dictionary<string, long> components, string component)
         {
             return components.ContainsKey(component) ? components[component] : 0;
         }

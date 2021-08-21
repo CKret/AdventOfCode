@@ -89,7 +89,7 @@ namespace AdventOfCode._2017
             return Spiral(361527);
         }
 
-        public int Spiral(int input)
+        public static int Spiral(int input)
         {
             var spiral = new Dictionary<(int, int), int>();
             var x = 0;

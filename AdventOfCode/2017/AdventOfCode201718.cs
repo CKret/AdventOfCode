@@ -150,11 +150,11 @@ namespace AdventOfCode._2017
                 switch (instr)
                 {
                     case "snd":
-                        if (int.TryParse(opA, out var val)) currentSound = int.Parse(opA, CultureInfo.InvariantCulture);
+                        if (int.TryParse(opA, out _)) currentSound = int.Parse(opA, CultureInfo.InvariantCulture);
                         else currentSound = registers[opA];
                         break;
                     case "set":
-                        if (int.TryParse(opB, out val)) registers[opA] = val;
+                        if (int.TryParse(opB, out var val)) registers[opA] = val;
                         else registers[opA] = registers[opB];
                         break;
                     case "add":
@@ -205,7 +205,7 @@ namespace AdventOfCode._2017
             public string OperandValue { get; set; }
         }
 
-        internal List<Duet> ParseInstructions(string[] instructions)
+        internal static List<Duet> ParseInstructions(string[] instructions)
         {
             return instructions.Select(instruction => instruction.Split()).Select(i => new Duet { Instruction = i[0], OperandDestination = i[1], OperandValue = i.Length > 2 ? i[2] : string.Empty }).ToList();
         }
@@ -218,7 +218,7 @@ namespace AdventOfCode._2017
             public int RcvCount { get; private set; }
 
             private readonly List<Duet> instructions;
-            private readonly Dictionary<string, long> registers = new Dictionary<string, long>();
+            private readonly Dictionary<string, long> registers = new();
             private int EIP;
 
             public Program(int pId, List<Duet> instructions)

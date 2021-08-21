@@ -212,8 +212,6 @@ namespace AdventOfCode._2019
                 else cur += c;
             }
 
-            var candidates = new List<List<string>>();
-
             for (var i = 1; i < tokens.Count - 2; i++)
             {
                 var s = path;
@@ -225,7 +223,7 @@ namespace AdventOfCode._2019
                 while (c1.StartsWith(t1))
                 {
                     if (t1.Length > c1.Length) break;
-                    c1 = c1.Substring(t1.Length);
+                    c1 = c1[t1.Length..];
                     count1++;
                     main1.Add('A');
                 }
@@ -243,13 +241,13 @@ namespace AdventOfCode._2019
                         if (t2.Length > c2.Length) break;
                         if (c2.StartsWith(t2))
                         {
-                            c2 = c2.Substring(t2.Length);
+                            c2 = c2[t2.Length..];
                             count2++;
                             main2.Add('B');
                         }
                         else if (c2.StartsWith(t1))
                         {
-                            c2 = c2.Substring(t1.Length);
+                            c2 = c2[t1.Length..];
                             count2_1++;
                             main2.Add('A');
                         }
@@ -267,17 +265,17 @@ namespace AdventOfCode._2019
                             if (t3.Length > c3.Length) break;
                             if (c3.StartsWith(t3))
                             {
-                                c3 = c3.Substring(t3.Length);
+                                c3 = c3[t3.Length..];
                                 main3.Add('C');
                             }
                             else if (c3.StartsWith(t2))
                             {
-                                c3 = c3.Substring(t2.Length);
+                                c3 = c3[t2.Length..];
                                 main3.Add('B');
                             }
                             else if (c3.StartsWith(t1))
                             {
-                                c3 = c3.Substring(t1.Length);
+                                c3 = c3[t1.Length..];
                                 main3.Add('A');
                             }
                             else break;

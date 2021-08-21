@@ -31,10 +31,10 @@ namespace AdventOfCode._2019
 
             while (vm.Execute() != IntcodeVM.HaltMode.Terminated)
             {
-                var newState = ProcessOutput(vm);
+                var (Paddle, Ball, _) = ProcessOutput(vm);
 
-                if (newState.Paddle.X != -1 && newState.Paddle.Y != -1) paddle = newState.Paddle;
-                if (newState.Ball.X != -1 && newState.Ball.Y != -1) ball = newState.Ball;
+                if (Paddle.X != -1 && Paddle.Y != -1) paddle = Paddle;
+                if (Ball.X != -1 && Ball.Y != -1) ball = Ball;
 
                 if (ball.X < paddle.X) vm.Input.Enqueue(-1);
                 else if (ball.X > paddle.X) vm.Input.Enqueue(1);
@@ -46,7 +46,7 @@ namespace AdventOfCode._2019
             return finalState.Score;
         }
 
-        private ((long X, long Y) Paddle, (long X, long Y) Ball, long Score) ProcessOutput(IntcodeVM vm)
+        private static ((long X, long Y) Paddle, (long X, long Y) Ball, long Score) ProcessOutput(IntcodeVM vm)
         {
             var score = 0L;
             var paddle = (X: -1L, Y: -1L);
@@ -82,30 +82,6 @@ namespace AdventOfCode._2019
 
             return (paddle, ball, score);
 
-        }
-
-        private (long X, long Y) GetBallCoordinates(List<long> currentState)
-        {
-            if (currentState == null) throw new ArgumentNullException(nameof(currentState));
-
-            var ball = currentState.FindIndex(t => t == 4);
-            return ball >= 2 ? (currentState[ball - 2], currentState[ball - 1]) : (-1, -1);
-        }
-
-        private (long X, long Y) GetPaddleCoordinates(List<long> currentState)
-        {
-            if (currentState == null) throw new ArgumentNullException(nameof(currentState));
-
-            var paddle = currentState.FindIndex(t => t == 3);
-            return paddle >= 2 ? (currentState[paddle - 2], currentState[paddle - 1]) : (-1, -1);
-        }
-
-        private long GetCurrentScore(List<long> currentState)
-        {
-            if (currentState == null) throw new ArgumentNullException(nameof(currentState));
-
-            var score = currentState.FindIndex(t => t == -1);
-            return score >= 0 ? currentState[score + 2] : 0;
         }
     }
 }

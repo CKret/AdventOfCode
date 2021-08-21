@@ -11,7 +11,7 @@ namespace AdventOfCode._2015
     [AdventOfCode(2015, 7, "", 956, 40149)]
     public class AdventOfCode201507 : AdventOfCodeBase
     {
-        Dictionary<string, string[]> instructions = new Dictionary<string, string[]>();
+        Dictionary<string, string[]> instructions = new();
 
         public AdventOfCode201507(string sessionCookie) : base(sessionCookie) { }
 

@@ -131,7 +131,7 @@ namespace AdventOfCode._2018
         {
             var maxGenerations = 20;
             var data = File.ReadAllLines(@"2018\AdventOfCode201812.txt");
-            var initialState = data[0].Substring(15);
+            var initialState = data[0][15..];
             var transformations = data.Skip(2).ToArray().Select(t => (Pattern: t.Split(" => ")[0], Result: t.Split(" => ")[1][0])).ToArray();
             var prependedPots = 0;
             var currentGen = initialState;
@@ -167,7 +167,7 @@ namespace AdventOfCode._2018
         {
             var maxGenerations = 50000000000;
             var data = File.ReadAllLines(@"2018\AdventOfCode201812.txt");
-            var initialState = data[0].Substring(15);
+            var initialState = data[0][15..];
             var transformations = data.Skip(2).ToArray().Select(t => (Pattern: t.Split(" => ")[0], Result: t.Split(" => ")[1][0])).ToArray();
             var prependedPots = 0;
             var currentGen = initialState;

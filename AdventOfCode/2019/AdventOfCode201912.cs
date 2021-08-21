@@ -139,26 +139,17 @@ namespace AdventOfCode._2019
             return LeastCommonMultiple(new[] { xCycle, yCycle, zCycle });
         }
 
-
-        private (long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long) GetAllPositions(List<Moon> moons)
-        {
-            return (moons[0].Position.X, moons[0].Position.Y, moons[0].Position.Z, moons[0].Velocity.X, moons[0].Velocity.Y, moons[0].Velocity.Z,
-                moons[1].Position.X, moons[1].Position.Y, moons[1].Position.Z, moons[1].Velocity.X, moons[1].Velocity.Y, moons[1].Velocity.Z,
-                moons[2].Position.X, moons[2].Position.Y, moons[2].Position.Z, moons[2].Velocity.X, moons[2].Velocity.Y, moons[2].Velocity.Z,
-                moons[3].Position.X, moons[3].Position.Y, moons[3].Position.Z, moons[3].Velocity.X, moons[3].Velocity.Y, moons[3].Velocity.Z);
-        }
-
-        private (long, long, long, long, long, long, long, long) GetXPositions(List<Moon> moons)
+        private static (long, long, long, long, long, long, long, long) GetXPositions(List<Moon> moons)
         {
             return (moons[0].Position.X, moons[0].Velocity.X, moons[1].Position.X, moons[1].Velocity.X, moons[2].Position.X, moons[2].Velocity.X, moons[3].Position.X, moons[3].Velocity.X);
         }
 
-        private (long, long, long, long, long, long, long, long) GetYPositions(List<Moon> moons)
+        private static (long, long, long, long, long, long, long, long) GetYPositions(List<Moon> moons)
         {
             return (moons[0].Position.Y, moons[0].Velocity.Y, moons[1].Position.Y, moons[1].Velocity.Y, moons[2].Position.Y, moons[2].Velocity.Y, moons[3].Position.Y, moons[3].Velocity.Y);
         }
 
-        private (long, long, long, long, long, long, long, long) GetZPositions(List<Moon> moons)
+        private static (long, long, long, long, long, long, long, long) GetZPositions(List<Moon> moons)
         {
             return (moons[0].Position.Z, moons[0].Velocity.Z, moons[1].Position.Z, moons[1].Velocity.Z, moons[2].Position.Z, moons[2].Velocity.Z, moons[3].Position.Z, moons[3].Velocity.Z);
         }

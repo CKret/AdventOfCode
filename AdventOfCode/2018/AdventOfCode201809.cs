@@ -106,7 +106,7 @@ namespace AdventOfCode._2018
             return GetScore(459, 7132000);
         }
 
-        private long GetScore(int nPlayers, int nMarbles)
+        private static long GetScore(int nPlayers, int nMarbles)
         {
             var scores = new long[nPlayers];
             var circle = new LinkedList<long>();

@@ -104,7 +104,7 @@ namespace AdventOfCode._2018
             return shortest;
         }
 
-        private string React(string data)
+        private static string React(string data)
         {
             for (var i = 0; i < data.Length - 1; i++)
             {

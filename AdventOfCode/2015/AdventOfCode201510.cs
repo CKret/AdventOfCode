@@ -19,7 +19,7 @@ namespace AdventOfCode._2015
                         .GroupAdjacent(n => n)
                         .SelectMany(g => new[] { g.Count(), g.First() })
                         .ToArray())
-                .Count();
+                .Length;
         }
 
         protected override object SolvePart2()
@@ -30,7 +30,7 @@ namespace AdventOfCode._2015
                         .GroupAdjacent(n => n)
                         .SelectMany(g => new[] { g.Count(), g.First() })
                         .ToArray())
-                .Count();
+                .Length;
         }
     }
 }

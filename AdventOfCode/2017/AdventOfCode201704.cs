@@ -89,7 +89,7 @@ namespace AdventOfCode._2017
             return sum;
         }
 
-        private bool IsPermutation(string a, string b)
+        private static bool IsPermutation(string a, string b)
         {
             if (a.Length != b.Length)
                 return false;

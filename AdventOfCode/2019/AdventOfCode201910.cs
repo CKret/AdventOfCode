@@ -374,6 +374,6 @@ namespace AdventOfCode._2019
 
     public class AsteroidField
     {
-        public List<Asteroid> Asteroids = new List<Asteroid>();
+        public List<Asteroid> Asteroids = new();
     }
 }
