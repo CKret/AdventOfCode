@@ -5,6 +5,7 @@ var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var builder = new ConfigurationBuilder()
               .AddJsonFile($"appsettings.json", true, true)
               .AddJsonFile($"appsettings.{env}.json", true, true)
+              .AddUserSecrets<Program>()
               .AddEnvironmentVariables();
 
 var config = builder.Build();
