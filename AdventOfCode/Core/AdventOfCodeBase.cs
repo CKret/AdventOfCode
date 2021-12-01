@@ -51,6 +51,11 @@ namespace AdventOfCode.Core
             var targetDate = new DateTime(Problem.Year, 12, Problem.Day, 6, 0, 0);
             if (DateTime.Now < targetDate) return false;
 
+            if (!Directory.Exists(Problem.Year.ToString()))
+            {
+                Directory.CreateDirectory(Problem.Year.ToString());
+            }
+
             if (!File.Exists(InputFileName) || new FileInfo(InputFileName).Length == 0)
             {
                 using var client = new WebClient();

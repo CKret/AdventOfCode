@@ -301,6 +301,9 @@
     <None Update="2020\Input\AdventOfCode202016.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="2021\Input\AdventOfCode202101.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="_ExternalDependencies\tessdata_legacy\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -310,10 +313,6 @@
     <None Update="_ExternalDependencies\tessdata_ltsm\eng.traineddata">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="2021\Input\" />
   </ItemGroup>
 
 </Project>
