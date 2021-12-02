@@ -27,7 +27,7 @@ namespace AdventOfCode.Core
                 if (string.IsNullOrEmpty(filename)) return null;
 
 
-                return @$"{Problem.Year}\{filename}.txt";
+                return @$"{Problem.Year}\Input\{filename}.txt";
             }
         }
 
