@@ -27,7 +27,7 @@ namespace AdventOfCode._2021
         {
             return Lines
                 .SelectMany(line => LineCoordinates(line))
-                .GroupBy(c => (c.x, c.y))
+                .GroupBy(c => c)
                 .Count(g => g.Count() > 1);
         }
 
@@ -35,7 +35,7 @@ namespace AdventOfCode._2021
         {
             return Lines
                 .SelectMany(line => LineCoordinates(line, true))
-                .GroupBy(c => (c.x, c.y))
+                .GroupBy(c => c)
                 .Count(g => g.Count() > 1);
         }
 
