@@ -11,10 +11,10 @@ var builder = new ConfigurationBuilder()
 var config = builder.Build();
 var sessionCookie = config["AdventOfCodeSessionCookie"];
 
-var aoc = new AdventOfCode._2021.AdventOfCode202107(sessionCookie);
+var aoc = new AdventOfCode._2021.AdventOfCode202108(sessionCookie);
 aoc.Solve();
 
-Console.WriteLine(aoc.Problem.Description);
+Console.WriteLine($"{aoc.Problem.Year} day {aoc.Problem.Day} - {aoc.Problem.Description}");
 Console.WriteLine();
 Console.WriteLine($"Part 1:");
 Console.WriteLine($"\t{aoc.ResultPart1}");
