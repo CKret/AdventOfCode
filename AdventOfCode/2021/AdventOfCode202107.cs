@@ -25,7 +25,7 @@ namespace AdventOfCode._2021
             var crabs = Input.First().Split(',').Select(int.Parse).ToList();
 
             return Enumerable.Range(crabs.Min(), crabs.Max())
-                .Select(p => crabs.Sum(c => Math.Abs(c - p) * (Math.Abs(c - p) + 1) / 2))
+                .Select(p => crabs.Sum(c => Math.Abs(c - p) * (Math.Abs(c - p) + 1) / 2))   // n(n+1)/2
                 .Min();
         }
     }
