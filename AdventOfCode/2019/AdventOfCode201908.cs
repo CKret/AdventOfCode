@@ -135,7 +135,8 @@ namespace AdventOfCode._2019
             return minLayer.Count(x => x == '1') * minLayer.Count(x => x == '2');
         }
 
-        protected override object SolvePart2()
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>")]
+		protected override object SolvePart2()
         {
             var data = Input[0];
 

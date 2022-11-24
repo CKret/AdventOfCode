@@ -41,7 +41,8 @@ namespace AdventOfCode._2019
             return panels.Count;
         }
 
-        protected override object SolvePart2()
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>")]
+		protected override object SolvePart2()
         {
             var position = (0, 0);
             var direction = RobotDirection.Up;

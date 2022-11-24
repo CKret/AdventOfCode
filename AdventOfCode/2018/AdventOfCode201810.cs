@@ -186,7 +186,8 @@ namespace AdventOfCode._2018
     {
         public AdventOfCode201810(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>")]
+		protected override object SolvePart1()
         {
             var lights = File.ReadAllLines(@"2018\AdventOfCode201810.txt")
                              .Select(line => Regex.Matches(line, @"-?\d+"))
