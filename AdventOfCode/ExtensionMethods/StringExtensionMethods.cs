@@ -1,5 +1,4 @@
 ﻿using MoreLinq;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,12 +56,7 @@ namespace AdventOfCode.ExtensionMethods
 			return input;
 		}
 
-		public static IEnumerable<IEnumerable<string>> SplitAndGroupBy(this IEnumerable<string> input, string delimiter = "")
-		{
-			return input.Split(delimiter).Select(x => x.Select(y => y));
-		}
-
-		public static IEnumerable<IEnumerable<T>> SplitGroupByAndParse<T>(this IEnumerable<string> input, string delimiter = "")
+		public static IEnumerable<IEnumerable<T>> SplitAndParse<T>(this IEnumerable<string> input, string delimiter = "")
 		{
 			return input.Split(delimiter).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
 		}
