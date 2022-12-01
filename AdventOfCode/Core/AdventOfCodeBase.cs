@@ -29,7 +29,7 @@ namespace AdventOfCode.Core
 				if (string.IsNullOrEmpty(filename)) return null;
 
 
-				return @$"{Problem.Year}\Input\{filename}.txt";
+				return @$"..\..\..\..\AdventOfCode\{Problem.Year}\Input\{filename}.txt";
 			}
 		}
 
@@ -61,12 +61,12 @@ namespace AdventOfCode.Core
 			if (!File.Exists(InputFileName) || new FileInfo(InputFileName).Length == 0)
 			{
 				var baseAddress = new Uri("https://adventofcode.com");
-				var currentAddress = new Uri(baseAddress, $"{Problem.Year}/day/{Problem.Day}/input");
+				var inputAddress = new Uri(baseAddress, $"{Problem.Year}/day/{Problem.Day}/input");
 				var cookieContainer = new CookieContainer();
 				using var handler = new HttpClientHandler() { CookieContainer = cookieContainer };
-				using var client = new HttpClient() { BaseAddress = baseAddress };
+				using var client = new HttpClient(handler) { BaseAddress = baseAddress };
 				cookieContainer.Add(baseAddress, new Cookie("session", sessionCookie));
-				await client.DownloadFileTaskAsync(currentAddress, InputFileName);
+				await client.DownloadFileTaskAsync(inputAddress, InputFileName);
 			}
 
 			return true;
