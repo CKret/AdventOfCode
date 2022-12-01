@@ -11,7 +11,7 @@ var builder = new ConfigurationBuilder()
 var config = builder.Build();
 var sessionCookie = config["AdventOfCodeSessionCookie"];
 
-var aoc = new AdventOfCode._2022.AdventOfCode202201(sessionCookie);
+var aoc = new AdventOfCode._2022.AdventOfCode202202(sessionCookie);
 aoc.Solve();
 
 Console.WriteLine($"{aoc.Problem.Year} day {aoc.Problem.Day} - {aoc.Problem.Description}");
