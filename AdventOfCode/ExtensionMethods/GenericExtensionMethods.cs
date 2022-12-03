@@ -16,6 +16,7 @@ namespace AdventOfCode.ExtensionMethods
 		{
 			return (Head: e.Take(e.Count() / 2), Tail: e.Skip(e.Count() / 2));
 		}
+
 		public static (IEnumerable<T> Head, IEnumerable<T> Tail) SplitAt<T>(this IEnumerable<T> e, int pos)
 		{
 			return (Head: e.Take(pos), Tail: e.Skip(pos));
