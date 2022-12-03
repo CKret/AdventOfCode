@@ -56,11 +56,6 @@ namespace AdventOfCode.ExtensionMethods
 			return input;
 		}
 
-		public static IEnumerable<IEnumerable<T>> SplitAndParse<T>(this IEnumerable<string> input, string delimiter = "")
-		{
-			return input.Split(delimiter).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
-		}
-
 		public static (string Head, string Tail) SplitInHalf(this string s)
 		{
 			return (Head: s[..(s.Length / 2)], Tail: s[(s.Length / 2)..]);
