@@ -2,12 +2,12 @@
 * text=auto
 
 # Custom for Visual Studio
-*.cs     diff=csharp working-tree-encoding=UTF-16LE eol=CRLF
-*.sln    merge=union working-tree-encoding=UTF-16LE eol=CRLF
-*.csproj merge=union working-tree-encoding=UTF-16LE eol=CRLF
-*.vbproj merge=union working-tree-encoding=UTF-16LE eol=CRLF
-*.fsproj merge=union working-tree-encoding=UTF-16LE eol=CRLF
-*.dbproj merge=union working-tree-encoding=UTF-16LE eol=CRLF
+*.cs     diff=csharp working-tree-encoding=UTF-8 eol=CRLF
+*.sln    merge=union working-tree-encoding=UTF-8 eol=CRLF
+*.csproj merge=union working-tree-encoding=UTF-8 eol=CRLF
+*.vbproj merge=union working-tree-encoding=UTF-8 eol=CRLF
+*.fsproj merge=union working-tree-encoding=UTF-8 eol=CRLF
+*.dbproj merge=union working-tree-encoding=UTF-8 eol=CRLF
 
 # Standard to msysgit
 *.doc	 diff=astextplain
