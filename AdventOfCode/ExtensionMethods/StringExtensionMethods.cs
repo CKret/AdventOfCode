@@ -60,5 +60,15 @@ namespace AdventOfCode.ExtensionMethods
 		{
 			return input.Split(delimiter).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
 		}
+
+		public static (string Head, string Tail) SplitInHalf(this string s)
+		{
+			return (Head: s[..(s.Length / 2)], Tail: s[(s.Length / 2)..]);
+		}
+
+		public static (string Head, string Tail) SplitAt(this string s, int pos)
+		{
+			return (Head: s[..pos], Tail: s[pos..]);
+		}
 	}
 }
