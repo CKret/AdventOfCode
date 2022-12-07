@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using AdventOfCode.Core;
-using MoreLinq;
+using SuperLinq;
 
 namespace AdventOfCode._2015
 {

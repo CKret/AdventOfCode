@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using AdventOfCode.Core;
-using MoreLinq;
+using SuperLinq;
 
 namespace AdventOfCode._2018
 {
