@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Core;
 using AdventOfCode.Mathematics;
-using static MoreLinq.Extensions.RepeatExtension;
+using SuperLinq;
 
 namespace AdventOfCode._2019
 {

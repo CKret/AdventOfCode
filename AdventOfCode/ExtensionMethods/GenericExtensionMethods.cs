@@ -1,4 +1,4 @@
-﻿using MoreLinq;
+﻿using SuperLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ namespace AdventOfCode.ExtensionMethods
 {
 	public static class GenericExtensionMethods
 	{
-		public static IEnumerable<IEnumerable<T>> SplitAndParse<T>(this IEnumerable<string> input, string delimiter = "")
+		public static IEnumerable<IEnumerable<T>> SplitAndParse<T>(this IEnumerable<string> input, string separator = "")
 		{
-			return input.Split(delimiter).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
+			return input.Split(separator).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
 		}
 
 		public static (IEnumerable<T> Head, IEnumerable<T> Tail) SplitInHalf<T>(this IEnumerable<T> e)

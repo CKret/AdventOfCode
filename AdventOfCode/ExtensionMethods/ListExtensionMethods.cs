@@ -10,5 +10,10 @@ namespace AdventOfCode.ExtensionMethods
         {
             return listToClone.Select(i => (T) i.Clone()).ToList();
         }
+
+        public static void RemoveLast<T>(this IList<T> e, int count = 1)
+        {
+            while (count-- > 0) e.RemoveAt(e.Count - 1);
+        }
     }
 }

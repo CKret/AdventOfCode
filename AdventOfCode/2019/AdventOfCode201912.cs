@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Core;
 using AdventOfCode.Mathematics;
-using MoreLinq.Extensions;
 
 namespace AdventOfCode._2019
 {

@@ -1,4 +1,4 @@
-﻿using MoreLinq;
+﻿using SuperLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +46,12 @@ namespace AdventOfCode.ExtensionMethods
 			return s.Split(new[] { splitWith }, options);
 		}
 
-		public static string TrimEnd(this string input, string suffixToRemove, StringComparison comparisonType = StringComparison.CurrentCulture)
+        public static IEnumerable<T> SplitAndParse<T>(this string input, IEnumerable<string> separators)
+        {
+            return input.Split(separators.ToArray(), StringSplitOptions.RemoveEmptyEntries).Select(x => (T)Convert.ChangeType(x, typeof(T)));
+        }
+
+        public static string TrimEnd(this string input, string suffixToRemove, StringComparison comparisonType = StringComparison.CurrentCulture)
 		{
 			if (suffixToRemove != null && input.EndsWith(suffixToRemove, comparisonType))
 			{
