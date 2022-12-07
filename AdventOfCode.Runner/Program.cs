@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var builder = new ConfigurationBuilder()
+							// ReSharper disable once StringLiteralTypo
               .AddJsonFile($"appsettings.json", true, true)
+              // ReSharper disable once StringLiteralTypo
               .AddJsonFile($"appsettings.{env}.json", true, true)
               .AddUserSecrets<Program>()
               .AddEnvironmentVariables();

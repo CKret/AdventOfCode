@@ -12,10 +12,12 @@ namespace AdventOfCode.Runner {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+		#pragma warning disable CS8981
     internal sealed partial class appsettings : global::System.Configuration.ApplicationSettingsBase {
+#pragma warning restore CS8981
         
-        private static appsettings defaultInstance = ((appsettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new appsettings())));
+	    private static appsettings defaultInstance = ((appsettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new appsettings())));
         
         public static appsettings Default {
             get {
