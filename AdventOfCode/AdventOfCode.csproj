@@ -218,16 +218,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\shuttunen\.nuget\packages\tesseract\3.3.0\x64\liblept1753.dll" Link="x64\liblept1753.dll">
+    <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x64\liblept1753.dll" Link="x64\liblept1753.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\shuttunen\.nuget\packages\tesseract\3.3.0\x64\libtesseract3052.dll" Link="x64\libtesseract3052.dll">
+    <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x64\libtesseract3052.dll" Link="x64\libtesseract3052.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\shuttunen\.nuget\packages\tesseract\3.3.0\x86\liblept1753.dll" Link="x86\liblept1753.dll">
+    <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x86\liblept1753.dll" Link="x86\liblept1753.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\shuttunen\.nuget\packages\tesseract\3.3.0\x86\libtesseract3052.dll" Link="x86\libtesseract3052.dll">
+    <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x86\libtesseract3052.dll" Link="x86\libtesseract3052.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
