@@ -364,7 +364,7 @@ namespace AdventOfCode.Mathematics
             return result;
         }
 
-        public static int ManhattanDistance((int x, int y) coordinate1, (int x, int y) coordinate2)
+        public static int ManhattanDistance(this (int x, int y) coordinate1, (int x, int y) coordinate2)
         {
             return Math.Abs(coordinate1.x - coordinate2.x) + Math.Abs(coordinate1.y - coordinate2.y);
 

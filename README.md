@@ -2,7 +2,7 @@
 
 #### C# solutions for each years [Advent of Code](https://adventofcode.com "Advent calendar of small programming puzzles") puzzles.
 
-#### 2015 Solved
+#### 2015 Solved Day 1-17
  - [Day 1](https://adventofcode.com/2015/day/1 "Not Quite Lisp")
  - [Day 2](https://adventofcode.com/2015/day/2 "I Was Told There Would Be No Math")
  - [Day 3](https://adventofcode.com/2015/day/3 "Perfectly Spherical Houses in a Vacuum")
@@ -23,7 +23,7 @@
 
 #### 2016 Solved
 
-#### 2017 Solved
+#### 2017 Solved All
  - [Day 1](https://adventofcode.com/2017/day/1)
  - [Day 2](https://adventofcode.com/2017/day/2)
  - [Day 3](https://adventofcode.com/2017/day/3)
