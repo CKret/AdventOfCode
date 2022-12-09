@@ -7,6 +7,16 @@ namespace AdventOfCode.ExtensionMethods
 {
 	public static class GenericExtensionMethods
 	{
+		public static TSource AggregateWhile<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> func, Func<TSource, bool> predicate)
+		{
+			using var e = source.GetEnumerator();
+			var result = e.Current;
+			TSource tmp;
+			while (e.MoveNext() && predicate(tmp = func(result, e.Current)))
+				result = tmp;
+			return result;
+		}
+
 		public static IEnumerable<IEnumerable<T>> SplitAndParse<T>(this IEnumerable<string> input, string separator = "")
 		{
 			return input.Split(separator).Select(x => x.Select(y => (T)Convert.ChangeType(y, typeof(T))));
