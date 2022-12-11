@@ -8,7 +8,7 @@ namespace AdventOfCode._2018
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2018, 15, "", 53576)]
+    [AdventOfCode(2018, 15, "", 53576, null)]
     public class AdventOfCode201815 : AdventOfCodeBase
     {
 
@@ -16,7 +16,7 @@ namespace AdventOfCode._2018
 
         protected override object SolvePart1()
         {
-            string[] map = File.ReadAllLines(@"2018\AdventOfCode201815.txt");
+            var map = Input;
 
             Console.WriteLine(new Game(map, 3).RunGame(false));
 
@@ -232,7 +232,7 @@ namespace AdventOfCode._2018
 
         protected override object SolvePart2()
         {
-            throw new NotImplementedException();
+	        return null;
         }
     }
 
