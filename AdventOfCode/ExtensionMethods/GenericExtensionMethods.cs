@@ -31,5 +31,12 @@ namespace AdventOfCode.ExtensionMethods
 		{
 			return (Head: e.Take(pos), Tail: e.Skip(pos));
 		}
+
+		public static Queue<T> ToQueue<T>(this IEnumerable<T> items)
+		{
+			var q = new Queue<T>();
+			q.EnqueueRange(items);
+			return q;
+		}
 	}
 }
