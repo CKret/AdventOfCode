@@ -49,7 +49,7 @@ namespace AdventOfCode._2019
                 var possibleLocations = map.Where(p => p.Value != '#' && !doors.Contains(p.Value) && !gotKeys.Contains(p.Value)).ToDictionary(p => p.Key, p => p.Value);
                 var pathCosts = GetPathCosts(map, possibleLocations);
 
-                var costsToKeys = new Dictionary<char, LinkedList<PathFindingBase<(int, int)>>>();
+                var costsToKeys = new Dictionary<char, LinkedList<PathCost<(int, int)>>>();
 
                 foreach (var key in allKeys)
                 {
@@ -78,16 +78,16 @@ namespace AdventOfCode._2019
             throw new NotImplementedException();
         }
 
-        public static List<PathFindingBase<(int, int)>> GetPathCosts(Dictionary<(int, int), char> map, Dictionary<(int X, int Y), char> possibleLocations)
+        public static List<PathCost<(int, int)>> GetPathCosts(Dictionary<(int, int), char> map, Dictionary<(int X, int Y), char> possibleLocations)
         {
 
-            var pathCosts = new List<PathFindingBase<(int, int)>>();
+            var pathCosts = new List<PathCost<(int, int)>>();
             foreach (var source in possibleLocations)
             {
                 var destination = (source.Key.X + 1, source.Key.Y);
                 if (possibleLocations.ContainsKey(destination))
                 {
-                    var pfb = new PathFindingBase<(int, int)>
+                    var pfb = new PathCost<(int, int)>
                     {
                         Source = source.Key,
                         Destination = destination,
@@ -100,7 +100,7 @@ namespace AdventOfCode._2019
                 destination = (source.Key.X - 1, source.Key.Y);
                 if (possibleLocations.ContainsKey(destination))
                 {
-                    var pfb = new PathFindingBase<(int, int)>
+                    var pfb = new PathCost<(int, int)>
                     {
                         Source = source.Key,
                         Destination = destination,
@@ -113,7 +113,7 @@ namespace AdventOfCode._2019
                 destination = (source.Key.X, source.Key.Y + 1);
                 if (possibleLocations.ContainsKey(destination))
                 {
-                    var pfb = new PathFindingBase<(int, int)>
+                    var pfb = new PathCost<(int, int)>
                     {
                         Source = source.Key,
                         Destination = destination,
@@ -126,7 +126,7 @@ namespace AdventOfCode._2019
                 destination = (source.Key.X, source.Key.Y - 1);
                 if (possibleLocations.ContainsKey(destination))
                 {
-                    var pfb = new PathFindingBase<(int, int)>
+                    var pfb = new PathCost<(int, int)>
                     {
                         Source = source.Key,
                         Destination = destination,

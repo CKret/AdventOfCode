@@ -393,8 +393,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="2022\Input\" />
-  </ItemGroup>
-
 </Project>
