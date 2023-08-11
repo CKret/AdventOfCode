@@ -1,5 +1,4 @@
-﻿using AdventOfCode.ExtensionMethods;
-using AdventOfCode.Mathematics.PathFinding.Core;
+﻿using AdventOfCode.Mathematics.PathFinding.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

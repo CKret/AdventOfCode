@@ -70,5 +70,17 @@ namespace AdventOfCode.ExtensionMethods
 		{
 			return (Head: s[..pos], Tail: s[pos..]);
 		}
+
+		public static int ToInt(this string s)
+		{
+			_ = int.TryParse(s, out int val);
+			return val;
+		}
+
+		public static long ToLong(this string s)
+		{
+			_ = long.TryParse(s, out long val);
+			return val;
+		}
 	}
 }

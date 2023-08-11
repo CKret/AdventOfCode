@@ -8,24 +8,24 @@ namespace AdventOfCode.Mathematics.PathFinding
 {
     public static class Dijkstras
     {
-        public static LinkedList<PathCost<T>> CalculateShortestPathBetween<T>(T source, T destination, IEnumerable<PathCost<T>> paths)
+        public static LinkedList<Vertex<T>> CalculateShortestPathBetween<T>(T source, T destination, IEnumerable<Vertex<T>> paths)
         {
             return CalculateFrom(source, paths)[destination];
         }
 
-        public static Dictionary<T, LinkedList<PathCost<T>>> CalculateShortestFrom<T>(T source, IEnumerable<PathCost<T>> paths)
+        public static Dictionary<T, LinkedList<Vertex<T>>> CalculateShortestFrom<T>(T source, IEnumerable<Vertex<T>> paths)
         {
             return CalculateFrom(source, paths);
         }
 
-        private static Dictionary<T, LinkedList<PathCost<T>>> CalculateFrom<T>(T source, IEnumerable<PathCost<T>> paths)
+        private static Dictionary<T, LinkedList<Vertex<T>>> CalculateFrom<T>(T source, IEnumerable<Vertex<T>> paths)
         {
             // validate the paths
             if (paths.Any(p => p.Source.Equals(p.Destination)))
                 throw new ArgumentException("No path can have the same source and destination");
 
             // keep track of the shortest paths identified thus far
-            Dictionary<T, KeyValuePair<int, LinkedList<PathCost<T>>>> shortestPaths = new Dictionary<T, KeyValuePair<int, LinkedList<PathCost<T>>>>();
+            Dictionary<T, KeyValuePair<int, LinkedList<Vertex<T>>>> shortestPaths = new Dictionary<T, KeyValuePair<int, LinkedList<Vertex<T>>>>();
 
             // keep track of the locations which have been completely processed
             List<T> locationsProcessed = new List<T>();
@@ -61,14 +61,14 @@ namespace AdventOfCode.Mathematics.PathFinding
 
                 var selectedPaths = paths.Where(p => p.Source.Equals(_locationToProcess));
 
-                foreach (PathCost<T> path in selectedPaths)
+                foreach (Vertex<T> path in selectedPaths)
                 {
                     if (shortestPaths[path.Destination].Key > path.Cost + shortestPaths[path.Source].Key)
                     {
                         shortestPaths.Set(
                             path.Destination,
                             path.Cost + shortestPaths[path.Source].Key,
-                            shortestPaths[path.Source].Value.Union(new PathCost<T>[] { path }).ToArray());
+                            shortestPaths[path.Source].Value.Union(new Vertex<T>[] { path }).ToArray());
                     }
                 }
 

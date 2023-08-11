@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.ExtensionMethods;
 using AdventOfCode.Mathematics.PathFinding.Core;
 
 namespace AdventOfCode.Mathematics.PathFinding

@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Mathematics.PathFinding.Core
 {
-    public class PathCost<T>
+    public class Vertex<T>
     {
         public T Source { get; set; }
         public T Destination { get; set; }
