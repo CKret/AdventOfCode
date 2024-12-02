@@ -53,10 +53,11 @@ namespace AdventOfCode.Core
 			var targetDate = new DateTime(Problem.Year, 12, Problem.Day, 5, 0, 0, DateTimeKind.Utc);
 			if (DateTime.UtcNow < targetDate) return false;
 
-			if (!Directory.Exists(Problem.Year.ToString()))
+			if (!Directory.Exists(Path.GetDirectoryName(InputFileName)))
 			{
-				Directory.CreateDirectory(Problem.Year.ToString());
+				Directory.CreateDirectory(Path.GetDirectoryName(InputFileName));
 			}
+
 
 			if (!File.Exists(InputFileName) || new FileInfo(InputFileName).Length == 0)
 			{

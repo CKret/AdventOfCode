@@ -3,9 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var builder = new ConfigurationBuilder()
-							// ReSharper disable once StringLiteralTypo
               .AddJsonFile($"appsettings.json", true, true)
-              // ReSharper disable once StringLiteralTypo
               .AddJsonFile($"appsettings.{env}.json", true, true)
               .AddUserSecrets<Program>()
               .AddEnvironmentVariables();
@@ -13,7 +11,7 @@ var builder = new ConfigurationBuilder()
 var config = builder.Build();
 var sessionCookie = config["AdventOfCodeSessionCookie"];
 
-var aoc = new AdventOfCode._2022.AdventOfCode202219(sessionCookie);
+var aoc = new AdventOfCode._2024.AdventOfCode202401(sessionCookie);
 aoc.Solve();
 
 Console.WriteLine($"{aoc.Problem.Year} day {aoc.Problem.Day} - {aoc.Problem.Description}");
