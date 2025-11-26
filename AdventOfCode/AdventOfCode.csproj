@@ -217,7 +217,7 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x64\liblept1753.dll" Link="x64\liblept1753.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -230,7 +230,7 @@
     <None Include="$(UserProfile)\.nuget\packages\tesseract\3.3.0\x86\libtesseract3052.dll" Link="x86\libtesseract3052.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

@@ -152,13 +152,13 @@ namespace AdventOfCode.Mathematics
 		public static bool NextPermutation(this long[] numList)
 		{
 			/*
- Knuths
- 1. Find the largest index j such that a[j] < a[j + 1]. If no such index exists, the permutation is the last permutation.
- 2. Find the largest index l such that a[j] < a[l]. Since j + 1 is such an index, l is well defined and satisfies j < l.
- 3. Swap a[j] with a[l].
- 4. Reverse the sequence from a[j + 1] up to and including the final element a[n].
+			 Knuths
+			 1. Find the largest index j such that a[j] < a[j + 1]. If no such index exists, the permutation is the last permutation.
+			 2. Find the largest index l such that a[j] < a[l]. Since j + 1 is such an index, l is well defined and satisfies j < l.
+			 3. Swap a[j] with a[l].
+			 4. Reverse the sequence from a[j + 1] up to and including the final element a[n].
 
- */
+			 */
 			var largestIndex = -1;
 			for (var i = numList.Length - 2; i >= 0; i--)
 			{
@@ -308,11 +308,11 @@ namespace AdventOfCode.Mathematics
 		{
 			var romanNumerals = new[]
 			{
-						new [] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },	// ones
-            new [] { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },	// tens
-            new [] { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },	// hundreds
-            new [] { "", "M", "MM", "MMM", "MMMM", "MMMMM", "MMMMMM", "MMMMMMM" }		// thousands
-        };
+				new [] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },	// ones
+				new [] { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },	// tens
+				new [] { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },	// hundreds
+				new [] { "", "M", "MM", "MMM", "MMMM", "MMMMM", "MMMMMM", "MMMMMMM" }		// thousands
+			};
 
 			// split integer string into array and reverse array
 			var intArr = number.ToString(CultureInfo.InvariantCulture).Reverse().ToArray();
@@ -328,9 +328,63 @@ namespace AdventOfCode.Mathematics
 			}
 
 			return romanNumeral;
-		}
+				}
+		
+		public static string ConvertToRomanNumeralUtf8(int number)
+        {
+            if (number <= 0) throw new ArgumentOutOfRangeException(nameof(number), "Roman numerals defined for positive integers only.");
 
-		public static int GetValueFromRomanNumeral(string numeral)
+            string Under1000(int n)
+            {
+                var H = new[] { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+                var T = new[] { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+                var O = new[] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+                return H[(n / 100) % 10] + T[(n / 10) % 10] + O[n % 10];
+            }
+
+            string ApplyCombiningOverline(string s, int level)
+            {
+                if (level <= 0) return s;
+                var comb = new string('\u0305', level); // combining overline; repeating increases thickness/visibility on some renderers
+                var sb = new System.Text.StringBuilder(s.Length * (1 + level));
+                foreach (var ch in s)
+                {
+                    sb.Append(ch);
+                    sb.Append(comb);
+                }
+                return sb.ToString();
+            }
+
+            var parts = new List<string>();
+            var groupIndex = 0;
+            while (number > 0)
+            {
+                var group = number % 1000;
+                number /= 1000;
+                if (group != 0)
+                {
+                    string roman;
+                    // prefer plain 'M' up to 3000 (groupIndex==1 => thousands)
+                    if (groupIndex == 1 && group <= 3)
+                    {
+                        roman = new string('M', group);
+                    }
+                    else
+                    {
+                        roman = Under1000(group);
+                        roman = ApplyCombiningOverline(roman, groupIndex); // 0=no overline, 1=×1000, etc.
+                    }
+
+                    parts.Add(roman);
+                }
+                groupIndex++;
+            }
+
+            parts.Reverse();
+            return string.Concat(parts);
+        }
+
+        public static int GetValueFromRomanNumeral(string numeral)
 		{
 			var romanNumbers = new Dictionary<string, int>
 						{
