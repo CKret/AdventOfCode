@@ -5,6 +5,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace AdventOfCode.Core
 {
@@ -17,6 +21,9 @@ namespace AdventOfCode.Core
 		public object ResultPart2 { get; protected set; }
 		public decimal TimePart1 { get; protected set; }
 		public decimal TimePart2 { get; protected set; }
+
+		// NEW: allow tests to capture output; default to Console.Out so CLI runner unaffected
+		public TextWriter OutputWriter { get; set; } = Console.Out;
 
 		private bool IsInitialized => File.Exists(InputFileName) && new FileInfo(InputFileName).Length != 0;
 		protected string[] Input => IsInitialized ? File.ReadAllLines(InputFileName) : null;
@@ -105,6 +112,16 @@ namespace AdventOfCode.Core
 				ResultPart2 = await SolvePart2(cancellationToken).ConfigureAwait(false);
 				timer.Stop();
 				TimePart2 = timer.ElapsedTicks.ToMilliseconds();
+
+				// Print documentation summary and results for test output / CI visibility
+				try
+				{
+					PrintSummaryAndResults();
+				}
+				catch
+				{
+					// Do not throw from reporting
+				}
 			}, cancellationToken).ConfigureAwait(false);
 
 		}
@@ -116,6 +133,60 @@ namespace AdventOfCode.Core
 		protected abstract Task<object> SolvePart1(CancellationToken cancellationToken);
 
 		protected abstract Task<object> SolvePart2(CancellationToken cancellationToken);
+
+		#endregion
+
+		#region Reporting helpers
+
+		private void PrintSummaryAndResults()
+		{
+			// Prefer the XML doc summary (generated during build). Fallback to the attribute description.
+			var summary = GetXmlSummaryForType() ?? Problem?.Description ?? string.Empty;
+
+			// Normalize whitespace from XML doc comment
+			summary = summary is null ? string.Empty : Regex.Replace(summary, @"\s+", " ").Trim();
+
+			OutputWriter.WriteLine(string.Empty);
+			OutputWriter.WriteLine($"--- {GetType().FullName} ---");
+			if (!string.IsNullOrEmpty(summary))
+			{
+				OutputWriter.WriteLine(summary);
+			}
+
+			OutputWriter.WriteLine($"Part 1: {FormatObject(ResultPart1)} (Time: {FormatTime(TimePart1)})");
+			OutputWriter.WriteLine($"Part 2: {FormatObject(ResultPart2)} (Time: {FormatTime(TimePart2)})");
+			OutputWriter.WriteLine(string.Empty);
+		}
+
+		private string FormatObject(object o) => o is null ? "null" : o.ToString();
+
+		private string FormatTime(decimal ms) => $"{Math.Round(ms, 2)} ms";
+
+		private string GetXmlSummaryForType()
+		{
+			try
+			{
+				var asm = GetType().Assembly;
+				var xmlPath = Path.ChangeExtension(asm.Location, ".xml");
+				if (!File.Exists(xmlPath)) return null;
+
+				var doc = XDocument.Load(xmlPath);
+				var members = doc.Root?.Element("members");
+				if (members == null) return null;
+
+				var memberName = "T:" + GetType().FullName;
+				var member = members.Elements("member").FirstOrDefault(m => string.Equals((string)m.Attribute("name"), memberName, StringComparison.Ordinal));
+				if (member == null) return null;
+
+				var summaryElem = member.Element("summary");
+				return summaryElem?.Value;
+			}
+			catch
+			{
+				// ignore reporting errors
+				return null;
+			}
+		}
 
 		#endregion
 	}

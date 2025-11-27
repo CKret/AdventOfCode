@@ -67,20 +67,25 @@ public sealed class AdventOfCodeSourceGenerator : ISourceGenerator
             sb.AppendLine("using AdventOfCode.Core;");
             sb.AppendLine("using System.Threading;");
             sb.AppendLine("using System.Threading.Tasks;");
+            sb.AppendLine("using Xunit.Abstractions;");
             sb.AppendLine();
             sb.AppendLine($"namespace AdventOfCode.Tests.Generated._{year};");
             sb.AppendLine();
             sb.AppendLine($"public sealed class {className} : AdventOfCodeTestBase");
             sb.AppendLine("{");
 
+            // ctor to accept ITestOutputHelper
+            sb.AppendLine("    private readonly ITestOutputHelper _output;");
+            sb.AppendLine($"    public {className}(ITestOutputHelper output) => _output = output;");
+            sb.AppendLine();
+
             // Part 1 (async + timeout)
-            sb.AppendLine($"    [Fact(DisplayName=\"Part 1\")]");
-            sb.AppendLine($"    public async Task Test_{year}_{day:00}_Part1()");
+            sb.AppendLine($"    [Fact(DisplayName=\"Part 1\")]\n    public async Task Test_{year}_{day:00}_Part1()");
             sb.AppendLine("    {");
             sb.AppendLine("        using var cts = new CancellationTokenSource(System.TimeSpan.FromMinutes(1));");
             sb.AppendLine("        try");
             sb.AppendLine("        {");
-            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 1, cts.Token).ConfigureAwait(false);");
+            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 1, cts.Token, new AdventOfCode.Tests.XunitTextWriter(_output)).ConfigureAwait(false);");
             sb.AppendLine("        }");
             sb.AppendLine("        catch (OperationCanceledException)"); // thrown when token cancels
             sb.AppendLine("        {");
@@ -90,13 +95,12 @@ public sealed class AdventOfCodeSourceGenerator : ISourceGenerator
             sb.AppendLine();
 
             // Part 2 (async + timeout)
-            sb.AppendLine($"    [Fact(DisplayName=\"Part 2\")]");
-            sb.AppendLine($"    public async Task Test_{year}_{day:00}_Part2()");
+            sb.AppendLine($"    [Fact(DisplayName=\"Part 2\")]\n    public async Task Test_{year}_{day:00}_Part2()");
             sb.AppendLine("    {");
             sb.AppendLine("        using var cts = new CancellationTokenSource(System.TimeSpan.FromMinutes(1));");
             sb.AppendLine("        try");
             sb.AppendLine("        {");
-            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 2, cts.Token).ConfigureAwait(false);");
+            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 2, cts.Token, new AdventOfCode.Tests.XunitTextWriter(_output)).ConfigureAwait(false);");
             sb.AppendLine("        }");
             sb.AppendLine("        catch (OperationCanceledException)");
             sb.AppendLine("        {");
