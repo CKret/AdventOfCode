@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -108,7 +108,7 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201804(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var input = Input;
 
@@ -186,7 +186,7 @@ namespace AdventOfCode._2018
 			return maxGuard.Id * index;
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var input = Input;
 

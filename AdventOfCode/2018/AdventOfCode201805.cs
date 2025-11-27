@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -79,13 +79,13 @@ namespace AdventOfCode._2018
 
 		public AdventOfCode201805(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var data = Input.First();
 			return React(data).Length;
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var data = Input.First();
 			var shortest = int.MaxValue;

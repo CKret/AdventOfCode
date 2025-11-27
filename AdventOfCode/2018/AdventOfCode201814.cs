@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -96,7 +97,7 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201814(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var nRecipes = 640441;
 			var elf1 = 0;
@@ -120,7 +121,7 @@ namespace AdventOfCode._2018
 			return int.Parse(string.Join("", recipes.Skip(nRecipes).Take(10)), CultureInfo.InvariantCulture);
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var nRecipes = new[] { 6, 4, 0, 4, 4, 1 };
 			var elf1 = 0;

@@ -65,25 +65,43 @@ public sealed class AdventOfCodeSourceGenerator : ISourceGenerator
 
             sb.AppendLine("using Xunit;");
             sb.AppendLine("using AdventOfCode.Core;");
+            sb.AppendLine("using System.Threading;");
+            sb.AppendLine("using System.Threading.Tasks;");
             sb.AppendLine();
             sb.AppendLine($"namespace AdventOfCode.Tests.Generated._{year};");
             sb.AppendLine();
             sb.AppendLine($"public sealed class {className} : AdventOfCodeTestBase");
             sb.AppendLine("{");
 
-            // Part 1
+            // Part 1 (async + timeout)
             sb.AppendLine($"    [Fact(DisplayName=\"Part 1\")]");
-            sb.AppendLine($"    public void Test_{year}_{day:00}_Part1()");
+            sb.AppendLine($"    public async Task Test_{year}_{day:00}_Part1()");
             sb.AppendLine("    {");
-            sb.AppendLine($"        RunTest(typeof({fullTypeName}), 1);");
+            sb.AppendLine("        using var cts = new CancellationTokenSource(System.TimeSpan.FromMinutes(1));");
+            sb.AppendLine("        try");
+            sb.AppendLine("        {");
+            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 1, cts.Token).ConfigureAwait(false);");
+            sb.AppendLine("        }");
+            sb.AppendLine("        catch (OperationCanceledException)"); // thrown when token cancels
+            sb.AppendLine("        {");
+            sb.AppendLine("            throw new Xunit.Sdk.XunitException(\"Test timed out after 1 minute\");");
+            sb.AppendLine("        }");
             sb.AppendLine("    }");
             sb.AppendLine();
 
-            // Part 2
+            // Part 2 (async + timeout)
             sb.AppendLine($"    [Fact(DisplayName=\"Part 2\")]");
-            sb.AppendLine($"    public void Test_{year}_{day:00}_Part2()");
+            sb.AppendLine($"    public async Task Test_{year}_{day:00}_Part2()");
             sb.AppendLine("    {");
-            sb.AppendLine($"        RunTest(typeof({fullTypeName}), 2);");
+            sb.AppendLine("        using var cts = new CancellationTokenSource(System.TimeSpan.FromMinutes(1));");
+            sb.AppendLine("        try");
+            sb.AppendLine("        {");
+            sb.AppendLine($"            await RunTestAsync(typeof({fullTypeName}), 2, cts.Token).ConfigureAwait(false);");
+            sb.AppendLine("        }");
+            sb.AppendLine("        catch (OperationCanceledException)");
+            sb.AppendLine("        {");
+            sb.AppendLine("            throw new Xunit.Sdk.XunitException(\"Test timed out after 1 minute\");");
+            sb.AppendLine("        }");
             sb.AppendLine("    }");
 
             sb.AppendLine("}");

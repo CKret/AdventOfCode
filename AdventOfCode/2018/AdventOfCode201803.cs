@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -85,7 +85,7 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201803(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var claims = Input
 											 .Select(c => c.ReplaceAll(new[] { "#", "@", ":" }, "").Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
@@ -124,7 +124,7 @@ namespace AdventOfCode._2018
 			return count;
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var claims = Input
 											 .Select(c => c.ReplaceAll(new[] { "#", "@", ":" }, "").Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))

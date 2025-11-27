@@ -1,8 +1,9 @@
 ﻿using System;
-using AdventOfCode.Core;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -13,7 +14,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201914(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var reactions = Input
                 .Select(l => l.Split(new[] { " => " }, StringSplitOptions.RemoveEmptyEntries))
@@ -41,7 +42,7 @@ namespace AdventOfCode._2019
             return components["ORE"];
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var reactions = Input
                 .Select(l => l.Split(new[] { " => " }, StringSplitOptions.RemoveEmptyEntries))

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -77,7 +78,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201719(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();
             var encounters = new List<char>();
@@ -90,7 +91,7 @@ namespace AdventOfCode._2017
             return string.Join(string.Empty, encounters);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var grid = Input.Select(a => a.ToCharArray().ToList()).ToList();
             int x = Input[0].IndexOf('|'), y = 0, dx = 0, dy = 1, count = 0;

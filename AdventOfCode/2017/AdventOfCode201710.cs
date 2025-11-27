@@ -1,8 +1,9 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics.Cryptography;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics.Cryptography;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -152,7 +153,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201710(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var skipSize = 0;
             var pos = 0;
@@ -201,7 +202,7 @@ namespace AdventOfCode._2017
             return list[0] * list[1];
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var dense = HashAlgorithm.KnotHash("34,88,2,222,254,93,150,0,199,255,39,32,137,136,1,167").ToArray();
             return BitConverter.ToString(dense).Replace("-", "").ToLowerInvariant();

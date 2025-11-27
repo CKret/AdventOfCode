@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.Mathematics;
+using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -59,7 +60,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201723(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
 
             var registers = new Dictionary<string, long>()
@@ -112,7 +113,7 @@ namespace AdventOfCode._2017
             return count;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             // 81 * 100 + 100000 = 108100
             // 108100 + 17000 = 125100

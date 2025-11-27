@@ -98,6 +98,7 @@ namespace AdventOfCode.VMs
 
         public class ChronalInstruction
         {
+
             private readonly int[] instruction;
 
             public int OpCode => instruction[0];

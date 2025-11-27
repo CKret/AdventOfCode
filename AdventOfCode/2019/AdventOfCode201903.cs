@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.Mathematics;
+using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -118,7 +119,7 @@ namespace AdventOfCode._2019
 
         public AdventOfCode201903(string sessionCookie) : base(sessionCookie) { }
 
-        public override void Solve()
+        public override async Task SolveAsync(CancellationToken cancellationToken)
         {
             var wire1 = Input[0].Split(',');
             var wire2 = Input[1].Split(',');
@@ -128,15 +129,15 @@ namespace AdventOfCode._2019
 
             intersections = grid1.Keys.Intersect(grid2.Keys);
 
-            base.Solve();
+            await base.SolveAsync(cancellationToken);
         }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return intersections.Min(p => NumberTheory.ManhattanDistance((0, 0), p));
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return intersections.Min(p => grid1[p] + grid2[p]);
         }

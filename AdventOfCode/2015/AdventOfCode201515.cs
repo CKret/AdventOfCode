@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -11,7 +12,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201515(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var ingredients = Input.Select(line => line.Split(':'))
                 .Select(ingredient => new
@@ -49,7 +50,7 @@ namespace AdventOfCode._2015
             return max;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var ingredients = Input.Select(line => line.Split(':'))
                  .Select(ingredient => new

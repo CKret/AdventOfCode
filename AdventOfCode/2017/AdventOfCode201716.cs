@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -60,7 +61,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201716(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var programs = "abcdefghijklmnop".ToCharArray().ToList();
             var commands = Input[0].Split(',');
@@ -69,7 +70,7 @@ namespace AdventOfCode._2017
             return string.Concat(programs);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var programs = "abcdefghijklmnop".ToCharArray().ToList();
             var commandsArray = Input[0].Split(',');

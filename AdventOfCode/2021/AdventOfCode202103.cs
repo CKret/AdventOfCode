@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2021
 {
@@ -12,7 +13,7 @@ namespace AdventOfCode._2021
     {
         public AdventOfCode202103(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var gamma = string.Join("", Enumerable.Range(0, Input[0].Length).Select(x => Input.Select(s => s[x]).Count(c => c == '1')).Select(x => x > 500 ? '1' : '0'));
             var epsilon = string.Join("", Enumerable.Range(0, Input[0].Length).Select(x => Input.Select(s => s[x]).Count(c => c == '1')).Select(x => x < 500 ? '1' : '0'));
@@ -20,7 +21,7 @@ namespace AdventOfCode._2021
             return Convert.ToInt64(gamma, 2) * Convert.ToInt64(epsilon, 2);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var oxygenNumbers = new List<string>(Input);
             var co2Numbers = new List<string>(Input);

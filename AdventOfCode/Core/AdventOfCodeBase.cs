@@ -1,9 +1,9 @@
-﻿using AdventOfCode.ExtensionMethods;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AdventOfCode.Core
@@ -33,7 +33,7 @@ namespace AdventOfCode.Core
 			}
 		}
 
-		public AdventOfCodeAttribute Problem => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
+		public AdventOfCodeAttribute Problem => (AdventOfCodeAttribute) Attribute.GetCustomAttribute(GetType(), typeof(AdventOfCodeAttribute));
 
 		#endregion
 
@@ -77,28 +77,45 @@ namespace AdventOfCode.Core
 
 		#region Virtual methods
 
-		public virtual void Solve()
+		/// <summary>
+		/// Async entry point for running solutions that supports a CancellationToken.
+		/// Default implementation runs the synchronous <see cref="Solve"/> on the thread-pool.
+		/// Override in long-running solvers to observe <paramref name="cancellationToken"/>.
+		/// </summary>
+		public virtual async Task SolveAsync(CancellationToken cancellationToken = default)
 		{
-			var timer = new Stopwatch();
+			// Note: Task.Run with a token does not forcibly abort a running delegate.
+			// To support cooperative cancellation the solver should override this method
+			// and observe the token inside SolvePart1/SolvePart2 or provide their own async implementation.
+			//return Task.Run(() => Solve(), cancellationToken);
+			await Task.Run(async () =>
+			{
+				var timer = new Stopwatch();
 
-			timer.Start();
-			ResultPart1 = SolvePart1();
-			timer.Stop();
-			TimePart1 = timer.ElapsedTicks.ToMilliseconds();
+				timer.Start();
+				// Compute part 1 with cancellation support
+				cancellationToken.ThrowIfCancellationRequested();
+				ResultPart1 = await SolvePart1(cancellationToken).ConfigureAwait(false);
+				timer.Stop();
+				TimePart1 = timer.ElapsedTicks.ToMilliseconds();
 
-			timer.Start();
-			ResultPart2 = SolvePart2();
-			timer.Stop();
-			TimePart2 = timer.ElapsedTicks.ToMilliseconds();
+				timer.Restart();
+				// Part2 remains synchronous in this class - still observe cancellation token at the start.
+				cancellationToken.ThrowIfCancellationRequested();
+				ResultPart2 = await SolvePart2(cancellationToken).ConfigureAwait(false);
+				timer.Stop();
+				TimePart2 = timer.ElapsedTicks.ToMilliseconds();
+			}, cancellationToken).ConfigureAwait(false);
+
 		}
 
 		#endregion
 
 		#region Abstract methods
 
-		protected abstract object SolvePart1();
+		protected abstract Task<object> SolvePart1(CancellationToken cancellationToken);
 
-		protected abstract object SolvePart2();
+		protected abstract Task<object> SolvePart2(CancellationToken cancellationToken);
 
 		#endregion
 	}

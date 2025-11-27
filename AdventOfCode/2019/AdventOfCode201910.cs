@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics;
+using SuperLinq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
-using SuperLinq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -226,7 +227,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201910(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var map = Input.Select((line, y) => line.Select((chr, x) => (X: x, Y: y, IsAsteroid: chr == '#')).ToArray()).ToArray();
 
@@ -248,7 +249,7 @@ namespace AdventOfCode._2019
             return station.VisibleAsteroids(asteroidField.Asteroids, mapWidth, mapHeight).Count;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var map = Input.Select((line, y) => line.Select((chr, x) => (X: x, Y: y, IsAsteroid: chr == '#')).ToArray()).ToArray();
 

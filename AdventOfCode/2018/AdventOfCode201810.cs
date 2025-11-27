@@ -2,7 +2,8 @@
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 using Tesseract;
 
 namespace AdventOfCode._2018
@@ -186,7 +187,7 @@ namespace AdventOfCode._2018
 		public AdventOfCode201810(string sessionCookie) : base(sessionCookie) { }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>")]
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var lights = Input
 											 .Select(line => Regex.Matches(line, @"-?\d+"))
@@ -239,7 +240,7 @@ namespace AdventOfCode._2018
 			return page.GetText().Trim('\n');
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var lights = Input
 											 .Select(line => Regex.Matches(line, @"-?\d+"))

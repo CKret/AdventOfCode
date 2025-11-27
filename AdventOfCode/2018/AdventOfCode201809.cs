@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.ExtensionMethods;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -96,12 +96,12 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201809(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			return GetScore(459, 71320);
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			return GetScore(459, 7132000);
 		}

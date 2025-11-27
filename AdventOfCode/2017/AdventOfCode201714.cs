@@ -1,7 +1,8 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics.Cryptography;
+using System;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics.Cryptography;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -90,7 +91,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201714(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             const string input = "uugsqrei";
 
@@ -101,7 +102,7 @@ namespace AdventOfCode._2017
                     .Count(c => c == '1'));
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             const string input = "uugsqrei";
             var grid = CreateGrid(input);

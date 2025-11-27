@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -122,7 +124,7 @@ namespace AdventOfCode._2018
 
         public AdventOfCode201807(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var dependencies = Input
                                                          .Select(line => line.Split(' '))
@@ -144,7 +146,7 @@ namespace AdventOfCode._2018
             return result;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var dependencies = Input.Select(line => line.Split(' '))
                                     .Select(values => new { First = values[1][0], Second = values[7][0] })

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics;
+using System;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -125,7 +126,7 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201806(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var coordinates = Input
 														.Select(s => s.Split(new[] { ", " }, StringSplitOptions.None))
@@ -170,7 +171,7 @@ namespace AdventOfCode._2018
 			return area.Max();
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var coordinates = Input
 														.Select(s => s.Split(new[] { ", " }, StringSplitOptions.None))

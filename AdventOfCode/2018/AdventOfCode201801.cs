@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -92,12 +93,12 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201801(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			return Input.Select(int.Parse).Sum();
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var frequencyDeltas = Input.Select(int.Parse).ToArray();
 			var frequencies = new HashSet<int>();

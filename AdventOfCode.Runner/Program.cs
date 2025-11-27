@@ -1,11 +1,12 @@
 ﻿using AdventOfCode.Runner;
 using System;
+using System.Threading;
 
 string sessionCookie = AocConfig.SessionCookie;
 
 
 var solver = new AdventOfCode._2024.AdventOfCode202406(sessionCookie);
-solver.Solve();
+await solver.SolveAsync(CancellationToken.None);
 
 Console.WriteLine($"{solver.Problem.Year} day {solver.Problem.Day} - {solver.Problem.Description}");
 Console.WriteLine();

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -12,7 +13,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201916(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var basePattern = new[] { 0, 1, 0, -1 };
             var fft = Input[0].Select(x => int.Parse(x.ToString())).ToList();
@@ -56,56 +57,62 @@ namespace AdventOfCode._2019
             return val;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
-            var basePattern = new[] { 0, 1, 0, -1 };
-            var fft = Input[0].Select(x => int.Parse(x.ToString())).ToList();
-            var res = new List<int>(fft);
-            var table = new int[res.Count + 1];
+            // Part 2: input repeated 10000 times, take message starting at offset given by first 7 digits
+            var baseDigits = Input[0].Select(x => int.Parse(x.ToString())).ToArray();
+            int L = baseDigits.Length;
+            const int times = 10000;
+            long N = (long)L * times;
 
-            var off = 0;
-            for (var x = 0; x < 7; x++)
+            // compute offset from first 7 digits
+            int offset = 0;
+            for (var i = 0; i < 7; i++)
+                offset = offset * 10 + baseDigits[i];
+
+            if (offset < 0 || offset >= N)
+                throw new InvalidOperationException("Calculated offset is out of the repeated signal range.");
+
+            // The trick: when offset is in the second half of the signal (offset >= N/2),
+            // the pattern for each position is all zeros until a long run of ones, so the
+            // new value at position i depends only on the suffix sum from i to end.
+            // This lets us simulate using only the suffix (from offset to end) which is
+            // of length N - offset.
+
+            if (offset < N / 2)
             {
-                off *= 10;
-                off += fft[x];
+                // Fallback: offset in first half would require a more complex algorithm.
+                // For typical AoC inputs the offset lies in the second half, so throw a helpful error.
+                throw new NotSupportedException("Offset is in the first half of the repeated signal; this fast method is not implemented for that case.");
             }
 
-            for (var phase = 0; phase < 100; phase++)
+            int suffixLen = (int)(N - offset);
+            var suffix = new int[suffixLen];
+
+            // fill suffix with repeated baseDigits starting at offset
+            for (int i = 0; i < suffixLen; i++)
             {
-                table[0] = 0;
-                for (var j = 0; j < fft.Count; j++)
-                {
-                    table[j + 1] = table[j] + fft[j];
-                }
-
-                for (var c = 0; c < fft.Count; c++)
-                {
-                    var expand = c + 1;
-                    var current = 0;
-                    var j = 0;
-                    var j2 = expand - 1;
-                    var index = ((j + 1) / expand) % 4;
-                    while (j < fft.Count)
-                    {
-                        if (j2 >= table.Length) j2 = table.Length - 1;
-                        if (basePattern[index] == 1) current += table[j2] - table[j];
-                        else if (basePattern[index] == -1) current -= table[j2] - table[j];
-                        j = j2;
-                        j2 += expand;
-                        index = (index + 1) % 4;
-                    }
-
-                    res[c] = Math.Abs(current) % 10;
-                }
-
-                fft = res;
+                // map global index (offset + i) back to baseDigits
+                int idx = (offset + i) % L;
+                suffix[i] = baseDigits[idx];
             }
 
-            var val = 0;
-            for (var x = 0; x < 8; x++)
+            // perform 100 phases using suffix cumulative sums
+            for (int phase = 0; phase < 100; phase++)
             {
-                val *= 10;
-                val += fft[off + x];
+                int running = 0;
+                for (int i = suffixLen - 1; i >= 0; i--)
+                {
+                    running = (running + suffix[i]) % 10;
+                    suffix[i] = running;
+                }
+            }
+
+            // first eight digits of the message
+            int val = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                val = val * 10 + suffix[i];
             }
 
             return val;

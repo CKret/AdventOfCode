@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -11,7 +12,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201504(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var key = "bgvyzdsv";
             var md5 = MD5.Create();
@@ -28,7 +29,7 @@ namespace AdventOfCode._2015
             }
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var key = "bgvyzdsv";
             var md5 = MD5.Create();

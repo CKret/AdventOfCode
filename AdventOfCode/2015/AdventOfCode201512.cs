@@ -1,9 +1,10 @@
-﻿using System.Globalization;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AdventOfCode.Core;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -14,13 +15,13 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201512(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var input = Input[0];
             return Regex.Matches(input, @"[+-]?\d+").Cast<Match>().Select(m => int.Parse(m.Value, CultureInfo.InvariantCulture)).ToArray().Sum();
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             dynamic input = Input[0];
             var json = JsonConvert.DeserializeObject(input);

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -87,12 +87,12 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201724(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return BuildStrongBridge(Input.Select(l => l.Split('/').Select(int.Parse).ToArray()).Select(c => (c[0], c[1])).ToImmutableList());
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return BuildLongBridge2(Input.Select(l => l.Split('/').Select(int.Parse).ToArray()).Select(c => (c[0], c[1])).ToImmutableList()).Item1;
         }

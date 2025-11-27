@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AdventOfCode.Mathematics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -14,7 +16,7 @@ namespace AdventOfCode._2019
 	{
 		public AdventOfCode201912(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var moons = new List<Moon>();
 
@@ -67,7 +69,7 @@ namespace AdventOfCode._2019
 			return moons.Sum(m => m.Energy());
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var moons = new List<Moon>();
 

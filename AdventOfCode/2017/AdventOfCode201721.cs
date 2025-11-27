@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -123,7 +124,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201721(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var rulesMap = new Dictionary<string, string>();
             foreach (var rule in Input)
@@ -160,7 +161,7 @@ namespace AdventOfCode._2017
             return grid.Sum(p => p.Sum(q => q == '#' ? 1 : 0));
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var rulesMap = new Dictionary<string, string>();
             foreach (var rule in Input)

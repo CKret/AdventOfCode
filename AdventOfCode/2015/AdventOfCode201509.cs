@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 using SuperLinq;
 
 namespace AdventOfCode._2015
@@ -13,7 +14,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201509(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var distances = Input
                 .Select(s => Regex.Match(s, @"^(\w+) to (\w+) = (\d+)").Groups)
@@ -26,7 +27,7 @@ namespace AdventOfCode._2015
             return places.Permutations().Select(route => route.Window(2).Select(x => GetDistance(x.First(), x.Last())).Sum()).Min();
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var distances = Input
                 .Select(s => Regex.Match(s, @"^(\w+) to (\w+) = (\d+)").Groups)

@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -215,7 +216,7 @@ namespace AdventOfCode._2018
 
 		public AdventOfCode201817(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var data = Input;
 
@@ -283,9 +284,72 @@ namespace AdventOfCode._2018
 			return touched + water;
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
-			return null;
+			// If SolvePart1 already ran, the grid is populated and min/max are set.
+			if (miny == 2000)
+			{
+				// Reinitialize and run the simulation same as Part1
+				var data = Input;
+
+				var spring = new { X = 500, Y = 0 };
+
+				for (var i = 0; i < 2000; i++)
+				{
+					scanSlice[i] = new char[2000];
+				}
+
+				for (var y = 0; y < 2000; y++)
+				{
+					for (var x = 0; x < 2000; x++)
+					{
+						scanSlice[y][x] = '.';
+					}
+				}
+				scanSlice[spring.Y][spring.X] = '+';
+
+				// reset bounds
+				minx = 2000; maxx = 0; miny = 2000; maxy = 0;
+
+				foreach (var line in data)
+				{
+					var coords = line.Split(", ");
+					var xCoord = coords[0].StartsWith("x=") ? 0 : 1;
+
+					var m = Regex.Matches(coords[xCoord], @"\d+");
+					var x1 = int.Parse(m[0].Value);
+					var x2 = m.Count == 2 ? int.Parse(m[1].Value) : x1;
+
+					m = Regex.Matches(coords[++xCoord % 2], @"\d+");
+					var y1 = int.Parse(m[0].Value);
+					var y2 = m.Count == 2 ? int.Parse(m[1].Value) : y1;
+
+					MinMax(x1, y1);
+					MinMax(x2, y2);
+
+					for (var y = y1; y <= y2; y++)
+					{
+						for (var x = x1; x <= x2; x++)
+						{
+							scanSlice[y][x] = '#';
+						}
+					}
+				}
+
+				Fill(spring.X, spring.Y);
+			}
+
+			// Count only resting water (~) within bounds
+			var water = 0;
+			for (var y = miny; y <= maxy; y++)
+			{
+				for (var x = minx - 1; x <= maxx + 1; x++)
+				{
+					if (scanSlice[y][x] == '~') water++;
+				}
+			}
+
+			return water;
 		}
 
 		private void MinMax(int x, int y)

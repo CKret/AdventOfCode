@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.VMs;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.VMs;
+using System.Threading;
+using System.Threading.Tasks;
 using Tesseract;
 
 namespace AdventOfCode._2019
@@ -14,7 +15,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201911(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var position = (0, 0);
             var direction = RobotDirection.Up;
@@ -42,7 +43,7 @@ namespace AdventOfCode._2019
         }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>")]
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var position = (0, 0);
             var direction = RobotDirection.Up;

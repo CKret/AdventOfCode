@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -71,7 +72,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201703(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             const int val = 361527;
 
@@ -84,7 +85,7 @@ namespace AdventOfCode._2017
             return mid + Math.Abs(offset - mid);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return Spiral(361527);
         }

@@ -1,8 +1,9 @@
-﻿using AdventOfCode.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -111,7 +112,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201707(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var nodes = new List<RecursiveCircusNode>();
             foreach (var line in Input)
@@ -136,7 +137,7 @@ namespace AdventOfCode._2017
             return nodes.Single(n => !children.Contains(n.Name)).Name;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             // Create all nodes.
             var nodes = new List<RecursiveCircusNode>();

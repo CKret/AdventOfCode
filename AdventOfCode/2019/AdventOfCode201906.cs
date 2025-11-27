@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -139,7 +140,7 @@ namespace AdventOfCode._2019
 
         public AdventOfCode201906(string sessionCookie) : base(sessionCookie) { }
 
-        public override void Solve()
+        public override async Task SolveAsync(CancellationToken cancellationToken)
         {
             objects = new List<SpaceObject>();
 
@@ -166,15 +167,15 @@ namespace AdventOfCode._2019
                 p1.OrbitedBy.Add(p2);
             }
 
-            base.Solve();
+            await base.SolveAsync(cancellationToken);
         }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return objects.Sum(o => CountOrbits(o));
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var you = objects.Single(x => x.Id == "YOU");
             return FindSanta(you);

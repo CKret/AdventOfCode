@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2018
 {
@@ -83,7 +84,7 @@ namespace AdventOfCode._2018
 	/// \-+-/  \-+--/
 	/// \------/   
 	/// 
-	/// /-->\        
+	/// /--->\        
 	/// |   |  /----\
 	/// | /-+--+-\  |
 	/// | | |  | |  |
@@ -252,17 +253,17 @@ namespace AdventOfCode._2018
 	{
 		public AdventOfCode201813(string sessionCookie) : base(sessionCookie) { }
 
-		protected override object SolvePart1()
+		protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
 		{
 			var map = Input.Aggregate("", (p, c) => p + c);
-			var mapWidth = Input.First().Length + 1;
+			var mapWidth = Input.First().Length;
 			var carts = GetCarts(map, mapWidth);
 
 			while (true)
 			{
 				carts = carts
-								.OrderBy(cart => cart.X)
-								.ThenBy(cart => cart.Y)
+								.OrderBy(cart => cart.Y)
+								.ThenBy(cart => cart.X)
 								.ToList();
 
 				for (var i = 0; i < carts.Count; i++)
@@ -315,17 +316,17 @@ namespace AdventOfCode._2018
 			}
 		}
 
-		protected override object SolvePart2()
+		protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
 		{
 			var map = Input.Aggregate("", (p, c) => p + c);
-			var mapWidth = Input.First().Length + 1;
+			var mapWidth = Input.First().Length;
 			var carts = AdventOfCode201813.GetCarts(map, mapWidth);
 
 			while (true)
 			{
 				carts = carts
-								.OrderBy(cart => cart.X)
-								.ThenBy(cart => cart.Y)
+								.OrderBy(cart => cart.Y)
+								.ThenBy(cart => cart.X)
 								.ToList();
 
 				for (var i = 0; i < carts.Count; i++)

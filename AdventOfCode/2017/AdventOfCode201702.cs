@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -69,14 +70,14 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201702(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return Input
                 .Select(line => line.Split().Select(int.Parse))
                 .Select(s => s.Max() - s.Min()).Sum();
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return Input
                 .Select(line => line.Split().Select(int.Parse).ToArray())

@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
+﻿using AdventOfCode.Mathematics;
 using AdventOfCode.VMs;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -149,7 +150,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201907(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var maxOutput = 0L;
             var phaseSettings = new long[] { 0, 1, 2, 3, 4 };
@@ -196,7 +197,7 @@ namespace AdventOfCode._2019
             return maxOutput;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var maxOutput = 0L;
             var phaseSettings = new long[] { 5, 6, 7, 8, 9 };

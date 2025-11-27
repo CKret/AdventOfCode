@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -80,12 +81,12 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201901(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return Input.Sum(fuel => int.Parse(fuel, CultureInfo.CurrentCulture) / 3 - 2);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return Input.Sum(mass =>
             {

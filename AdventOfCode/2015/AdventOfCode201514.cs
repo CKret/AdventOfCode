@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -12,7 +13,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201514(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var maxSeconds = 2503;
             var reindeer = Input.Select(line => Regex.Matches(line, @"[+-]?\d+").Cast<Match>().Select(x => int.Parse(x.Value, CultureInfo.InvariantCulture)).ToArray()).ToList();
@@ -32,7 +33,7 @@ namespace AdventOfCode._2015
             return distance.Max(x => x[0]);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var maxSeconds = 2503;
             var reindeer = Input.Select(line => Regex.Matches(line, @"[+-]?\d+").Cast<Match>().Select(x => int.Parse(x.Value, CultureInfo.InvariantCulture)).ToArray()).ToList();

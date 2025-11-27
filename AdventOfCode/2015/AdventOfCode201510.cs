@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 using SuperLinq;
 
 namespace AdventOfCode._2015
@@ -11,7 +12,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201510(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             return Enumerable.Range(1, 40)
                 .Aggregate("1113122113".Select(c => c - '0').ToArray(),
@@ -22,7 +23,7 @@ namespace AdventOfCode._2015
                 .Length;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             return Enumerable.Range(1, 50)
                 .Aggregate("1113122113".Select(c => c - '0').ToArray(),

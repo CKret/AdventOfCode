@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AdventOfCode.VMs;
 using System;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.VMs;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -13,7 +13,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201913(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var vm = new IntcodeVM(Input[0]);
             var result = vm.Execute();
@@ -21,7 +21,7 @@ namespace AdventOfCode._2019
             return vm.Output.Where((t, i) => i % 3 == 2).Count(x => x == 2);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var vm = new IntcodeVM(Input[0]);
 

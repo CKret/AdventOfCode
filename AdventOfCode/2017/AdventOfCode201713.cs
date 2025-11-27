@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -325,13 +326,13 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201713(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var layers = Input.Select(line => line.Split(new[] { ": " }, StringSplitOptions.None).Select(int.Parse).ToList()).ToList();
             return layers.Sum(layer => layer[0] % (2 * layer[1] - 2) == 0 ? layer[0] * layer[1] : 0);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var layers = Input.Select(line => line.Split(new[] { ": " }, StringSplitOptions.None).Select(int.Parse).ToList()).ToList();
             return Enumerable.Range(0, int.MaxValue).First(delay => layers.All(layer => (layer[0] + delay) % (2 * layer[1] - 2) != 0));

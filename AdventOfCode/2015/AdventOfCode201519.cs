@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Core;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -9,12 +10,12 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201519(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

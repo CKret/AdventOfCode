@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -12,7 +13,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201505(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var s = new[] { "ab", "cd", "pq", "xy" };
             var vowels = "aeiou";
@@ -36,7 +37,7 @@ namespace AdventOfCode._2015
             return sum;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var doubles = new List<string>();
 

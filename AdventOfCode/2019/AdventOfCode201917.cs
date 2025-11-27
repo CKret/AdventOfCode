@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AdventOfCode.VMs;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.VMs;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -14,7 +15,7 @@ namespace AdventOfCode._2019
     {
         public AdventOfCode201917(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var map = new Dictionary<(int X, int Y), char>();
             var vm = new IntcodeVM(Input[0]);
@@ -81,7 +82,7 @@ namespace AdventOfCode._2019
             return intersections.Aggregate(0, (cur, next) => cur + next.Key.X * next.Key.Y);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var map = new Dictionary<(int X, int Y), char>();
             var vm = new IntcodeVM(Input[0]);

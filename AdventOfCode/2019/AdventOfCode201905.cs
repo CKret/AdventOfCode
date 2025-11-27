@@ -1,6 +1,7 @@
-﻿using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.VMs;
+﻿using AdventOfCode.VMs;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2019
 {
@@ -179,14 +180,14 @@ namespace AdventOfCode._2019
 
         public AdventOfCode201905(string sessionCookie) : base(sessionCookie) { }
 
-        public override void Solve()
+        public override async Task SolveAsync(CancellationToken cancellationToken)
         {
             vm = new IntcodeVM(Input[0]);
 
-            base.Solve();
+            await base.SolveAsync(cancellationToken);
         }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             vm.ResetVM();
             vm.Execute(new long[] { 1 });
@@ -194,7 +195,7 @@ namespace AdventOfCode._2019
             return vm.Output.Last();
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             vm.ResetVM();
             vm.Execute(new long[] { 5 });

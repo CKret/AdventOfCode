@@ -7,12 +7,17 @@ public abstract class AdventOfCodeTestBase
 {
     protected AdventOfCodeAttribute GetAdventOfCodeAttribute(Type solverType) => (AdventOfCodeAttribute)Attribute.GetCustomAttribute(solverType, typeof(AdventOfCodeAttribute))!;
 
-    public static void RunTest(Type solverType, int part)
+    // Backwards-compatible synchronous wrapper
+    public static void RunTest(Type solverType, int part) => RunTestAsync(solverType, part, CancellationToken.None).GetAwaiter().GetResult();
+
+    // New async RunTest that accepts a CancellationToken
+    public static async Task RunTestAsync(Type solverType, int part, CancellationToken cancellationToken)
     {
         var cookie = AdventOfCode.Runner.AocConfig.SessionCookie;
-        var solver = (AdventOfCodeBase)Activator.CreateInstance(solverType, cookie)!;
+        var solver = (AdventOfCodeBase) Activator.CreateInstance(solverType, cookie)!;
 
-        solver.Solve();
+        // Prefer cooperative async SolveAsync if overridden by a solver; otherwise the default will run Solve on the thread-pool.
+        await solver.SolveAsync(cancellationToken).ConfigureAwait(false);
 
         var attr = solverType.GetCustomAttribute<AdventOfCodeAttribute>();
 

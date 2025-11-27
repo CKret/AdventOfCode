@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Core;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2017
 {
@@ -93,7 +94,7 @@ namespace AdventOfCode._2017
     {
         public AdventOfCode201709(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var totalScore = 0;
             var currentScore = 0;
@@ -139,7 +140,7 @@ namespace AdventOfCode._2017
             return totalScore;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var isGarbage = false;
             var input = Input[0].ToCharArray();

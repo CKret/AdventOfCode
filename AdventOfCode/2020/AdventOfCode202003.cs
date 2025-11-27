@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using AdventOfCode.Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2020
 {
@@ -10,13 +11,13 @@ namespace AdventOfCode._2020
     {
         public AdventOfCode202003(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var (kX, kY) = (3, 1);
             return CountTrees(Input, kX, kY);
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var slopes = new[] { (1, 1), (3, 1), (5, 1), (7, 1), (1, 2) };
             return slopes.Aggregate(1L, (a, b) => a * CountTrees(Input, b.Item1, b.Item2));

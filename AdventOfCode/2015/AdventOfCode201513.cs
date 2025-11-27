@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AdventOfCode.Mathematics;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AdventOfCode.Core;
-using AdventOfCode.Mathematics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AdventOfCode._2015
 {
@@ -13,7 +14,7 @@ namespace AdventOfCode._2015
     {
         public AdventOfCode201513(string sessionCookie) : base(sessionCookie) { }
 
-        protected override object SolvePart1()
+        protected override async Task<object> SolvePart1(CancellationToken cancellationToken)
         {
             var data = new List<Tuple<string, string, int>>();
             var guests = new List<string>();
@@ -59,7 +60,7 @@ namespace AdventOfCode._2015
             return max;
         }
 
-        protected override object SolvePart2()
+        protected override async Task<object> SolvePart2(CancellationToken cancellationToken)
         {
             var data = new List<Tuple<string, string, int>>();
             var guests = new List<string>();
