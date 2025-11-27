@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Required for source generators in .NET 8+ -->
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+
+		<!-- Required to view generated sources -->
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\Generated</CompilerGeneratedFilesOutputPath>
+
+		<IsGeneratorProject>true</IsGeneratorProject>
+		<IsAocGenerator>true</IsAocGenerator>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" PrivateAssets="all" />
+	</ItemGroup>
+
+</Project>

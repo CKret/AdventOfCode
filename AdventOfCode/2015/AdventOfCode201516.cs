@@ -7,7 +7,7 @@ namespace AdventOfCode._2015
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2015, 16, "", 40, 241)]
+    [AdventOfCode(2015, 16, "Aunt Sue", 40, 241)]
     public class AdventOfCode201516 : AdventOfCodeBase
     {
         public AdventOfCode201516(string sessionCookie) : base(sessionCookie) { }

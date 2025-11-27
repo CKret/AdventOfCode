@@ -233,9 +233,9 @@
   </ItemGroup>-->
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="SuperLinq" Version="4.5.0" />
-    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="SuperLinq" Version="6.4.1" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.0" />
     <PackageReference Include="Tesseract" Version="5.2.0" />
     <PackageReference Include="Tesseract.Drawing" Version="5.2.0" />
   </ItemGroup>

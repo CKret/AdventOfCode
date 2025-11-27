@@ -8,7 +8,7 @@ using AdventOfCode.Mathematics;
 namespace AdventOfCode._2015
 {
     /// <summary>
-    [AdventOfCode(2015, 13, "", 709, 668)]
+    [AdventOfCode(2015, 13, "Knights of the Dinner Table", 709, 668)]
     public class AdventOfCode201513 : AdventOfCodeBase
     {
         public AdventOfCode201513(string sessionCookie) : base(sessionCookie) { }

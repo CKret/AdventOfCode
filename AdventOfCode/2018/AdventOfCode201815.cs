@@ -8,7 +8,7 @@ namespace AdventOfCode._2018
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2018, 15, "", 53576, null)]
+    [AdventOfCode(2018, 15, "Beverage Bandits", 53576, null)]
     public class AdventOfCode201815 : AdventOfCodeBase
     {
 

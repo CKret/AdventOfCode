@@ -127,7 +127,7 @@ namespace AdventOfCode._2017
     /// After 5 million pairs, but using this new generator logic, what is the
     /// judge's final count?
     /// </summary>
-    [AdventOfCode(2017, 15, "Dueling Generators", 631)]
+    [AdventOfCode(2017, 15, "Dueling Generators", 631, 279)]
     public class AdventOfCode201715 : AdventOfCodeBase
     {
         public AdventOfCode201715(string sessionCookie) : base(sessionCookie) { }

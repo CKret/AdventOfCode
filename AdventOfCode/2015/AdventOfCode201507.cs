@@ -8,7 +8,7 @@ namespace AdventOfCode._2015
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2015, 7, "", 956, 40149)]
+    [AdventOfCode(2015, 7, "Some Assembly Required", 956, 40149)]
     public class AdventOfCode201507 : AdventOfCodeBase
     {
         Dictionary<string, string[]> instructions = new();

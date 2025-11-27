@@ -1,12 +1,11 @@
 ﻿using System.Linq;
-using AdventOfCode.Core;
 
 namespace AdventOfCode._2015
 {
     /// <summary>
 
     /// </summary>
-    [AdventOfCode(2015, 1, "", 138, 1771)]
+    [AdventOfCode(2015, 1, "Not Quite Lisp", 138, 1771)]
     public class AdventOfCode201501 : AdventOfCodeBase
     {
         public AdventOfCode201501(string sessionCookie) : base(sessionCookie) { }

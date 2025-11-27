@@ -8,7 +8,7 @@ namespace AdventOfCode._2015
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2015, 9, "", 251, 898)]
+    [AdventOfCode(2015, 9, "All in a Single Night", 251, 898)]
     public class AdventOfCode201509 : AdventOfCodeBase
     {
         public AdventOfCode201509(string sessionCookie) : base(sessionCookie) { }

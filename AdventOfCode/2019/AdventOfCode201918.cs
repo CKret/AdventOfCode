@@ -10,7 +10,7 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 18, "", null, null)]
+    [AdventOfCode(2019, 18, "Many-Worlds Interpretation", null, null)]
     public class AdventOfCode201918 : AdventOfCodeBase
     {
         public AdventOfCode201918(string sessionCookie) : base(sessionCookie) { }

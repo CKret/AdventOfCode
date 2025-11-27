@@ -7,7 +7,7 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 15, "", 354, 370)]
+    [AdventOfCode(2019, 15, "Oxygen System", 354, 370)]
     public class AdventOfCode201915 : AdventOfCodeBase
     {
         public AdventOfCode201915(string sessionCookie) : base(sessionCookie) { }

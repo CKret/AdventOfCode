@@ -9,7 +9,7 @@ namespace AdventOfCode._2015
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2015, 1, "", 156366, 96852)]
+    [AdventOfCode(2015, 12, "JSAbacusFramework.io", 156366, 96852)]
     public class AdventOfCode201512 : AdventOfCodeBase
     {
         public AdventOfCode201512(string sessionCookie) : base(sessionCookie) { }

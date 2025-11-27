@@ -6,7 +6,7 @@ namespace AdventOfCode._2018
 {
 	/// <summary>
 	/// </summary>
-	[AdventOfCode(2018, 18, "", 466312, 176782)]
+	[AdventOfCode(2018, 18, "Settlers of The North Pole", 466312, 176782)]
 	public class AdventOfCode201818 : AdventOfCodeBase
 	{
 		public AdventOfCode201818(string sessionCookie) : base(sessionCookie) { }

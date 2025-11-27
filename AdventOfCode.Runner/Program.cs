@@ -1,28 +1,21 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using AdventOfCode.Runner;
+using System;
 
-var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-var builder = new ConfigurationBuilder()
-              .AddJsonFile($"appsettings.json", true, true)
-              .AddJsonFile($"appsettings.{env}.json", true, true)
-              .AddUserSecrets<Program>()
-              .AddEnvironmentVariables();
+string sessionCookie = AocConfig.SessionCookie;
 
-var config = builder.Build();
-var sessionCookie = config["AdventOfCodeSessionCookie"];
 
-var aoc = new AdventOfCode._2024.AdventOfCode202406(sessionCookie);
-aoc.Solve();
+var solver = new AdventOfCode._2024.AdventOfCode202406(sessionCookie);
+solver.Solve();
 
-Console.WriteLine($"{aoc.Problem.Year} day {aoc.Problem.Day} - {aoc.Problem.Description}");
+Console.WriteLine($"{solver.Problem.Year} day {solver.Problem.Day} - {solver.Problem.Description}");
 Console.WriteLine();
 Console.WriteLine($"Part 1:");
-Console.WriteLine($"\t{aoc.ResultPart1}");
-if (aoc.TimePart2 != 0)
-    Console.WriteLine($"\t{aoc.TimePart1:N4}ms");
+Console.WriteLine($"\t{solver.ResultPart1}");
+if (solver.TimePart2 != 0)
+    Console.WriteLine($"\t{solver.TimePart1:N4}ms");
 Console.WriteLine($"Part 2:");
-Console.WriteLine($"\t{aoc.ResultPart2}");
-if (aoc.TimePart2 != 0)
-    Console.WriteLine($"\t{aoc.TimePart2:N4}ms");
+Console.WriteLine($"\t{solver.ResultPart2}");
+if (solver.TimePart2 != 0)
+    Console.WriteLine($"\t{solver.TimePart2:N4}ms");
 Console.WriteLine();
-Console.WriteLine($"\t{(aoc.TimePart1 + aoc.TimePart2):N4}ms total");
+Console.WriteLine($"\t{(solver.TimePart1 + solver.TimePart2):N4}ms total");

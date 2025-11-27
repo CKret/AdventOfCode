@@ -7,7 +7,7 @@ namespace AdventOfCode._2019
 {
     /// <summary>
     /// </summary>
-    [AdventOfCode(2019, 16, "", 78009100, 37717791)]
+    [AdventOfCode(2019, 16, "Flawed Frequency Transmission", 78009100, 37717791)]
     public class AdventOfCode201916 : AdventOfCodeBase
     {
         public AdventOfCode201916(string sessionCookie) : base(sessionCookie) { }

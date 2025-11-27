@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using AdventOfCode.Core;
 using Tesseract;
 
 namespace AdventOfCode._2019
